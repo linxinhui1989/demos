@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="change">修改</button>
+	<p>原来默认的数据</p>
+	<script type="text/javascript">
+		var btn = document.querySelector("#change");
+		var p = document.querySelector("p");
+		btn.addEventListener("click",function(){
+			ajaxGet("./03.php",function(request){
+				p.innerHTML = request.responseText;
+			},function(){
+				alert("网站异常了...");
+			});
+		});
+		// 准备一个函数，实现get请求的封装
+		function ajaxGet(url,success,fail){
+			// 1. 创建请求对象
+			var req = new XMLHttpRequest();
+			// 2. 设定对应的请求方式以及请求的url
+			req.open("GET",url,true);
+			// 3. 发送请求
+			req.send();
+			// 4. 对于状态变化时的监听
+			req.onreadystatechange = function(){
+				if(req.readyState == 4){
+					if(req.status == 200){
+						/*
+						拿到数据之后，不同的请求已经是对数据做不同的操作 --> 对于数据的不同操作，可以封装到函数中，然后在外部调用ajaxGet时，进行传入
+						*/ 
+						success(req);
+					}else{
+						/*
+						请求出现异常时，相应的提示
+						*/
+						fail();
+					}
+				}
+			}
+		}
+
+		/*var run = function(){
+			console.log("测试一下");
+		}
+		function test(pp){
+			// 在 test 函数中，pp是属于形参
+			pp("abcd");
+		}
+		test(function(msg){console.log("测试一下 --> " + msg);});*/
+	</script>
+</body>
+</html>
