@@ -11,28 +11,35 @@
 		var btn = document.querySelector("#change");
 		var p = document.querySelector("p");
 		btn.addEventListener("click",function(){
-			ajax("POST",
-				"./09_2.php",
-				{"username":"lina","pwd":"123456"},
-				function(req){
+			// 点击发生时，传递的是一个 json 结构的数据，对于数据的顺序可以任意，只要确保 key 不出错即可
+			ajax({
+				url:"./09_2.php",
+				method:"post",
+				data:{"username":"lina","pwd":"123456"},
+				success:function(req){
 					p.innerHTML = req.responseText;
-				},function(){
-					alert("出错了...");
+				},
+				fail:function(){
+					alert("请求出错了...");
+				}
 			});
 		});
 		// 准备一个函数，只要调用这个函数，就可以去发送对应的请求，并获取到所需的结果
-		function ajax(method,url,paramas,success,fail){
+		function ajax(options){
 			// 1. 创建请求对象
 			var req = new XMLHttpRequest();
 			// 2. 设定请求发送的方式以及请求所对应的url
 			// 2.1 需要去判断请求的类型，是get还是post
-			var paramsStr = joinParams(paramas);
+			var paramsStr = joinParams(options.data);
+			var method = options.method || "GET";
+			// 将请求方法字符串都设置为大写
+			method = method.toUpperCase();
 			if(method == "GET"){
-				url = url + "?" + paramsStr;
+				var url = options.url + "?" + paramsStr;
 				req.open(method,url,true);
 				req.send();
 			}else{
-				req.open(method,url,true);
+				req.open(method,options.url,true);
 				req.setRequestHeader("CONTENT-TYPE","application/x-www-form-urlencoded");
 				req.send(paramsStr);
 			}
@@ -40,9 +47,9 @@
 			req.onreadystatechange = function(){
 				if(req.readyState == 4){
 					if(req.status == 200){
-						success(req);
+						options.success(req);
 					}else{
-						fail();
+						options.fail();
 					}
 				}
 			}
