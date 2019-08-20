@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		ul{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		li{
+			float: left;
+			width: 190px;
+			height: 266px;
+			box-sizing: border-box;
+			padding: 20px;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="goods">
+		<ul>
+			
+		</ul>
+	</div>
+	<script type="text/javascript" src="./ajax.js"></script>
+	<script type="text/javascript">
+		var ul = document.querySelector("ul");
+		// 结合所学的ajax函数，获取得到后端返回的json结构的数据
+		ajax({
+			method:"get",
+			url:"./12.php",
+			success:function(req){
+				/*
+					这边获取到了后端传回来的json格式的字符串
+					这边获取到的数据，本质是字符串，不是 json，只不过这个字符串格式跟json格式一样；无法去使用对应json中读取属性的写法
+					--> 需要先将 json 格式的字符串 转为 json对象
+				*/ 
+				var resultStr = req.responseText;
+				console.log(resultStr);
+				// 此时借助 系统内部提供的 JSON 变量，将json格式的字符串进行解析，解析得到 含有json对象的数据
+				var data = JSON.parse(resultStr);
+				// 再来进行字符串拼接
+				var str = "";
+				for(var index in data){
+					var obj = data[index];
+					str += '<li>';
+						str += '<img src="'+ obj.icon +'" alt="">';
+						str += '<h3>'+obj.title+'</h3>';
+						str += '<p>'+obj.price+'</p>';
+					str += '</li>';
+				}
+				// 循环结束后，将含有标签元素的字符串设置到 ul 上
+				ul.innerHTML = str;
+			}
+		});
+	</script>
+</body>
+</html>

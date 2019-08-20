@@ -10,6 +10,7 @@
 	<script type="text/javascript">
 		var btn = document.querySelector("#change");
 		var p = document.querySelector("p");
+		var isCanClick = true;
 		btn.addEventListener("click",function(){
 			// 点击发生时，传递的是一个 json 结构的数据，对于数据的顺序可以任意，只要确保 key 不出错即可
 			ajax({
@@ -36,6 +37,7 @@
 			method = method.toUpperCase();
 			if(method == "GET"){
 				var url = options.url + "?" + paramsStr;
+				console.log(url);
 				req.open(method,url,true);
 				req.send();
 			}else{
@@ -55,6 +57,13 @@
 			}
 		}
 		function joinParams(params){
+			// 获取对应的当前时间
+			var date = new Date();
+			// 获取对应的随机数
+			var randomNum = Math.random() + "";
+			randomNum = randomNum.substr(2);
+			// 将这个当前时间戳 以及 随机数 进行拼接，赋值给 params 上的名为 _ 的变量里，这样就能极大程度避免了 url 的重复
+			params["_"] = date.getTime() + "_" + randomNum;
 			var str = "";
 			for(var key in params){
 				str += key+"="+params[key] + "&";

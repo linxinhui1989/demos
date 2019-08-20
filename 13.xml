@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 有一个根节点 -->
+<classes>
+	<!-- 包含若干个子节点，将数据存放在这些子节点上 -->
+	<student>
+		<name>小明</name>
+		<age>22</age>
+		<sex>man</sex>
+	</student>
+	<student>
+		<name>小红</name>
+		<age>21</age>
+		<sex>woman</sex>
+	</student>
+	<student>
+		<name>小白</name>
+		<age>23</age>
+		<sex>man</sex>
+	</student>
+</classes>

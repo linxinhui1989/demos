@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./ajax.js"></script>
+	<script type="text/javascript">
+		ajax({
+			url:"./13.php",
+			success:function(req){
+				// 1. 获取得到 xml 格式的字符串
+				var parser = new DOMParser();
+				var xmlDoc = parser.parseFromString(req.responseText,"text/xml");
+				console.log(xmlDoc);
+				var stus = xmlDoc.getElementsByTagName('student');
+				console.log(stus);
+				for(var i = 0;i<stus.length;i++){
+					var name = stus[i].getElementsByTagName("name")[0].innerHTML;
+					console.log(name);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
