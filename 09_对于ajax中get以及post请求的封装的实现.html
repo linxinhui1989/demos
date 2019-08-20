@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="change">修改</button>
+	<p>原来默认的数据</p>
+	<script type="text/javascript">
+		var btn = document.querySelector("#change");
+		var p = document.querySelector("p");
+		btn.addEventListener("click",function(){
+			ajax("POST",
+				"./09_2.php",
+				{"username":"lina","pwd":"123456"},
+				function(req){
+					p.innerHTML = req.responseText;
+				},function(){
+					alert("出错了...");
+				});
+		});
+		// 准备一个函数，只要调用这个函数，就可以去发送对应的请求，并获取到所需的结果
+		function ajax(method,url,paramas,success,fail){
+			// 1. 创建请求对象
+			var req = new XMLHttpRequest();
+			// 2. 设定请求发送的方式以及请求所对应的url
+			// 2.1 需要去判断请求的类型，是get还是post
+			var paramsStr = joinParams(paramas);
+			if(method == "GET"){
+				url = url + "?" + paramsStr;
+				req.open(method,url,true);
+				req.send();
+			}else{
+				req.open(method,url,true);
+				req.setRequestHeader("CONTENT-TYPE","application/x-www-form-urlencoded");
+				req.send(paramsStr);
+			}
+			// 对于状态改变时的操作
+			req.onreadystatechange = function(){
+				if(req.readyState == 4){
+					if(req.status == 200){
+						success(req);
+					}else{
+						fail();
+					}
+				}
+			}
+		}
+		function joinParams(params){
+			var str = "";
+			for(var key in params){
+				str += key+"="+params[key] + "&";
+			}
+			str = str.substr(0,str.length-1);
+			return str;
+		}
+	</script>
+</body>
+</html>
