@@ -35,14 +35,8 @@
 			req.onreadystatechange = function(){
 				if(req.readyState == 4){
 					if(req.status == 200){
-						/*
-						拿到数据之后，不同的请求已经是对数据做不同的操作 --> 对于数据的不同操作，可以封装到函数中，然后在外部调用ajaxGet时，进行传入
-						*/ 
 						success(req);
 					}else{
-						/*
-						请求出现异常时，相应的提示
-						*/
 						fail();
 					}
 				}
