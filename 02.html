@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击访问</button>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		$("button").on("click",function(){
+			// 动态生成对应的 iframe 标签，通过 iframe 标签获取到对应的内容，这个内容获取依托于 window.name 这个属性
+			var iframe = document.createElement("iframe");
+			// 设置iframe的src属性-->要求传入的是 html 文件，在这个html文件中去设置对应的 window.name 属性
+			iframe.src = "http://localhost:80/day46/04_window_data.html";
+			iframe.width = 0;
+			iframe.height = 0;
+			var state = 0;
+			// 再来将 iframe 设置到body上
+			var loadfn = function() {
+			    if (state === 1) {
+			        iframeData = iframe.contentWindow.name;  // 读取数据
+			        console.log("当前拿到的数据 ： " + iframeData);
+			        document.body.removeChild(iframe);
+			    }else if (state === 0) {
+			         state = 1;
+			         iframe.contentWindow.location = 'http://localhost:8888/day46/03.html';// 当对于iframe上的contentWindow中location进行修改时，会重新触发 onload 事件，调用注册号的onload事件中的 loadfn这个函数
+			    };
+			}
+			// 针对ie浏览器的兼容性写法
+			if (iframe.attachEvent) {
+			    iframe.attachEvent('onload', loadfn);
+			} else {
+			    iframe.onload  = loadfn;
+			}
+			document.body.append(iframe);
+		});
+	</script>
+</body>
+</html>

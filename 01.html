@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击访问</button>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		$("button").on("click",function(){
+			ajax({
+				url:"http://localhost:80/day46/03.php",
+				success:function(res){
+					console.log(res.responseText);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
