@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <div class="container">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch demo modal
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">模态窗口标题</h4>
+                </div>
+                <div class="modal-body">
+                  这边是对应的内容
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- 因为 bootstrap.js 依赖于  jQuery.js ，所以要先引入 jQuery.js -->
+      <script type="text/javascript" src="./jquery/jquery.js"></script>
+      <!-- 引入对应 bootstrap.js 文件 -->
+      <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+  </body>
+</html>
