@@ -43,3 +43,25 @@ function joinParams(params){
 	str = str.substr(0,str.length-1);
 	return str;
 }
+function jsonp(options){
+	// 在创建之前，先去根据id找到是否含有这个属性值的script，如果有，就把这个找到script删了，再动态创建；如果没有，那就动态创建
+	var script = document.querySelector("#jp");
+	if(script != null){
+		document.body.removeChild(script);
+	}
+	// 1. 动态创建一个script标签
+	script = document.createElement("script");
+	// 1.1 为这个动态创建好的 script 元素添加一个 id 属性
+	script.setAttribute("id","jp");
+	// var methodName = "jquery_" + (Math.random()+"").substr(2);
+	var methodName = "renderData";
+	// 有了这个函数名之后，再来进行函数的动态创建
+	window[methodName] = options.success;
+	// 将 cb 属性设置到 parmas这个 json 格式的对象上
+	options.data[options.cbName] = methodName;
+	var paramStr = joinParams(options.data);
+	// 2. 为这个script元素设置 src 属性
+	script.src = options.url + "?" + paramStr;
+	// 3. 将 script 标签添加到页面上
+	document.body.appendChild(script);
+}

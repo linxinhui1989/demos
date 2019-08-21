@@ -21,6 +21,7 @@
 			// 1.1 为这个动态创建好的 script 元素添加一个 id 属性
 			script.setAttribute("id","jp");
 			var methodName = "jquery_" + (Math.random()+"").substr(2);
+			// var methodName = "jquery_" + (new Date().getTime());
 			// 有了这个函数名之后，再来进行函数的动态创建
 			window[methodName] = function(msg){
 				p.innerHTML = msg;

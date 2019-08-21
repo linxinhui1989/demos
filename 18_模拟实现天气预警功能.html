@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击获取数据</button>
+	<p></p>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		var btn = document.querySelector("button");
+		var p = document.querySelector("p");
+		btn.addEventListener("click",function(){
+			jsonp({
+				url:"http://tq.360.cn/api/weatherquery/querys",
+				data:{
+					app:"tq360",
+					code:"101230201"
+				},
+				cbName:"_jsonp",
+				success:function(res){
+					console.log(res);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

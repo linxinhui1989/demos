@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击获取数据</button>
+	<p></p>
+	<input type="text">
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		var btn = document.querySelector("button");
+		var input = document.querySelector("input");
+		var p = document.querySelector("p");
+		btn.addEventListener("click",function(){
+			var val = input.value;
+			jsonp({
+				url:"https://www.baidu.com/sugrec",
+				data:{
+					wd:val,
+					pre:"1",
+					p:"3",
+					ie:"utf-8",
+					json:"1",
+					prod:"pc",
+					from:"pc_web"
+				},
+				cbName:"cb",
+				success:function(res){
+					console.log(res);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
