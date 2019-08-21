@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="sendAjax">发送ajax请求</button>
+	<p></p>
+	<script type="text/javascript">
+		var btn = document.querySelector("#sendAjax");
+		var p = document.querySelector("p");
+		btn.addEventListener("click",function(){
+			// 当点击发生时，进行请求的创建，设置以及发送
+			// 1. 创建用于发送ajax的请求对象
+			var req = new XMLHttpRequest();
+			/*
+			   2. 有了这个请求对象后，才能进行请求的发送具体的设置
+			   这边对于请求的设置，要求传入三个参数
+			   第一个 : 设置请求的方式方式 get / post
+			   第二个： 设置请求发送到的具体的url上
+			   第三个： 设定请求是同步还是异步  false表同步   true 表示异步
+			*/
+			req.open("GET","05.php",true);
+			console.log("测试");
+			// 3. 再来进行请求的真正的发送
+			req.send();
+			// 4. 对于请求状态的处理
+			req.onreadystatechange = function(){
+				/*
+					此时有一个参数，可用于表示请求发送后的具体的状态
+					readyState表示请求发送后的各个时期对应的状态值
+					2 表示请求已发送了
+					3 表示请求发送，已经有返回值了
+					4 表示已经解析好对应的返回值了
+				*/
+				// console.log(req.readyState);
+				if(req.readyState == 4){
+					// console.log("表明请求，后端已经处理完，且把处理的结果发还到前端了；在值为4的时候，才去将后端处理的结果拿来操作");
+					console.log(req.response);
+					// 当接收到后端处理之后返回的内容时，还需要对于后端返回状态进行相应的判断
+					if(req.status == 200){
+						p.innerHTML = req.response;
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>
