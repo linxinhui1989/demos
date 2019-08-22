@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		jsonp({
+			url:"http://tq.360.cn/api/weatherquery/querys",
+			data:{
+				app:"tq360",
+				code:"101230203",
+				t:"1566438446583",
+				c:"1566539676786"
+			},
+			cbName:"_jsonp",
+			callbackName:"renderData",
+			success:function(res){
+				console.log(res);
+			}
+		});
+	</script>
+</body>
+</html>
