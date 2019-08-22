@@ -180,30 +180,33 @@
 		var townSelect = document.querySelector("#town");
 		var btnChange = document.querySelector("button");
 		var townCode = 0;
+		getProvince();
 		// 直接调用这个定义好的函数，进行数据的获取
 		getWeather(townCode);
 		// 调用写好的函数，获取对应的省份，城市以及城镇信息
-		jsonp({
-			url:"http://cdn.weather.hao.360.cn/sed_api_area_query.php",
-			data:{
-				grade:"province"
-			},
-			cbName:"_jsonp",
-			callbackName:"loadProvince",
-			success:function(res){
-				// 1.0 根据获取到省份信息，动态创建option元素
-				var provinceStr = "";
-				for(var i in res){
-					provinceStr += '<option value="'+res[i][1]+'">'+res[i][0]+'</option>';
+		function getProvince(){
+			jsonp({
+				url:"http://cdn.weather.hao.360.cn/sed_api_area_query.php",
+				data:{
+					grade:"province"
+				},
+				cbName:"_jsonp",
+				callbackName:"loadProvince",
+				success:function(res){
+					// 1.0 根据获取到省份信息，动态创建option元素
+					var provinceStr = "";
+					for(var i in res){
+						provinceStr += '<option value="'+res[i][1]+'">'+res[i][0]+'</option>';
+					}
+					// 1.1 设置好对应的省份信息
+					provinceSelect.innerHTML = provinceStr;
+					// 2.0 默认设置res数组中的第一项对应的城市列表
+					var code = res[0][1];
+					// 获取城市
+					getCity(code);
 				}
-				// 1.1 设置好对应的省份信息
-				provinceSelect.innerHTML = provinceStr;
-				// 2.0 默认设置res数组中的第一项对应的城市列表
-				var code = res[0][1];
-				// 获取城市
-				getCity(code);
-			}
-		});
+			});
+		}
 		function getCity(provinceCode){
 			jsonp({
 				url:"http://cdn.weather.hao.360.cn/sed_api_area_query.php",
