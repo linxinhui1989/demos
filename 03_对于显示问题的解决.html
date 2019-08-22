@@ -120,7 +120,7 @@
 			background-repeat: no-repeat;
 			width: 70px;
 			height: 70px;
-			background-position: 0 0;
+			background-position: -360px 0;
 			margin: 10px auto;
 		}
 		.late-five li .weather{
@@ -253,14 +253,35 @@
 				// 对于未来五天天气的实现
 				var lateStr = "";
 				var weather = res.weather;
-				for(var i=0;i<5;i++){
+				console.log(weather);
+				var weeks = ["周天","周一","周二","周三","周四","周五","周六"];
+				var num = 5;
+				for(var i=0;i<num;i++){
 					var item = weather[i];
+					// 可以获取到对应的时间字符串 --> 根据这个时间字符串，转为 Date 类型的数据
+					var date = new Date(item.date);
+					var s1 = date.getTime();
+					var s2 = new Date(new Date().getFullYear() + "-" + (new Date().getMonth()+1)+"-"+ new Date().getDate()).getTime();
+					if(s1<s2){
+						num ++;
+						continue;
+					}
+					console.log("s1 = " + s1);
+					var weekIndex = date.getDay();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					var info = month + "月" + day + "日";
+					// 决定了显示出来的小图标 --> 决定对应的background-position属性值
+					var index = item.info.day[0];
+					var posX = index%6 * (- 72) + "px";
+					var posY = parseInt(index/6) * (-72) + "px";
+					var posStr = posX + " " + posY;
 					lateStr += '<li>';
-						lateStr +='<p class="time">周四 '+item.date+'</p>';
-						lateStr +='<p class="weather-icon"></p>';
+						lateStr +='<p class="time">'+weeks[weekIndex]+' '+ info +'</p>';
+						lateStr +='<p class="weather-icon" style="background-position:'+posStr+'"></p>';
 						lateStr +='<p class="weather">'+item.info.day[1]+'</p>';
 						lateStr +='<p class="other-info">';
-							lateStr +='<span>'+item.info.night[2]+'~'+item.info.day[2]+'°</span>'+item.info.day[0]+'-'+item.info.night[0]+'级';
+							lateStr +='<span>'+item.info.night[2]+'~'+item.info.day[2]+'°</span>'+item.info.day[4];
 						lateStr +='</p>';
 					lateStr +='</li>';
 				}
