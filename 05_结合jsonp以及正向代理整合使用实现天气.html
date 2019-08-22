@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#app{
+			background-image: url("./images/bg.png");
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-repeat: repeat-x;
+			color: #fff;
+		}
+		.container{
+			width: 920px;
+			margin: 100px auto;
+		}
+		.skinmore{
+			background: url("./images/t01eedf15a70a39c08a.png") no-repeat;
+		    height: 339px;
+		    left: 50%;
+		    margin-left: -250px;
+		    position: absolute;
+		    top: 0;
+		    width: 497px;
+		    z-index: 1;
+		}
+		.today-weather .detail h3{
+			font-size: 24px;
+		}
+		.today-weather .detail .time{
+			color: rgba(255,255,255,.6);
+		    font-size: 16px;
+		    margin: 10px 0;
+		}
+		.today-weather .detail .air{
+			background-color: #33c704;
+		    border: 1px solid #92d47e;
+		    border-radius: 2px;
+		    line-height: 28px;
+		    padding: 0 8px;
+		    font-size: 16px;
+		    width: 90px;
+		    text-align: center;
+		    margin-bottom: 30px;
+		}
+		.detail .degree{
+			font-size: 28px;
+			padding-left: 20px;
+		}
+		.detail .degree span{
+			font-size: 94px;
+			line-height: 94px;
+			font-family: arial;
+			position: relative;
+		}
+		.detail .wet{
+			width: 250px;
+			border-top: 1px solid #fff;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 10px 0px 10px 30px;
+		}
+		.detail .wet span{
+			position: relative;
+		}
+		.detail .wet span:nth-child(1)::before{
+			content: "";
+			width: 29px;
+			height: 28px;
+			background-image: url("./images/t012dd226c54bd13f0e.png");
+			background-repeat: no-repeat;
+			position: absolute;
+			left: -30px;
+			top: 0;
+			background-position: 0 -28px;
+		}
+		.detail .wet span:nth-child(2)::before{
+			content: "";
+			width: 29px;
+			height: 28px;
+			background-image: url("./images/t012dd226c54bd13f0e.png");
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			position: absolute;
+			left: -30px;
+			top: 0;
+		}
+		/*未来五天的天气情况*/
+		.late-five{
+			margin-top: 50px;
+		}
+		.late-five ul{
+			display: flex;
+			flex-direction: row;
+			text-align: center;
+		}
+		.late-five ul li{
+			background-color: rgba(255,255,255,.1);
+		    border-radius: 2px;
+		    box-shadow: 1px 1px 2px rgba(0,0,0,.1), -1px -1px 2px rgba(0,0,0,.1);
+		    color: #fff;
+		    float: left;
+		    font-size: 16px;
+		    height: 190px;
+		    margin-left: 5px;
+		    padding: 10px;
+		    width: 160px;
+		}
+		.late-five li .time{
+			color: rgba(255,255,255,.5);
+			font-size: 16px;
+		}
+		.late-five li .weather-icon{
+			background-image: url("./images/t011dcb216f11476b0f.png");
+			background-repeat: no-repeat;
+			width: 70px;
+			height: 70px;
+			background-position: -360px 0;
+			margin: 10px auto;
+		}
+		.late-five li .weather{
+			font-size: 24px;
+		    line-height: 24px;
+		    padding: 10px;
+		    border-bottom: 1px solid #fff;
+		}
+		.late-five li .other-info{
+			font-size: 16px;
+			margin-top: 10px;
+		}
+		.late-five li .other-info span{
+			font-size: 24px;
+		    font-family: arial;
+		    margin-right: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<!-- 导航条 -->
+			<div class="nav-header"></div>
+			<!-- 城市切换选择 -->
+			<div class="city-select">
+				<!-- 省份选择 -->
+				<select id="province"><option value="">北京</option></select>
+				<!-- 城市选择 -->
+				<select id="city"><option value="">北京</option></select>
+				<!-- 城镇选择 -->
+				<select id="town"><option value="">北京</option></select>
+				<!-- 确认按钮 -->
+				<button>更换</button>
+			</div>
+			<!-- <div class="skinmore"></div> -->
+			<!-- 指定城市当天天气 -->
+			<div class="today-weather">
+				<div class="detail">
+				</div>
+				<div class="app-down">
+				</div>
+			</div>
+			<!-- 指定城市未来五天天气情况 -->
+			<div class="late-five">
+				<ul class="late-weahter-list">
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		var detailArea = document.querySelector(".detail");
+		var lateWeahterUl = document.querySelector(".late-weahter-list");
+		var provinceSelect = document.querySelector("#province");
+		var citySelect = document.querySelector("#city");
+		var townSelect = document.querySelector("#town");
+		var btnChange = document.querySelector("button");
+		var townCode = 0;
+		getProvince();
+		// 直接调用这个定义好的函数，进行数据的获取
+		getWeather(townCode);
+		// 调用写好的函数，获取对应的省份，城市以及城镇信息
+		function getProvince(){
+			jsonp({
+				url:"http://cdn.weather.hao.360.cn/sed_api_area_query.php",
+				data:{
+					grade:"province"
+				},
+				cbName:"_jsonp",
+				callbackName:"loadProvince",
+				success:function(res){
+					// 1.0 根据获取到省份信息，动态创建option元素
+					var provinceStr = "";
+					for(var i in res){
+						provinceStr += '<option value="'+res[i][1]+'">'+res[i][0]+'</option>';
+					}
+					// 1.1 设置好对应的省份信息
+					provinceSelect.innerHTML = provinceStr;
+					// 2.0 默认设置res数组中的第一项对应的城市列表
+					var code = res[0][1];
+					// 获取城市
+					getCity(code);
+				}
+			});
+		}
+		function getCity(provinceCode){
+			jsonp({
+				url:"http://cdn.weather.hao.360.cn/sed_api_area_query.php",
+				data:{
+					grade:"city",
+					code:provinceCode
+				},
+				cbName:"_jsonp",
+				callbackName:"loadCity",
+				success:function(cityRes){
+					var cityStr = "";
+					for(var i in cityRes){
+						cityStr += '<option value="'+cityRes[i][1]+'">'+cityRes[i][0]+'</option>';
+					}
+					// 2.1 设置好对应的城市信息
+					citySelect.innerHTML = cityStr;
+					var cityCode = cityRes[0][1];
+					// 获取城市所对应的城镇(区)
+					getTown(cityCode)
+				}
+			});
+		}
+		function getTown(cityCode){
+			jsonp({
+				url:"http://cdn.weather.hao.360.cn/sed_api_area_query.php",
+				data:{
+					grade:"town",
+					code:cityCode
+				},
+				cbName:"_jsonp",
+				callbackName:"loadTown",
+				success:function(townRes){
+					var townStr = "";
+					for(var i in townRes){
+						townStr += '<option value="'+townRes[i][1]+'">'+townRes[i][0]+'</option>';
+					}
+					// 2.1 设置好对应的城市信息
+					townSelect.innerHTML = townStr;
+				}
+			});
+		}
+		function getWeather(code){
+			jsonp({
+				url:"./05.php",
+				data:{
+					app:"tq360",
+					code:code,
+					t:"1566441249720",
+					c:"1566542479921"
+				},
+				cbName:"_jsonp",
+				callbackName:"renderData",
+				success:function(res){
+					// 1. 先来设定对应的当前温度以及湿度信息
+					var realStr = "";
+					var realtime = res.realtime;
+					realStr += '<h3>厦门</h3>';
+					realStr += '<p class="time">'+realtime.time+'发布</p>';
+					realStr += '<p class="air">空气优 45</p>';
+					realStr += '<div class="degree">';
+						realStr += '<span>'+realtime.weather.temperature+'°</span>'+realtime.weather.info;
+					realStr += '</div>';
+					realStr += '<div class="wet">';
+						realStr += '<span>湿度 '+realtime.weather.humidity+'%</span>';
+						realStr += '<span>'+realtime.wind.direct+' '+realtime.wind.power+'</span>';
+					realStr += '</div>';
+					detailArea.innerHTML = realStr;
+
+					// 对于未来五天天气的实现
+					var lateStr = "";
+					var weather = res.weather;
+					var weeks = ["周天","周一","周二","周三","周四","周五","周六"];
+					var num = 5;
+					for(var i=0;i<num;i++){
+						var item = weather[i];
+						// 可以获取到对应的时间字符串 --> 根据这个时间字符串，转为 Date 类型的数据
+						var date = new Date(item.date);
+						var s1 = date.getTime();
+						var s2 = new Date(new Date().getFullYear() + "-" + (new Date().getMonth()+1)+"-"+ new Date().getDate()).getTime();
+						if(s1<s2){
+							num ++;
+							continue;
+						}
+						var weekIndex = date.getDay();
+						var month = date.getMonth() + 1;
+						var day = date.getDate();
+						var info = month + "月" + day + "日";
+						// 决定了显示出来的小图标 --> 决定对应的background-position属性值
+						var index = item.info.day[0];
+						var posX = index%6 * (- 72) + "px";
+						var posY = parseInt(index/6) * (-72) + "px";
+						var posStr = posX + " " + posY;
+						lateStr += '<li>';
+							lateStr +='<p class="time">'+weeks[weekIndex]+' '+ info +'</p>';
+							lateStr +='<p class="weather-icon" style="background-position:'+posStr+'"></p>';
+							lateStr +='<p class="weather">'+item.info.day[1]+'</p>';
+							lateStr +='<p class="other-info">';
+								lateStr +='<span>'+item.info.night[2]+'~'+item.info.day[2]+'°</span>'+item.info.day[4];
+							lateStr +='</p>';
+						lateStr +='</li>';
+					}
+					lateWeahterUl.innerHTML = lateStr;
+				}
+			});
+		}
+		// 再来对三个下拉选框添加选择事件
+		// 对于省份下拉的实现
+		provinceSelect.addEventListener("change",function(){
+			var provinceCode = provinceSelect.value;
+			// 获取到这个省份的code之后，需要立即发送请求，动态创建出这个省份所包含所有城市信息
+			getCity(provinceCode);
+		});
+		// 对于城市下拉的实现
+		citySelect.addEventListener("change",function(){
+			var cityCode = citySelect.value;
+			// 获取到这个省份的code之后，需要立即发送请求，动态创建出这个省份所包含所有城市信息
+			getTown(cityCode);
+		});
+		// 对于城镇下拉的实现
+		townSelect.addEventListener("change",function(){
+			townCode = townSelect.value;
+			console.log(townCode);
+			// 获取到这个省份的code之后，需要立即发送请求，动态创建出这个省份所包含所有城市信息
+			// getTown(cityCode);
+		});
+		btnChange.addEventListener("click",function(){
+			getWeather(townCode);
+		});
+	</script>
+</body>
+</html>

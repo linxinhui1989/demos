@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<div class="header"></div>
+	</div>
+	<!-- 书写对应的模板文件 -->
+	<script id="user" type="text/html">
+		<div>
+			<p>{{name}}</p>
+			<p>{{age}}</p>
+			<p>{{sex}}</p>
+		</div>
+	</script>
+	<!-- 引入下载好的模板引擎库 -->
+	<script src="./js/template-web.js"></script>
+	<script type="text/javascript">
+		// 再来新建一个 script 标签，通过模板引擎提供的函数，将模板文件 + 数据，创建出新的 html 字符串
+		var str = template("user",{
+			name:"李娜",
+			age:22,
+			sex:"woman"
+		});
+		var app = document.querySelector("#app");
+		app.innerHTML = str;
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="city"></div>
+	<!-- 模板文件一: -->
+	<script type="text/html" id="city-list">
+		<div>
+			<ul>
+				{{each citys}}
+				<li>{{$value}}</li>
+				{{/each}}
+			</ul>
+		</div>
+		{{include "salarys" ps}}
+	</script>
+	<!-- 模板文件二： -->
+	<script type="text/html" id="salarys">
+		<div>
+			<ul>
+				{{each as}}
+				<li>薪资：{{$value}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	</script>
+	<script type="text/javascript" src="./js/template-web.js"></script>
+	<script type="text/javascript">
+		var temp = template("city-list",{
+			citys:["北京","上海","广州","深圳"],
+			ps:{
+				as:["12000","11000","8000","9000"]
+			}
+		});
+		var cityDiv = document.querySelector("#city");
+		cityDiv.innerHTML = temp;
+	</script>
+</body>
+</html>

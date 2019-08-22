@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script type="text/javascript">
+		var ul = document.querySelector("ul");
+		var datas = [];
+		for(var i=0;i<10;i++){
+			datas.push(i + "标题");
+		}
+		var str = "";
+		for(var i in datas){
+			var data = datas[i];
+			str += '<li>';
+				str += '<div class="head">';
+					str += '<h2>'+data+'</h2>';
+				str += '</div>';
+				str += '<div class="content">';
+					str += '<h3>'+data+'</h3>';
+					str += '<p>'+data+'</p>';
+					str += '<span>'+data+'</span>';
+				str += '</div>';
+			str += '</li>';
+		}
+		ul.innerHTML = str;
+	</script>
+</body>
+</html>
