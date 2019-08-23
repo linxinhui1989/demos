@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>下载</button>
+	<p></p>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			$.ajax({
+				url:"./11.php",
+				data:{
+					username:"lucy",
+					pwd:"888888"
+				},
+				success:function(res){
+					console.log(res);
+				}
+			});
+			 */
+			$("button").on("click",function(){
+				$.ajax({
+					url:"http://tq.360.cn/api/weatherquery/querys",
+					data:{
+						app:"tq360",
+						code:"101230201",
+						t:"1566441249720",
+						c:"1566542479921"
+					},
+					/*
+					书写这个dataType属性值为 jsonp 时，意味着才是去进行jsonp跨域访问;
+					如果没有这个属性，那么就只是 ajax 中的 get 请求，无法跨域访问
+					*/
+					dataType:"jsonp",
+					/*
+					决定后端要求的回调函数的属性名
+					*/
+					jsonp:"_jsonp",
+					/*
+					决定对应的具体的回调函数的函数名
+					*/
+					jsonpCallback:"renderData",
+					success:function(res){
+						console.log(res);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

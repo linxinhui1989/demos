@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>下载</button>
+	<p></p>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				$.ajax({
+					method:"post",
+					url:"./12.php",
+					data:{
+						username:"hanmeimei",
+						pwd:"666666"
+					},
+					success:function(res){
+						console.log(res);
+						$("p").html(res);
+					},
+					error:function(error){}
+				});
+			});
+		});
+	</script>
+</body>
+</html>
