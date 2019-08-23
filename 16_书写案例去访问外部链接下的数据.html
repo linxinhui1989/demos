@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#app{
+			width: 980px;
+			margin: 10px auto;
+		}
+		li{float: left;width: 180px;height: 250px;}
+	</style>
+</head>
+<body>
+	<div id="app"></div>
+	<!-- 书写对应的模板文件 -->
+	<script type="text/html" id="goods-list">
+		<ul>
+			{{each goods}}
+			<li>
+				<h2>{{$value.title}}</h2>
+				<img src="{{$value.icon}}">
+				<p>¥{{$value.price}}</p>
+			</li>
+			{{/each}}
+		</ul>
+	</script>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript" src="./js/template-web.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				url:"http://pwojk5oi9.bkt.clouddn.com/data.txt",
+				success:function(res){
+					res = JSON.parse(res);
+					$("#app").html(template("goods-list",{
+						goods:res
+					}));
+				}
+			});
+		});
+	</script>
+</body>
+</html>

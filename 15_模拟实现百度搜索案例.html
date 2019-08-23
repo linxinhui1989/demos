@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+	</style>
+</head>
+<body>
+	<input type="text">
+	<div id="content">
+	</div>
+	<!-- 设定模板文件的结构 -->
+	<script type="text/html" id="result">
+		<ul>
+			{{each datas}}
+			{{if $index<4}}
+				<li>{{$value.q}}</li>
+			{{/if}}
+			{{/each}}
+		</ul>
+	</script>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript" src="./js/template-web.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input").on("keyup",function(){
+				// 获取输入框中的数据
+				var val = $("input").val();
+				// 根据获取到的val，把这个val作为 wd 参数，发送 ajax 对应的 jsonp 请求
+				$.ajax({
+					url:"https://www.baidu.com/sugrec",
+					data:{
+						wd:val,
+						prod:"pc",
+						csor:1
+					},
+					dataType:"jsonp",
+					success:function(res){	
+						$("#content").html(template("result",{
+							datas:res.g
+						}));
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

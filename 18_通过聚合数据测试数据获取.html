@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		img{
+			width: 270px;
+			height: 395px;
+		}
+		*{margin: 0;padding: 0;}
+		#app{
+			width: 580px;
+			margin: 10px auto;
+		}
+		ul,li{list-style: none;}
+		li{}
+		li a{
+			text-decoration: none;
+			color: #000;
+			display: flex;
+			flex-direction: row;
+			margin: 20px 0;
+		}
+		li a .icon{
+			width: 180px;
+			height: 180px;
+		}
+		li a .icon img{
+			width: 180px;
+			height: 180px;
+		}
+		li a .info{
+			flex:1;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<select id="news-select">
+		<option value="top">头条</option>
+		<option value="shehui">社会</option>
+		<option value="guonei">国内</option>
+		<option value="guoji">国际</option>
+		<option value="yule">娱乐</option>
+		<option value="tiyu">体育</option>
+		<option value="junshi">军事</option>
+		<option value="keji">科技</option>
+		<option value="caijing">财经</option>
+		<option value="shishang">时尚</option>
+	</select>
+	<div id="app"></div>
+	<!-- 书写对应的模板结构 -->
+	<script type="text/html" id="data-list">
+		<div>
+			<ul>
+				{{each data}}
+				<li>
+					<a href="{{$value.url}}">
+						<div class="icon">
+							<img src="{{$value.thumbnail_pic_s}}" alt="">
+						</div>
+						<div class="info">
+							<h3>{{$value.title}}</h3>
+							<p>{{$value.date}}</p>
+						</div>
+					</a>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</script>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript" src="./js/template-web.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			getNews();
+			$("#news-select").on("change",function(){
+				var type = $("#news-select").val();
+				getNews(type);
+			});
+			function getNews(type){
+				type = type || "top";
+				$.ajax({
+				method:"get",
+				url:"./18.php",
+				data:{
+					key:"9a2df2f11264f6aef593096e3104728a",
+					type:type
+				},
+				success:function(res){
+					console.log(res);
+					res = JSON.parse(res);
+					var htmlStr = template("data-list",{
+						data:res.result.data
+					});
+					$("#app").html(htmlStr);
+				}
+			});
+			}
+		});
+	</script>
+</body>
+</html>
