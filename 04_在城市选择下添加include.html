@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#app{
+			background-image: url("./images/bg.png");
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-repeat: repeat-x;
+			color: #fff;
+		}
+		.container{
+			width: 920px;
+			margin: 100px auto;
+		}
+		.skinmore{
+			background: url("./images/t01eedf15a70a39c08a.png") no-repeat;
+		    height: 339px;
+		    left: 50%;
+		    margin-left: -250px;
+		    position: absolute;
+		    top: 0;
+		    width: 497px;
+		    z-index: 1;
+		}
+		.today-weather .detail h3{
+			font-size: 24px;
+		}
+		.today-weather .detail .time{
+			color: rgba(255,255,255,.6);
+		    font-size: 16px;
+		    margin: 10px 0;
+		}
+		.today-weather .detail .air{
+			background-color: #33c704;
+		    border: 1px solid #92d47e;
+		    border-radius: 2px;
+		    line-height: 28px;
+		    padding: 0 8px;
+		    font-size: 16px;
+		    width: 90px;
+		    text-align: center;
+		    margin-bottom: 30px;
+		}
+		.detail .degree{
+			font-size: 28px;
+			padding-left: 20px;
+		}
+		.detail .degree span{
+			font-size: 94px;
+			line-height: 94px;
+			font-family: arial;
+			position: relative;
+		}
+		.detail .wet{
+			width: 250px;
+			border-top: 1px solid #fff;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 10px 0px 10px 30px;
+		}
+		.detail .wet span{
+			position: relative;
+		}
+		.detail .wet span:nth-child(1)::before{
+			content: "";
+			width: 29px;
+			height: 28px;
+			background-image: url("./images/t012dd226c54bd13f0e.png");
+			background-repeat: no-repeat;
+			position: absolute;
+			left: -30px;
+			top: 0;
+			background-position: 0 -28px;
+		}
+		.detail .wet span:nth-child(2)::before{
+			content: "";
+			width: 29px;
+			height: 28px;
+			background-image: url("./images/t012dd226c54bd13f0e.png");
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			position: absolute;
+			left: -30px;
+			top: 0;
+		}
+		/*未来五天的天气情况*/
+		.late-five{
+			margin-top: 50px;
+		}
+		.late-five ul{
+			display: flex;
+			flex-direction: row;
+			text-align: center;
+		}
+		.late-five ul li{
+			background-color: rgba(255,255,255,.1);
+		    border-radius: 2px;
+		    box-shadow: 1px 1px 2px rgba(0,0,0,.1), -1px -1px 2px rgba(0,0,0,.1);
+		    color: #fff;
+		    float: left;
+		    font-size: 16px;
+		    height: 190px;
+		    margin-left: 5px;
+		    padding: 10px;
+		    width: 160px;
+		}
+		.late-five li .time{
+			color: rgba(255,255,255,.5);
+			font-size: 16px;
+		}
+		.late-five li .weather-icon{
+			background-image: url("./images/t011dcb216f11476b0f.png");
+			background-repeat: no-repeat;
+			width: 70px;
+			height: 70px;
+			background-position: 0 0;
+			margin: 10px auto;
+		}
+		.late-five li .weather{
+			font-size: 24px;
+		    line-height: 24px;
+		    padding: 10px;
+		    border-bottom: 1px solid #fff;
+		}
+		.late-five li .other-info{
+			font-size: 16px;
+			margin-top: 10px;
+		}
+		.late-five li .other-info span{
+			font-size: 24px;
+		    font-family: arial;
+		    margin-right: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<!-- 导航条 -->
+			<div class="nav-header"></div>
+			<div class="skinmore"></div>
+			<div class="content"></div>
+		</div>
+	</div>
+	<script type="text/html" id="weather-detail">
+		{{include "city-switch"}}
+		{{include "today-weather"}}
+		{{include "late-five"}}
+	</script>
+	<!-- 城市切换选择 -->
+	<script type="text/html" id="city-switch">
+		<div class="city-select">
+			{{include "province-select"}}
+			{{include "city-select"}}
+			{{include "town-select"}}
+		</div>
+	</script>
+	<!-- 省份选择 -->
+	<script type="text/html" id="province-select">
+		<select id="province"><option value="">北京</option></select>
+	</script>
+	<!-- 城市选择 -->
+	<script type="text/html" id="city-select">
+		<select id="city"><option value="">北京</option></select>
+	</script>
+	<!-- 城区选择 -->
+	<script type="text/html" id="town-select">
+		<select id="town"><option value="">北京</option></select>
+	</script>
+	<!-- 城市当天天气 -->
+	<script type="text/html" id="today-weather">
+		<div class="today-weather">
+			<div class="detail">
+				<h3>{{area[2][0]}}</h3>
+				<p class="time">{{realtime.time}}</p>
+				<p class="air">空气优 {{realtime.feelslike_c}}</p>
+				<div class="degree">
+					<span>{{realtime.weather.temperature}}°</span>{{realtime.weather.info}}
+				</div>
+				<div class="wet">
+					<span>湿度 {{realtime.weather.humidity}}%</span>
+					<span>{{realtime.wind.direct}} {{realtime.wind.power}}</span>
+				</div>
+			</div>
+			<div class="app-down">
+			</div>
+		</div>
+	</script>
+	<!-- 未来五天内的天气情况 -->
+	<script type="text/html" id="late-five">
+		<div class="late-five">
+			<ul class="late-weahter-list">
+				{{each weather}}
+				{{if $index<5}}
+				<li>
+					<p class="time">{{$value.date | weekday}} {{$value.date | timeModel}}</p>
+					<p class="weather-icon" style="{{$value.info.day[0] | bgp}}"></p>
+					<p class="weather">{{$value.info.day[1]}}</p>
+					<p class="other-info">
+						<span>{{$value.info.night[2]}}~{{$value.info.day[2]}}°</span>
+						{{$value.info.day[4]}}
+					</p>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+		</div>
+	</script>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript" src="./js/template-web.js"></script>
+	<script type="text/javascript">
+		var detailArea = document.querySelector(".detail");
+		var content = document.querySelector(".content");
+		var lateWeahterUl = document.querySelector(".late-weahter-list");
+		// 直接调用这个定义好的函数，进行数据的获取
+		jsonp({
+			url:"http://tq.360.cn/api/weatherquery/querys",
+			data:{
+				app:"tq360",
+				code:"101230201",
+				t:"1566441249720",
+				c:"1566542479921"
+			},
+			cbName:"_jsonp",
+			callbackName:"renderData",
+			success:function(res){
+				// console.log(res);
+				var html = template("weather-detail",{
+					area:res.area,
+					realtime:res.realtime,
+					weather:res.weather
+				});
+				content.innerHTML = html;
+			}
+		});
+		// art template 模板引擎中过滤写法 --> 将数据作为原料，在这个过滤条件下进行操作，最后return 的结果就是现实的内容
+		template.defaults.imports.weekday  = function(arg1,arg2){
+			var date = new Date(arg1);
+			var weeks = ["周天","周一","周二","周三","周四","周五","周六"];
+			var weekIndex = date.getDay();
+			return weeks[weekIndex];
+		};
+		template.defaults.imports.timeModel = function(arg1,arg2){
+			var date = new Date(arg1);
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			return month + "月" + day + "日";
+		}
+		template.defaults.imports.bgp = function(arg1,arg2){
+			var posX = arg1%6 * (- 72) + "px";
+			var posY = parseInt(arg1/6) * (-72) + "px";
+			return "background-position: " + (posX + " " + posY);
+		}
+	</script>
+</body>
+</html>

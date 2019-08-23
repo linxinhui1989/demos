@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#app{
+			background-image: url("./images/bg.png");
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-repeat: repeat-x;
+			color: #fff;
+		}
+		.container{
+			width: 920px;
+			margin: 100px auto;
+		}
+		.skinmore{
+			background: url("./images/t01eedf15a70a39c08a.png") no-repeat;
+		    height: 339px;
+		    left: 50%;
+		    margin-left: -250px;
+		    position: absolute;
+		    top: 0;
+		    width: 497px;
+		    z-index: 1;
+		}
+		.today-weather .detail h3{
+			font-size: 24px;
+		}
+		.today-weather .detail .time{
+			color: rgba(255,255,255,.6);
+		    font-size: 16px;
+		    margin: 10px 0;
+		}
+		.today-weather .detail .air{
+			background-color: #33c704;
+		    border: 1px solid #92d47e;
+		    border-radius: 2px;
+		    line-height: 28px;
+		    padding: 0 8px;
+		    font-size: 16px;
+		    width: 90px;
+		    text-align: center;
+		    margin-bottom: 30px;
+		}
+		.detail .degree{
+			font-size: 28px;
+			padding-left: 20px;
+		}
+		.detail .degree span{
+			font-size: 94px;
+			line-height: 94px;
+			font-family: arial;
+			position: relative;
+		}
+		.detail .wet{
+			width: 250px;
+			border-top: 1px solid #fff;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 10px 0px 10px 30px;
+		}
+		.detail .wet span{
+			position: relative;
+		}
+		.detail .wet span:nth-child(1)::before{
+			content: "";
+			width: 29px;
+			height: 28px;
+			background-image: url("./images/t012dd226c54bd13f0e.png");
+			background-repeat: no-repeat;
+			position: absolute;
+			left: -30px;
+			top: 0;
+			background-position: 0 -28px;
+		}
+		.detail .wet span:nth-child(2)::before{
+			content: "";
+			width: 29px;
+			height: 28px;
+			background-image: url("./images/t012dd226c54bd13f0e.png");
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			position: absolute;
+			left: -30px;
+			top: 0;
+		}
+		/*未来五天的天气情况*/
+		.late-five{
+			margin-top: 50px;
+		}
+		.late-five ul{
+			display: flex;
+			flex-direction: row;
+			text-align: center;
+		}
+		.late-five ul li{
+			background-color: rgba(255,255,255,.1);
+		    border-radius: 2px;
+		    box-shadow: 1px 1px 2px rgba(0,0,0,.1), -1px -1px 2px rgba(0,0,0,.1);
+		    color: #fff;
+		    float: left;
+		    font-size: 16px;
+		    height: 190px;
+		    margin-left: 5px;
+		    padding: 10px;
+		    width: 160px;
+		}
+		.late-five li .time{
+			color: rgba(255,255,255,.5);
+			font-size: 16px;
+		}
+		.late-five li .weather-icon{
+			background-image: url("./images/t011dcb216f11476b0f.png");
+			background-repeat: no-repeat;
+			width: 70px;
+			height: 70px;
+			background-position: 0 0;
+			margin: 10px auto;
+		}
+		.late-five li .weather{
+			font-size: 24px;
+		    line-height: 24px;
+		    padding: 10px;
+		    border-bottom: 1px solid #fff;
+		}
+		.late-five li .other-info{
+			font-size: 16px;
+			margin-top: 10px;
+		}
+		.late-five li .other-info span{
+			font-size: 24px;
+		    font-family: arial;
+		    margin-right: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<!-- 导航条 -->
+			<div class="nav-header"></div>
+			<!-- 城市切换选择 -->
+			<div class="city-select"></div>
+			<div class="skinmore"></div>
+			<!-- 指定城市当天天气 -->
+			<div class="today-weather">
+				<div class="detail">
+					<h3>厦门</h3>
+					<p class="time">09:04发布</p>
+					<p class="air">空气优 45</p>
+					<div class="degree">
+						<span>30°</span>阴
+					</div>
+					<div class="wet">
+						<span>湿度 63%</span>
+						<span>北风 2级</span>
+					</div>
+				</div>
+				<div class="app-down">
+				</div>
+			</div>
+			<!-- 指定城市未来五天天气情况 -->
+			<div class="late-five">
+				<ul class="late-weahter-list">
+					<li>
+						<p class="time">周四 8月22日</p>
+						<p class="weather-icon"></p>
+						<p class="weather">多云</p>
+						<p class="other-info">
+							<span>26~33°</span>
+							3-5级
+						</p>
+					</li>
+					<li>
+						<p class="time">周四 8月22日</p>
+						<p class="weather-icon"></p>
+						<p class="weather">多云</p>
+						<p class="other-info">
+							<span>26~33°</span>
+							3-5级
+						</p>
+					</li>
+					<li>
+						<p class="time">周四 8月22日</p>
+						<p class="weather-icon"></p>
+						<p class="weather">多云</p>
+						<p class="other-info">
+							<span>26~33°</span>
+							3-5级
+						</p>
+					</li>
+					<li>
+						<p class="time">周四 8月22日</p>
+						<p class="weather-icon"></p>
+						<p class="weather">多云</p>
+						<p class="other-info">
+							<span>26~33°</span>
+							3-5级
+						</p>
+					</li>
+					<li>
+						<p class="time">周四 8月22日</p>
+						<p class="weather-icon"></p>
+						<p class="weather">多云</p>
+						<p class="other-info">
+							<span>26~33°</span>
+							3-5级
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		var detailArea = document.querySelector(".detail");
+		var lateWeahterUl = document.querySelector(".late-weahter-list");
+		// 直接调用这个定义好的函数，进行数据的获取
+	</script>
+</body>
+</html>
