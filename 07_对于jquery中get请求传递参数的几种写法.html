@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>下载</button>
+	<p></p>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				var name = "lucy";
+				var pwd = 1111;
+				var url = "./07.php?username="+name+"&pwd="+pwd;
+				$.get(url,function(res){
+					$("p").html(res);
+				});
+			});
+		});
+	</script>
+</body>
+</html>

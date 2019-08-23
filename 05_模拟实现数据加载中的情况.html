@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		ul{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		li{
+			float: left;
+			width: 190px;
+			height: 266px;
+			box-sizing: border-box;
+			padding: 20px;
+			margin-right: 10px;
+		}
+		.loading{
+		     width: 80px;
+		     height: 40px;
+		     margin: 0 auto;
+		     margin-top:100px;
+		 }
+		 .loading span{
+		     display: inline-block;
+		     width: 8px;
+		     height: 100%;
+		     border-radius: 4px;
+		     background: lightgreen;
+		     -webkit-animation: load 1s ease infinite;
+		 }
+		 @-webkit-keyframes load{
+		     0%,100%{
+		         height: 40px;
+		         background: lightgreen;
+		     }
+		     50%{
+		         height: 70px;
+		         margin: -15px 0;
+		         background: lightblue;
+		     }
+		 }
+		 .loading span:nth-child(2){
+		     -webkit-animation-delay:0.2s;
+		 }
+		 .loading span:nth-child(3){
+		     -webkit-animation-delay:0.4s;
+		 }
+		 .loading span:nth-child(4){
+		     -webkit-animation-delay:0.6s;
+		 }
+		 .loading span:nth-child(5){
+		     -webkit-animation-delay:0.8s;
+		 }
+	</style>
+</head>
+<body>
+	<!-- 这边就是产品列表对应的 div  -->
+	<div id="goods"></div>
+	<!-- 加载中特效 -->
+	<script type="text/html" id="loading">
+		<div class="loading">
+		      <span></span>
+		      <span></span>
+		      <span></span>
+		      <span></span>
+		      <span></span>
+		 </div>
+	</script>
+	<!-- 数据列表 -->
+	<script type="text/html" id="good-list">
+		{{if goods.length>0}}
+			<ul>
+				{{each goods}}
+				<li>
+					<img src="{{$value.icon}}" alt="">
+					<h3>{{$value.title}}</h3>
+					<p>{{$value.price}}</p>
+				</li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</script>
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script type="text/javascript" src="./js/template-web.js"></script>
+	<script type="text/javascript">
+		var goodsDiv = document.querySelector("#goods");
+		// 结合所学的ajax函数，获取得到后端返回的json结构的数据
+		setTimeout(function(){
+			ajax({
+				method:"get",
+				url:"./05.php",
+				success:function(req){
+					var str = template("good-list",{
+						goods:JSON.parse(req.responseText)
+					});
+					// 循环结束后，将含有标签元素的字符串设置到 ul 上
+					goodsDiv.innerHTML = str;
+				}
+			});	
+		},2000);
+		var str = template("loading",{});
+		// 循环结束后，将含有标签元素的字符串设置到 ul 上
+		goodsDiv.innerHTML = str;
+	</script>
+</body>
+</html>

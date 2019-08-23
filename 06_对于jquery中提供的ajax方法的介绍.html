@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>下载</button>
+	<p></p>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				$.get("./06.php",function(res){
+					$("p").html(res);
+				});
+			});
+		});
+	</script>
+</body>
+</html>
