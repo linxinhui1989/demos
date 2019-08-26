@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// json字面量方式创建js对象
+		var smCar = {
+			// 静态属性
+			lunzi:4,
+			color:"red",
+			speed:180,
+			// 动态行为
+			run:function(){
+				console.log("跑起来....");
+				/*
+				  在对象中所出现的 this 指的就是这个方法的调用者
+				*/
+				console.log(this.speed++);
+			},
+			stop:function(){
+				console.log("停下来....");
+				console.log(this);
+			}
+		};
+		console.log(smCar);
+		smCar.run();
+		console.log(smCar);
+	</script>
+</body>
+</html>

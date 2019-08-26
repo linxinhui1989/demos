@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>背景红色 数据显示1</p>
+		<p>背景红色 数据显示2</p>
+		<p>背景红色 数据显示3</p>
+	</div>
+	<div>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+	</div>
+	<script type="text/javascript">
+		// 定义好一个对象，以及该对象所拥有一系列行为
+		var ele = {
+			find:function(tagName){
+				return document.querySelectorAll(tagName);
+			},
+			css:function(eles,color){
+				for(var i=0;i<eles.length;i++){
+					eles[i].style["background-color"] = color;
+				}
+			}
+		};
+		ele.css(ele.find("p"),"red");
+		ele.css(ele.find("h2"),"green");
+	</script>
+</body>
+</html>

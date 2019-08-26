@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button class="btn1">按钮一</button>
+	<button class="btn2">按钮二</button>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".btn1").on("click",function(){
+				$.ajax({
+					url:"./04.php",
+					data:{
+						tag:1
+					},
+					success:function(res){
+						console.log(res);
+					}
+				});
+			});
+			$(".btn2").on("click",function(){
+				$.ajax({
+					url:"./04.php",
+					data:{
+						tag:2
+					},
+					success:function(res){
+						console.log(res);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

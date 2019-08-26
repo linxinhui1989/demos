@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>背景红色 数据显示1</p>
+		<p>背景红色 数据显示2</p>
+		<p>背景红色 数据显示3</p>
+	</div>
+	<div>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+	</div>
+	<script type="text/javascript">
+		// 1. 先根据标签找到所有的p元素
+		var ps = document.querySelectorAll("p");
+		// 2. 再来借助循环，来进行挨个设置
+		for(var i=0;i<ps.length;i++){
+			ps[i].style["background-color"] = "red";
+		}
+		
+		// 3. 先根据标签找到所有的h2元素
+		var hs = document.querySelectorAll("h2");
+		for(var i=0;i<hs.length;i++){
+			hs[i].style["background-color"] = "green";
+		}
+	</script>
+</body>
+</html>

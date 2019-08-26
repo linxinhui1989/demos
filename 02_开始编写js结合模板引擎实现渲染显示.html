@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		body{
+			background-color: rgba(0,0,0,0.1);
+		}
+		.sider{
+			display: flex;
+			flex-direction: row;
+			width: 1234px;
+			margin: 10px auto;
+		}
+		.left-menu{
+			width: 234px;
+			background-color: rgba(105,101,101,.6);
+			color: #fff;
+		}
+		.right-content{
+			width: 1000px;
+			height: 460px;
+		}
+		.left-menu ul{
+			width: 234px;
+			height: 460px;
+		}
+		.left-menu ul li{
+			width: 234px;
+			height: 46px;
+			box-sizing: border-box;
+			padding: 10px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.left-menu ul li:hover{
+			background-color: #ff6700;
+		}
+		.right-content ul{
+			display: flex;
+			flex-direction: column;
+			height: 460px;
+			width: 1000px;
+			flex-wrap: wrap;
+			background-color: #fff;
+			width: 0;
+		}
+		.right-content ul li{
+			width: 245px;
+			height: 76px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.right-content ul li img{
+			width: 40px;
+			height: 40px;
+			margin-right: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div id="mi">
+		<!-- 左侧边栏 -->
+		<div class="sider">
+			<div class="left-menu">
+			</div>
+			<div class="right-content">
+			</div>
+		</div>
+	</div>
+	<!-- 左侧边栏的编写 -->
+	<script type="text/html" id="left-menu">
+		<ul>
+			{{each datas}}
+			<li>{{$value.title}}</li>
+			{{/each}}
+		</ul>
+	</script>
+	<!-- 右侧内容的编写 -->
+	<script type="text/html" id="right-content">
+		<ul>
+			{{each contents}}
+			<li>
+				<img src="{{$value.icon}}" alt="">
+				<h5>{{$value.sub_title}}</h5>
+			</li>
+			{{/each}}
+		</ul>
+	</script>
+	<script type="text/javascript" src="./js/template-web.js"></script>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 获取侧边栏内容
+			$.ajax({
+				url:"http://pwtnmp3jh.bkt.clouddn.com/0826_data.txt",
+				success:function(res){
+					// 将json格式的字符串，转为 json 格式的对象
+					var arr = JSON.parse(res);
+					// 再来借助模板文件中的template函数，组合数据渲染得到新的html，并显示
+					var str = template("left-menu",{
+						datas:arr
+					});
+					$(".left-menu").html(str);
+					
+					// 添加触摸事件
+					$(".left-menu li").hover(function(){
+						// 再来借助模板引擎中的template函数，来渲染另一段页面
+						var rStr = template("right-content",{
+							contents:arr[$(this).index()].infos
+						});
+						$(".right-content").html(rStr);
+						$(".right-content ul").width(Math.ceil(arr[$(this).index()].infos.length / 6) * 250);
+					},function(){
+						var rStr = template("right-content",{
+							contents:[]
+						});
+						$(".right-content").html(rStr);
+						$(".right-content ul").width(0);
+					});
+				}
+			});
+			// 获取小米闪购数据
+			$.ajax();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>背景红色 数据显示1</p>
+		<p>背景红色 数据显示2</p>
+		<p>背景红色 数据显示3</p>
+	</div>
+	<div>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+		<h2>背景绿色 </h2>
+	</div>
+	<script type="text/javascript">
+		// 用于实现元素查找的函数
+		function findEle(tag){
+			return document.querySelectorAll(tag);
+		}
+		// 再来编写对于元素属性修改的函数
+		function css(eles,color){
+			for(var i=0;i<eles.length;i++){
+				eles[i].style["background-color"] = color;
+			}
+		}
+
+		function show(){}
+		function hide(){}
+		
+		css(findEle("p"),"red");
+		css(findEle("h2"),"green");
+	</script>
+</body>
+</html>
