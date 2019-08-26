@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function createJS(){
+			// 在这个函数内部，来进行js对象的创建
+			var obj = new Object();
+			// 对动态创建好的对象，进行属性的设置
+			obj.name = "lucy";
+			obj.age = 23;
+			obj.sex = "woman";
+			obj.eat = function(){
+				console.log("吃饭...");
+			}
+			// 这个函数时用于创建好一个 js 对象，这个创建好的js对象需要在外部被获取到 --> 所以这个 createJS函数，需要有返回值，这个返回值就是创建好的 obj
+			return obj;
+		}
+		var p = createJS();
+		p.eat();
+		console.log(p.name);
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function createJS(options){
+			// 在这个函数内部，来进行js对象的创建
+			var obj = new Object();
+			// 对动态创建好的对象，进行属性的设置
+			obj.name = options.name;
+			obj.age = options.age;
+			obj.sex = options.sex;
+			obj.eat = function(){
+				console.log("性别是" + this.sex + this.age + "岁的" + this.name +  "正在吃饭...");
+			}
+			return obj;
+		}
+		// 调用这个函数，来进行 js 对象的创建
+		var p1 = createJS({
+			name:"李娜",
+			age:33,
+			sex:"woman"
+		});
+		p1.eat();
+	</script>
+</body>
+</html>

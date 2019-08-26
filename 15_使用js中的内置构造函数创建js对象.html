@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		 使用 json 字面量的方式去构建 js 对象
+		 var p1 = {
+			name:"lucy",
+			age:22,
+			eat:function(){}
+		}*/
+		/*
+		使用系统中内置的构造函数进行 js 对象的创建
+		构造函数：本质是一个函数，只不过这个函数比较特殊，一般不是直接调用，而是需要使用系统关键字  new 来进行使用
+		 */
+		var p1 = new Object();
+		// 直接在变量 p1 上书写 .name，这个时候会为这个变量动态添加一个名为 name的属性
+		p1.name = "lina";
+		p1.age = 22;
+		p1.eat = function(){
+			console.log(this.name + "正在吃饭");
+		}
+		console.log(p1.name);
+		console.log(p1.age);
+		p1.eat();
+	</script>
+</body>
+</html>

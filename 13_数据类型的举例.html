@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var p1 = {h:1};
+		var p2 = {h:10};
+		function show(obj1,obj2){
+			obj1.h ++;
+			obj1 = obj2;
+			obj2 = {h:20};
+			obj2.h ++;
+			obj1.h ++;
+		}
+		show(p1,p2);
+		console.log(p1.h);
+		console.log(p2.h);
+	</script>
+</body>
+</html>
