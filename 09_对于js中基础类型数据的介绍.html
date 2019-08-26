@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		1. 创建了一个基础类型的变量 a，变量 a 中就保存了对应的基础类型数据 10，意味着通过 a 就直接读取到了 10
+		2. 创建了另一个变量 b，将变量 a 中保存的10，复制一份，保存到了 变量 b上来
+		3. 对于变量 b进行++操作，只是针对变量 b 上保存的数据的修改，对于变量 a 不会造成任何影响
+		 */
+		var a = 10;
+		var b = a;
+		b++;
+		console.log("a = " + a);
+		console.log("b = " + b);
+	</script>
+</body>
+</html>

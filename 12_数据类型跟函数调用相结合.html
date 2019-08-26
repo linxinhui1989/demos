@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 10;
+		function show(num){
+			num++;
+		}
+		// 调用这个 show 的函数，将 变量 a作为参数传入到这个 show 函数中
+		show(a);
+		/*
+		通过变量show中保存的地址，找到这个地址下所保存的内容，因为刚好这个地址和下所保存的内容是一个 Function类型的对象，所以可以通过 show() 来进行函数的调用;
+		将变量 a 中保存的数据，赋值给 show 函数上的那个形参 num 上，此时对于num进行 +1 操作，只会影响到函数内部的 num 变量，当这个函数调用完成后，这个 num 形参也就被销毁了，对于变量 a ，不会造成任何影响
+		 */ 
+		console.log("a = " + a);
+
+
+		var p1 = {h:1};
+		function change(obj){
+			obj.h++;
+		}
+		change(p1);
+		/*
+			调用这个名为 change 这个函数时，其实是先根据change变量找到这个变量下所保存的那个内容，只不过这个内容比较特殊，刚好是一个Function类型的对象，所以可以在change后添加()实现对于Function类型对象的调用(函数调用)；将p1作为参数进行传递时，其实是将 p1 变量下保存的地址传递给了形参 obj，此时意味着 obj 中保存了 p1 中保存的那个对象的地址,也就可以通过 obj 对于这个地址下的对象进行修改，而且这个修改也会最终影响到 p1 
+		*/
+		console.log(p1.h);
+
+		var p2 = {h:1};
+		function cc(obj){
+			obj = {h:1};
+			obj.h++;
+		}
+		cc(p2);
+		console.log(p2.h);
+
+	</script>
+</body>
+</html>

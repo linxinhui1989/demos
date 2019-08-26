@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 声明了一个变量，变量名为 car1，变量 car1 中保存了一个 js 对象在内存中的地址
+		var car1 = {
+			speed:100,
+			price:10
+		};
+		var car2 = car1;
+		/*
+		先拿到这个 car2 上所保存的那个 js 对象的地址，然后通过这个地址找到这个地址下所对应的那个 js 对象，再读取到 这个 js 对象上的 speed 属性，从而实现对 js 对象上 speed 属性的修改
+		 */
+		car2.speed ++;
+		console.log(car1);
+		console.log(car2);
+	</script>
+</body>
+</html>
