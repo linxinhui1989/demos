@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 在这个构造函数中，就只去设定对应的属性，而不设定动态行为
+		function Student(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+		/*
+		在创建构造函数时，系统会默认自动创建一个该构造函数所对应的原型对象;
+		一个构造函数，就只有一个原型对象；
+		对于原型对象的访问，直接使用 构造函数名.prototype; 
+		就可以将动态行为设置到原型对象上；
+		就可以通过Student创建的实例对象，去调用到Student原型对象上的 eat 方法
+		*/
+		Student.prototype.eat = function(){
+			console.log("吃饭了....");
+		}
+		Student.prototype.run = function(){
+			console.log("跑起来....");
+		}
+		console.log(Student.prototype);
+		var s1 = new Student("lina",22,"woman");
+		var s2 = new Student("lucy",23,"woman");
+		s1.eat();
+		s2.eat();
+		console.log(s1.eat == s2.eat);
+		/*var p = {name:"lina"};
+		// 为这个对象去动态设定一个 eat 属性，只不过这个属性刚好是Function类型的对象
+		p.eat = function(){}*/
+	</script>
+</body>
+</html>

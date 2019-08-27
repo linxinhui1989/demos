@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student(name,age,sex,func){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.eat = func;
+		}
+		/*
+		在外部去定义一个函数
+		 */ 
+		function eat(){
+			// console.log(this);// 在函数内部中的this取决于了函数之前的 . 对应的对象
+			console.log(this.name + "吃东西....");
+		}
+		var s1 = new Student("李娜",22,"woman",eat);
+		var s2 = new Student("lucy",23,"woman",eat);
+		s1.eat();
+		s2.eat();
+		console.log(s1.eat == s2.eat);
+		eat();
+	</script>
+</body>
+</html>
