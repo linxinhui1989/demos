@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			/*
+			此时函数书写在了构造函数的内部，所以会导致创建若干个Student类型的对象时，都会不断地去创建新的function，赋值给 eat 属性，造成资源浪费
+			 */
+			this.eat = function(){
+				console.log(this.name + "正在吃东西");
+			}
+		}
+		var s1 = new Student("李娜",22,"woman");
+		var s2 = new Student("lucy",23,"woman");
+		s1.eat();
+		s2.eat();
+		console.log(s1.eat == s2.eat);
+	</script>
+</body>
+</html>
