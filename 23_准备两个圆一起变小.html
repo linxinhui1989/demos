@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{
+			text-align: center;
+		}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<script type="text/javascript" src="./circle.js"></script>
+	<script type="text/javascript">
+		// 1. 查找元素
+		var canvas = document.querySelector("canvas");
+		// 2. 设定对应的宽度以及高度属性
+		canvas.height = 500;
+		canvas.width = 1000;
+		var ctx = canvas.getContext("2d");
+		// 3. 借用外部定义好的Circle构造函数，进行Circle类型对象的创建
+		var c1 = new Circle({
+			x:500,
+			y:250,
+			radius:100,
+			fillStyle:"yellow"
+		});
+		c1.render(ctx);
+
+		var c2 = new Circle({
+			x:150,
+			y:150,
+			radius:50,
+			fillStyle:"red",
+			reduceStep:-2
+		});
+		c2.render(ctx);
+
+		// 对于多个圆同时变小--> 数组 --> 方便管理 --> 把所有的创建出来的Circle对象添加到数组中
+		var allCircles = [];
+		allCircles.push(c1);
+		allCircles.push(c2);
+
+		setInterval(function(){
+			canvas.height = canvas.height;
+			canvas.width = canvas.width;
+			// 对于Circle类型的对象上的radius属性不断的减小
+			for(var i=0;i<allCircles.length;i++){
+				allCircles[i].radius --;
+			}
+			// 再来借助for循环，对于所有的Circle类型的对象进行重新渲染,重新调用 render 方法
+			for(var i=0;i<allCircles.length;i++){
+				allCircles[i].render(ctx);
+			}
+		},10);
+	</script>
+</body>
+</html>
