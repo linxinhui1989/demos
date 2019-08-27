@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{
+			text-align: center;
+		}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<script type="text/javascript" src="./rect.js"></script>
+	<script type="text/javascript">
+		// 1. 查找元素
+		var canvas = document.querySelector("canvas");
+		// 2. 设定对应的宽度以及高度属性
+		canvas.height = 500;
+		canvas.width = 1000;
+		var ctx = canvas.getContext("2d");
+		// 创建好了一个Line属性的对象
+		var rect = new Rect({
+			startX : 0,
+			startY : 0,
+			width : 800,
+			height : 100,
+			fillStyle : "red"
+		});
+		rect.render(ctx);
+		/*var num = Math.random() * 5000;
+		for(var i=0;i<num;i++){
+			var wh = Math.random()*50;
+			var rect = new Rect({
+				startX : Math.random()*2000,
+				startY : Math.random()*2000,
+				width : wh,
+				height : wh,
+				fillStyle : randomColor()
+			});
+			rect.render(ctx);
+		}
+		function randomColor(){
+			var red = parseInt(Math.random()*255);
+			var green = parseInt(Math.random()*255);
+			var blue = parseInt(Math.random()*255);
+			var alpha = Math.random();
+			return "rgba("+red+","+green+","+blue+",0.1)"
+		}*/
+	</script>
+</body>
+</html>
