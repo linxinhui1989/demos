@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student(){}
+		// 也可以为原型对象去动态添加属性以及行为
+		Student.prototype.age = 12;
+		Student.prototype.sex = "woman";
+		Student.prototype.eat = function(){console.log("吃饭了....");}
+		// 也可以去访问原型对象上的属性值
+		console.log(Student.prototype.age);
+		console.log(Student.prototype.sex);
+		Student.prototype.eat();
+		// 除了使用原型对象进行属性，方法的访问之外，也可以使用实例对象去访问原型对象上的属性跟方法 ; 而且在开发中，绝大多数情况，都是使用实例对象去访问原型对象上的属性跟方法
+		var stu = new Student(); // 创建了一个Student类型的实例对象
+		console.log(stu.age);
+		console.log(stu.sex);
+		stu.eat();
+		/*var p = {};
+		p.name = "李娜";
+		p.age = 123;*/
+	</script>
+</body>
+</html>

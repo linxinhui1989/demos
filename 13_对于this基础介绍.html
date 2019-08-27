@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = "1";
+		function Student(name){
+			this.name = name;
+		}
+		Student.prototype.name = "2";
+		Student.prototype.run = function(){
+			console.log(this.name + "在奔跑");
+		}
+		var s = new Student("3");
+		s.run();
+		var run = s.run;
+		run();
+	</script>
+</body>
+</html>

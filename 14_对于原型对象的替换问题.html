@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student(name){
+			this.name = name;
+		}
+		
+		// 这样的写法，其实就是用自己定义的js对象，替换掉了Student构造函数上的原型对象
+		Student.prototype = {
+			contructor:Student,
+			run:function(){
+				console.log(this.name + "正在 run ");
+			},
+			eat:function(){
+				console.log(this.name + "正在 eat ");
+			},
+			jump:function(){
+				console.log(this.name + "正在 jump ");
+			}
+		}; // 使用一个自定义的js对象，设置为Student构造函数上的原型对象
+
+		var s = new Student("小明");
+		s.run();
+		/*
+		这边使用实例对象去读取constructor属性时，实例对象上是没有该名称的属性的，所以会去原型对象上进行读取；
+		人为将原型对象替换为了自定义的普通 js 对象，普通 js 对象，其实都是由 Object 创建出来的，所以默认的 contructor 都是 Object；
+		所以在人为替换Student的原型对象时，为了避免 contructor 属性发生变化，需要在自定义的 js 对象上，添加 contructor属性，这个属性保存 Student
+		 */
+		console.log(s.constructor);
+		/*
+		
+		// 要为student实例对象定义若干个方法
+		Student.prototype.run = function(){}
+		Student.prototype.eat = function(){}
+		Student.prototype.jump = function(){}
+
+		使用Student.prototype就可以访问到Student的原型对象，然后可以对原型对象上属性的动态修改；
+		既然原型对象也是一个对象，那么就可以使用普通的js对象去替换掉系统默认的原型对象
+		*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student(name){
+			this.name = name;
+		}
+		Student.prototype.name = "lina";
+		Student.prototype.friend = {
+			name:"lilei",age:23
+		}
+		/*
+		情况一：通过实例对象对属性进行修改，如果假定修改的这个属性，实例对象上不存在，而在原型对象上存在，且这个属性是属于基础类型的数据，那么不会对原型对象上的属性进行修改，只会在实例对象上动态创建一个该名称的属性
+
+		情况二：如果实例对象上含有该名称的属性，那么就是直接修改该实例对象上的该名称属性值
+
+		情况三：如果要想修改的属性在原型对象上存在，且是属于引用类型的数据，修改时，是修改这个引用类型数据上的某一个属性时，这个时候会对原型对象上的属性进行修改
+
+		情况四：如果要想修改的属性在原型对象上存在，且是属于引用类型的数据，修改时，是对整个对象直接替换，那么这个写法跟情况一相同
+		 */
+		/*var s = new Student("hanmeimei");
+		s.name = "lucy";
+		s.friend.age = 33;
+		console.log(s.name);
+		console.log(Student.prototype.name);
+		console.log(s.friend);
+		console.log(Student.prototype.friend);*/
+		var s = new Student("hanmeimei");
+		/*
+		s.friend.age 过程是：
+		先通过 s 实例对象去查找名为 friend 的属性，本身实例对象上不存在时，会去查找原型对象上的该名称的属性；然后再来对找到的对象上的 age 属性进行修改，所以这边修改的是原型对象上的friend里的age
+		 */ 
+		s.friend.age = 33;
+		/*
+		直接对于实例对象 s 上的friend属性进行修改，而此时实例对象上其实并没有这个名称的属性，所以这个是动态为实例对象 s 添加一个名为 friend 的属性，跟原型对象没有任何关系
+		 */
+		s.friend = {"height":180,"weight":120};
+		console.log(s.friend);
+		console.log(Student.prototype.friend);
+	</script>
+</body>
+</html>
