@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student (name){
+			this.name = name;
+		}
+		Student.prototype.name = "22";
+		Student.prototype.eat = function(){
+			console.log(this.name + "正在");
+		}
+		var s1 = new Student("11");
+		s1.eat();  // 1 正在
+		
+		Student.prototype = {
+			name:"33",
+			eat:function(){
+				console.log(this.name + "没在");
+			}
+		}
+		
+		var s2 = new Student("44");
+		s1.eat(); // 1 正在
+		s2.eat(); // 4 没在
+	</script>
+</body>
+</html>

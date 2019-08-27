@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student(){}
+		var s = new Student();
+		console.log(s);
+		console.log(s.constructor);
+		console.log(Student.prototype.constructor);
+		console.log(s.__proto__);
+
+		console.log(s.constructor == Student.prototype.constructor);
+		console.log(s.__proto__ == Student.prototype);
+	</script>
+</body>
+</html>
