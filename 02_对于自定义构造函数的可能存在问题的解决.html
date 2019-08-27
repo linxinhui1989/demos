@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Student(){
+			/*
+				解决：在这个构造函数内部，对于this进行对应的判断，如果这个this是属于Student类型的，那么就直接使用 this；如果这个this不属于Student类型的，那么就子函数内部来进行new动态创建
+			 */
+			// console.log(this instanceof Student); 
+			if(this instanceof Student){
+				this.name = "lina";
+				this.age = 23;
+				this.sex = "woman";
+			}else{
+				return new Student();
+			}
+		}
+		/*
+		可能存在的问题：
+		这边函数是大写开头的，默认会将这个函数认为就是构造函数；但是也有可能会当成普通函数进行调用
+		如果将这个函数直接拿来调用，这个时候函数内部的this就不再是所对应的那个 Student 类型的对象了，而是 window
+		 */ 
+		var s1 = new Student();
+		var s2 = Student();
+		console.log(s1);
+		console.log(s2);
+	</script>
+</body>
+</html>
