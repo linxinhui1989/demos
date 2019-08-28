@@ -74,11 +74,11 @@
 			return "rgba("+red+","+green+","+blue+",0.1)"
 		}
 		setInterval(function(){
-			var x = parseInt(Math.random()*canvas.width);
-			var y = parseInt(Math.random()*canvas.height);
 			// 再来一个循环，来额外增加小球的个数
 			var count = 3;
 			for(var i=0;i<count;i++){
+				var x = parseInt(Math.random()*canvas.width);
+				var y = parseInt(Math.random()*canvas.height);
 				var radius = parseInt(Math.random()*50) + 50;
 				var lineWidth = parseInt(Math.random()*5) + 5;
 				var strokeStyle = randomColor();
@@ -94,7 +94,7 @@
 				// 将创建好的Circle对象添加到 数组中 allCircles
 				allCircles.push(c);
 			}
-		},100);
+		},500);
 		// 书写一个计时器函数，实现小球半径的不断变化
 		setInterval(function(){
 			// 在这个计时器函数中，应该将canvas不断重新设置宽度以及高度属性，从而实现内容不断变化

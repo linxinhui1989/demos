@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj1 = {name:"lucy",age:22,sex:"woman"};
+		var obj2 = {};
+		// 借助 for...in循环，快速将 obj1 上的属性拷贝到 obj2 对象上
+		/*
+		这边不属于继承，而是直接赋值，使得obj1跟obj2都指向了同一个对象；继承要求是多个对象之间的关系
+		obj2 = obj1;  
+		 */
+		for(var key in obj1){
+			obj2[key] = obj1[key];
+		}
+		console.log(obj1);
+		console.log(obj2);
+		console.log(obj1 == obj2);
+	</script>
+</body>
+</html>

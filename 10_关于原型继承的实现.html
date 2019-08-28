@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function People(){}
+		People.prototype = {
+			name:"lucy",
+			eat:function(){
+				console.log("吃饭了...");
+			},
+			run:function(){
+				console.log("跑起来...");
+			}
+		}
+
+		// 再来设计一个Student构造函数
+		function Student(){}
+		/*
+		  场景：Student中要求的方法跟People的方法一样，也都要写在原型对象上
+		*/
+		Student.prototype = People.prototype;
+
+		var s = new Student();
+		s.eat();
+		s.run();
+		console.log(s.name);
+	</script>
+</body>
+</html>

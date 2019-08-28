@@ -29,8 +29,8 @@ Circle.prototype = {
 	},
 	update:function(ctx){
 		/*
-		如果都是 -- ，那么所有小球的半径变小步长都是 1 
-		 */
+			如果都是 -- ，那么所有小球的半径变小步长都是 1 
+		*/ 
 		this.radius += this.reduceStep;
 		this.x += this.xChange;
 		this.y += this.yChange;

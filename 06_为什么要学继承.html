@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 使用继承的场景一:
+		function People(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+
+		function Student(name,age,sex,score){
+			/*this.name = name;
+			this.age = age;
+			this.sex = sex;*/
+			People.call(this,name,age,sex);
+			this.score = score;
+		}
+
+		// 使用继承的场景二：
+		var animal = {
+			name:"xiaobai",
+			sex:"female",
+			weight:3
+		}
+
+		var cat = Object.assign({
+			age:1,
+			legs:4
+		},animal);
+		console.log(animal);
+		console.log(cat);
+	</script>
+</body>
+</html>
