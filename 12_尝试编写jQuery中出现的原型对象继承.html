@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function run(){
+			// 在这函数中进行jQuery的编写
+			var jQuery = function(){
+
+				return new jQuery.prototype.init();
+			}
+			jQuery.prototype = {
+				constructor:jQuery,
+				tit:"1111",
+				init:function(){
+					// 此时的写法是将jquery.prototype.init 这个函数作为了构造函数
+					console.log("进来了...." + this.tit);
+				}
+			}
+			// 设置jquery构造函数上的原型对象作为 jquery.prototype.init 这个构造函数的原型对象
+			jQuery.prototype.init.prototype = jQuery.prototype;
+			// 要让外部能够访问jQuery这个内部函数
+			window.jQuery = jQuery;
+			window.$ = jQuery;
+		}
+		run();
+	</script>
+	<script type="text/javascript">
+		var p = $("p");
+		console.log(p.tit);
+	</script>
+</body>
+</html>
