@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = "lucy";
+		var student = {
+			name:"lina",
+			run:function(){
+				console.log("11 --> " + this.name);  // lina
+				var that = this;
+				setTimeout(function(){
+					// 在默认情况下，被自动调用的function中的this，往往就是window
+					console.log("22 --> " + this.name); // lucy
+					console.log("33 --> " + that.name); // lina
+				},1000);
+			}
+		}
+		student.run();
+	</script>
+</body>
+</html>

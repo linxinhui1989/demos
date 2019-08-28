@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = "lucy";
+		var student = {
+			name:"lina",
+			run:function(){
+				console.log("11 --> " + this.name);  // lina
+				setTimeout((function(){
+					console.log("22 --> " + this.name);  // lina
+				}).bind(this),1000);
+			}
+		}
+		student.run();
+	</script>
+</body>
+</html>

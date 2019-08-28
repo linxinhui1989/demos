@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = "1";
+		var run = function(){console.log(this.name);}
+		run();
+		var jump = (function(){console.log(this.name)}).bind({name:"2"});
+		jump();
+		var stu = {
+			name:"3",
+			eat:function(){
+				console.log(this.name);
+			}
+		}
+		stu.eat();
+		var eat = stu.eat;
+		eat();
+				
+	</script>
+</body>
+</html>

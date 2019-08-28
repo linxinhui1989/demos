@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function People(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		People.prototype = {
+			run:function(){
+				console.log("跑起来...")
+			}
+		}
+		function Student(name,age,score){
+			// 借用 People 的构造函数 --> 构造方法怎么获取 -->  直接根据构造方法的名字就可以获取到
+			People.call(this,name,age);
+			this.score = score;
+		}
+		// 通过原型对象继承来使得 Student 实例对象能够访问到People原型对象上的方法
+		Student.prototype = People.prototype;
+		var s = new Student("lina",22,99);
+		console.log(s);
+		s.run();
+	</script>
+</body>
+</html>

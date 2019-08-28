@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var xiaoMing = {
+			num:"110",
+			phone:function(phoneNum,time){
+				console.log("拨打" + this.num + "号码" + " --> " + phoneNum + " --> " + time);
+			}
+		}
+		var other = {num:"120"};
+		xiaoMing.phone.call(other,111,222);
+		xiaoMing.phone.apply(other,[333,666]);
+		// xiaoMing.phone.apply(other);
+	</script>
+</body>
+</html>
