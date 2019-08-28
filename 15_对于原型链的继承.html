@@ -9,7 +9,7 @@
 		function People(){
 			this.name = "abc";
 		}
-
+		
 		// 再来设计一个构造函数
 		function Student(){
 			this.score = 99;
@@ -18,10 +18,12 @@
 
 		function GoodStudent(){}
 		GoodStudent.prototype = new Student();
-
+		
 		var s = new GoodStudent();
 		console.log(s.name);
 		console.log(s.score);
+		console.log(People.prototype.__proto__);
+		console.log(People.prototype.__proto__.constructor);
 	</script>
 </body>
 </html>
