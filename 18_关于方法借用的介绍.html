@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var xiaoMing = {
+			phone:function(phoneNum){
+				console.log("拨打" + phoneNum + "号码");
+			}
+		}
+		/*
+		对于自身存在的方法，可以直接调用
+		 */
+		// xiaoMing.phone(110);
+
+		var other = {}; 
+		/*
+		other 这个变量，想去调用phone方法，但是自身没有定义这个 phone --> 结构 被借用的方法.call(借的对象);
+		 */ 
+		xiaoMing.phone.call(other);
+	</script>
+</body>
+</html>
