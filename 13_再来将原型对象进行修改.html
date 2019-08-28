@@ -9,7 +9,6 @@
 		function run(){
 			// 在这函数中进行jQuery的编写
 			var jQuery = function(){
-
 				return new jQuery.fn.init();
 			}
 			// 就是将jquery上的原型对象赋值给jQuery上的一个名为 fn 的属性
@@ -18,7 +17,7 @@
 				tit:"1111",
 				init:function(){
 					// 此时的写法是将jquery.prototype.init 这个函数作为了构造函数
-					console.log("进来了...." + this.tit);
+					console.log("进来了....");
 				}
 			}
 			// 设置jquery构造函数上的原型对象作为 jquery.prototype.init 这个构造函数的原型对象

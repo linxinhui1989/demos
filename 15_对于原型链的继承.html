@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function People(){
+			this.name = "abc";
+		}
+
+		// 再来设计一个构造函数
+		function Student(){
+			this.score = 99;
+		}
+		Student.prototype = new People();
+
+		function GoodStudent(){}
+		GoodStudent.prototype = new Student();
+
+		var s = new GoodStudent();
+		console.log(s.name);
+		console.log(s.score);
+	</script>
+</body>
+</html>
