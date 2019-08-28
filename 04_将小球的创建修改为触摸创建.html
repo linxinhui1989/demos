@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{
+			text-align: center;
+		}
+		canvas{
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: -10;
+		}
+		ul,li{list-style: none;}
+		#app{
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.header{
+			height: 60px;
+			border: 1px solid green;
+		}
+		.header ul{
+			display: flex;
+			align-items: center;
+			height: 60px;
+		}
+		.header ul li{
+			height: 60px;
+			width: 240px;
+			text-align: center;
+			font-size: 25px;
+			line-height: 60px;
+		}
+		.header ul li:hover{
+			background-color: rgba(0,0,233,0.5);
+		}
+	</style>
+</head>
+<body>
+	<!-- 这边只是特效背景而已 -->
+	<canvas></canvas>
+	<div id="app">
+		<div class="header">
+			<ul>
+				<li>标题</li>
+				<li>标题</li>
+				<li>标题</li>
+				<li>标题</li>
+				<li>标题</li>
+			</ul>
+		</div>
+		<div class="content"></div>
+		<div class="footer"></div>
+	</div>
+	<script type="text/javascript" src="circle.js"></script>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		var ctx = canvas.getContext("2d");
+		var allCircles = [];
+		// 注册canvas的触摸移动事件
+		canvas.addEventListener("mousemove",function(e){
+			var x = e.clientX - canvas.offsetLeft;
+			var y = e.clientY - canvas.offsetTop;
+			// 再来一个循环，来额外增加小球的个数
+			var count = Math.random()*20 + 10;
+			for(var i=0;i<count;i++){
+				var radius = parseInt(Math.random()*50) + 10;
+				var lineWidth = parseInt(Math.random()*5) + 5;
+				var strokeStyle = randomColor();
+				var fillStyle = randomColor();
+				var c = new Circle({
+					x:x,
+					y:y,
+					radius:radius,
+					strokeStyle:strokeStyle,
+					fillStyle:fillStyle,
+					lineWidth:lineWidth
+				});
+				// 将创建好的Circle对象添加到 数组中 allCircles
+				allCircles.push(c);
+			}
+		});
+		function randomColor(){
+			var red = parseInt(Math.random()*255);
+			var green = parseInt(Math.random()*255);
+			var blue = parseInt(Math.random()*255);
+			var alpha = Math.random();
+			return "rgba("+red+","+green+","+blue+",0.1)"
+		}
+		// 书写一个计时器函数，实现小球半径的不断变化
+		setInterval(function(){
+			// 在这个计时器函数中，应该将canvas不断重新设置宽度以及高度属性，从而实现内容不断变化
+			canvas.width = canvas.width;
+			canvas.height = canvas.height;
+			for(var i=0;i<allCircles.length;i++){
+				allCircles[i].update(ctx);
+			}
+		},10);
+	</script>
+</body>
+</html>

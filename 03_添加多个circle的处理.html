@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<script type="text/javascript" src="circle.js"></script>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		canvas.width = 1000;
+		canvas.height = 500;
+		var ctx = canvas.getContext("2d");
+		// 就借助Circle构造函数，进行Circle类型的对象的创建
+		var c1 = new Circle({
+			x:500,
+			y:250,
+			radius:200,
+			fillStyle:"yellow"
+		});
+		// 再来调用circle中的render方法，实现基础渲染
+		c1.render(ctx);
+
+		var c2 = new Circle({
+			x:300,
+			y:150,
+			radius:100,
+			fillStyle:"green"
+		});
+		// 再来调用circle中的render方法，实现基础渲染
+		c2.render(ctx);
+
+		var allCircles = [];
+		// 把所有的Cirlce对象添加数组中来
+		allCircles.push(c1);
+		allCircles.push(c2);
+
+
+		// 书写一个计时器函数，实现小球半径的不断变化
+		setInterval(function(){
+			// 在这个计时器函数中，应该将canvas不断重新设置宽度以及高度属性，从而实现内容不断变化
+			canvas.width = canvas.width;
+			canvas.height = canvas.height;
+			for(var i=0;i<allCircles.length;i++){
+				allCircles[i].update(ctx);
+			}
+		},10);
+	</script>
+</body>
+</html>
