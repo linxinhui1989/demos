@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj1 = {name:"lucy",age:22,sex:"woman"};
+		var obj2 = {};
+		obj2 = Object.create(obj1); // 将 obj1 设置为 obj2 的原型对象
+		console.log(obj1);
+		console.log(obj2.name);
+		console.log(obj2.age);
+		console.log(obj2.sex);
+	</script>
+</body>
+</html>
