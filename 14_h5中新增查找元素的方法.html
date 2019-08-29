@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<p class="p1">1</p>
+		<p class="p2">2</p>
+		<p class="p3">3</p>
+		<p class="p4">4</p>
+	</div>
+	<script type="text/javascript">
+		/*
+		 有点类似于 jq 
+		*/
+		var p1 = document.querySelector("#app .p1");
+		console.log(p1);
+		var p2 = document.querySelector("p");
+		console.log(p2);
+		var p3 = document.querySelectorAll("p");
+		console.log(p3);
+	</script>
+</body>
+</html>

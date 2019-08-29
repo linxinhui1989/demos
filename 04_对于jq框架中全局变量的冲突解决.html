@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p></p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 使得jQuery中的 $ 都修改为 jq
+		var jq = jQuery.noConflict();
+		// 这种写法就导致了jQuery中的 $ 被覆盖了
+		var $ = 123;
+		console.log(jq("p"));
+	</script>
+</body>
+</html>

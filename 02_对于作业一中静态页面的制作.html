@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#goods{
+			width: 1000px;
+			margin: 10px auto;
+			border: 1px solid red;
+			font-size: 12px;
+			padding-bottom: 50px;
+			overflow: hidden;
+			position: relative;
+		}
+		ul{
+			width: 3000px;
+			overflow: hidden;
+		}
+		.good{
+			text-align: center;
+			width: 333px;
+			float: left;
+		}
+		.ctrl{
+			position: absolute;
+			left: 0;
+			bottom: 10px;
+			width: 1000px;
+		}
+		.ctrl .line{
+			height: 5px;
+			background-color: gray;
+		}
+		.ctrl .seekbar{
+			position: absolute;
+			left: 0;
+			top: -10px;
+			width: 100px;
+			height: 20px;
+			border-radius: 10px;
+			background-color: red;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="goods">
+		<ul>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/01.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/02.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/03.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/01.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/02.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/03.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/01.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/02.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/03.webp" alt="">
+			</li>
+		</ul>
+		<div class="ctrl">
+			<p class="line"></p>
+			<p class="seekbar"></p>
+		</div>
+	</div>
+</body>
+</html>

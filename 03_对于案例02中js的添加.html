@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#goods{
+			width: 1000px;
+			margin: 10px auto;
+			border: 1px solid red;
+			font-size: 12px;
+			padding-bottom: 50px;
+			overflow: hidden;
+			position: relative;
+		}
+		ul{
+			overflow: hidden;
+			position: relative;
+		}
+		.good{
+			text-align: center;
+			width: 333px;
+			float: left;
+		}
+		.ctrl{
+			position: absolute;
+			left: 0;
+			bottom: 10px;
+			width: 1000px;
+			display: none; 
+		}
+		.ctrl .line{
+			height: 5px;
+			background-color: gray;
+		}
+		.ctrl .seekbar{
+			position: absolute;
+			left: 0;
+			top: -10px;
+			width: 100px;
+			height: 20px;
+			border-radius: 10px;
+			background-color: red;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="goods">
+		<ul>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/01.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/02.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/03.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/01.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/02.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/03.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/01.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/02.webp" alt="">
+			</li>
+			<li class="good">
+				<p>资生堂 细腻嫩滑颈霜</p>
+				<img src="./images/03.webp" alt="">
+			</li>
+		</ul>
+		<div class="ctrl">
+			<p class="line"></p>
+			<p class="seekbar"></p>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 1. 先来实现触摸使得滑块的显示跟隐藏
+		$(function(){
+			var ulW = $("li").length / 3 * 1000;
+			$("ul").css({
+				"width":ulW
+			});
+			var timer;
+			// 2. 无条件开启计时器对象，使得 ul 缓缓运动
+			function autoPlay(){
+				timer = setInterval(function(){
+					var speed = 8;
+					$("#goods ul").css({
+						"left":$("#goods ul").position().left-speed
+					});
+					$(".seekbar").css({
+						"left":$("#goods ul").position().left*bili*-1
+					});
+					// 当到最后一组时，就把ul设置会 0 的位置上
+					if(($("ul").width() - Math.abs($("#goods ul").position().left)) < $("#goods").width()){
+						$("#goods ul").css("left",0);
+					}
+				},50);
+			}
+			autoPlay();
+			$("#goods").hover(function(){
+				$(".ctrl").fadeIn(100);
+				clearInterval(timer);
+			},function(){
+				$(".ctrl").fadeOut(100);
+				autoPlay();
+			});
+
+			/*
+			3. 对于滑块大小的设置 --> 对于滑块的宽度，其实跟 ul 于 #good div的宽度比例向对应的
+			*/
+			var bili = $("#goods").width() / ulW;
+			var seekBarW = bili * $("#goods").width(); 
+			$(".seekbar").css({"width":seekBarW});
+			/*
+			4. 复杂事件的编写 --> 按住seekbar，然后再进行拖动
+			*/
+			$(".seekbar").on("mousedown",function(){
+				$(document).on("mousemove",function(event){
+					// 避免选中这些内容
+					window.getSelection().removeAllRanges();
+					console.log("x = " + event.clientX);
+					var left = event.clientX - $("#goods").offset().left - $(".seekbar").width()/2;
+					left = left<0?0:left;
+					$(".seekbar").css({"left":left});
+					// 最后再根据比例，设置 ul 的 left 值
+					$("ul").css({"left":left/bili*-1});
+				});
+			});
+			$(document).on("mouseup",function(){
+				$(".seekbar").off("mousemove");
+			});
+		});
+		
+	</script>
+</body>
+</html>

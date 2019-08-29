@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p data-id="12" data-new-price="1200">点击显示内容</p>
+	<script type="text/javascript">
+		var p = document.querySelector("p");
+		p.addEventListener("click",function(event){
+			var id = p.dataset.id;
+			var newPrice = p.dataset.newPrice;
+			console.log("id = " + id);
+			// 发送请求--> 传递 id 到 后端 --> 拿到了这个id进行对应的操作
+			console.log("newPrice = " + newPrice);
+		});
+
+	</script>
+</body>
+</html>

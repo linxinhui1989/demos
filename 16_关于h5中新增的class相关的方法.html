@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.p1{
+			width: 300px;
+			height: 200px;
+			background-color: red;
+		}
+		.p2{
+			font-size: 30px;
+			text-align: center;
+		}
+		.p3{
+			line-height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn1">点击修改 p 标签上的class  新增</button>
+	<button class="btn2">点击修改 p 标签上的class  移除</button>
+	<p class="p1">Hello</p>
+	<script type="text/javascript">
+		var btn1 = document.querySelector(".btn1");
+		var btn2 = document.querySelector(".btn2");
+		var p = document.querySelector("p");
+		btn1.addEventListener("click",function(){
+			// h5 之前的写法--> 对于元素上的class属性的修改
+			// p.className = "p1 p2";
+			p.classList.add("p2");
+		});
+		btn2.addEventListener("click",function(){
+			// p.classList.remove("p2");
+			p.classList.toggle("p2");
+		});
+		var isContain = p.classList.contains("p1");
+		console.log(isContain);
+	</script>
+</body>
+</html>

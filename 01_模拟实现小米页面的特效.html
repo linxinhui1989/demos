@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		ul{
+			width: 1020px;
+			overflow: hidden;
+			margin: 10px auto;
+			background-color: #f5f5f5;
+		}
+		.good{
+			width: 235px;
+			height: 300px;
+			text-align: center;
+			position: relative;
+			float: left;
+			margin: 10px;
+			cursor: pointer;
+			background-color: #fff;
+			border-radius: 5px;
+		}
+		.good img{
+			width: 150px;
+			height: 150px;
+		}
+		.good h2{
+			font-size: 14px;
+			font-weight: normal;
+		}
+		.good .desc{
+			font-size: 14px;
+			margin: 15px;
+		}
+		/*绝对定位*/
+		.comment{
+			width: 235px;
+			height: 60px;
+			background-color: #ff6700;
+			font-size: 12px;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			color: #fff;	
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="goods">
+		<ul>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+			<li class="good">
+				<img src="./images/01.jpg" alt="">
+				<h2>小米电视4A 32英寸</h2>
+				<p class="desc">64位四核处理器 / 1GB+4GB大内存</p>
+				<p>699 <span>元</span> <span class="del">799元</span> </p>
+				<div class="comment">
+					<p>真的很好用，good</p>
+					<p>来自 xx 的评价</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#goods li").hover(function(){
+				// 触摸发生时操作
+				$(this).find(".comment").slideDown(200);
+			},function(){
+				// 触摸离开时操作
+				$(this).find(".comment").slideUp(200);
+			});
+		});
+	</script>
+</body>
+</html>

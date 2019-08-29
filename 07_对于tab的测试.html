@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="./all.css">
+  <link rel="stylesheet" href="./tabs.css">
+  <script src="./jquery.js"></script>
+  <script src="./jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+<body>
+ 
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">第一项</a></li>
+    <li><a href="#tabs-2">第二项</a></li>
+    <li><a href="#tabs-3">第三项</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>内容1</p>
+  </div>
+  <div id="tabs-2">
+    <p>内容2</p>
+  </div>
+  <div id="tabs-3">
+    <p>内容3</p>
+  </div>
+</div>
+</body>
+</html>

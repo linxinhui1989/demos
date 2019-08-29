@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		img{width: 600px;height: 400px;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="./lazyload.js"></script>
+	<p style="height: 3000px"></p>
+	<div><img class="lazy" data-original="http://jikezy.com/jkzy/public/static/images/3.jpg" alt=""></div>
+	<script type="text/javascript">
+		$(function(){
+			$(".lazy").lazyload();
+		});
+	</script>
+</body>
+</html>
