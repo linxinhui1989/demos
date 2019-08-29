@@ -1,0 +1,603 @@
+/*开始编写对应的css样式*/
+#app{}
+/*添加版芯属性*/
+.container{
+	/*设定版芯的宽度 网页内容所能显示的范围 */
+	width: 1210px;
+	/*设置居中*/
+	margin: 0 auto;
+}
+.fl{float: left;}
+.fr{float: right;}
+
+/*================导航部分样式的设置==================*/
+
+#app .nav-header{
+	height: 722px;
+	background-image: url("../images/nav_bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+/*-----------对于导航列表设置-----------*/
+.nav-header .nav-list{
+	overflow: hidden;
+	font-size: 14px;
+	color: #fff;
+	padding-top: 10px;
+}
+/*对于导航列表左侧设置*/
+.nav-header .list-l{
+	height: 60px;
+}
+.nav-header .list-l .logo{
+	width: 145px;
+	height: 60px;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.nav-header .list-l .city{
+	margin-left: 40px;
+	color: #fff;
+	line-height: 60px;
+}
+.nav-header .list-l .arrow{
+	width: 20px;
+	height: 60px;
+	background-image: url("../images/domw.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+/*对于导航列表右侧设置*/
+.nav-header .list-r{
+	height: 60px;
+}
+.nav-header .list-r ul{}
+.nav-header .list-r ul li{
+	height: 60px;
+	line-height: 60px;
+	margin: 0 13px;
+}
+.nav-header .list-r ul .new-car{
+	position: relative;
+}
+.nav-header .list-r ul .new-car p{
+	width: 34px;
+	height: 15px;
+	background-image: url("../images/newcar.png");
+	/*依靠定位进行位置的编写*/
+	position: absolute;
+	right: -20px;
+	top: 5px;
+}
+/*-----------对于导航搜索设置-----------*/
+.nav-header .nav-search{
+	width: 862px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 225px;
+	overflow: hidden;
+}
+.nav-header .nav-search input{
+	width: 499px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 16px;
+	border:0;
+	color: #333;
+	padding: 13px 22px;
+}
+.nav-header .nav-search .btn{
+	border: 1px solid #fff;
+    width: 147px;
+    height: 48px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+.nav-header .nav-search .search{
+	background-color: #ff5a37;
+}
+.nav-header .nav-search .sell{
+	background-color: #ff9000;
+}
+/*-----------对于厦门剩余车辆设置-----------*/
+.nav-header .left-car{
+	margin: 35px 0;
+	color: #fff;
+	font-size: 22px;
+	text-align: center;
+	/*设置文本间隙*/
+	letter-spacing: 1px;
+}
+/*-----------对于 品牌部分 设置-----------*/
+.nav-header .nav-brand{}
+.nav-header .nav-brand .brand-header{
+	height: 62px;
+	line-height: 62px;
+	text-align: center;
+	background-color: #fff;
+	font-size: 16px;
+	color: #585858;
+}
+.nav-brand .brand-header .brand-title,
+.nav-brand .brand-detail .car-brand
+{
+	width: 606px;
+}
+.nav-brand .brand-header .price,
+.nav-brand .brand-detail .car-price
+{
+	width: 303px;
+}
+.nav-brand .brand-header .type,
+.nav-brand .brand-detail .car-type
+{
+	width: 301px;
+}
+.nav-brand .brand-detail{
+	height: 222px;
+	background-color: #fff;
+}
+/*对于 品牌 部分详细的实现*/
+.nav-brand .brand-detail .car-brand,
+.nav-brand .brand-detail .car-price,
+.nav-brand .brand-detail .car-type{
+	height: 222px;
+}
+.nav-brand .brand-detail .car-brand{
+}
+.brand-detail .car-brand .car-item{
+	width: 94px;
+	height: 94px;
+	text-align: center;
+}
+.brand-detail .car-brand .car-item img{
+	width: 44px;
+	height: 44px;
+	margin: 28px 0 8px 0;
+}
+.brand-detail .car-brand .car-item p{
+	font-size: 14px;
+	color: #585858;
+}
+.nav-brand .brand-detail .car-price{
+	background-color: green;
+}
+.nav-brand .brand-detail .car-type{
+	background-color: gray;
+}
+
+/*================分期购样式的设置==================*/
+.installment-buy{
+	margin-top: 60px;
+}
+.common-nav{
+	height: 46px;
+	border-bottom: 1px solid #ebebeb;
+	line-height: 46px;
+}
+.common-nav h3{
+	font-size: 22px;
+	color: #1b1b1b;
+	width: 138px;
+	font-weight: bolder;
+}
+.common-nav .nav-title{
+	font-size: 18px;
+	color: #585858;
+	margin-right: 40px;
+}
+.common-nav .selected{
+	position: relative;
+}
+.common-nav .selected p{
+	width: 54px;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: #ff5a37;
+}
+.common-nav .more{
+	color: #ff5a37;
+	font-size: 14px;
+}
+.common-nav .more:hover{
+	text-decoration: underline;
+}
+/*-----------对于 分期购中间部分样式 设置-----------*/
+.installment-center{
+	margin-top: 30px;
+	overflow: hidden;
+}
+.installment-center .car-list{}
+.installment-center .car-list .car-list-item{
+	width: 345px;
+	height: 165px;
+	padding-right: 87px; 
+	overflow: hidden;
+}
+.installment-center .car-list .padding_0{
+	padding-right: 0;
+}
+.installment-center .car-list .car-list-item img{
+	width: 190px;
+	height: 127px;
+}
+.installment-center .car-list-item .left-txt{
+	height: 165px;
+	font-size: 18px;
+	color: #333;
+	margin-top: 30px;
+}
+.installment-center .car-list-item .left-txt h3{
+	font-size: 18px;
+	color: #585858;
+	line-height: 32px;
+}
+.installment-center .car-list-item .left-txt span{
+	font-size: 30px;
+	color: #ff5a37;
+	font-weight: bolder;
+}
+/*-----------对于 分期购具体流程样式 设置-----------*/
+.installment-process{
+	height: 45px;
+	background-image: url("../images/bg_process.jpg");
+	padding: 25px 0;
+}
+.installment-process .step{
+	color: #fff;
+	width: 357px;
+	height: 45px;
+	padding-left:45px;
+	font-size: 14px;
+	border-right: 1px solid #fec3b6;
+}
+.installment-process .step h3{
+	height: 44px;
+	line-height: 44px;
+	width: 44px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 20px;
+}
+.installment-process .step .apply{
+	margin-left: 10px;
+}
+.installment-process .step .apply-submit{
+	font-size: 18px;
+	line-height: 28px;
+}
+.installment-process .step .apply-info{}
+
+/*================优信推荐部分样式的设置==================*/
+.youxin-command{
+	margin-top: 50px;
+	overflow: hidden;
+}
+/*对于优信推荐列表样式的设置*/
+.youxin-command .command-list{
+	margin-top: 20px;
+} 
+.youxin-command .command-list li{
+	width: 295px;
+	border:1px solid #ebebeb;
+	margin-right: 7px;
+} 
+.youxin-command .command-list .last-item{
+	margin-right: 0;
+}
+.youxin-command .command-list li img{
+	width: 295px;
+	height: 197px;
+}
+.youxin-command .command-list li .infos{
+	padding: 15px;
+	overflow: hidden;
+}
+.command-list li .infos .car-name{
+	color: #585858;
+}
+.command-list li .infos .car-price{
+	color: #ff5a37;
+}
+
+/*================超值特惠样式的设置==================*/
+.preferential{
+	margin-top: 50px;
+	overflow: hidden;
+}
+.preferential .preferential-list{
+	margin-top: 20px;
+}
+.preferential ul{}
+.preferential ul li{
+	width: 286px;
+	position: relative;
+	margin-right: 20px;
+}
+.preferential ul .last-item{
+	margin-right: 0;
+}
+.preferential ul li .chaozhi{
+	height: 48px;
+	width: 39px;
+	background-image: url("../images/chaozhi.png");
+	position: absolute;
+	left: 0;
+	top: -20px;
+}
+.preferential ul li img{
+	width: 286px;
+	height: 191px;
+}
+.preferential ul li .car-name{
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+	font-weight: bold;
+}
+.preferential ul li .car-year{
+	font-size: 12px;
+	height: 14px;
+	line-height: 14px;
+	color: #999;	
+	margin: 10px 0;
+}
+.preferential ul li .price-renzhen{
+	overflow: hidden;
+	margin: 10px 0;
+}
+.preferential ul li .price-renzhen .price{
+	font-size: 16px;
+	height: 20px;
+	line-height: 20px;
+	color: #333;
+}
+.preferential ul li .price-renzhen .sprite-icon{
+	width: 12px;
+	height: 20px;
+	background-image: url("../images/jp-ico_f3e029a.png");
+	background-position: 0 center;
+}
+.preferential ul li .price-renzhen .renzhen{
+	color: #c08e42;
+	background-color: #f5ede1;
+	font-size: 12px;
+	height: 14px;
+	line-height: 14px;
+	padding: 0 3px;
+	margin: 3px 2px 0;
+}
+.preferential ul li .buy-infos{
+	margin-top: 3px;
+}
+.preferential ul li .buy-infos .ten-percent-buy{
+	background-color: #f85d00;
+	line-height: 18px;
+	font-size: 12px;
+	color: #fff;
+	margin: 8px 5px 0 0;
+}
+.preferential ul li .buy-infos .common-info{
+	font-size: 16px;
+	line-height: 18px;
+	color: #f85d00;
+}
+
+/*================右下角边栏的设置==================*/
+.sidebar{
+	width: 326px;
+	height: 300px;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+}
+.sidebar .sidebar-top{
+	width: 324px;
+	height: 246px;
+	background-image: url("../images/sidebar-app_8c32a96.jpg");
+	position: relative;
+}
+.sidebar .sidebar-top img{
+	position: absolute;
+	right: 25px;
+	top: 30px;
+	width: 86px;
+	height: 86px;
+}
+.sidebar .sidebar-bottom{
+	width: 326px;
+	overflow: hidden;
+	background-color: #333;
+	height: 50px;
+	margin-top: 5px;
+}
+.sidebar .sidebar-bottom .sidebar-btn{
+	line-height: 50px;
+	text-align: center;
+	font-size: 14px;
+	border-right: 1px solid #2b2b2b;
+	color: #fff;
+}
+.sidebar .sidebar-bottom .mfdh{
+	width: 105px;
+}
+.sidebar .sidebar-bottom a:hover{
+	background-color: #e35135;
+}
+.sidebar .sidebar-bottom .mfdh i{
+	display: inline-block;
+	width: 16px;
+	height: 25px;
+	margin-right: 4px; 
+	margin-bottom: -9px;	
+	background-image: url("../images/phone.png");
+}
+.sidebar .sidebar-bottom .ap{
+	width: 72px;
+}
+.sidebar .sidebar-bottom .ap i{
+	width: 13px;
+	height: 20px;
+	display: inline-block;
+	margin-right: 4px;
+	margin-bottom: -5px;
+	background-image: url("../images/app.png");
+}
+.sidebar .sidebar-bottom .gzh{
+	width: 86px;
+}
+.sidebar .sidebar-bottom .gzh i{
+	width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-bottom: -3px;
+    margin-right: 4px;
+    background-image: url("../images/gzh.png");
+}
+.sidebar .sidebar-bottom .up{
+	width: 60px;
+	border-right: 0;
+}
+.sidebar .sidebar-bottom .up i{
+	width: 18px;
+    height: 19px;
+    display: inline-block;
+    margin-bottom: -7px;
+    margin-right: 4px;
+    background-image: url("../images/up.png");
+}
+
+/*================热点的设置==================*/
+.hot{
+	background-color: #f6f6f6;
+	padding: 50px 0;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.hot .hot-area{}
+.hot-area .left-area{
+	width: 480px;
+	height: 490px;
+	background-color: #fff;
+	position: relative;
+}
+.hot-area .left-area .infos{
+	padding: 12px 30px 0;
+}
+.hot-area .left-area .infos p{
+	font-size: 14px;
+	color: #333;
+	line-height: 36px;
+}
+.hot-area .tag{
+	position: absolute;
+	left: -15px;
+	top: 10px;
+	width: 60px;
+	line-height: 30px;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+}
+.hot-area .left-area .hot-tag{
+	background-color: #ff5a38;
+}
+.hot-area .right-area{}
+.hot-area .right-area .baodian{
+	width: 680px;
+	height: 230px;
+	background-color: gray;
+	margin-bottom: 30px;
+	position: relative;
+}
+.hot-area .right-area .baodian .baodian-tag{
+	background-color: #389fff;
+}
+.hot-area .right-area .wenzhang{
+	width: 680px;
+	height: 230px;
+	background-color: pink;
+	position: relative;
+}
+.hot-area .right-area .wenzhang .wenzhang-tag{
+	background-color: #2ecbac;
+}
+
+/*================ 消费者说 的设置==================*/
+.consumers{
+	padding: 60px 0;
+}
+.consumers h3{
+	font-size: 32px;
+	color: #333;
+	text-align: center;
+}
+.consumers h4{
+	font-size: 16px;
+    color: #666;
+    line-height: 24px;
+    text-align: center;
+}
+.consumers .history-list{
+	height: 800px;
+	background-image: url("../images/map_e9cd61d.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+}
+.consumers .history-list a{
+	position: absolute;
+    left: 319px;
+    top: 95px;
+}
+.consumers .history-list .user-info{
+	width: 430px;
+	height: 80px;
+	border:1px solid #e4e4e6;
+	padding: 15px;
+}
+.consumers .history-list .user-info img{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+.consumers .history-list .user-info .msg{
+	font-size: 14px;
+	width: 335px;
+	color: #333;
+	line-height: 24px;
+	margin-top: 5px;
+	margin-left: 15px;
+}
+.consumers .history-list .user-info .msg span{
+	font-weight: bolder;
+}
+.consumers .history-list .user-pos{
+	width: 50px;
+	height: 30px;
+	background-image: url("../images/position.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	left: 30px;
+	top: 111px;
+}
+/*================ 关于我们 的设置==================*/
+.about-us{
+	height: 512px;
+	background-color: #444;
+}
+
+
+
+
+
+
+
