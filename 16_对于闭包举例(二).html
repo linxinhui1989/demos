@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 将变量设置为全局变量就会存在类似的问题，可以随意修改
+		var KTV = (function(){
+			var leaseCost = 2000;
+			var cost = 0;
+			// ktv中含有一些特定的方法,这些方法就是对于函数内部变量的处理
+			return {
+				buy:function(){
+					cost += 300;
+					console.log("当前消费：" + cost);
+				},
+				pay:function(){
+					if(cost < leaseCost){
+						alert("离最低消费额还差"+(leaseCost - cost)+"请继续消费");
+					}else{
+						console.log("消费成功，欢迎下次光临!!!");
+					}
+				},
+				change:function(userName,pwd,price){
+					if(userName == "lucy" && pwd == "12345"){
+						leaseCost = price;
+					}else{
+						alert("你没有权限修改此项");
+					}
+				}
+			};
+		})();
+		/*
+		有一天，你的工商局朋友来你KTV消费，你作为老板要去修改最低消费，而且这个最低消费的修改也只有知道
+		*/
+		KTV.change("lucy","12345",100);
+		KTV.buy();
+		KTV.buy();
+		KTV.pay();
+		KTV.change("lucy","12345",2000);
+	</script>
+</body>
+</html>
