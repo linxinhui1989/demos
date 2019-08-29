@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>乔丹</li>
+		<li>科比</li>
+		<li>欧文</li>
+		<li>艾弗森</li>
+	</ul>
+	<script type="text/javascript">
+		// 1. 找到所有 li 元素
+		var ls = document.getElementsByTagName("li");		
+		// 2. 循环事件监听的注册
+		for(var i=0;i<ls.length;i++){
+			// 3. 通过自定义属性->为每一个li标签单独添加属性
+			ls[i].index = i;// 这个写法就使得每个li上的index属性都不相同
+			ls[i].onclick = function(){
+				/*
+				4. 点击时，获取到这个index属性值 -> 先要找到那个被点击的元素 --> this --> 而元素上又自定义了名为 index 的属性 --> this.index --> 点击哪个 li ，就获取到了哪个 li 上定义好的index属性值
+				 */
+				console.log(this.index);
+			}
+		}
+	</script>
+</body>
+</html>

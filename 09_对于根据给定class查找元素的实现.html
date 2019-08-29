@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li class="item">主标题</li>
+		<li class="item">主标题</li>
+		<li class="item">主标题</li>
+	</ul>
+	<ul>
+		<li>副标题</li>
+		<li>副标题</li>
+		<li>副标题</li>
+		<li>副标题</li>
+	</ul>
+	<script type="text/javascript">
+		var items = document.getElementsByClassName("item");
+		for(var i=0;i<items.length;i++){
+			items[i].innerHTML = "数据修改";
+		}
+	</script>
+</body>
+</html>

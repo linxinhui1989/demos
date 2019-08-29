@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.box{
+			width: 800px;
+			margin: 10px auto;
+			border:1px solid red;
+			overflow: hidden;
+			position: relative;
+			height: 500px;
+		}
+		.box .btn{
+			position: absolute;
+			width: 100px;
+			height: 50px;
+			top: 50%;
+			margin-top: -25px;
+		}
+		.box .prev-btn{
+			left: 0;
+		}
+		.box .next-btn{
+			right: 0;
+		}
+		.box ul{
+			width: 300px;
+			overflow: hidden;
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			margin-left: -150px;
+		}
+		.box li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			border:1px solid gray;
+			margin-right: 10px;
+		}
+		.box .active{
+			background-color: red;	
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<button class="prev-btn btn">左</button>
+		<button class="next-btn btn">右</button>
+		<ul>
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	</script>
+</body>
+</html>

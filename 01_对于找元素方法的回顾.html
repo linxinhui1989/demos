@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		/*
+		使用这个方法获取到的是所有的p元素，是一个数组
+		 */
+		var ps = document.getElementsByTagName("p");
+		var msgs = ["aa","bb","cc","dd"];
+		for(var i=0;i<ps.length;i++){
+			ps[i].innerHTML = msgs[i];
+		}
+		
+		for(var i = 0;i<ps.length;i++){
+			ps[i].onclick = function(){
+				/*
+				先把所所有 p 标签上的背景色都变空
+				 */
+				for(var j=0;j<ps.length;j++){
+					ps[j].style.backgroundColor = "";
+				}
+				this.style.backgroundColor = "red";
+			}
+		}
+		// 当循环结束时，i的值其实已经等于 4 了
+		
+	</script>
+</body>
+</html>

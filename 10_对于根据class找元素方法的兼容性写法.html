@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li class="item">大标题</li>
+		<li class="item">大标题</li>
+		<li class="item">大标题</li>
+		<li class="item">大标题</li>
+		<li class="item">大标题</li>
+	</ul>
+	<script type="text/javascript">
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		// 人为定义一个函数，调用这个函数，传入对应的class值，获取到class所对应的标签列表
+		function getEleByClass(className){
+			/*
+			ie 6 7 之外的浏览器 --> 能够使用 document.getElementsByClassName 这个方法 --> 代码中能够识别这样的方法的存在
+			*/ 
+			if(document.getElementsByClassName != undefined){ 
+				return document.getElementsByClassName(className);
+			}else{
+				// 专门针对 ie 6 7 低版本浏览器的写法
+				/*
+				可以先根据 tagName 找出所有的元素；
+				再来将所有的元素的className 跟 传入的 className进行比较，如果相等，那可以准备一个数组，把这些满足相等判断的元素加入到这个数组中，最后把这个数组进行返回
+				 */
+				var allEles = document.getElementsByTagName("*");
+				// 准备一个空数组，用来保存className满足条件的元素
+				var arrEle = [];
+				// 进行for循环的遍历，在for循环中将所有的元素挨个取出，将取出的元素的className值跟传入的className进行比较
+				for(var i=0;i<allEles.length;i++){
+					if(allEles[i].className == className){
+						/*
+						这个元素就是想要根据 className 找的元素；
+						那么这个元素就得存起来 --> 数组
+						 */
+						arrEle.push(allEles[i]);
+					}
+				}
+				// 循环结束，arrEle数组中就包含了所有满足className属性的元素了
+				return arrEle;
+			}
+		}
+		var items = getEleByClass("item");
+		for(var i=0;i<items.length;i++){
+			items[i].innerHTML = "修改数据";
+		}
+	</script>
+</body>
+</html>

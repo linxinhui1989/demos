@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		ul{
+			margin: 50px;
+			overflow: hidden;}
+		li{
+			float: left;
+			width: 100px;
+			text-align: center;
+			height: 50px;
+			line-height: 50px;
+			cursor: pointer;
+			border-radius: 8px;
+		}
+		img{
+			width: 450px;
+		}
+		.selected{
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="selected">乔丹</li>
+		<li>科比</li>
+		<li>库里</li>
+		<li>加内特</li>
+	</ul>
+	<img src="./images/qd.jpg" alt="">
+	<script type="text/javascript">
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		// 1. 找到所有的 li 元素
+		var ls = $$("li");
+		var img = $$("img")[0];
+		// 1.2 准备一个数组，把所有图片的图片地址保存起来
+		var imgSrcs = ["./images/qd.jpg","./images/kebi.jpg","./images/curry.jpg","./images/kg.jpg"];
+		// 2. 循环注册触摸事件
+		for(var i=0;i<ls.length;i++){
+			// 2.2 注册事件之前，先为每一个li都单独定义一个属性
+			ls[i].index = i;
+			ls[i].onmouseover = function(){
+				// 排他-->先把所有的li上的class属性设置为初始值
+				for(var j=0;j<ls.length;j++){
+					ls[j].className = "";
+				}
+				// 3. 修改对应元素的边框属性
+				this.className = "selected"
+				// 4. 获取到被触摸的这个元素上的 index 属性值，而这个属性值其实就是对应这个被触摸的li在整个ul中的下标位置
+				var liIndex = this.index;
+				// 4.2 根据这个下标，从imgSrcs这个数组中，获取到指定下标位置的图片地址
+				var src = imgSrcs[liIndex];
+				// 4.3 将img中的src属性修改为上面的src变量
+				img.src = src;
+			}
+		}
+	</script>
+</body>
+</html>

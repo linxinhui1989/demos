@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<ul id="u1">
+			<li>主标题</li>
+			<li>主标题</li>
+			<li>主标题</li>
+			<li>主标题</li>
+			<li>主标题</li>
+		</ul>
+		
+		<ul>
+			<li>副标题</li>
+			<li>副标题</li>
+			<li>副标题</li>
+			<li>副标题</li>
+			<li>副标题</li>
+			<li>副标题</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		/*
+		dom是将html文档看成一个树状结构的文档模型；里面所出现的所有的标签/元素其实都是节点；节点也存在子节点
+		 */
+		// 根据找到的父节点，再来获取到对应的子节点
+		var ul1 = document.getElementById("u1");
+		var ls = ul1.getElementsByTagName("li");
+		// var ls = document.getElementById("u1").getElementsByTagName("li");
+		for(var i=0;i<ls.length;i++){
+			ls[i].innerHTML = "新的显示";
+		}
+	</script>
+</body>
+</html>

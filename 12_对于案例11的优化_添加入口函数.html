@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 1000px;
+			height: 100px;
+			color: red;
+			font-size: 30px;
+			border: 1px solid gray;
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		这边是为窗口对象注册了一个onload事件；
+		这个事件处理函数是当页面中的 html 加载好，会进行回调；
+		当这个 onload事件的事件处理函数被调用时，就意味着页面标签都已经加载好了 --> 就可以根据 对应的方法去查找到对应的元素了
+		 */
+		window.onload = function(){
+			var p = document.getElementsByTagName("p")[0];
+			p.innerHTML = "01_对于找元素方法的回顾.html";
+		}
+	</script>
+</head>
+
+<body>
+	<p>abc</p>
+</body>
+</html>

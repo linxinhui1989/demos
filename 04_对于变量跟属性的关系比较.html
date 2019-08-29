@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text">
+	<button>获取输入框中的内容</button>
+	<script type="text/javascript">
+		/*
+		声明了一个变量，变量其实也是属性，只不过是特定对象上的属性；
+		例如，对于这个变量 a ，其实 是 window 上的属性，在开发中，绝大多数都会省略这个 window 
+		 */
+		var a = 10;
+		console.log("a1 = " + a);
+		console.log("a2 = " + window.a);
+		
+		var input = document.getElementsByTagName("input")[0];
+		var button = document.getElementsByTagName("button")[0];
+		// 可以为 标签元素 去定义任意属性
+		input.abc = "哈哈哈"; // 定义属性
+		button.onclick = function(){
+			var val = input.value;// 这边是获取到 input 上的 value 属性
+			var ac = input.abc;// 在定义好属性后的任意位置上，都可以去根据属性名称，去获取这个input上定义的那个属性值
+			console.log("val = " + val);
+			console.log("ac = " + ac);
+		}
+	</script>
+</body>
+</html>
