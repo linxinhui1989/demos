@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			position: relative;
+			width: 66px;
+			height: 42px;
+			line-height:42px; 
+			background-color: #1e2023;
+			margin: 100px;
+			color: #fff;
+			text-align: center;
+			position: relative;
+		}
+		p::before{
+			content:"";
+			border-left: 4px solid rgba(0,0,0,0);
+			border-right: 4px solid red;
+			border-top: 4px solid rgba(0,0,0,0);
+			border-bottom: 4px solid rgba(0,0,0,0);
+			position: absolute;
+			left: -8px;
+			top: 50%;
+			margin-top: -4px;
+		}
+		p::after{
+			content:"";
+			width: 32px;
+			height: 1px;
+			background-color: #909193;
+			position: absolute;
+			left: 50%;
+			margin-left: -16px;
+			bottom: 0px;
+		}
+	</style>
+</head>
+<body>
+	<p>产业</p>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="gbk">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.fl{float: left;}
+		#app{
+			width: 430px;
+			height: 260px;
+			margin: 10px auto;
+			position: relative;
+		}
+		#app .imgs{
+			width: 364px;
+			height: 258px;
+			overflow: hidden;
+		}
+		.img-lst{
+			width: 2184px;
+			position: relative;
+		}
+		.img-lst li{
+			float: left;
+		}
+		.img-lst img{
+			width: 364px;
+			height: 258px;
+		}
+		.asider{
+			width: 66px;
+			height: 260px;
+			text-align: center;
+		}
+		.asider p{
+			height: 42px;	
+			line-height: 42px;
+			background-color: #1e2023;
+			color: #fff;
+			border-bottom: 1px solid gray;
+			cursor: pointer;
+		}
+		.asider .active{
+			background-color: #e94646;
+		}
+		.progress{
+			height: 4px;
+			background-color: #757575;
+			/*background-color: red;*/
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 430px;
+		}
+		.progress .active{
+			height: 4px;
+			width: 0px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 图片列表 -->
+		<div class="imgs fl">
+			<ul class="img-lst">
+				<li><img src="./images/1.jpg" alt=""></li>
+				<li><img src="./images/2.jpg" alt=""></li>
+				<li><img src="./images/3.jpg" alt=""></li>
+				<li><img src="./images/4.jpg" alt=""></li>
+				<li><img src="./images/5.jpg" alt=""></li>
+				<li><img src="./images/6.jpg" alt=""></li>
+			</ul>
+		</div>
+		<!-- 右侧边栏 -->
+		<div class="asider fl">
+			<p class="active">电竞</p>
+			<p>网游</p>
+			<p>网游</p>
+			<p>搞笑</p>
+			<p>手游</p>
+			<p>云玩</p>
+		</div>
+		<!-- 底部进度条 -->
+		<div class="progress">
+			<p class="active"></p>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var autoPlay;
+			var autoProgress;
+			// 1. 触摸实现ul滚动变化
+			$(".asider p").hover(function(){
+				currentIndex = $(this).index();
+				clearRun();
+				autoRun();
+				switchImg();
+			});
+			// 2. 对于自动滚动的实现
+			// 2.2 声明一个外部变量，表示当前下标位置
+			var currentIndex = 0;
+			//3. 对于滚动进度条的添加实现
+			var allLenght = $(".progress").width();
+			
+			// 3.1 开启一个计时器，对于进度条的缓缓改变
+			autoRun();
+			//2.3 将图片切换封装成函数
+			function switchImg(){
+				$(".asider p").eq(currentIndex).addClass("active").siblings().removeClass("active");
+				var w = $(".img-lst li").width();
+				$(".img-lst").stop().animate({"left":-1*currentIndex*w});
+			}
+			function autoRun(){
+				// 3.2 设置对应的增量
+				var step = 2;
+				$(".progress .active").css({"width":0});
+				// 对于轮播图的自动切换
+				autoPlay = setInterval(function(){
+					// 2.1 每隔一段时间，就进行自动切换到下一个
+					currentIndex++;
+					currentIndex %= $(".asider p").length;
+					switchImg();
+				},3000);
+				// 对于进度条的自动变化
+				autoProgress = setInterval(function(){
+					var w = $(".progress .active").width() + step;
+					$(".progress .active").css({"width":w});
+					if(w>=allLenght){
+						$(".progress .active").css({"width":0});
+					}
+				},14);
+			}
+			function clearRun(){
+				clearInterval(autoPlay);
+				clearInterval(autoProgress);
+			}
+		});
+	</script>
+</body>
+</html>

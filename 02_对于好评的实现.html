@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		#app{
+			width: 360px;
+			height: 110px;
+			margin: 100px auto;
+			padding: 50px 0;			
+		}
+		.face{
+			text-align: center;
+			width: 70px;
+			margin: 0 auto;
+			height: 70px;
+			overflow: hidden;
+		}
+		.stars{
+			width: 250px;
+			margin: 0 auto;
+		}
+		.stars p{
+			float: left;
+			width: 40px;
+			height: 40px;
+			background-image: url("./images/star.svg");
+			background-size: 100%;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="face">
+			<img src="./images/xl0.png" alt="">
+			<img src="./images/xl1.png" alt="">
+			<img src="./images/xl2.png" alt="">
+			<img src="./images/xl3.png" alt="">
+			<img src="./images/xl4.png" alt="">
+		</div>
+		<div class="stars">
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 1.触摸事件
+			$(".stars p").hover(function(){
+				$(".stars p").css("background-image",'url(./images/star.svg)');
+				index!=-1?$(".stars p").eq(index).css("background-image",'url(./images/star_click.svg)').prevAll().css("background-image",'url(./images/star_click.svg)'):"";
+				$(this).css("background-image",'url(./images/star_touch.svg)').prevAll().css("background-image",'url(./images/star_touch.svg)');
+			},function(){
+				if(!isClicked){
+					$(".stars p").css("background-image",'url(./images/star.svg)');
+				}
+			});
+			// 2. 点击事件
+			var faceImgs = ["./images/xl1.png","./images/xl2.png","./images/xl3.png","./images/xl4.png","./images/xl5.png"];
+			var isClicked = false;
+			var index = -1;
+			$(".stars p").on("click",function(){
+				isClicked = true;
+				index = $(this).index();
+				// 2.1 修改星星的显示
+				$(this).css("background-image",'url(./images/star_click.svg)').prevAll().css("background-image",'url(./images/star_click.svg)').end().nextAll().css("background-image",'url(./images/star.svg)');
+				// 2.2 修改笑脸
+				$(".face img").attr("src",faceImgs[$(this).index()]);
+			});
+		});
+	</script>
+</body>
+</html>

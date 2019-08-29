@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.green{
+			color: green;
+		}
+		.red{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<p class="red">123</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$("p").hover(function(){
+			$("p").addClass("green");
+		});
+	</script>
+</body>
+</html>

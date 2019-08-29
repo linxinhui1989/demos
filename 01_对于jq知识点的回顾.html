@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<a >数据显示1</a>
+		<a href="11">数据显示2</a>
+		<a href>数据显示3</a>
+		<a href="123">数据显示4</a>
+		<a href="1111">数据显示5</a>
+		<a href="11222">数据显示6</a>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		jQuery.fn.pp = function(){
+			console.log(this);
+		}
+		$(function(){
+			$("a").css("color",function(index,value){
+				if(index%2==0){
+					return "red";
+				}else{
+					return "green";
+				}
+			});
+		});
+	</script>
+</body>
+</html>

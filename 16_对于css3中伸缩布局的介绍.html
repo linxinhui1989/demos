@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.box{
+			width: 1200px;
+			height: 800px;
+			margin: 100px auto;
+			border: 1px solid red;
+			/*通过这个属性，就可以把原来的页面布局修改成了CSS3中的伸缩布局了；在父元素上设置了伸缩布局后，对于这个父元素上的直接子元素，就不采取标准流下的布局了*/
+			display: flex;
+			/*在伸缩布局中，默认存在一个主轴跟侧轴；默认主轴方向是水平的，侧轴就是垂直方向；这个主轴就决定了设置伸缩布局的父元素下的直接子元素在父元素上的排列方式*/
+			flex-direction: row;
+			/*设定子元素在主轴方向上的排列方式*/
+			justify-content: center;
+			/*设定子元素在侧轴方向上排列方式*/
+			align-items: flex-start;
+		}
+		p{
+			/*对于flex属性的设置--> 用于实现等分特效*/
+			height: 100px;
+		}
+		p:first-child{
+			background-color: red;
+			flex:3;
+		}
+		p:last-child{
+			background-color: green;
+			flex:1;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p></p>
+		<p></p>
+	</div>
+</body>
+</html>

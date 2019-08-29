@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		/*含有属性值*/
+		a[href]{
+			font-size: 40px;
+		}
+		/*属性值等于xx*/
+		a[href='www.baidu.com']{
+			background-color: red;
+		}
+		/*属性值以xx开头*/
+		a[href^='age']{} 
+		/*属性值以xx结尾*/
+		a[href$='']{}
+		/*属性值中含有xx*/
+		a[href*='age']{}
+		/*属性值中含有xx完整单词*/
+		a[href~='age']{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<a>11</a>
+	<a href="www.baidu.com">22</a>
+	<a href="www.google.com" class="age">33</a>
+	<a href="www.google.com" class="ageAndW">555</a>
+	<a>44</a>
+</body>
+</html>

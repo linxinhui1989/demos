@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			font-size: 30px;
+		}
+		p::selection{
+			background-color: red;
+			color: blue;
+		}
+		/*为 h1 标签添加为类选择器，效果类似于是在原来元素的基础上，额外新增了标签，而且这个标签默认是在 h1的前面 ； 这个选择器，要求一定要有content属性，就算没有内容，content也要有，只是为 "" 而已*/
+		h1::before{
+			content:"11";
+		}
+		h1::after{
+			content:"22";
+		}
+	</style>
+</head>
+<body>
+	<p>数据显示一下</p>
+	<h1></h1>
+</body>
+</html>
