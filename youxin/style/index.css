@@ -1,0 +1,276 @@
+/*开始编写对应的css样式*/
+#app{}
+/*添加版芯属性*/
+.container{
+	/*设定版芯的宽度 网页内容所能显示的范围 */
+	width: 1210px;
+	/*设置居中*/
+	margin: 0 auto;
+}
+.fl{float: left;}
+.fr{float: right;}
+
+/*================导航部分样式的设置==================*/
+
+#app .nav-header{
+	height: 722px;
+	background-image: url("../images/nav_bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+/*-----------对于导航列表设置-----------*/
+.nav-header .nav-list{
+	overflow: hidden;
+	font-size: 14px;
+	color: #fff;
+	padding-top: 10px;
+}
+/*对于导航列表左侧设置*/
+.nav-header .list-l{
+	height: 60px;
+}
+.nav-header .list-l .logo{
+	width: 145px;
+	height: 60px;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.nav-header .list-l .city{
+	margin-left: 40px;
+	color: #fff;
+	line-height: 60px;
+}
+.nav-header .list-l .arrow{
+	width: 20px;
+	height: 60px;
+	background-image: url("../images/domw.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+/*对于导航列表右侧设置*/
+.nav-header .list-r{
+	height: 60px;
+}
+.nav-header .list-r ul{}
+.nav-header .list-r ul li{
+	height: 60px;
+	line-height: 60px;
+	margin: 0 13px;
+}
+.nav-header .list-r ul .new-car{
+	position: relative;
+}
+.nav-header .list-r ul .new-car p{
+	width: 34px;
+	height: 15px;
+	background-image: url("../images/newcar.png");
+	/*依靠定位进行位置的编写*/
+	position: absolute;
+	right: -20px;
+	top: 5px;
+}
+/*-----------对于导航搜索设置-----------*/
+.nav-header .nav-search{
+	width: 862px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 225px;
+	overflow: hidden;
+}
+.nav-header .nav-search input{
+	width: 499px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 16px;
+	border:0;
+	color: #333;
+	padding: 13px 22px;
+}
+.nav-header .nav-search .btn{
+	border: 1px solid #fff;
+    width: 147px;
+    height: 48px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+.nav-header .nav-search .search{
+	background-color: #ff5a37;
+}
+.nav-header .nav-search .sell{
+	background-color: #ff9000;
+}
+/*-----------对于厦门剩余车辆设置-----------*/
+.nav-header .left-car{
+	margin: 35px 0;
+	color: #fff;
+	font-size: 22px;
+	text-align: center;
+	/*设置文本间隙*/
+	letter-spacing: 1px;
+}
+/*-----------对于 品牌部分 设置-----------*/
+.nav-header .nav-brand{}
+.nav-header .nav-brand .brand-header{
+	height: 62px;
+	line-height: 62px;
+	text-align: center;
+	background-color: #fff;
+	font-size: 16px;
+	color: #585858;
+}
+.nav-brand .brand-header .brand-title,
+.nav-brand .brand-detail .car-brand
+{
+	width: 606px;
+}
+.nav-brand .brand-header .price,
+.nav-brand .brand-detail .car-price
+{
+	width: 303px;
+}
+.nav-brand .brand-header .type,
+.nav-brand .brand-detail .car-type
+{
+	width: 301px;
+}
+.nav-brand .brand-detail{
+	height: 222px;
+	background-color: #fff;
+}
+/*对于 品牌 部分详细的实现*/
+.nav-brand .brand-detail .car-brand,
+.nav-brand .brand-detail .car-price,
+.nav-brand .brand-detail .car-type{
+	height: 222px;
+}
+.nav-brand .brand-detail .car-brand{
+}
+.brand-detail .car-brand .car-item{
+	width: 94px;
+	height: 94px;
+	text-align: center;
+}
+.brand-detail .car-brand .car-item img{
+	width: 44px;
+	height: 44px;
+	margin: 28px 0 8px 0;
+}
+.brand-detail .car-brand .car-item p{
+	font-size: 14px;
+	color: #585858;
+}
+.nav-brand .brand-detail .car-price{
+	background-color: green;
+}
+.nav-brand .brand-detail .car-type{
+	background-color: gray;
+}
+
+/*================分期购样式的设置==================*/
+.installment-buy{
+	margin-top: 60px;
+}
+.common-nav{
+	height: 46px;
+	border-bottom: 1px solid #ebebeb;
+	line-height: 46px;
+}
+.common-nav h3{
+	font-size: 22px;
+	color: #1b1b1b;
+	width: 138px;
+	font-weight: bolder;
+}
+.common-nav .nav-title{
+	font-size: 18px;
+	color: #585858;
+	margin-right: 40px;
+}
+.common-nav .selected{
+	position: relative;
+}
+.common-nav .selected p{
+	width: 54px;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: #ff5a37;
+}
+.common-nav .more{
+	color: #ff5a37;
+	font-size: 14px;
+}
+.common-nav .more:hover{
+	text-decoration: underline;
+}
+/*-----------对于 分期购中间部分样式 设置-----------*/
+.installment-center{
+	margin-top: 30px;
+	overflow: hidden;
+}
+.installment-center .car-list{}
+.installment-center .car-list .car-list-item{
+	width: 345px;
+	height: 165px;
+	padding-right: 87px; 
+	overflow: hidden;
+}
+.installment-center .car-list .padding_0{
+	padding-right: 0;
+}
+.installment-center .car-list .car-list-item img{
+	width: 190px;
+	height: 127px;
+}
+.installment-center .car-list-item .left-txt{
+	height: 165px;
+	font-size: 18px;
+	color: #333;
+	margin-top: 30px;
+}
+.installment-center .car-list-item .left-txt h3{
+	font-size: 18px;
+	color: #585858;
+	line-height: 32px;
+}
+.installment-center .car-list-item .left-txt span{
+	font-size: 30px;
+	color: #ff5a37;
+	font-weight: bolder;
+}
+/*-----------对于 分期购具体流程样式 设置-----------*/
+.installment-process{
+	height: 45px;
+	background-image: url("../images/bg_process.jpg");
+	padding: 25px 0;
+}
+.installment-process .step{
+	color: #fff;
+	width: 357px;
+	height: 45px;
+	padding-left:45px;
+	font-size: 14px;
+	border-right: 1px solid #fec3b6;
+}
+.installment-process .step h3{
+	height: 44px;
+	line-height: 44px;
+	width: 44px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 20px;
+}
+.installment-process .step .apply{
+	margin-left: 10px;
+}
+.installment-process .step .apply-submit{
+	font-size: 18px;
+	line-height: 28px;
+}
+.installment-process .step .apply-info{}
