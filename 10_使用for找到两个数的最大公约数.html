@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num1 = 12,num2 = 18,gongYS = 1,gongBS = 1;
+		// 找到两个数之间的较小值
+		var min = (num1 < num2) ? num1 : num2;
+		for(var i = 1;i <= min;i ++){
+			if(num1 % i == 0 && num2 % i == 0){
+				gongYS = i;
+			}
+		}
+		// 循环结束之后，这个 gongYS 变量中保存的就是两个数的最大公约数了
+		gongBS = num1 * num2 / gongYS;
+		console.log(num1 + "和" + num2 + "的最大公约数是:" + gongYS + "，最小公倍数是:" + gongBS);
+	</script>
+</body>
+</html>

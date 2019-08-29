@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			var num = 11;
+			while(num <= 10){
+				// while循环会先去判断循环条件是否满足，如果不满足，一次都不会执行
+				console.log("num = " + num);
+				num ++;
+			}
+			console.log("over");
+		 */
+		
+		/*
+			对于 do...while 这个循环，执行流程是，先执行一次，执行完之后，再来进行while条件的判断，如果判断结果不是为 true，那就不再执行这个循环了;
+			do...while循环，至少会执行一回
+		 */
+		var num = 11;
+		do{
+			console.log("num = " + num);
+			num ++;
+		}while(num <= 10);
+	</script>
+</body>
+</html>

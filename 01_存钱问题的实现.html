@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 声明所需要的几个变量
+		var money = 10000,rate = 0.05,year = 1;
+		// // 第一年的时候 年底
+		// money = money + money * rate;
+		// year++;
+		// // 第二年的年底
+		// money = money + money * rate;
+		// year++;
+		// // 第三年的年底
+		// money = money + money * rate;
+		// year++;
+		while(year<=100){
+			money = money + money * rate;
+			year++;
+		}
+		console.log("十年后总金额：" + money);
+	</script>
+</body>
+</html>

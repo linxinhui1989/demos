@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1. 声明变量
+		var h = 10,touchCount = 0,total = 0;
+		total = -1*h;
+		// 第一次落地
+		// total += h*2;
+		// touchCount ++;
+		// h = h/2;
+		// // 第二次落地
+		// total += h*2;
+		// touchCount ++;
+		// h = h/2;
+		// // 第三次落地
+		// total += h*2;
+		// touchCount ++;
+		// h = h/2;
+		while(touchCount <= 10){
+			total += h*2;
+			touchCount ++;
+			h = h/2;
+		}
+		console.log("total = " + total);
+	</script>
+</body>
+</html>

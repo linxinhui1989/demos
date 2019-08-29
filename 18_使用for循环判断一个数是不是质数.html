@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = 17;
+		// 这个就是用来最后判断这个数到底是不是质数的关键
+		var isZhiShu = true;
+		for(var i = 2;i < num;i ++){
+			if(num % i == 0){
+				// 说明 num 这个变量能够被 i 整除->不是质数--> 但是这边是循环里面，只要去修改isZhiShu这个变量的值就好
+				isZhiShu = false;
+			}
+		}
+		// 当循环结束后，再来根据isZhiShu这个变量，进行对应的结论输出
+		if(isZhiShu){
+			console.log(num);
+		}
+	</script>
+</body>
+</html>
