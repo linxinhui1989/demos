@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>111</p>
+	<p>222</p>
+	<p>333</p>
+	<script type="text/javascript">
+		// 定义jq库
+		;(function(){
+			// 编写名为jQuery的函数
+			function jQuery(selector){
+				// 就在这个 jQuery 这个函数中进行元素的查找
+				return new Q(selector);
+			}
+			
+			// 在额外定义一个名为 Q 的函数，然后这个 Q 构造函数是在 jQuery 函数中被创建
+			function Q(selector){
+				var eles = document.querySelectorAll(selector);
+				return eles;
+			}
+
+			// 将jQuery这个函数内的变量，设置为 window 的属性
+			window.jQuery = window.$ = jQuery;
+		})();
+		// 外部要能够访问到这个 jQuery，所以这边需要将jQuery这个函数内的变量，设置为 window 的属性
+		console.log($("p"));
+		// $("p").css();
+	</script>
+</body>
+</html>
