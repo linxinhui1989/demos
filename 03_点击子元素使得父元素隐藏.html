@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		#box{
+			width: 300px;
+			height: 400px;
+			background-color: rgba(0,0,0,0.5);
+			position: relative;
+			margin: 100px auto;
+		}
+		p{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			font-size: 30px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p>x</p>
+	</div>
+	<script type="text/javascript">
+		// 1. 先找到所要参与事件的 p 标签
+		var p = document.getElementsByTagName("p")[0];
+		// 2. 再来找到所要参与显示跟隐藏的 div 元素
+		var div = document.getElementsByTagName("div")[0];
+		p.onclick = function(){
+			div.style.display = "none";
+		}
+	</script>
+</body>
+</html>

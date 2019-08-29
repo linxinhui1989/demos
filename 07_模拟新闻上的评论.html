@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<div>新闻内容</div>
+		<button>添加评论</button>
+		<div id="content"></div>
+	</div>
+	<script type="text/javascript">
+		var button = document.getElementsByTagName("button")[0];
+		var content = document.getElementById("content");
+		// 为按钮注册点击事件
+		button.onclick = function(){
+			// 在点击事件发生时，进行元素的动态添加
+			var p = document.createElement("p");
+			// 这个p标签 跟 document.getElementById 获取的标签操作就一样了
+			p.innerHTML = "好文章";
+			p.style.color = "red";
+			p.style.fontSize = "20px";
+			// 创建好了这个 p 标签后，需要将 p 标签添加到对应的父标签上
+			content.appendChild(p);
+		}
+	</script>
+</body>
+</html>

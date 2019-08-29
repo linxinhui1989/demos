@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#app{}
+		#app ul{
+			width: 600px;
+			height: 50px;
+			margin:  0 auto;
+			overflow: hidden;
+		}
+		#app ul li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+		}
+		ul li:hover{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="nav">
+			<ul>
+				<!-- <li>标题</li>
+				<li>标题</li>
+				<li>标题</li>
+				<li>标题</li>
+				<li>标题</li> -->
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 获取从数据库中得到的数据
+		var titles = ["首页","设置","帮助","文档","支付","其他"];
+		var ul = document.getElementsByTagName("ul")[0];
+		var liW = 100;
+		ul.style.width = liW * titles.length + "px";
+		// 借助循环，对于元素挨个条件
+		for(var i=0;i<titles.length;i++){
+			// 在循环中进行元素的动态创建
+			var li = document.createElement("li");
+			li.innerHTML = titles[i];
+			li.style.width = 100 + "px";
+			// 再来将标签添加到 ul 上
+			ul.appendChild(li);
+		}
+	</script>
+</body>
+</html>

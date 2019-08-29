@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<button>删除</button>
+		<div id="wrap">
+			<p>初始内容</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName("button")[0];
+		var p = document.getElementsByTagName("p")[0];
+		var wrap = document.getElementById("wrap");
+		btn.onclick = function(){
+			// 插入  wrap.appendChild(p);
+			wrap.removeChild(p);
+		}
+	</script>
+</body>
+</html>

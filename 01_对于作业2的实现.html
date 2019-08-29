@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.fl{float: left;}
+		.fr{float: right;fl }
+		#game{
+			width: 290px;
+			margin:  100px auto;
+		}
+		#game .title{
+			font-size: 22px;
+			padding-left: 5px;
+    		border-left: 4px solid #e94646;
+    		font-weight: 400;
+		}
+		/*对于列表中样式设置*/
+		.prepare-game{
+			margin-top: 5px;
+			border-top: 1px solid #e3e3e3;
+		}
+		.prepare-game .nav{
+			overflow: hidden;
+			line-height: 30px;
+			height: 30px;
+			text-align: center;
+		}
+		.nav .playform{
+			width: 56px;
+		}
+		.nav .game-name{
+			width: 123px;
+		}
+		.nav .day{
+			width: 111px;
+		}
+		.game-list .active .nav{
+			background-color: #f5f5f5;
+		}
+		.game-list .nav .playform{
+			color: #e94646;
+		}
+		.info{
+			text-align: center;
+			position: relative;
+			display: none;
+		}
+		.active .info{
+			display: block;
+		}
+		.info .info-normal{
+			width: 145px;
+			position: absolute;
+			bottom: 0;
+			height: 29px;
+			line-height: 29px;
+			background-color: rgba(0,0,0,0.6);
+			color: #fff;
+			cursor: pointer;
+		}
+		.info .dingyue{
+			left: 0;
+		}
+		.info .yugao{
+			right: 0;
+		}
+		.info .dingyue:hover,.info .yugao:hover{
+			background-color: rgba(255,0,0,0.6);
+		}
+	</style>
+</head>
+<body>
+	<div id="game">
+		<h3 class="title">新游预告</h3>
+		<!-- 游戏列表 -->
+		<div class="prepare-game">
+			<div class="nav">
+				<p class="fl playform">平台</p>
+				<p class="fl game-name">游戏名</p>
+				<p class="fr day">发售日</p>
+			</div>
+			<ul class="game-list">
+				<li class="active">
+					<div class="nav">
+						<p class="fl playform">MUL</p>
+						<p class="fl game-name">圣歌</p>
+						<p class="fr day">2019-02-02</p>
+					</div>
+					<div class="info">
+						<img src="./images/game.jpg" alt="">
+						<p class="info-normal dingyue">订阅游戏</p>
+						<p class="info-normal yugao">游戏预告</p>
+					</div>
+				</li>
+				<li class="">
+					<div class="nav">
+						<p class="fl playform">MUL</p>
+						<p class="fl game-name">圣歌</p>
+						<p class="fr day">2019-02-02</p>
+					</div>
+					<div class="info">
+						<img src="./images/game.jpg" alt="">
+						<p class="info-normal dingyue">订阅游戏</p>
+						<p class="info-normal yugao">游戏预告</p>
+					</div>
+				</li>
+				<li class="">
+					<div class="nav">
+						<p class="fl playform">MUL</p>
+						<p class="fl game-name">圣歌</p>
+						<p class="fr day">2019-02-02</p>
+					</div>
+					<div class="info">
+						<img src="./images/game2.jpg" alt="">
+						<p class="info-normal dingyue">订阅游戏</p>
+						<p class="info-normal yugao">游戏预告</p>
+					</div>
+				</li>
+				<li class="">
+					<div class="nav">
+						<p class="fl playform">MUL</p>
+						<p class="fl game-name">圣歌</p>
+						<p class="fr day">2019-02-02</p>
+					</div>
+					<div class="info">
+						<img src="./images/game.jpg" alt="">
+						<p class="info-normal dingyue">订阅游戏</p>
+						<p class="info-normal yugao">游戏预告</p>
+					</div>
+				</li>
+			</ul>			
+		</div>
+	</div>
+	<script type="text/javascript">
+		/*
+			1. 观察页面，分析大体结构
+			2. 结合html + css 先来做好一项
+			3. 再来结合 js 中触摸事件，使得隐藏起来的img进行显示
+			4. 细化页面
+		*/
+		var ls = document.getElementsByTagName("li");
+		// 注册循环事件
+		for(var i=0;i<ls.length;i++){
+			ls[i].onmouseover = function(){
+				for(var j=0;j<ls.length;j++){
+					ls[j].className = "";
+				}
+				this.className = "active";
+			}
+		}
+	</script>
+</body>
+</html>

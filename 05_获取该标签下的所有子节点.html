@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<!-- 呵呵 -->
+		<p>你好1</p>
+		<!-- 呵呵 -->
+		<h1>你好2</h1>
+		<!-- 呵呵 -->
+		<a href="xxx">你好3</a>
+	</div>
+	<script type="text/javascript">
+		var div = document.getElementsByTagName("div")[0];
+		var childs = div.childNodes;
+		// 获取这个div下的所有子节点
+		console.log(div.childNodes);
+		// ie 中获取所有子节点的属性写法
+		console.log(div.children);
+		console.log(div.children);
+		var childs2 = getChildNodes(div);
+		console.log(getChildNodes(div));
+		/*
+			节点分为 
+			元素节点   属性节点   文本节点
+			这边 childNodes 是通用的一个获取所有子节点的写法；
+			这个属性会将 元素节点 以及 元素节点之间的空隙(文本节点) 一并算入到子节点上了；这个写法确实没问题，只是在于获取了文本节点，此时可以通过函数，对这个属性进行修改
+			在代码中，可以根据节点中的nodeType属性来进行区分到底是元素节点还是文本节点
+			nodeType 1  元素节点
+			nodeType 2  属性节点
+			nodeType 3  文本节点
+		*/
+		function getChildNodes(node){
+			// 准备一个函数，用来获取到代码真正能用到的元素节点，而不需要获取开发中无用的文本节点
+			var nodes = node.childNodes;
+			// 准备一个数组，专门用来保存所有的元素节点
+			var eles = [];
+			for(var i=0;i<nodes.length;i++){
+				var ele = nodes[i];
+				if(ele.nodeType == 1){
+					eles.push(ele);
+				}
+			}
+			// 当循环结束之后，eles这个数组中其实就拿到了 指定 node 节点下的所有元素节点了
+			return eles;
+		}
+		console.log("div下子节点个数是：" + childs.length);
+		console.log("div下所有元素节点个数是：" + childs2.length);
+	</script>
+</body>
+</html>

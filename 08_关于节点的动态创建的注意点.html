@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<button>添加</button>
+		<div id="wrap">
+			<p>这边是第一个</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName("button")[0];
+		var p = document.getElementsByTagName("p")[0];
+		var wrap = document.getElementById("wrap");
+		var index = 0;
+		btn.onclick = function(){
+			index ++;
+			// 动态创建元素节点
+			var h2 = document.createElement("h2");
+			h2.innerHTML = "这边是测试 --> " + index;
+			// 再来将元素节点添加到父容器上
+			wrap.insertBefore(h2,p);
+		}
+	</script>
+</body>
+</html>

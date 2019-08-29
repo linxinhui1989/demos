@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2">
+			<h1>这是p标签的兄弟标签</h1>
+			<p>123</p>
+			<h2>p标签的兄弟</h2>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var p = document.getElementsByTagName("p")[0];
+		// 找父节点
+		console.log(p.parentNode);
+		// 找下一个兄弟节点
+		console.log(p.nextSibling);
+		console.log(p.nextElementSibling);
+		// 找上一个兄弟节点
+		console.log(p.previousSibling);
+		console.log(p.previousElementSibling);
+	</script>
+</body>
+</html>

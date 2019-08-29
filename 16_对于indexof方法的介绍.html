@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "abcdsbadbasda";
+		/*
+		想知道在这个字符串中，是否存在 m 这个字符；如果存在，请输出m 这个字符在字符串中所在的具体位置
+		*/
+		var index1 = str.indexOf("d");
+		var index2 = str.lastIndexOf("d");
+		console.log("index1 = " + index1);
+		console.log("index2 = " + index2);
+		/*
+		使用 indexOf 就可以进行字符串中是否存在某个字符串的判断；
+		如果存在，那么这个方法的返回值就会是这个字符在字符串中所在的具体下标位置；
+		如果不存在，那么这个方法的返回值会是 -1
+		对于lastIndexOf这个方法，跟indexOf方法作用是类似的，只是查找的方向不同，indexOf是从左往右找，lastIndexOf是从右往左找
+		 */
+	</script>
+</body>
+</html>

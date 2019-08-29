@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		#app{
+			width: 400px;
+			margin: 0 auto;
+		}
+		textarea{
+			resize: none;
+		}
+		#content div{
+			overflow: hidden;
+			width: 200px;
+			margin: 20px 0;
+		}
+		#content div p{
+			float: left;
+		}
+		#content div button{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div>文章内容</div>
+		<div>
+			<textarea cols="30" rows="10"></textarea>
+			<button>评论</button>
+		</div>
+		<div id="content">
+		</div>
+	</div>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName("button")[0];
+		var inputEle = document.getElementsByTagName("textarea")[0];
+		var content = document.getElementById("content");
+		// 为按钮注册点击事件
+		btn.onclick = function(){
+			// 1. 动态创建一个 div 元素
+			var div = document.createElement("div");
+			// 2. 再来动态创建p标签以及button标签
+			var p = document.createElement("p");
+			var button = document.createElement("button");
+			// 3. 再来为p以及button设置显示内容
+			// 3.1 获取输入框中的输入的内容
+			var val = inputEle.value;
+			p.innerHTML = val;
+			button.innerHTML = "x";
+			// 3.2 注册点击事件
+			button.onclick = function(){
+				content.removeChild(this.parentNode);
+			}
+			// 4. 将 p 以及 button 添加到 动态创建的div元素上
+			div.appendChild(p);
+			div.appendChild(button);
+			// 5. 再来将动态创建包含有 p 跟 button 的div添加到 content中，而且还有实现后面添加的显示在前面
+			content.insertBefore(div,content.firstElementChild);
+			inputEle.value = "";
+		}
+	</script>
+</body>
+</html>
