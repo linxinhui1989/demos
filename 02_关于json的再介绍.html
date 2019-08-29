@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var p = {
+			"name":"小明",
+			"age":23,
+			"eat":function(){
+				console.log("吃饭了...");
+			}
+		}
+		p.name;
+		p.age;
+		p.eat; // 这个写法，是拿到p这个json中所保存的那个函数的eat的地址，此时这种写法是不会使得函数调用的，函数的调用时  函数名()
+		p.eat();
+		function show(){}
+
+		var show = function(){
+			console.log("吃饭了...");
+			console.log("吃饭了...");
+			console.log("吃饭了...");
+		}
+		show();
+		// console.log(show);
+	</script>
+</body>
+</html>

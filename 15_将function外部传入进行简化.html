@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			width: 800px;
+			height: 500px;
+			border: 1px solid red;
+			position: relative;
+			margin: 10px auto;
+			overflow: hidden;
+		}
+		.p1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			right: -100px;
+			bottom: -80px;
+		}
+		.p2{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: -100px;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<button>变化1</button>
+	<div>
+		<p class="p1"></p>
+	</div>
+	<script type="text/javascript" src="fn2.js"></script>
+	<script type="text/javascript">
+		var btn1 = $$.$("button")[0];
+		var p1 = $$.$("p")[0];
+		btn1.onclick = function(){
+			/*var fn = function(){
+				animate(p1,{"bottom":30},5);
+			}*/
+			animate(p1,{
+				"right":30
+			},5,function(){
+				animate(p1,{"bottom":30},5)
+			});
+		}
+		
+		/*
+		  在animate函数中，再来书写一个fn变量，这个变量就是保存函数的地址的
+		*/
+		function animate(ele,target,rate,func){
+			rate = rate || 10;
+			// 避免多次点击，开启多个计时器
+			clearInterval(ele.t);
+			// 调用函数，实现变速运动
+			ele.t = setInterval(function(){
+				/*
+				跟之前的差别是在于，在interval回调函数中，不再是只修改一个属性，而是要修改多个属性，这多个属性是来自于函数调用时，传入的那个target的key中-->意味着就需要对target中的所有key对应的属性进行设置 --> 要借助 for...in 循环，将 key 挨个取出，挨个处理
+				*/
+				var isOver = true;
+				for(var attrName in target){
+					var current = getAttr(ele,attrName);
+					if(attrName == "opacity"){
+						// 针对透明度，进度特殊处理
+						var res = target[attrName]*100 - current*100;
+					}else{
+						current = parseInt(current);
+						var res = target[attrName] - current;
+					}
+					var step = (target[attrName]>current)?Math.ceil(res / rate):Math.floor(res / rate);
+					var dis;
+					if(attrName == "opacity"){
+						// 对于opacity透明度单独处理
+						dis = current * 100 + step;
+						dis = dis / 100;
+						ele.style[attrName] = dis;
+					}else if(attrName == "z-index"){
+						// 对于z-index单独处理
+						dis = target[attrName];
+						ele.style[attrName] = dis;
+					}else{
+						// 对于其他带有 px 单位样式的处理
+						dis = current + step;
+						ele.style[attrName] = dis + "px";
+					}
+					var cha = Math.abs(target[attrName] - dis);
+					if(cha != 0){
+						// 如果这个cha变量差值不为 0，表示动画还应该继续，不能停下来
+						isOver = false;
+					}
+				}
+				// 在循环外部，进行是否要停止计时器的判断
+				if(isOver){
+					clearInterval(ele.t);
+					// 在计时器结束时，去调用传进来的fn
+					if(func!=undefined){
+						func();
+					}
+				}
+			},20);
+		}
+		// 定义一个函数，用于获取指定的元素的指定属性
+		function getAttr(ele,attrName){
+			return window.getComputedStyle(ele)[attrName];
+		}
+	</script>
+</body>
+</html>

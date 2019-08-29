@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function eat(fn){
+			console.log("吃好了...");
+			if(fn != undefined){
+				fn();
+			}
+		}
+		/*
+		这边将sleep作为函数的参数进行传递；这个sleep变量，其实就是保存了 function 的地址，地址其实也就是数字，那么就意味着，在 eat 函数中出现的 fn ，其实就是保存了外部函数sleep的地址，既然保存了 外部 sleep 函数的地址，那么在 eat函数内，使用 fn，也就能访问到 外部的 sleep 函数的了
+		因为sleep 是funciton，而此时sleep又赋给了 fn，那么就意味着fn也指向了那个function，既然是function，那就可以通过()进行调用了
+		 */
+		eat(); 
+		/*
+		调用 eat 这个函数，然后在 eat 函数中，打印完 "吃好了..." 之后，需要根据外部情况，进行不同函数的调用
+		 */ 
+		function sleep(){
+			console.log("睡觉");
+		}
+		function work(){
+			console.log("工作");
+		}
+
+	</script>
+</body>
+</html>

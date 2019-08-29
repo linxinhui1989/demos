@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var getAttr = "1234";
+		
+		var p= $("p")[0];
+		console.log("getAttr = " + getAttr);
+		var w = getAttr(p,"width");
+		console.log("w = " + w);
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function eat(tag){
+			console.log("吃好了...");
+			if(tag == "sleep"){
+				sleep();
+			}else if(tag == "work"){
+				work();
+			}else if(tag == "study"){
+				study();
+			}
+		}
+		/*
+		调用 eat 这个函数，然后在 eat 函数中，打印完 "吃好了..." 之后，需要根据外部情况，进行不同函数的调用
+		 */ 
+		function sleep(){
+			console.log("睡觉");
+		}
+		function work(){
+			console.log("工作");
+		}
+		function study(){
+			console.log("学习");
+		}
+
+		eat();
+		eat("study");
+		eat("work");
+		eat("sleep");
+
+	</script>
+</body>
+</html>
