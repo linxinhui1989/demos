@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function sum(){
+			// 在函数内部，其实提供了一个参数 arguments ，可获取到所有传递过来的参数
+			var s = 0;
+			for(var i=0;i<arguments.length;i++){
+				s += arguments[i];
+			}
+			return s;
+		}
+		var ss = sum(11,22,33);
+		console.log(ss);
+	</script>
+</body>
+</html>
