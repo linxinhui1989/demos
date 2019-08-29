@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 100px auto;
+			/*为所有属性去添加过渡特效，持续时间为 1秒*/
+			/*指明哪个属性变化才有过渡特效*/
+			transition-property: all;
+			/*设置过渡特效的时间*/
+			transition-duration: 2s;
+			/*设置过渡特效的延迟时间*/
+			transition-delay:  0s;
+			/*设定过渡变化速率*/
+			transition-timing-function: linear;
+		}
+		p:hover{
+			background-color: blue;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+</body>
+</html>

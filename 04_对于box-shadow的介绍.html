@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			font-size: 30px;
+			width: 200px;
+			height: 200px;
+			float: left;
+			background-color: gray;
+			margin: 20px;
+		}
+		p:nth-child(1){
+			box-shadow: 10px 10px 10px red;
+		}
+		p:nth-child(2){
+			box-shadow: 10px 10px 10px 5px red;
+		}
+		p:nth-child(3){
+			box-shadow: 10px 10px 10px 5px red,
+			-5px -5px 5px green,
+			-7px -7px 2px blue;
+		}
+		p:nth-child(4){
+			box-shadow: inset 10px 10px 5px red;
+		}
+		p:nth-child(5){
+			border-radius: 50%;
+			box-shadow: inset 0px 0px 50px #fff,
+                inset 10px 0px 80px #f0f,
+                inset -10px 0px 80px #0ff,
+                inset 0px 0px 150px #f0f,
+                inset -10px 0px 150px #0ff,
+                0px 0px 50px #fff,
+                -10px 0px 50px #f0f,
+                10px 0px 50px #0ff;
+		}
+		p:nth-child(6){
+			background-color: #fff;
+			box-shadow: inset 0 0 25px hsla(0,0%,0%,.2), 
+			0px 1px 0px #999, 
+			0px 2px 0px #888, 
+			0px 3px 0px #777, 
+			0px 4px 0px #666, 
+			0px 5px 0px #555, 
+			0px 6px 0px #444, 
+			0px 7px 0px #333, 
+			0px 8px 7px #001135;
+		}
+		p:nth-child(7){
+			background-color: #fff;
+			box-shadow: inset 0 0 100px hsla(0,0%,0%,.2), inset 0px 1px 5px #999, inset 0px 2px 0px #888, inset 0px 3px 0px #777, inset 0px 4px 0px #666, inset 0px 5px 0px #555, inset 0px 6px 0px #444, inset 0px 7px 0px #333, inset 0px 8px 7px #001135;
+		}
+	</style>
+</head>
+<body>
+	<p>测试一下</p>
+	<p>测试一下</p>
+	<p>测试一下</p>
+	<p>测试一下</p>
+	<p></p>
+	<p></p>
+	<p></p>
+</body>
+</html>

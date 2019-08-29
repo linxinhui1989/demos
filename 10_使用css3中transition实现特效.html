@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 100px auto;
+			/*为所有属性去添加过渡特效，持续时间为 1秒*/
+			transition: all 1s;
+		}
+		p:hover{
+			border-radius: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<script type="text/javascript">
+		var p = document.querySelector("p");
+		p.addEventListener("click",function(){
+			p.style.width = "400px";
+			p.style.height = "400px";
+		})
+	</script>
+</body>
+</html>

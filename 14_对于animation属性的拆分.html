@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 100px auto;
+			/*animation: run 1s;*/
+			/*设置动画的名字*/
+			animation-name: run;
+			/*设置动画的持续时间*/
+			animation-duration: 1s;
+			/*设置动画的延迟时间*/
+			animation-delay: 0s;
+			/*设置动画的次数 可以是整数次，也可以用infinite实现无数次*/
+			animation-iteration-count: 1;
+			/*设置动画结束后的样式 initial表示默认值，动画结束，变回原来的初始样式 forwards动画结束后，保存最后一帧的样式*/
+			animation-fill-mode: forwards;
+			/*动画运动的速率*/
+			animation-timing-function:linear;
+			/*设置帧动画的方向 normal reverse */
+			animation-direction: reverse;
+		}
+		@keyframes run{
+			0%{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			50%{
+				width: 400px;
+				height: 400px;
+				background-color: green;
+				border-radius: 50%;
+			}
+			100%{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				border-radius: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+</body>
+</html>

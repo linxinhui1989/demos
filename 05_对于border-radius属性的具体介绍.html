@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			width: 200px;
+			height: 250px;
+			border: 1px solid red;
+			text-align: center;
+			float: left;
+			margin: 20px;
+		}
+		h2{
+			font-size: 15px;
+			height: 40px;
+		}
+		p{
+			width: 150px;
+			height: 150px;
+			background-color: red;
+			margin: 20px auto;
+		}
+		div:nth-child(1)>p{
+			border-radius: 10px;
+		}
+		div:nth-child(2)>p{
+			border-radius: 80px;
+		}
+		div:nth-child(3)>p{
+			border-radius: 50%;
+		}
+		div:nth-child(4)>p{
+			border-radius: 10px 70px;
+		}
+		div:nth-child(5)>p{
+			border-radius: 10px 40px 70px;
+		}
+		div:nth-child(6)>p{
+			border-radius: 10px 40px 70px 90px;
+		}
+		div:nth-child(7)>p{
+			border-radius: 10px 20px 30px 40px / 50px 60px 70px 80px;
+		}
+		div:nth-child(8)>p{
+			border-radius: 50px 60px 70px 80px / 10px 20px 30px 80px;
+		}
+		div:nth-child(9)>p{
+			width: 30px;
+			height: 30px;
+			border: 60px solid green;
+		}
+		div:nth-child(10)>p{
+			width: 30px;
+			height: 30px;
+			border: 60px solid green;
+			border-radius: 75px;
+		}
+		div:nth-child(11)>p{
+			width: 0px;
+			height: 0px;
+			border-left: 75px solid red;
+			border-right: 75px solid blue;
+			border-top: 75px solid green;
+			border-bottom: 75px solid yellow;
+		}
+		div:nth-child(12)>p{
+			border-radius: 20px / 60px;
+			/*等价于  border-radius: 20 20 20 20 / 60 60 60 60;*/
+		}
+		div:nth-child(13)>p{
+			border-radius: 75px 75px 0 0;
+			height: 75px;
+		}
+		div:nth-child(14)>p{
+			border-radius: 75px 0 0 0;
+			height: 75px;
+			width: 75px;
+		}
+		div:nth-child(15)>p{
+			position: relative;
+			border-radius: 0 75px 75px 75px;
+		}
+		div:nth-child(15)>p::before{
+			content: "";
+			width: 75px;
+			height: 75px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #fff;
+		}
+		div:nth-child(16)>p{
+			width: 0px;
+			height: 150px;
+			border-left: 75px solid yellow;
+			border-right: 75px solid green;
+		}
+		div:nth-child(17)>p{
+			height: 0px;
+			width: 150px;
+			border-top: 75px solid yellow;
+			border-bottom: 75px solid green;
+		}
+		div:nth-child(18)>p{
+			height: 0px;
+			width: 150px;
+			border-top: 75px solid #fff;
+			border-bottom: 75px solid #000;
+			border-radius: 50%;
+			position: relative;
+		}
+		div:nth-child(18)>p::before{
+			content: "";
+			width: 15px;
+			height: 15px;
+			border: 30px solid #fff;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -38px;
+			background-color: #000
+		}
+		div:nth-child(18)>p::after{
+			content: "";
+			width: 15px;
+			height: 15px;
+			border: 30px solid #000;
+			border-radius: 50%;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -38px;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h2>对于基础radius的介绍</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>当radius超过宽高一半时，会变为圆</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>也可以传入百分比</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>radius可以传入两个值</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>radius可以传入三个值</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>radius可以传入四个值</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>radius可以传入八个值</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>radius可以传入八个值</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于圆环之前的形状</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于圆环的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于多彩边框的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>传入两个值，两个值之间使用 / 分隔</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于半圆的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于1/4圆的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于3/4圆的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>左右两侧等分的矩形</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>上下两侧等分的矩形</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>太极</h2>
+		<p></p>
+	</div>
+</body>
+</html>
