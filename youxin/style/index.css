@@ -1,0 +1,55 @@
+/*开始编写对应的css样式*/
+#app{}
+/*添加版芯属性*/
+.container{
+	/*设定版芯的宽度 网页内容所能显示的范围 */
+	width: 1210px;
+	/*设置居中*/
+	margin: 0 auto;
+}
+.fl{float: left;}
+.fr{float: right;}
+
+/*================导航部分样式的设置==================*/
+
+#app .nav-header{
+	height: 585px;
+	background-image: url("../images/nav_bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/*对于导航列表设置*/
+.nav-header .nav-list{
+	overflow: hidden;
+	font-size: 14px;
+	color: #fff;
+}
+/*对于导航列表左侧设置*/
+.nav-header .list-l{
+	height: 60px;
+}
+.nav-header .list-l .logo{
+	width: 145px;
+	height: 60px;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.nav-header .list-l .city{
+	margin-left: 40px;
+	color: #fff;
+	line-height: 60px;
+}
+.nav-header .list-l .arrow{
+	width: 20px;
+	height: 60px;
+	background-image: url("../images/domw.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+/*对于导航列表右侧设置*/
+.nav-header .list-r{
+	height: 60px;
+	background-color: green;
+}

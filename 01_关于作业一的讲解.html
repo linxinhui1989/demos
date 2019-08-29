@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.fl{float: left;}
+		.fr{float: right;}
+		ul,li{list-style: none;}
+		#app{
+			width: 1190px;
+			/*解决app中所有子元素脱标后产生的影响*/
+			overflow: hidden;
+			/*设置app这个div在body上居中*/
+			margin: 30px auto;
+		}
+		/*关于左侧秒杀的样式编写*/
+		.sec-kill{
+			width: 190px;
+			height: 275px;
+			background-color: #e43932;
+			text-align: center;
+		}
+		.sec-kill>.title{
+			font-size: 34px;
+			font-weight: bolder;
+			color: #fff;
+			margin-top: 42px;
+		}
+		.sec-kill>.sub_title{
+			font-size: 20px;
+			color: #EDAC8F;
+			margin-top: 10px;
+		}
+		.sec-kill>.flash{
+			width: 20px;
+			height: 33px;
+			/*设置背景图片*/
+			background-image: url("./images/sprite.seckill.png");
+			/*设置背景定位*/
+			background-position: -35px -25px;
+			margin: 10px auto;
+		}
+		.sec-kill>.end_desc{
+			color: #fff;
+			margin: 15px;
+		}
+		.sec-kill>.countdown{
+			position: relative;
+			width: 135px;
+			margin: 0 auto;
+		}
+		.sec-kill>.countdown>.item{
+			width: 40px;
+    		height: 40px;
+    		background-color: #2f3430;
+    		text-align: center;
+    		line-height: 40px;
+    		color: #fff;
+    		font-weight: bolder;
+    		font-size: 20px;
+    		position: absolute;
+		} 
+		.countdown>.hour{
+			left: 0;
+		}
+		.countdown>.min{
+			left: 50%;
+			margin-left: -20px;
+		}
+		.countdown>.sec{
+			right: 0;
+		}
+		/*倒计时上的中划线*/
+		.countdown>.line{
+			position: absolute;
+			width: 135px;
+			height: 1px;
+			left: 0;
+			top: 19px;
+			background-color: #e43932;
+		}
+		/*中间轮播图样式*/
+		.mid-slideshow{
+			width: 800px;
+			height: 275px;
+			position: relative;
+		}
+		.mid-slideshow ul{
+			border-top: 1px solid #B8BCB8;
+			border-bottom: 1px solid #B8BCB8;
+			overflow: hidden;
+		}
+		.mid-slideshow ul>li{
+			width: 159px;
+			/*设置li中的内容进行居中*/
+			text-align: center;
+			padding: 30px 20px 20px 20px;
+			/*右侧的边框*/
+			border-right: 1px solid #B8BCB8;
+		}
+		.mid-slideshow ul>li .desc{
+			font-size: 12px;
+			color: #666;
+			margin: 20px 0;
+		}
+		.mid-slideshow ul>li .price-area{
+			width: 162px;
+			height: 20px;
+			border:1px solid #e6382f;
+		}
+		.mid-slideshow ul>li .price{
+			width: 80px;
+			height: 20px;
+			text-align: center;
+			font-size: 14px;
+			line-height: 20px;
+		}
+		.mid-slideshow ul>li .now-price{
+			font-weight: bolder;
+			background-color: #e33333;
+			color: #fff;
+		}
+		.mid-slideshow ul>li .old-price{
+			color: #B8BCB8;
+			text-decoration: line-through;
+		}
+		/*对于中间部分轮播的左右两侧按钮*/
+		.mid-slideshow .ctrls{}
+		.mid-slideshow .ctrls .item{
+			width: 20px;
+			height: 40px;
+			font-size: 20px;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			background-color: #f0f3ef;
+			line-height: 40px;
+			text-align: center;
+			color: #bbb;
+		}
+		.mid-slideshow .ctrls .prev{
+			left: 0;
+		}
+		.mid-slideshow .ctrls .next{
+			right: 0;
+		}
+		/*右边小广告样式*/
+		.sm-ads{
+			width: 180px;
+			height: 255px;
+			text-align: center;
+			position: relative;
+			padding: 10px;
+		}
+		.ads-header{
+			font-size: 14px;
+			color: #222;
+		}
+		.ads-header span{}
+		.ads-header img{
+			width: 12px;
+			height: 12px;
+		}
+		.sm-ads .ads-icon{
+			width: 130px;
+			height: 130px;
+			margin: 10px 0;
+		}
+		.sm-ads .ads-info{
+			width: 180px;
+			height: 84px;
+			background-image: url("./images/ef8b784d7454372e.png");
+			padding-top: 30px;
+			color: #fff;
+		}
+		.sm-ads .ads-info .title{
+			font-size: 14px;
+		}
+		.sm-ads .ads-info .desc{
+			font-size: 16px;
+			margin-top: 1px;
+			font-weight: bolder;
+		}
+		.sm-ads .indicators{
+			position: absolute;	
+			left: 50%;
+			bottom: 0;
+			width: 28px;
+			height: 14px;
+			margin-left: -14px;
+		}
+		.sm-ads .indicators>p{
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background-color: #c0c0c0;
+			margin-right: 4px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 最外层书写一个 id 为 app 的div，方便包裹所有的子元素 -->
+	<div id="app">
+		<!-- 左边秒杀 -->
+		<div class="sec-kill fl">
+			<h3 class="title">京东秒杀</h3>
+			<h4 class="sub_title">FLASH DEALS</h4>
+			<!-- 闪电图标 -->
+			<p class="flash"></p>
+			<p class="end_desc">本场距离结束还剩</p>
+			<div class="countdown">
+				<p class="item hour">00</p>
+				<p class="item min">03</p>
+				<p class="item sec">41</p>
+				<div class="line"></div>
+			</div>
+		</div>
+		<!-- 中间轮播图 -->
+		<div class="mid-slideshow fl">
+			<!-- 轮播列表 -->
+			<ul>
+				<li class="fl">
+					<img src="./images/yizi.webp" alt="">
+					<p class="desc">奈高电脑午休椅办公家休椅办</p>
+					<!-- 价格区域的设置 -->
+					<div class="price-area">
+						<div class="price now-price fl">¥399.00</div>
+						<div class="price old-price fr">¥499.00</div>
+					</div>
+				</li>
+				<li class="fl">
+					<img src="./images/yizi.webp" alt="">
+					<p class="desc">奈高电脑午休椅办公家休椅办</p>
+					<!-- 价格区域的设置 -->
+					<div class="price-area">
+						<div class="price now-price fl">¥399.00</div>
+						<div class="price old-price fr">¥499.00</div>
+					</div>
+				</li>
+				<li class="fl">
+					<img src="./images/yizi.webp" alt="">
+					<p class="desc">奈高电脑午休椅办公家休椅办</p>
+					<!-- 价格区域的设置 -->
+					<div class="price-area">
+						<div class="price now-price fl">¥399.00</div>
+						<div class="price old-price fr">¥499.00</div>
+					</div>
+				</li>
+				<li class="fl">
+					<img src="./images/yizi.webp" alt="">
+					<p class="desc">奈高电脑午休椅办公家休椅办</p>
+					<!-- 价格区域的设置 -->
+					<div class="price-area">
+						<div class="price now-price fl">¥399.00</div>
+						<div class="price old-price fr">¥499.00</div>
+					</div>
+				</li>
+			</ul>
+			<!-- 左右按钮 -->
+			<div class="ctrls">
+				<div class="item prev"> < </div>
+				<div class="item next"> > </div>
+			</div>
+		</div>
+		<!-- 右边小广告 -->
+		<div class="sm-ads fl">
+			<!-- 头部位置的内容以及小图标 -->
+			<div class="ads-header">
+				<span>品类秒杀</span>
+				<img src="./images/sk_arrow@1x.png" alt="">
+			</div>
+			<!-- 中间的大图 -->
+			<img class="ads-icon" src="./images/big.jpg" alt="">
+			<!-- 广告内容 -->
+			<div class="ads-info">
+				<p class="title">“梅”你不行</p>
+				<p class="desc">错过再等一年</p>
+			</div>
+			<!-- 指示器 -->
+			<div class="indicators">
+				<p class="active fl"></p>
+				<p class="fl"></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
