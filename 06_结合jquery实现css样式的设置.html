@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<p>我的博客</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// $("a").css("color","red");
+			/*$("a").css({
+				"color":"red",
+				"background-color":"green",
+				"font-size":"40px",
+				"padding":"30px"
+			});*/
+			$("p:first").css("color",function(index,value){
+				var red = parseInt(Math.random()*255);
+				var green = parseInt(Math.random()*255);
+				var blue = parseInt(Math.random()*255);
+				var alpha = Math.random();
+				var color = "rgba("+red+","+green+","+blue+","+alpha+")"
+				return color;
+			});
+		});
+	</script>
+</body>
+</html>

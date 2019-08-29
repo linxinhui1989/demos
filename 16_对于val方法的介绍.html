@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>获取数据</button>
+	<input type="text">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				var v = $("input").val();
+				console.log("v1 = " + v);
+				$("input").val("测试一下");
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>修改图片显示</button>
+	<img src="./images/01_bg.jpg" alt="">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				// 在点击发生时，对于img上的src进行修改，采用原生的写法进行实现的
+				/*img.src = "./images/02_bg.jpg";
+				img.setAttribute("src","./images/03_bg.jpg");*/
+				// $("img").attr("src","./images/04_bg.jpg");
+				$("img").attr({
+					"src":"./images/05_bg.jpg",
+					"alt":"测试一下"
+				});
+			});
+		})
+	</script>
+</body>
+</html>

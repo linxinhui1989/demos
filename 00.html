@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>数据显示</li>
+		<li>数据显示</li>
+		<li>数据显示</li>
+		<li>数据显示</li>
+		<li>数据显示</li>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("ul:eq(0)").on("mouseover","li",function(){
+				console.log("触摸事件..");
+			});
+		})
+	</script>
+</body>
+</html>

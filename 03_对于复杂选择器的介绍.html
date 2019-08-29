@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		<p>111</p>
+		<div>
+			<p>333</p>
+		</div>
+	</div>
+	<p>222</p>
+	<p>222</p>
+	<p>222</p>
+	<p>222</p>
+	<p>222</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		/*
+		  $中对于元素查找的介绍  结合复杂选择器使用
+		*/
+		$(function(){
+			// $(".box p").css("background-color","red");
+			// $(".box>p").css("background-color","red");
+			// $(".box+p").css("background-color","red");
+			$(".box ~ p").css("background-color","red");
+		});
+	</script>
+</body>
+</html>

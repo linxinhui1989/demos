@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>显示一下1</li>
+		<li>显示一下2</li>
+		<li>显示一下3</li>
+		<li>显示一下4</li>
+		<li>显示一下5</li>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// next表示下一个兄弟节点
+			console.log($("li:eq(0)").next());
+			// prev表示上一个兄弟节点
+			console.log($("li:eq(3)").prev());
+			// nextAll 表示当前当前位置往下的所有兄弟节点
+			console.log($("li:eq(0)").nextAll());
+			// prevAll 表示当前当前位置往上的所有兄弟节点
+			console.log($("li:eq(3)").prevAll());
+		});
+	</script>
+</body>
+</html>

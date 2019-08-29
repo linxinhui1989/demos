@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*// 原生的js中的窗口滚动事件
+			window.onscroll = function(){
+				console.log("111");
+			}*/
+			$(window).scroll(function(){
+				var h1 = window.pageYOffset;
+				var h2 = $(window).scrollTop();
+				console.log("h1 = " + h1);
+				console.log("h2 = " + h2);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="d1">
+		<div class="d2">
+			<div class="d3">
+				<p>数显示1</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 获取当前元素对应的父节点  parent() 
+			console.log($("p").parent());
+			// 获取当前元素所有相关的父节点 parents()
+			console.log($("p").parents());
+			// 可以在parents()中传入对应的选择器，进行父元素的筛选 parents(".d1")
+			console.log($("p").parents(".d1"));
+		});
+	</script>
+</body>
+</html>

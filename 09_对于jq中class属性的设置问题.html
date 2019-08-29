@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{margin: 10px;}
+		.normal{
+			width: 100px;
+			height: 100px;
+		}
+		.red{
+			background-color: red;
+		}
+		.fz{
+			font-size: 60px;
+		}
+	</style>
+</head>
+<body>
+	<button>点击修改p标签上的class属性值</button>
+	<p></p>
+	<h1 class="normal red fz">11</h1>
+	<h3 class="normal red fz">33</h3>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 此时所写的代码其实都是在这个function函数里的，所以在这个function中所定义其实都是局部变量了
+			$("button").on("click",function(){
+				// 为 p 标签添加 class属性
+				$("p").addClass("normal red");
+				// 为 h1 标签删除 class 属性
+				$("h1").removeClass("fz red");
+				// 为 h3 标签切换 class 属性
+				$("h3").toggleClass("fz");
+			});
+		});
+
+	</script>
+</body>
+</html>

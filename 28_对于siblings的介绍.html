@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		li,li{list-style: none;}
+		.active{
+			font-size: 30px;
+			color: red;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="active item fz pp">显示一下1</li>
+		<li>显示一下2</li>
+		<li>显示一下3</li>
+		<li>显示一下4</li>
+		<li>显示一下5</li>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("li").on("mouseover",function(){
+				// $(this).attr({"class":"active"});
+				// siblings() 当前节点外的其他所有兄弟节点
+				console.log($(this).siblings());
+				// $(this).attr({"class":"active"}).siblings().attr({"class":""});
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="d1">
+		<p>显示</p>
+		<p>显示</p>
+		<span>显示</span>
+		<h2>显示</h2>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 用jq，在获取到父节点之后，使用 children()获取对应的所有子节点
+			console.log($("div").children());
+			// 对于children()这个方法中，也可以传入选择器，对子元素进行筛选
+			console.log($("div").children("p"));
+		});
+	</script>
+</body>
+</html>

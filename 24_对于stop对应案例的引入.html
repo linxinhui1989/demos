@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		li,ul{list-style: none;}
+		li{
+			width: 200px;
+			float: left;
+			height: 400px;
+		}
+		ul{
+			width: 1100px;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("li:eq(0)").css({"background":"red"});
+			$("li:eq(1)").css({"background":"green"});
+			$("li:eq(2)").css({"background":"gray"});
+			$("li:eq(3)").css({"background":"blue"});
+			$("li:eq(4)").css({"background":"pink"});
+
+			$("li").on("mouseover",function(){
+				// 排他 --> 把其他改为 100px
+				// $("li").animate({"width":"100px"});
+				$(this).stop().animate({"width":"600px"}).siblings().stop().animate({"width":"100px"});
+			});
+		});
+	</script>
+</body>
+</html>

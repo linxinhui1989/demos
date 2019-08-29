@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">11</div>
+	<p class="pp">22</p>
+	<span>33</span>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		/*
+		  $中对于元素查找的介绍  基础选择器使用
+		*/
+		$(function(){
+			$("#box").css({"background-color":"red"});
+			$(".pp").css("background-color","green");
+			$("span").css("background-color","gray");
+		});
+	</script>
+</body>
+</html>

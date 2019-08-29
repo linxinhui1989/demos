@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>获取p标签上的内容</button>
+	<p>Hello World!!</p>
+	<div>
+		<p>abcd</p>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				/*var t1 = $("p").text();
+				console.log("t1 = " + t1);
+				var t2 = $("div").text();
+				console.log("t2 = " + t2);*/
+				// $("p").text("hello,测试一下");
+				$("div").text("<h1>大标题</h1>");
+			});
+		});
+	</script>
+</body>
+</html>

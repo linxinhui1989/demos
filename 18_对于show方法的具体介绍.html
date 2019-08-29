@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		p{
+			width: 300px;
+			height: 300px;
+			background-color: red;
+			display: none;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>显示p标签</button>
+	<p></p>
+	<p></p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				/*
+				可以通过单词 slow fast 去控制显示的速度；
+				$("p").show("slow");
+				也可以传入毫秒数，去控制元素的动画时间
+				$("p").show(5000);
+				*/
+				$("p").eq(0).show(1000,"swing");
+				$("p").eq(1).show(1000,"linear",function(){
+					console.log("动画执行完了...");
+				});
+				$("p").eq(1).show(1000,function(){
+					console.log("动画执行完了...");
+				});
+			});
+		});
+	</script>
+</body>
+</html>

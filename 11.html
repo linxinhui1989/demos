@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<span>⭐</span>
+		<span>⭐</span>
+		<span>⭐</span>
+		<span>⭐</span>
+		<span>⭐</span>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var list = $("span");
+			var sel = "⭐";
+			var no_sel = "x";
+			list.hover(function(){
+				$(this).html(sel).prevAll().html(sel).end().nextAll().html(no_sel);
+			});
+		});
+	</script>
+</body>
+</html>

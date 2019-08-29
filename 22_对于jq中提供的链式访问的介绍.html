@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		p{
+			width: 300px;
+			height: 300px;
+			background-color: red;
+			display: none;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>显示p标签</button>
+	<p></p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				/*$("p").show(1000,function(){
+					setTimeout(function(){
+						$("p").hide(1000);
+					},1000);
+				});*/
+				$("p").show(1000).delay(1000).hide(1000);
+			});
+		});
+		/*
+		对于 jquery中链式访问的介绍
+		为什么能够进行链式访问：
+		show() hide() delay() 传进去的元素对象
+		*/
+		/*
+			模拟实现链式访问
+		*/
+		var p = {
+			"eat":function(){
+				console.log("吃东西");
+				return p;
+			},
+			"sleep":function(){
+				console.log("睡觉了");
+				return p;
+			},
+			"run":function(){
+				console.log("跑起来");
+				return p;
+			}
+		}
+		p.eat().sleep().run();
+	</script>
+</body>
+</html>

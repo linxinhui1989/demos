@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		p{
+			width: 100px;
+			height: 100px;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button>修改p标签</button>
+	<p>1</p>
+	<p>2</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				/*
+				获取到对应 jq 元素对象后，添加 eq() 方法，传入对应的下标值，就可以获取到对应下标下的元素，且这个元素是被jquery封装过的
+				*/
+				$("p").eq(1).css({
+					"background-color":"red",
+					"font-size":"30px",
+					"text-align":"center",
+					"line-height":"100px"
+				});
+			});
+		});
+	</script>
+</body>
+</html>

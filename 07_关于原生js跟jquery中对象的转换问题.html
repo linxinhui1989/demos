@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>标题1</li>
+		<li>标题2</li>
+		<li>标题3</li>
+		<li>标题4</li>
+		<li>标题5</li>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 这样的方式找到了所有的li元素，且这个写法是已经被jquery框架封装过的元素;这样的元素，拥有了jquery框架中提供的一些方法，这些方法只有jquery封装了的对象才有，原生js找到的元素是没有这些方法的
+			var lis1 = $("li");
+			var lis2 = document.getElementsByTagName('li');
+			console.log(lis1);
+			console.log(lis2);
+			lis1.click(function(){
+				console.log(this);
+				console.log($(this).index());
+			});
+			/*for(var i=0;i<lis2.length;i++){
+				lis2[i].index = i;
+				lis2[i].onclick = function(){
+					var index = this.index;
+				}
+			}*/
+		});
+	</script>
+</body>
+</html>

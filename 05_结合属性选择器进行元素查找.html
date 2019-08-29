@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="www.baidu.com">百度一下</a>
+	<a href="www.baidu.com">百度一下</a>
+	<a >百度一下</a>
+	<a href="www.baidu.com">百度一下</a>
+	<a href="www.baidu1.com">百度一下</a>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// $("a[href]").css("background-color","red");
+			// $("a[href='www.baidu.com']").css("background-color","red");
+			// $("a[href!='www.baidu.com']").css("background-color","red");
+			$("a[href^='www.baidu.com']").css("background-color","red");
+			$("a[href&='www.baidu.com']").css("background-color","red");
+			$("a[href*='w']").css("background-color","red");
+		});
+	</script>
+</body>
+</html>

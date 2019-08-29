@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.fl{float: left;}
+	</style>
+</head>
+<body>
+	<select class="fl" name="" multiple="multiple" id="sel1">
+		<option value="" >11</option>
+		<option value="" >22</option>
+		<option value="" >33</option>
+	</select>
+	<div class="fl">
+		<button> << </button>
+		<button> >> </button>
+	</div>
+	<select class="fl" name="" multiple="multiple" id="sel2">
+	</select>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("button").on("click",function(){
+				var index = $(this).index();
+				if(index == 0){
+					// $("#sel1").remove("#sel1 option:selected");
+					// console.log();
+					$("#sel2 option:selected").appendTo($("#sel1"));
+				}else{
+					$("#sel1 option:selected").appendTo($("#sel2"));
+				}
+			});
+		});
+	</script>
+</body>
+</html>
