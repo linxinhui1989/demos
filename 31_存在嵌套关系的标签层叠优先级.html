@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#dd{ 
+			/*这边这个选择器，其实没有直接作用到 p 标签上，而是通过继承性来影响 p 标签*/
+			color: red;
+		}
+		#dd .p1{
+			color: green;
+		}
+		#dd #pp{
+			color: blue;
+		}
+		.d1 p{
+			color: yellow;
+		}
+		.d1 .p1{
+			color: pink;
+		}
+		.d1 #pp{
+			color: black;
+		}
+		div p{
+			color: purple;
+		}
+		div .p1{
+			color: white;
+		}
+		div #pp{
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="dd" class="d1">
+		<p id="pp" class="p1">显示的内容</p>
+	</div>
+</body>
+</html>

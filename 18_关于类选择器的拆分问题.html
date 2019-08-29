@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*这种写法就是通过一个类选择器，将指定元素的所有属性一次性都写完，这样的写法没有错，只是在于这样就大大弱化了类选择的神奇功效了*/
+		.p1{
+			color: red;
+			background-color: green;
+			font-size: 25px;
+			width: 800px;
+			height: 100px;
+		}
+		.p2{
+			color: green;
+			background-color: red;
+			font-size: 25px;
+			width: 800px;
+			height: 100px;
+		}
+		.p3{
+			color: yellow;
+			background-color: blue;
+			font-size: 25px;
+			width: 800px;
+			height: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<p class="p1">颜色红色，大小25，背景绿色，宽度800，高度100</p>
+	<p class="p2">颜色绿色，大小25，背景红色，宽度800，高度100</p>
+	<p class="p3">颜色黄色，大小25，背景蓝色，宽度800，高度100</p>
+</body>
+</html>
