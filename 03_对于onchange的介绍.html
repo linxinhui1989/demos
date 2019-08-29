@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" id="checkbox1">
+	<button id="nextBtn">下一步</button>
+	<script type="text/javascript">
+		// 1. 获取到所需的元素对象
+		var checkbox1 = document.getElementById("checkbox1");
+		var nextBtn = document.getElementById("nextBtn");
+		// 2. 为按钮注册点击事件
+		nextBtn.onclick = function(){
+			if(checkbox1.checked){
+				alert("下一步");
+			}else{
+				alert("请先阅读");
+			}
+		}
+	</script>
+</body>
+</html>

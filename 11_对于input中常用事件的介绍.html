@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="input-ele">
+	<script type="text/javascript">
+		// 1. 找到input元素
+		var inputELe = document.getElementById("input-ele");
+		// 为 input 注册一些常用的事件
+		inputELe.onfocus = function(){ // 获取指定的这个input输入框的焦点时，事件会被触发
+			console.log("获取焦点");
+		}
+
+		inputELe.onblur = function(){
+			console.log("失去焦点");
+		}
+		
+	</script>
+</body>
+</html>

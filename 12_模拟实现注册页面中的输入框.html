@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		#box{
+			width: 500px;
+			margin: 10px auto;
+			position: relative;
+			height: 40px;
+		}
+		#box h3{
+			height: 40px;
+			position: absolute;
+			left: 0;
+			line-height: 40px;
+		}
+		#box .ok,#box .error{
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			background-image: url(./images/reg_icons.png);
+			right: 30px;
+			top: 50%;
+			margin-top: -7px;
+		}
+		#box .input-area{
+			width: 350px;
+			height: 40px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -175px;
+			margin-top: -20px;
+		}
+		#box .input-area .clear{
+			width: 10px;
+			height: 12px;
+			background-image: url(./images/reg_icons.png);
+			background-position: -51px -27px;
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			margin-top: -6px;
+			display: none;
+		}
+		#box input{
+			width: 350px;
+			height: 40px;
+		}
+		.ok{
+			background-position: -80px 0;
+			display: none;
+		}
+		.error{
+			background-position: -80px -24px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<h3>手机号</h3>
+		<div class="input-area">
+			<input type="text" placeholder="可用于登录和找回密码">
+			<p class="clear"></p>
+		</div>
+		<!-- 正确情况 -->
+		<div class="ok"></div>
+		<!-- 出错的情况 -->
+		<div class="error">
+			<p></p>
+		</div>
+	</div>
+</body>
+</html>

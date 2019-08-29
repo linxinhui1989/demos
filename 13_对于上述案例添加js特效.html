@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		#box{
+			width: 500px;
+			margin: 100px auto;
+			position: relative;
+			height: 40px;
+		}
+		#box h3{
+			height: 40px;
+			position: absolute;
+			left: 0;
+			line-height: 40px;
+		}
+		#box .ok,#box .error{
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			background-image: url(./images/reg_icons.png);
+			right: 30px;
+			top: 50%;
+			margin-top: -7px;
+		}
+		#box .input-area{
+			width: 350px;
+			height: 40px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -175px;
+			margin-top: -20px;
+		}
+		#box .input-area .clear{
+			width: 10px;
+			height: 12px;
+			background-image: url(./images/reg_icons.png);
+			background-position: -51px -27px;
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			margin-top: -6px;
+			display: none;
+			cursor: pointer;
+		}
+		#box input{
+			width: 350px;
+			height: 40px;
+		}
+		.ok{
+			background-position: -80px 0;
+			display: none;
+		}
+		.error{
+			background-position: -80px -24px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<h3>手机号</h3>
+		<div class="input-area">
+			<input type="text" placeholder="可用于登录和找回密码" id="phone-input">
+			<p class="clear" id="clear-btn"></p>
+		</div>
+		<!-- 正确情况 -->
+		<div class="ok" id="ok-notice"></div>
+		<!-- 出错的情况 -->
+		<div class="error" id="error-notice">
+			<p></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 1. 先获取到要参与事件操作的事件源对象
+		var phoneInput = document.getElementById("phone-input");
+		var clearBtn = document.getElementById("clear-btn");
+		var okNotice = document.getElementById("ok-notice");
+		var errorNotice = document.getElementById("error-notice");
+		/*
+		   2. 为input注册事件，实现对于clear按钮的显示跟隐藏效果
+		   一旦有内容输入的时候，就会不断的判断；如果内容是空，那么clear按钮隐藏；
+		   如果内容不空，则按钮显示
+		 */ 
+		phoneInput.oninput = function(){
+			// 2.1 获取input输入框中的内容
+			var val = phoneInput.value;
+			clearBtn.style.display = (val=="")?"none":"block";
+			/*if(val == ""){
+				clearBtn.style.display = "none";
+			}else{
+				clearBtn.style.display = "block";
+			}*/
+		}
+
+		/*
+			3. 为 input 元素注册 onblur 事件，这个事件就在于实现input失去焦点时，对于输入内容的判断
+		 */
+		phoneInput.onblur = function(){
+			errorNotice.style.display = "none";
+			okNotice.style.display = "none";
+			// 3.1 获取input输入框中的内容
+			var val = phoneInput.value;
+			// 3.2 根据内容的值进行相应的判断
+			if(val == ""){
+				errorNotice.style.display = "block";
+			}else{
+				okNotice.style.display = "block";
+			}
+		}
+
+		/*
+			4. 对于清除按钮点击事件的实现
+		 */
+		clearBtn.onclick = function(){
+			// 4.1 将输入框中的内容，设置为 ""
+			phoneInput.value = "";
+			errorNotice.style.display = "none";
+			okNotice.style.display = "none";
+		}
+	</script>
+</body>
+</html>

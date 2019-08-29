@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<select id="nba">
+		<option value="qd">乔丹</option>
+		<option value="zms">詹姆斯</option>
+		<option value="kebi">科比</option>
+		<option value="wd">韦德</option>
+		<option value="curry">库里</option>
+		<option value="kg">加内特</option>
+	</select>
+	<img src="./images/qd.jpg" id="nba_icon">
+	<script type="text/javascript">
+		/*
+		目标：下拉选框选项发生变化时，对应img也跟着变化
+		*/
+		var nbaEle = document.getElementById("nba");
+		var nbaIcon = document.getElementById("nba_icon");
+		// 2. 为下拉选框注册事件，状态改变的事件
+		nbaEle.onchange = function(){
+			// 3. 当下拉状态改变时，应该获取到对应的下拉项上的值
+			// 声明一个变量，去保存这个下拉项上的值，根据这个值来进行区分设置
+			// 修改img上的src属性
+			nbaIcon.src = "./images/"+nbaEle.value+".jpg";
+		}
+	</script>
+</body>
+</html>

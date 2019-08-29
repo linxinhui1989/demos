@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		#box{
+			margin: 100px;
+			position: relative;
+		}
+		/*左边部分的小图标*/
+		.area{
+			width: 452px;
+			height: 568px;
+			border: 1px solid #eee;
+			position: absolute;
+			top: 0;
+		}
+		.sm{
+			left: 0;
+		}
+		.sm .sm-list{
+			height: 58px;
+			position: relative;
+			margin-top: 30px;
+		}
+		.sm .sm-list>img{
+			position: absolute;
+			top: 50%;
+			margin-top: -16px;
+		}
+		.sm .sm-list .prev-icon{
+			left: 10px;
+		}
+		.sm .sm-list .next-icon{
+			right: 10px;
+		}
+		.sm ul{
+			width: 290px;
+			margin:  0 auto;
+		}
+		.sm ul li{
+			float: left;
+			width: 58px;
+			height: 58px;
+		}
+		/*右侧部分大图标*/
+		.big{
+			left: 455px;
+			overflow: hidden;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<!-- 左侧部分的这一块 -->
+		<div class="area sm">
+			<!-- 上部分的大图片 -->
+			<div class="sm-big-icon">
+				<img id="sm_big_icon" src="./images/sm_big.jpg" alt="">
+			</div>
+			<!-- 下部分的图片列表 -->
+			<div class="sm-list">
+				<img class="prev-icon" src="./images/disabled-prev.png" alt="">
+				<ul>
+					<li><img src="./images/sm.jpg" alt=""></li>
+					<li><img src="./images/sm.jpg" alt=""></li>
+					<li><img src="./images/sm.jpg" alt=""></li>
+					<li><img src="./images/sm.jpg" alt=""></li>
+					<li><img src="./images/sm.jpg" alt=""></li>
+				</ul>
+				<img class="next-icon" src="./images/disabled-next.png" alt="">
+			</div>
+		</div>
+		<!-- 右侧部分的这一块 -->
+		<div class="area big" id="big_area">
+			<img src="./images/big.jpg" alt="">
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 1. 找到所需的两个元素对象
+		var smBigIcon = document.getElementById("sm_big_icon");
+		var bigArea = document.getElementById("big_area");
+		// 2. 为smBigIcon注册触摸事件
+		smBigIcon.onmouseover = function(){
+			bigArea.style.display = "block";
+		}
+
+		smBigIcon.onmouseleave = function(){
+			bigArea.style.display = "none";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		body{
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-position: center top;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">修改整个网页的背景</button>
+	<script type="text/javascript">
+		/*
+		需求：点击按钮，不断修改整个网页的背景图片
+		*/
+		// 1. 先找所需的事件源对象
+		var btn = document.getElementById("btn");
+		// 2. 为这个事件源去注册事件
+		var i = 0;// 这个变量用于记录点击的次数，当点击此到达4此时，又变回 春 的图案
+		/*
+			准备一个数组，用来保存所有的所需图片地址
+		 */ 
+		var imgs = ["./images/春.jpg","./images/夏.jpg","./images/秋.jpg","./images/冬.jpg","./images/春2.jpg","./images/夏2.jpg"];
+		btn.onclick = function(){
+			var imgSrc = imgs[i];
+			document.body.style.backgroundImage = "url("+imgSrc+")";
+			i++;
+			i %= imgs.length; // i = i % 4;
+			/*if(i == 4){
+				i = 0;
+			}*/
+		}
+	</script>
+</body>
+</html>

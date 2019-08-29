@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="p1"></p>
+	<p id="p2"></p>
+	<p id="p3"></p>
+	<script type="text/javascript">
+		/*
+		直接使用系统提供的方法来进行元素的查找操作，这个写法没有任何问题，只是在于每次写，那就过于麻烦了；所以使用函数
+		 */ 
+		/*var p1 = document.getElementById("p1");
+		var p2 = document.getElementById("p2");
+		var p3 = document.getElementById("p3");*/
+		var p1 = findEle("p1");
+		var p2 = findEle("p2");
+		var p3 = findEle("p3");
+		/*
+			函数：用于保存一段可以重复使用的代码
+			定义一个函数，这个函数专门用来实现元素的查找；
+			通过观察得到，只要传入不同的 id 字符串值，那么查找到的元素就不一样；
+			所以在设计这个函数的时候，需要考虑通用性 --> 在设计函数时，给定形参
+			因为查找到元素需要赋值给调用的上下文变量中 --> 所以在函数中需要将找到的元素进行返回 --> return
+		 */ 
+		function findEle(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+</html>
