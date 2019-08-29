@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		1. 求绝对值  abs
+		*/ 
+		var val1 = Math.abs(-10);
+		console.log("val1 = " + val1);
+		/*
+		2. 求随机数  random能够返回 0~1之间的结果
+		*/
+		var val2 = Math.random();
+		console.log("val2 = " + val2);
+		var val3 = parseInt(Math.random()*100);
+		console.log("val3 = " + val3);
+		// 定义一个函数，用于获取指定范围内的随机数
+		function getRandom(range){
+			return parseInt(Math.random()*range);
+		}
+		var val4 = getRandom(1000);
+		console.log("val4 = " + val4);
+		
+		/*
+		3. ceil  ceil方法得到的结果 >= 传入的值
+		*/
+		console.log(Math.ceil(1.1));
+		console.log(Math.ceil(1.9));
+		console.log(Math.ceil(-1.9));
+
+		/*
+		4. floor floor 方法得到的结果 <= 传入的值
+		*/
+		console.log(Math.floor(1.1));
+		console.log(Math.floor(1.9));
+		console.log(Math.floor(-1.9));
+
+		/*
+		5. round round 四舍五入
+		*/
+		console.log(Math.round(1.1));
+		console.log(Math.round(1.9));
+
+		/*
+		6. pow 幂运算 传入两个值，Math.pow(a,b) 就是计算得到 a的b次方
+	    */
+		console.log(Math.pow(2,5));
+
+		/*
+		7. sqrt 开平方
+		*/
+		console.log(Math.sqrt(9));
+
+		/*
+		8. 对于 max 以及 min 方法的介绍
+		*/
+		var max = Math.max(1,2,5,9,29,99,87,76);
+		console.log("max = " + max);
+
+		var min = Math.min(1,2,5,9,-8,29,99,87,76);
+		console.log("min = " + min);
+	</script>
+</body>
+</html>

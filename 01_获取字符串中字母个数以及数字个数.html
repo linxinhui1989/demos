@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "sadkljoi2ADHK812idhsaoihsakhc~121+";
+		// 1. 先将所有字符转为大写
+		str = str.toUpperCase();
+		// 2. 声明两个变量，分别表示字母的个数以及数字的个数
+		var ziMuCount = 0,numCount = 0;
+		// 3. 借助循环以及 charCodeAt,对于每一个字符进行单独判断
+		for(var i=0;i<str.length;i++){
+			var charCode = str.charCodeAt(i);
+			if(charCode>=65 && charCode <= 90){
+				ziMuCount ++;
+			}else if(charCode>=48 && charCode <= 57){
+				numCount ++;
+			}
+		}
+		// 4. 循环结束之后，就获取到了所有字母个数以及数字的个数
+		console.log("所有字母 = " + ziMuCount);
+		console.log("所有数字 = " + numCount);
+	</script>
+</body>
+</html>

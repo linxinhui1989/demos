@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#carousel{
+			width: 590px;
+			height: 470px;
+			margin: 100px auto;
+			position: relative;
+		}
+		/*对于左右两侧按钮的设置*/
+		.ctrl{
+			position: absolute;
+			height: 40px;
+			width: 590px;
+			top: 50%;
+			margin-top: -20px;
+		}
+		.ctrl .btn{
+			position: absolute;
+			top: 0;
+			width: 24px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: rgba(0,0,0,0.6);
+			color: #fff;
+			cursor: pointer;
+		}
+		.ctrl .left-ctrl{
+			left: 0;
+		}
+		.ctrl .right-ctrl{
+			right: 0;
+		}
+		/*对于底部样式的设置*/
+		.navicator{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			width: 200px;
+			margin-left: -100px;
+		}
+		.navicator ul{
+			overflow: hidden;
+		}
+		.navicator ul li{
+			float: left;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			border: 2px solid #fff;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		.navicator ul .active{
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="carousel">
+		<!-- 主图 -->
+		<img src="./images/01.jpg" alt="">
+		<!-- 左右两侧按钮 -->
+		<div class="ctrl">
+			<p class="left-ctrl btn"> < </p>
+			<p class="right-ctrl btn"> > </p>
+		</div>
+		<!-- 底部那一排指示器 -->
+		<div class="navicator">
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 1. 找元素
+		var leftBtn = document.getElementsByClassName("left-ctrl")[0];
+		var rightBtn = document.getElementsByClassName("right-ctrl")[0];
+		var img = document.getElementsByTagName("img")[0];
+		var ls = document.getElementsByTagName('li');
+		var carousel = document.getElementById("carousel");
+		// 1.2 准备一个数组，用于保存所有的图片地址
+		var imgs = ["./images/01.jpg","images/02.jpg","./images/01.jpg","images/02.jpg","./images/01.jpg","images/02.jpg","./images/01.jpg","images/02.jpg"];
+		// 1.3 声明一个变量，用于保存指示器小点的位置，也用于记录图片的位置
+		var navIndex = 0;
+		// 2. 注册左右按钮的点击事件
+		leftBtn.onclick = function(){
+			navIndex--;
+			if(navIndex < 0){
+				navIndex = imgs.length - 1;
+			}
+			val = imgs[navIndex];
+			img.src = val;
+			for(var j = 0;j<ls.length;j++){
+				ls[j].className = "";
+			}
+			ls[navIndex].className = "active";
+		}
+		// 右侧按钮的点击事件
+		rightBtn.onclick = function(){
+			navIndex ++;
+			navIndex %= imgs.length;
+			val = imgs[navIndex];
+			img.src = val;
+			for(var j = 0;j<ls.length;j++){
+				ls[j].className = "";
+			}
+			ls[navIndex].className = "active";
+		}
+	</script>	
+</body>
+</html>

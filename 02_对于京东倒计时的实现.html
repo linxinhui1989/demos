@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.fl{float: left;}
+		.fr{float: right;}
+		ul,li{list-style: none;}
+		#app{
+			width: 1190px;
+			/*解决app中所有子元素脱标后产生的影响*/
+			overflow: hidden;
+			/*设置app这个div在body上居中*/
+			margin: 30px auto;
+		}
+		/*关于左侧秒杀的样式编写*/
+		.sec-kill{
+			width: 190px;
+			height: 275px;
+			background-color: #e43932;
+			text-align: center;
+		}
+		.sec-kill>.title{
+			font-size: 34px;
+			font-weight: bolder;
+			color: #fff;
+			margin-top: 42px;
+		}
+		.sec-kill>.sub_title{
+			font-size: 20px;
+			color: #EDAC8F;
+			margin-top: 10px;
+		}
+		.sec-kill>.flash{
+			width: 20px;
+			height: 33px;
+			/*设置背景图片*/
+			background-image: url("./images/sprite.seckill.png");
+			/*设置背景定位*/
+			background-position: -35px -25px;
+			margin: 10px auto;
+		}
+		.sec-kill>.end_desc{
+			color: #fff;
+			margin: 15px;
+		}
+		.sec-kill>.countdown{
+			position: relative;
+			width: 135px;
+			margin: 0 auto;
+		}
+		.sec-kill>.countdown>.item{
+			width: 40px;
+    		height: 40px;
+    		background-color: #2f3430;
+    		text-align: center;
+    		line-height: 40px;
+    		color: #fff;
+    		font-weight: bolder;
+    		font-size: 20px;
+    		position: absolute;
+		} 
+		.countdown>.hour{
+			left: 0;
+		}
+		.countdown>.min{
+			left: 50%;
+			margin-left: -20px;
+		}
+		.countdown>.sec{
+			right: 0;
+		}
+		/*倒计时上的中划线*/
+		.countdown>.line{
+			position: absolute;
+			width: 135px;
+			height: 1px;
+			left: 0;
+			top: 19px;
+			background-color: #e43932;
+		}
+	</style>
+</head>
+<body>
+	<!-- 最外层书写一个 id 为 app 的div，方便包裹所有的子元素 -->
+	<div id="app">
+		<!-- 左边秒杀 -->
+		<div class="sec-kill fl">
+			<h3 class="title">京东秒杀</h3>
+			<h4 class="sub_title">FLASH DEALS</h4>
+			<!-- 闪电图标 -->
+			<p class="flash"></p>
+			<p class="end_desc">本场距离结束还剩</p>
+			<div class="countdown">
+				<p class="item hour" id="hour">00</p>
+				<p class="item min" id="min">03</p>
+				<p class="item sec" id="sec">41</p>
+				<div class="line"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		updateTime();
+		var time = setInterval(updateTime,1000);
+		function updateTime(){
+			// 1. 获取目标时间
+			var target = new Date("2019-07-17 10:17");
+			// 1.1 获取当前时间
+			var now = new Date();
+			// 2. 分别获取两个Date时间的时间戳
+			var targetTime = target.getTime();
+			var nowTime = now.getTime();
+			// 2.1 计算获取到两个时间戳只差 --> 时间戳在js中是毫秒数
+			var leftTime = parseInt((targetTime - nowTime) / 1000);
+			// 3. 再来根据时间差，分别计算得到对应的相差的小时 、 分钟 、 秒钟
+			var hour = parseInt(leftTime / 3600);
+			hour = hour<10?"0"+hour:hour;
+			var min = parseInt(leftTime%3600 / 60);
+			min = min<10?"0"+min:min;
+			var sec = leftTime%60;
+			sec = sec<10?"0"+sec:sec;
+			// 3.1 再来将三个变量分别设置到三个元素上进行显示
+			var hourEle = document.getElementById("hour");
+			var minEle = document.getElementById("min");
+			var secEle = document.getElementById("sec");
+			hourEle.innerHTML = hour;
+			minEle.innerHTML = min;
+			secEle.innerHTML = sec;
+			// 4. 对于计时器的停止判断 --> 当 leftTime 值等于 0 时，停止计时器
+			if(leftTime <= 0){
+				clearInterval(time);
+				// 跟后台进行数据交互 --> 发送请求，获取到下一轮秒杀的截止时间
+			}
+		}
+	</script>
+</body>
+</html>

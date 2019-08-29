@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#carousel{
+			width: 590px;
+			height: 470px;
+			margin: 100px auto;
+			position: relative;
+		}
+		/*对于左右两侧按钮的设置*/
+		.ctrl{
+			position: absolute;
+			height: 40px;
+			width: 590px;
+			top: 50%;
+			margin-top: -20px;
+		}
+		.ctrl .btn{
+			position: absolute;
+			top: 0;
+			width: 24px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: rgba(0,0,0,0.6);
+			color: #fff;
+			cursor: pointer;
+		}
+		.ctrl .left-ctrl{
+			left: 0;
+		}
+		.ctrl .right-ctrl{
+			right: 0;
+		}
+		/*对于底部样式的设置*/
+		.navicator{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			width: 200px;
+			margin-left: -100px;
+		}
+		.navicator ul{
+			overflow: hidden;
+		}
+		.navicator ul li{
+			float: left;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			border: 2px solid #fff;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		.navicator ul .active{
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="carousel">
+		<!-- 主图 -->
+		<img src="./images/01.jpg" alt="">
+		<!-- 左右两侧按钮 -->
+		<div class="ctrl">
+			<p class="left-ctrl btn"> < </p>
+			<p class="right-ctrl btn"> > </p>
+		</div>
+		<!-- 底部那一排指示器 -->
+		<div class="navicator">
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

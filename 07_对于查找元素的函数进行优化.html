@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="pp"></p>
+	<span class="sp"></span>
+	<span class="sp"></span>
+	<span class="sp"></span>
+	<a href="#"></a>
+	<a href="#"></a>
+	<a href="#"></a>
+	<script type="text/javascript">
+		// 定义一个函数，进行元素查找的优化
+		function $(id){
+			return document.getElementById(id);
+		}
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		function $$$(className){
+			if(document.getElementsByClassName){
+				return document.getElementsByClassName(className);
+			}else{
+				var allEles = $$("*");
+				// 准备一个空数组，用于保存满足className的结果
+				var eles = [];
+				for(var i=0;i<allEles.length;i++){
+					var ele = allEles[i];
+					if(ele.className == className){
+						eles.push(ele);
+					}
+				}
+				return eles;
+			}
+		}
+	</script>
+</body>
+</html>

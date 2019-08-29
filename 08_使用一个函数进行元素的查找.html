@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#pp{}
+		.sp{}
+		a{}
+	</style>
+</head>
+<body>
+	<p id="pp"></p>
+	<span class="sp"></span>
+	<span class="sp"></span>
+	<span class="sp"></span>
+	<a href="#"></a>
+	<a href="#"></a>
+	<a href="#"></a>
+	<script type="text/javascript">
+		// $("#pp");$(".sp");$("a");
+		// 定义一个函数，进行元素查找的优化
+		var p = $("#pp");
+		console.log(p);
+		function $(val){
+			/*
+			形参(定义的时候，这个名称可以随意,当外部去调用这个函数，给这个函数传递参数时，传递的值会赋值给这个形参)
+			1. 将这个val这个字符串的首字符取出，根据首字符进行判断
+			*/
+			var firstChar = val.charAt(0);
+			if(firstChar == "#"){
+				var id = val.substring(1);
+				// 此时要根据 id 进行元素的查找em
+				return document.getElementById(id);
+			}else if(firstChar == "."){
+				// 此时要根据 class 进行元素的查找
+			}else{
+				// 根据 tag 名称进行元素的查找
+				return document.getElementsByTagName(val);
+			}
+		}
+	</script>
+</body>
+</html>
