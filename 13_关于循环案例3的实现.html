@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			分析
+			1-2+3-4+5-6+...+99-100 结果
+			推理：
+			1+2+3+4+...+99+100
+			把案例想象成
+			1+(-2)+3+(-4)+5+(-6)+...+99+(-100)
+			再拆分
+			1*1+2*(-1)+3*1+4*(-1)+...+99*1 + 100*(-1)
+			再推 sum += num -->  sum += num*(1或者-1)
+			再推 奇数偶数 --> num%2 == 0 --> 偶数 --> -1  另一种情况 1
+		 */
+		var num = 1,sum = 0;
+		while(num <= 100){
+			sum += num * (num%2==0?-1:1);
+			num++;
+		}
+		console.log("sum = " + sum);
+	</script>
+</body>
+</html>

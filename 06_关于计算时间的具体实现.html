@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			1. 准备三个变量 year month day
+			2. 计算month 月 day 日，那其实先要算出这个month之前的月份的所有天数之和 + day
+			3. 这个year，其实就是用来添加是否是闰年的判断而已
+
+			变量三板斧
+			先声明 --> 写上 var 名字
+			后赋值 --> 把变量名放左边，中间用 = , 右边写具体的内容
+			再拿来用 --> 直接根据变量名进行操作
+		 */ 
+		var year = 2016,month = 3,day = 2;
+		// 准备一个变量，用来统计这一天是属于这一年中的第几天
+		// 对于 year 这个变量的作用，就是用来去判断这一年是否是闰年
+		var isRunNian; // 声明变量，用于记录是否是闰年
+		/*
+			借助昨天的作业来进行是否是闰年的判断
+		 */
+		if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)){
+			// 对于变量的赋值   这一年是闰年
+			isRunNian = true;
+		}else{
+			// 不是闰年
+			isRunNian = false;
+		}
+
+		var sum = 0;
+		// 结合所学的switch，巧妙利用switch穿透来进行相加操作
+		switch(month - 1){
+			case 11:
+				sum += 30;
+			case 10:
+				sum += 31;
+			case 9:
+				sum += 30;
+			case 8:
+				sum += 31;
+			case 7:
+				sum += 31;
+			case 6:
+				sum += 30;
+			case 5:
+				sum += 31;
+			case 4:
+				sum += 30;
+			case 3:
+				sum += 31;
+			case 2:
+				/*
+					对于这个已经过去的二月份，就需要根据是否是闰年来进行区分对待
+					如果是闰年，那就 + 29 --> isRunNian == true
+					如果不是闰年，就 + 28 --> isRunNian == false
+				 */ 
+				sum += (isRunNian == true)?29:28;
+			case 1:
+				sum += 31;
+			default:
+				sum += day;
+		}
+		console.log("这一天是属于这一年中的第" + sum + "天");
+	</script>
+</body>
+</html>

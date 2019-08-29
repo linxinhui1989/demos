@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = 0;
+		while(num < 10);{
+			console.log("num = " + num);
+			num ++;
+		}
+		/*
+			等价于
+			while(num < 10){} // 这个循环就成了无限循环   死循环
+			{
+				console.log("num = " + num);
+				num ++;
+			}
+		 */
+	</script>
+</body>
+</html>

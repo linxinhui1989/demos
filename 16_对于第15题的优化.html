@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		质数：大于1的，且只能被1 和 自身整除的数
+		--> 如果一个数(num变量)能被1和自身之外的其他数整除-->不是质数 --> true 或  false (需要一个变量)
+		--> 要判断1和自身之外的数，那这边就需要再来一个变量，用来求余数用的 i--> i从2开始，跟num进行依次求余数 --> i会变化的
+		 */
+		/*
+		  先拆分成一步一步编写，然后再找出对应的规律(找重复的地方) -> 把这个找到的重复部分写入到while循环中 --> 最后再来去编写 while 的循环条件
+		  i是2的时候
+			  if(num % i == 0){
+				isZhiShu = false;
+			  }
+			  i++;
+		  i是3时：
+			  if(num % i == 0){
+				isZhiShu = false;
+			  }
+			  i++;
+		  i是4时：
+			  if(num % i == 0){
+				isZhiShu = false;
+			  }
+			  i++;
+		 */
+		var num = 10000,isZhiShu = true,i = 2;
+		while(i < num){ 
+			if(num % i == 0){
+				isZhiShu = false;
+				/*
+					如果这个num非常之大的话，使用之前的写法，循环需要执行很多次；
+					其实在i是2的时候就已经把 isZhiShu这个变量改成了 false，已经可以准确判断这个数到底是不是质数了，后面的判断其实完全不需要了；这个时候就可以通过break去结束这个 while 循环，跳出这个 while 循环，通过isZhuShu这个变量进行结论的判断
+				 */
+				break;
+			}
+			i++;
+		}
+		// 循环结束之后，就可以根据 isZhiShu 这个变量的值进行判断了
+		var msg = isZhiShu?"是质数":"不是质数";
+		console.log(num + msg);
+	</script>
+</body>
+</html>

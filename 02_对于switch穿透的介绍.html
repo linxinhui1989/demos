@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var killNum = 5;
+		switch(killNum){
+			case 5:
+				console.log("五杀");
+				break; // 阻止 switch 的穿透行为
+			case 4:
+				console.log("四杀");
+				break;
+			case 3:
+				console.log("三杀");
+				break;
+			case 2:
+				console.log("double kill");
+				break;
+			case 1:
+				console.log("one kill");
+				break;
+		}
+	</script>
+</body>
+</html>
