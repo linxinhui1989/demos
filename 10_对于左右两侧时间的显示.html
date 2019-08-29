@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		#music-play{
+			width: 1000px;
+			margin: 100px auto;
+		}
+		.progress{
+			background-color: rgb(203,203,203);
+			width: 800px;
+			height: 30px;
+			margin: 0 auto;
+			margin-top: 20px;
+			border-radius: 15px;
+			position: relative;
+		}
+		.progress .bar{
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			border: 4px solid rgb(250,108,1);
+			background-color: rgb(242,242,242);
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -21px;
+			cursor: pointer;
+		}
+		.ctrls{
+			width: 800px;
+			margin: 0 auto;
+			margin-top: 30px;
+			position: relative;
+			height: 100px;
+		}
+		.btn{
+			width: 80px;
+			height: 80px;
+			background-image: url("./images/play.png");
+			background-size: 100%;
+		}
+		.ctrls p{
+			position: absolute;
+			top: 50%;
+			font-size: 20px;
+		}
+		.ctrls .current-time{
+			left: 0;
+			margin-top: -10px;
+		}
+		.ctrls .btn{
+			left: 50%;
+			margin-left: -40px;
+			margin-top: -40px;
+			cursor: pointer;
+		}
+		.ctrls .all-time{
+			right: 0;
+			margin-top: -10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="music-play">
+		<!-- 进度条 -->
+		<div class="progress">
+			<div class="bar"></div>
+		</div>
+		<!-- 控制以及显示面板 -->
+		<div class="ctrls">
+			<p class="current-time">00:00</p>
+			<p class="btn"></p>
+			<p class="all-time">05:00</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		// 1. 找元素
+		var btn = $(".btn")[0];
+		var bar = $(".bar")[0];
+		var progressEle = $(".progress")[0];
+		var currentTime = $(".current-time")[0];
+		var alltTime = $(".all-time")[0];
+		// 2.5 设置变量总时间
+		var all = 300;
+		// 设置运动总长度
+		var allLength = progressEle.offsetWidth - bar.offsetWidth;
+		// 2.4 设置当前的左右两侧的时间显示
+		currentTime.innerHTML = timeMode(0);
+		alltTime.innerHTML = timeMode(all);
+		// 2.1 只用一个按钮，去实现两张图的来回切换--> 开关变量
+		var isPlaying = false;
+		// 2.2 准备一个变量，保存当前的运动位置
+		var progress = 0;
+		// 2.3 声明一个变量，用于保存计时器对象
+		var time;
+		// 2. 注册btn的点击事件
+		btn.onclick = function(){
+			isPlaying = !isPlaying;
+			if(isPlaying){
+				btn.style.backgroundImage = "url('./images/pause.png')";
+				// 调用这个函数，实现小圆点的运动
+				barMove();
+			}else{
+				btn.style.backgroundImage = "url('./images/play.png')";
+				// 清除计时器
+				clearInterval(time);
+			}
+		}
+		// 准备一个函数，实现小圆点的运动
+		function barMove(){
+			// 开启计时器，实现对于小圆点的位置属性的不断修改
+			time = setInterval(function(){
+				progress++;
+				var bei = allLength / all;
+				currentTime.innerHTML = timeMode(parseInt(progress/bei));
+				bar.style.left = progress + "px";
+				if(progress >= allLength){
+					clearInterval(time);
+				}
+			},10); 
+		}
+		// 准备一个函数，将给定的秒转为 00:00 的格式
+		function timeMode(num){
+			var min = parseInt(num / 60);
+			var sec = num % 60;
+			min = min<10?"0"+min:min;
+			sec = sec<10?"0"+sec:sec;
+			return min+":"+sec;
+		}
+	</script>
+</body>
+</html>

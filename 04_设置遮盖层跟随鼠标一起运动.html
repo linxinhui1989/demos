@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#good{
+			width: 450px;
+			margin: 10px auto;
+		}
+		.mid{
+			border: 1px solid #eee;
+			margin-bottom: 5px;
+			position: relative;
+		}
+		.mid img{
+			/*对于元素宽度的设置，可以是具体的像素值，也可以是百分比，这个百分比是跟当前元素的父元素之间的比例*/
+			width: 100%;
+		}
+		.mid .mask{
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-color: rgba(0,255,0,0.2);
+		}
+		li{
+			float: left;
+			width: 58px;
+			height: 58px;
+			border: 2px solid #fff;
+			cursor: pointer;
+		}
+		.sm{
+			position: relative;
+		}
+		.sm ul{
+			overflow: hidden;
+			width: 310px;
+			margin: 0 auto;
+		}
+		.sm ul .active{
+			border: 2px solid #e53e41;
+		}
+		.sm .prev,.sm .next{
+			width: 22px;
+			height: 32px;
+			position: absolute;
+			top: 50%;
+			margin-top: -16px;
+			cursor: pointer;
+		}
+		.sm .prev{
+			left: 10px;
+			background-image: url("./images/prev.png");
+		}
+		.sm .next{
+			right: 10px;
+			background-image: url("./images/next.png");
+		}
+	</style>
+</head>
+<body>
+	<div id="good">
+		<!-- 上面的那个大图 -->
+		<div class="mid">
+			<img class="mid-img" src="./images/01_mid.jpg" alt="">
+			<div class="mask"></div>
+		</div>
+		<!-- 下面一排的小图 -->
+		<div class="sm">
+			<p class="prev"></p>
+			<ul>
+				<li class="active"><img src="./images/01_sm.jpg" alt=""></li>
+				<li><img src="./images/02_sm.jpg" alt=""></li>
+				<li><img src="./images/03_sm.jpg" alt=""></li>
+				<li><img src="./images/04_sm.jpg" alt=""></li>
+				<li><img src="./images/05_sm.jpg" alt=""></li>
+			</ul>
+			<p class="next"></p>
+		</div>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		// 1. 找所需要的元素
+		var lis = $("li");
+		var midImg = $(".mid-img")[0];
+		var midArea = $(".mid")[0];
+		var mask = $(".mask")[0];
+		// 2.3 准备一个数组，用来保存所有的中等图片
+		var midImgs = ["./images/01_mid.jpg","./images/02_mid.jpg","./images/03_mid.jpg","./images/04_mid.jpg","./images/05_mid.jpg"];
+
+		// 2. 注册循环事件
+		for(var i = 0;i<lis.length;i++){
+			lis[i].index = i;
+			lis[i].onmouseover = function(){
+				// 2.2 在触摸发生时，修改上面的图片
+				for(var j=0;j<lis.length;j++){
+					lis[j].className = "";
+				}
+				this.className = "active";
+				// 2.4 获取到当前的li中的index值，并根据这个index值从数组中获取对应的图片路径，最后设置到img的src上
+				var src = midImgs[this.index];
+				midImg.src = src;
+			}
+		}
+		// 3.0 为mid这个div添加触摸事件
+		midArea.onmouseover = function(){
+			mask.style.display = "block";
+		}
+		midArea.onmouseleave = function(){
+			mask.style.display = "none";
+		}
+		// 4.0 为mid这个div添加移动事件
+		midArea.onmousemove = function(event){
+			// 4.1 先获取到当前触摸位置距离浏览器左侧边缘距离
+			var clientX = event.clientX;
+			// 4.2 先获取到当前触摸位置距离浏览器顶部边缘距离
+			var clientY = event.clientY;
+			// 4.3 获取到 mid 这个盒子，跟左侧的距离
+			var offsetLeft = midArea.offsetLeft;
+			// 4.4 获取到 mid 这个盒子，跟顶部的距离
+			var offsetTop = midArea.offsetTop;
+			// 4.5 获取到触摸位置在 mid 上的相对位置
+			var x = clientX - offsetLeft - mask.offsetWidth/2;
+			if(x<0){x=0;}
+			var maxX = midArea.offsetWidth - mask.offsetWidth;
+			if(x>=maxX){x=maxX;}
+			var y = clientY - offsetTop - mask.offsetHeight/2;
+			if(y<0){y=0;}
+			var maxY = midArea.offsetHeight - mask.offsetHeight;
+			if(y>=maxY){y=maxY;}
+			// 4.6 将相对距离设置到 mask 遮盖层上  left   top
+			mask.style.left = x + "px";
+			mask.style.top = y + "px";
+		}
+	</script>
+</body>
+</html>

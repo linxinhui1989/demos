@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		div{
+			width: 200px;
+			height: 200px;
+			position: relative;
+			left: 0;
+			top: 0;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var div = $("div")[0];
+		/*
+		注册鼠标按下的事件--> 在鼠标按下之后，再来注册鼠标移动事件
+		*/ 
+		div.onmousedown = function(){
+			console.log("按住鼠标");
+			document.onmousemove = function(event){
+				console.log("移动起来");
+				var clientX = event.clientX;
+				var clientY = event.clientY;
+				var x = clientX - div.offsetWidth/2;
+				var y = clientY - div.offsetHeight/2;
+				div.style.left = x + "px";
+				div.style.top = y + "px";
+			}
+		}
+		/*
+		注册鼠标抬起的事件
+		*/
+		document.onmouseup = function(){
+			// 注销鼠标移动事件
+			document.onmousemove = null;
+		}
+	</script>
+</body>
+</html>

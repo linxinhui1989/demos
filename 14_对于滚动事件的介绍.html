@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		// 注册窗口的滚动事件
+		window.onscroll = function(){
+			console.log("滚起来....");
+			// 获取滚动的距离
+			// console.log(window.pageYOffset);
+			console.log(getScrollY());
+		}
+		function getScrollY(){
+			if(document.docuemntElement){
+				// ie低版本
+				return document.docuemntElement.scrollTop;
+			}else{
+				// 非 ie 低版本 浏览器的写法
+				return window.pageYOffset;
+			}
+		}
+	</script>
+</body>
+</html>

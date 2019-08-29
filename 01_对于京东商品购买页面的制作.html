@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#good{
+			width: 450px;
+			margin: 10px auto;
+		}
+		.mid{
+			border: 1px solid #eee;
+			margin-bottom: 5px;
+		}
+		.mid img{
+			/*对于元素宽度的设置，可以是具体的像素值，也可以是百分比，这个百分比是跟当前元素的父元素之间的比例*/
+			width: 100%;
+		}
+		li{
+			float: left;
+			width: 58px;
+			height: 58px;
+			border: 2px solid #fff;
+			cursor: pointer;
+		}
+		.sm{
+			position: relative;
+		}
+		.sm ul{
+			overflow: hidden;
+			width: 310px;
+			margin: 0 auto;
+		}
+		.sm ul .active{
+			border: 2px solid #e53e41;
+		}
+		.sm .prev,.sm .next{
+			width: 22px;
+			height: 32px;
+			position: absolute;
+			top: 50%;
+			margin-top: -16px;
+			cursor: pointer;
+		}
+		.sm .prev{
+			left: 10px;
+			background-image: url("./images/prev.png");
+		}
+		.sm .next{
+			right: 10px;
+			background-image: url("./images/next.png");
+		}
+	</style>
+</head>
+<body>
+	<div id="good">
+		<!-- 上面的那个大图 -->
+		<div class="mid">
+			<img src="./images/01_mid.jpg" alt="">
+		</div>
+		<!-- 下面一排的小图 -->
+		<div class="sm">
+			<p class="prev"></p>
+			<ul>
+				<li class="active"><img src="./images/01_sm.jpg" alt=""></li>
+				<li><img src="./images/02_sm.jpg" alt=""></li>
+				<li><img src="./images/03_sm.jpg" alt=""></li>
+				<li><img src="./images/04_sm.jpg" alt=""></li>
+				<li><img src="./images/05_sm.jpg" alt=""></li>
+			</ul>
+			<p class="next"></p>
+		</div>
+	</div>
+</body>
+</html>
