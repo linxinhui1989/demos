@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度一下，你不知道</title>
+	<style type="text/css">
+		a{color: black;}
+		#app{}
+		/*对于头部nav的样式设置*/
+		#app .nav{
+			text-align: right;
+			/*设置距离顶部的距离*/
+			margin-top: 22px;
+			/*设置跟右侧距离*/
+			margin-right: 5px;
+		}
+		.nav a{
+			/*加粗*/
+			font-weight: bolder;
+			/*设置字体大小*/
+			font-size: 13px;
+			/*设置左边外偏距*/
+			margin-left: 20px;
+		}
+		.nav .fw-normal{
+			font-weight: normal;
+		}
+		.nav .more-products{
+			color: white;
+			background-color: skyblue;
+			/*设置内偏距*/
+			padding: 5px;
+			/*去除文本装饰*/
+			text-decoration: none;
+		}
+		/*对于中间主体内容的设置*/
+		#app .mid-content{
+			margin-top: 100px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 导航部分 -->
+		<div class="nav">
+			<a href="#">新闻</a>
+			<a href="#">hao123</a>
+			<a href="#">地图</a>
+			<a href="#">视频</a>
+			<a href="#">贴吧</a>
+			<a href="#">学术</a>
+			<a href="#" class="fw-normal">登录</a>
+			<a href="#" class="fw-normal">设置</a>
+			<a href="#" class="fw-normal more-products">更多产品</a>
+		</div>
+		<!-- 中间主体 -->
+		<div class="mid-content">
+			<!-- 百度logo图 -->
+			<div class="logo">
+				<img src="./logo.png" alt="">
+			</div>
+			<!-- 搜索框跟按钮 -->
+			<div class="search">
+				<input type="text">
+				<button>百度一下</button>
+			</div>
+		</div>
+		<!-- 底部设置 -->
+		<div class="footer"></div>
+	</div>
+</body>
+</html>
