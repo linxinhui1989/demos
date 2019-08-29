@@ -1,0 +1,547 @@
+html, body,#resume{
+  position: relative;
+  height: 100%;
+  color: #fff;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*第一项样式*/
+.introduce{
+	background-color: #87b0a5;
+	text-align: center;
+	flex-direction: column;
+}
+.introduce .header{
+	position: relative;
+	margin-bottom: 130px;
+}
+.introduce .header img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	/*过渡特效*/
+	transition: box-shadow 0.5s linear;
+}
+.introduce .header img:hover{
+	box-shadow: 0 0 10px #1faeff;
+}
+.introduce .info li{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: absolute;
+	text-align: center;
+	line-height: 50px;
+	background: radial-gradient(circle at center,#87b0a5,rgba(255,255,255,0.6));
+	/*添加 animation 动画*/
+	animation: breath 2s infinite;  
+	animation-direction: alternate;
+	font-size: 12px;
+}
+.introduce .info li:nth-child(1){
+	left: -30px;
+	top: -30px;
+}
+.introduce .info li:nth-child(2){
+	left: -60px;
+	bottom: -30px;
+}
+.introduce .info li:nth-child(3){
+	right: -30px;
+	top: -20px;
+}
+.introduce .info li:nth-child(4){
+	right: -40px;
+	bottom: -30px;
+}
+@keyframes breath{
+	0%{
+		transform: scale(1);
+	}
+	100%{
+		transform: scale(1.1);
+	}
+}
+.introduce h3{
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+.introduce .line{
+	width: 90%;
+	height: 1px;
+	background-color: rgba(255,255,255,0.5);
+	margin-bottom: 50px;
+}
+.introduce .desc{
+	font-size: 18px;
+}
+.introduce .desc p{
+	margin: 15px 0;
+}
+/*第二项样式*/
+.ability{
+	background-color: #4d5e8f;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.ability h3{
+	margin-top: 100px;
+	font-size: 24px;
+}
+.ability .ability-detail{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 200px;
+}
+.ability-detail .left-circle{
+	position: relative;
+	width: 264px;
+	height: 264px;
+}
+.left-circle .inner,.left-circle .outer{
+	border-radius: 50%;
+	border: 5px dashed #999;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	box-sizing: border-box;
+}
+.ability-detail .left-circle .inner{
+	width: 158px;
+	height: 158px;
+	margin-left: -79px;
+	margin-top: -79px;
+}
+.ability-detail .left-circle .inner ul{
+	width: 158px;
+	height: 158px;
+	animation:clockwise 20s infinite linear;
+}
+@keyframes clockwise{
+	0%{
+		transform: rotate(0);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.ability-detail .left-circle .inner li{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	font-size: 12px;
+	line-height: 40px;
+	text-align: center;
+	position: absolute;
+	animation:anticlockwise 20s infinite linear;
+}
+@keyframes anticlockwise{
+	0%{
+		transform: rotate(0);
+	}
+	100%{
+		transform: rotate(-360deg);
+	}
+}
+.ability-detail .left-circle .inner li:nth-child(1){
+	background-color: rgba(179, 164, 140, 0.8);
+	left: -20px;
+	top: 50%;
+	margin-top: -20px;
+}
+.ability-detail .left-circle .inner li:nth-child(2){
+	background-color: rgba(171, 209, 220, 0.8);
+	right: -20px;
+	top: 50%;
+	margin-top: -20px;
+}
+.ability-detail .left-circle .inner li:nth-child(3){
+	background-color: rgba(238, 215, 163, 0.8);
+	top: -20px;
+	left: 50%;
+	margin-left: -20px;
+}
+.ability-detail .left-circle .inner li:nth-child(4){
+	background-color: rgba(207, 184, 178, 0.8);
+	bottom: -20px;
+	left: 50%;
+	margin-left: -20px;
+}
+.ability-detail .left-circle .outer{
+	width: 258px;
+	height: 258px;
+	margin-left: -129px;
+	margin-top: -129px;
+}
+.ability-detail .left-circle .outer ul{
+	width: 258px;
+	height: 258px;
+	animation:anticlockwise 20s infinite linear;
+}
+.left-circle .outer li{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 50px;
+	font-size: 12px;
+	position: absolute;
+	animation:clockwise 20s infinite linear;
+}
+.left-circle .outer li:nth-child(1){
+	background-color: rgba(49, 65, 82, 0.8);
+	left: -25px;
+	top: 50%;
+	margin-top: -25px;
+}
+.left-circle .outer li:nth-child(2){
+	background-color: rgba(121, 100, 102, 0.8);
+	right: -25px;
+	top: 50%;
+	margin-top: -25px;
+}
+.left-circle .outer li:nth-child(3){
+	background-color: rgba(76, 157, 160, 0.8);
+	top: -25px;
+	left: 50%;
+	margin-left: -25px;
+}
+.left-circle .outer li:nth-child(4){
+	background-color: rgba(66, 66, 66, 0.8);
+	bottom: -25px;
+	left: 50%;
+	margin-left: -25px;
+}
+.left-circle .outer li:nth-child(5){
+	background-color: rgba(193, 131, 106, 0.8);
+	left: 10px;
+	top: 10px;
+}
+.left-circle .outer li:nth-child(6){
+	background-color: rgba(117, 148, 179, 0.8);
+	left: 10px;
+	bottom: 10px;
+}
+.left-circle .outer li:nth-child(7){
+	background-color: rgba(71, 83, 94, 0.8);
+	right: 10px;
+	top: 10px;
+}
+.left-circle .outer li:nth-child(8){
+	background-color: rgba(147, 147, 189, 0.8);
+	right: 10px;
+	bottom: 10px;
+}
+.ability-detail .right-txt{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 100px;
+}
+.ability-detail .right-txt p{
+	margin-top: 20px;
+	font-size: 16px;
+	line-height: 24px;
+}
+/*第三项样式*/
+.experience{
+	background-color: #945c4c;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.experience h3{
+	margin-top: 100px;
+	font-size: 24px;
+}
+.experience .carousel{
+	display: flex;
+	flex-direction: column;
+	/*-webkit-perspective:1000; */
+}
+.experience .carousel .ad-detail{
+	margin-top: 100px;
+	width: 900px;
+	height: 352px;
+	background-color: #f2f4f5;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	color: #000;
+	align-items: center;
+	justify-content: center;
+}
+.carousel .ad-detail .logo{
+	margin-right: 100px;
+}
+.carousel .ad-detail .logo .icon{
+	width: 195px;
+	height: 50px;
+	background-image: url("../images/jmyp.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.carousel .ad-detail .logo h4{
+	font-size: 20px;
+	color:#945c4c;
+	margin-top: 20px;
+	font-weight: bolder;
+}
+.carousel .ad-detail .logo p{
+	font-size: 15px;
+	color: #9e6351;
+	margin-top: 10px;
+}
+.carousel .ad-detail .info{
+	text-align: left;
+}
+.carousel .ad-detail .info h4{
+	color: #af7464;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.carousel .ad-detail .info p{
+	line-height: 30px;
+	font-size: 16px;
+	margin-top: 8px;
+	position: relative;
+}
+.carousel .ad-detail .info p::before{
+	content: "";
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: #af7464;
+	position: absolute;
+	left: -60px;
+	top: 50%;
+	margin-top: -2px;
+}
+/*.experience .carousel .ad-detail:hover{
+	transform:rotateY(5deg);
+}*/
+.experience .carousel .indicators{
+	overflow: hidden;
+	width: 270px;
+	margin: 150px auto;
+}
+.experience .carousel .indicators p{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #623c32;
+	float: left;
+	margin: 0 40px;
+	cursor: pointer;
+}
+.experience .carousel .indicators .selected{
+	background-color: #af7164;
+}
+/*第四项样式*/
+.works{
+	background-color: #4b85a0;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.works h3{
+	margin-top: 60px;
+	font-size: 24px;
+}
+.works .work-list{
+	margin-top: 80px;
+	position: relative;
+}
+.works .work-list li{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 300px;
+	height: 450px;
+	box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+	border-radius: 6px;
+	background-color: #fff;
+	padding: 30px 10px;
+	box-sizing: border-box;
+	transition: transform 0.3s;
+}
+.works .work-list li h4{
+	color: #4985a0;
+	font-size: 16px;
+	margin-bottom: 30px;
+}
+.works .work-list li .info{
+	font-size: 14px;
+	color: #000;
+	line-height: 24px;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.works .work-list li img{
+	width: 100px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+.works .work-list li .notice{
+	color: #000;
+	font-size: 14px;
+}
+.work-list .left{
+	width: 300px;
+	height: 450px;
+	position: absolute;
+	left: -310px;
+	top: 0;
+	z-index: 100;
+}
+.work-list .center{
+	width: 300px;
+	height: 450px;
+	position: relative;
+}
+.works .ctrls{
+	position: relative;
+	z-index: 100;
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 300px;
+}
+.works .ctrls p{
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 32px;
+	border:1px solid #fff;
+	cursor: pointer;
+}
+.works .ctrls .prev{
+	background-image: url("../images/prev.png");
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.works .ctrls .next{
+	background-image: url("../images/next.png");
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/*第五项样式*/
+.contact{
+	background-color: #a29971;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.contact h3{
+	font-size: 24px;
+	margin-top: 80px
+}
+.contact .words{
+	margin-top: 90px;
+}
+.contact .words span{
+	font-size: 22px;
+	margin: 0 15px;
+}
+.contact .words span:nth-child(1){
+	color:red;
+}
+.contact .words span:nth-child(2){
+	color:#3cf;
+}
+.contact .words span:nth-child(3){
+	color:#6c0;
+}
+.contact .words span:nth-child(4){
+	color:#f63;
+}
+.contact .idea{
+	margin-top: 40px;
+}
+.contact .idea p{
+	font-size: 18px;
+	margin-top: 20px;
+}
+.contact .way{
+	display: flex;
+	flex-direction: row;
+	margin-top: 40px;
+}
+.contact .way a{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	margin: 0 15px;
+}
+.contact .way img{
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	padding: 7px;
+}
+.contact .mx{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	color: #756d4d;
+	font-size: 12px;
+	border-top: 1px solid #756d4d;
+	padding: 10px;
+}
+.contact .mx p{
+	margin-top: 8px;
+}
+/*中英切换部分样式*/
+.switch{
+	position: fixed;
+	right: 60px;
+	top: 15px;
+	width: 60px;
+	height: 30px;
+	border-radius: 30px;
+	background-color: rgba(0,0,0,.1);
+	z-index: 1000;
+}
+.switch p{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+}
+.switch .zh{
+	left: 0;
+	color: #fff;
+	z-index: 100;
+}
+.switch .en{
+	right: 0;
+	color: rgba(0,0,0,.3);
+	z-index: 100;
+}
+.switch .cover{
+	left: 0;
+	background-color: rgba(0,0,0,.8);
+}
