@@ -1,0 +1,170 @@
+<title>AniJS Modal</title>
+<head>
+	<style type="text/css">
+		/*The CSS example*/
+		.wrap {
+		  padding: 40px;
+		  text-align: center;
+		}
+
+		p {
+		  margin-bottom: 20px;
+		}
+
+		.btn {
+		  background: #428bca;
+		  border: #357ebd solid 1px;
+		  border-radius: 3px;
+		  color: #fff;
+		  display: inline-block;
+		  font-size: 14px;
+		  padding: 8px 15px;
+		  text-decoration: none;
+		  text-align: center;
+		  min-width: 60px;
+		  position: relative;
+		  transition: color .1s ease;
+		}
+
+		.btn:hover {
+		  background: #357ebd;
+		}
+
+		.btn.btn-big {
+		  font-size: 18px;
+		  padding: 15px 20px;
+		  min-width: 100px;
+		}
+
+		.btn-close {
+		  color: #aaaaaa;
+		  font-size: 30px;
+		  text-decoration: none;
+		  position: absolute;
+		  right: 5px;
+		  top: 0;
+		}
+
+		.btn-close:hover {
+		  color: #919191;
+		}
+
+		.modal:before {
+		  content: "";
+		  display: none;
+		  background: rgba(0, 0, 0, 0.6);
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  z-index: 10;
+		}
+
+		.modal.open .modal-dialog {
+		  -webkit-transform: translate(0, 0);
+		  -ms-transform: translate(0, 0);
+		  transform: translate(0, 0);
+		  top: 20%;
+		}
+
+		.modal.open:before {
+		  display: block;
+		}
+
+		.modal-dialog {
+		  background: #fefefe;
+		  border: #333333 solid 1px;
+		  border-radius: 5px;
+		  margin-left: -200px;
+		  position: fixed;
+		  left: 50%;
+		  top: -100%;
+		  z-index: 11;
+		  width: 360px;
+		  -webkit-transform: translate(0, -500%);
+		  -ms-transform: translate(0, -500%);
+		  transform: translate(0, -500%);
+		  -webkit-transition: -webkit-transform 0.3s ease-out;
+		  -moz-transition: -moz-transform 0.3s ease-out;
+		  -o-transition: -o-transform 0.3s ease-out;
+		  transition: transform 0.3s ease-out;
+		}
+		.modal-body {
+		  padding: 20px;
+		}
+		.modal-header,
+		.modal-footer {
+		  padding: 10px 20px;
+		}
+		.modal-header {
+		  border-bottom: #eeeeee solid 1px;
+		}
+		.modal-header h2 {
+		  font-size: 20px;
+		}
+		.modal-footer {
+		  border-top: #eeeeee solid 1px;
+		  text-align: right;
+		}
+		/*Other CSS*/
+		body {
+		  color: #333333;
+		  font-family: 'Helvetica', arial;
+		  font-size: 1.0em;
+		}
+
+		body a{
+		 color: #1F8DD6;
+		}
+
+		.center {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		  position: relative;
+		  width: 40%;
+		}
+		.container {
+		  margin-top: 50px;
+		}
+
+		 
+
+
+	</style>
+    <link rel="stylesheet" href="./anicollection.css" />
+	
+</head>
+<body>
+  
+  <!-- The example -->
+ <div class="wrap">
+   <a href="#modal-one" class="btn btn-big" data-anijs=
+      "if:click, do: $addClass open, to:.modal;
+       if: click, on: .close, do: $removeClass open, to:.modal">
+     Click me!!
+   </a>
+ </div>
+ 
+<!-- Modal -->
+  <div class="modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>Are you creative?</h2>
+        <a href="#" class="btn-close close" aria-hidden="true">×</a>
+      </div>
+      <div class="modal-body">
+        <p>You need to try <a href="https://anijs.github.io/" target="_blanck">AniJS</a>  :D</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn close">Nice!</a>
+      </div>
+    </div>
+  </div>
+<!-- /Modal -->
+<!-- End example -->
+
+<script src="./anijs-min.js"></script>
+<script src="https://anijs.github.io/lib/anijs/helpers/dom/anijs-helper-dom.js"></script>
+ </body>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.box{
+			width: 1000px;
+			overflow: hidden;
+			margin: 10px auto;
+		}
+		ul{
+			float: left;
+			width: 150px;
+			margin-right: 10px;
+		}
+		li{
+			width: 150px;
+			border-radius: 10px;
+			margin-top: 10px;
+		}
+		ul li:nth-child(1){
+			height: 350px;
+			background-color: red;
+		}
+		ul li:nth-child(2){
+			height: 250px;
+			background-color: green;
+		}
+		ul li:nth-child(3){
+			height: 450px;
+			background-color: blue;
+		}
+		ul li:nth-child(4){
+			height: 150px;
+			background-color: pink;
+		}
+		ul li:nth-child(5){
+			height: 200px;
+			background-color: purple;
+		}
+		ul li:nth-child(6){
+			height: 200px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="scrollreveal.js"></script>
+	<script type="text/javascript">
+		ScrollReveal().reveal("li",{
+			"distance":"50px",
+			"origin":"top",
+			"scale":0.6,
+			"duration":1000,
+			"reset":true
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// for(var i=0;i<10;i++){
+				var p = "<p>你好</p>";
+				$(p).css({
+					"color":"red",
+					"font-size":"100px"
+				});
+				$(".box").append(p);
+			// }
+		});
+	</script>
+</body>
+</html>

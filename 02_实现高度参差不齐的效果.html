@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.box{
+			width: 1000px;
+			overflow: hidden;
+			margin: 10px auto;
+		}
+		ul{
+			float: left;
+			width: 150px;
+			margin-right: 10px;
+		}
+		li{
+			width: 150px;
+			border-radius: 10px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+	</div>
+	<script type="text/javascript" src="scrollreveal.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 借助js代码，来进行动态生成对应个数的li，以及随机的高度
+		// 根据js，去随机创建数据，并存入数组
+		var data = [];
+		for(var j = 0;j<6;j++){
+			var arrs = [];
+			for(var i=0;i<6;i++){
+				var randomH = parseInt(Math.random()*300 + 200);
+				var randomColor = getRandomColor();
+				arrs.push({
+					"height":randomH,
+					"backgroundColor":randomColor
+				});
+			}
+			data.push(arrs);
+		}
+		// 在这个for双层循环结束后，data中已经保存了显示所需的高度以及对应的颜色了
+		$.each(data,function(index,value){
+			var ul = "<ul></ul>";
+			$(".box").append(ul);
+			$.each(value,function(i,v){
+				var li = "<li></li>";
+				$(".box>ul").eq(index).append(li);
+			});
+		});
+		// 对于ul上的所有li进行样式的设置
+		$(".box ul").each(function(index,value){
+			var arr = data[index];
+			$(value).children().each(function(i,v){
+				$(v).css({
+					"background-color":arr[i].backgroundColor,
+					"height":arr[i].height
+				});
+			});
+		});
+		function getRandomColor(){
+			return "rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+		}
+	</script>
+	<script type="text/javascript">
+		ScrollReveal().reveal("li",{
+			"distance":"50px",
+			"origin":"top",
+			"scale":0.6,
+			"duration":1000,
+			"reset":true
+		});
+	</script>
+</body>
+</html>

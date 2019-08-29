@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./echarts.js"></script>
+	<style type="text/css">
+		#main{
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+    
+	<!-- ÎªECharts×¼±¸Ò»¸ö¾ß±¸´óÐ¡£¨¿í¸ß£©µÄDom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // »ùÓÚ×¼±¸ºÃµÄdom£¬³õÊ¼»¯echartsÊµÀý
+        var myChart = echarts.init(document.getElementById('main'));
+        // Ö¸¶¨Í¼±íµÄÅäÖÃÏîºÍÊý¾Ý
+        var datas = [
+            {name:"库里",ability:[88, 88, 88, 88, 88, 88]},
+            {name:"威少",ability:[98, 88, 88, 88, 88, 78]},
+            {name:"詹姆斯",ability:[98, 95, 88, 92, 88, 98]}
+        ];        
+        var index = 2;
+        var option = {
+            title: {
+                text: datas[index].name
+            },
+            tooltip: {},
+            legend: {
+                data: ['NBA']
+            },
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: 'red',
+                        borderRadius: 3,
+                        padding: [3, 5]
+                   }
+                },
+                indicator: [
+                   { name: 'shooting', max: 99},
+                   { name: 'defence', max: 99},
+                   { name: 'rebound', max: 99},
+                   { name: 'steal', max: 99},
+                   { name: 'assist', max: 99},
+                   { name: 'block', max: 99}
+                ]
+            },
+            series: [{
+                type: 'radar',
+                data : [
+                    {
+                        value : datas[index].ability,
+                        name : 'NBA'
+                    }
+                ]
+            }]
+        };
+        // Ê¹ÓÃ¸ÕÖ¸¶¨µÄÅäÖÃÏîºÍÊý¾ÝÏÔÊ¾Í¼±í¡£
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

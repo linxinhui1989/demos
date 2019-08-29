@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>0次</p>
+	<button class="add">+</button>
+	<button class="clear">清空本地指定key存储内容</button>
+	<button class="clear-all">清空本地所有存储内容</button>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var index = 0;
+			// 数据的读取 --> 根据存放时给定的 key 来进行读取
+			index = localStorage.getItem("cishu")||0;
+			$("p").html(index+"次");
+			$(".add").on("click",function(){
+				index ++;
+				$("p").html(index + "次");
+				// 保存数据
+				localStorage.setItem("cishu",index);
+				localStorage.setItem("cishu1",index);
+				localStorage.setItem("cishu2",index);
+			});
+			$(".clear").on("click",function(){
+				console.log("清除前:" + localStorage.getItem("cishu"));
+				localStorage.removeItem("cishu");
+				console.log("清除后:" + localStorage.getItem("cishu"));
+			});
+			$(".clear-all").on("click",function(){
+				localStorage.clear();
+			});
+		});
+	</script>
+</body>
+</html>
