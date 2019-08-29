@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var stu = {
+			"name":"李娜",
+			"age":22,
+			// 在 json 中存放的数据，可以是字符串，数值，可以是json，也可以是数组
+			"friends":["小明","小红","小花"]
+		}
+		for(var i in stu.friends){
+			console.log(stu.friends[i]);
+		}
+	</script>
+</body>
+</html>

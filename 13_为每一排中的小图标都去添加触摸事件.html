@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.fl{float: left;}
+		#goods{
+			width: 1200px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.good-item{
+			width: 234px;
+			height: 444px;
+			color: #666;
+		}
+		.good-item .bg-icon{
+			text-align: center;
+		}
+		.good-item ul{
+			overflow: hidden;
+			margin-top: 10px;
+		}
+		.good-item ul li{
+			width: 38px;
+			text-align: center;
+		}
+		.good-item .price{
+			margin-right: 10px;
+			color: #e4393c;
+			font-size: 20px;
+			margin: 10px 0;
+		}
+		.good-item .title{
+			font-size: 12px;
+			line-height: 20px;
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+		.good-item .command{}
+		.good-item .store{
+			margin: 10px 0;
+		}
+		.good-item .zy{
+			width: 30px;
+			height: 16px;
+			line-height: 16px;
+			padding: 0 3px;
+			text-align: center;
+			font-size: 12px;
+			background: #e23a3a;
+			color: #FFF;
+			border-radius: 2px;
+		}
+		.active{
+			border: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="goods">
+		<ul class="jd-goods">
+		</ul>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		// 1. 声明一个变量，这个变量是个数组，数组中保存了 5 个产品的信息
+		var goods = [
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":2000,
+				"sm":["./images/01_sm.jpg"],
+				"big":["./images/01_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":3000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg","./images/03_sm.jpg","./images/04_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg","./images/03_bg.jpg","./images/04_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":4000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg","./images/03_sm.jpg","./images/04_sm.jpg","./images/05_sm.jpg","./images/06_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg","./images/03_bg.jpg","./images/04_bg.jpg","./images/05_bg.jpg","./images/06_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":5000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":6000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg","./images/03_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg","./images/03_bg.jpg"]
+			}
+		];
+		// 2. 通过循环，根据准备好的数据，动态创建出对应的产品项
+		var str = "";
+		for(var i in goods){
+			var good = goods[i];
+			str += '<li class="good-item fl">';
+				str += '<div class="bg-icon"><img src="'+good.big[0]+'" alt=""></div>';
+				str += '<ul>';
+				for(var j in good.sm){
+					str += '<li class="fl sm-icon"><img src="'+good.sm[j]+'" alt=""></li>';
+				}
+				str += '</ul>';
+				str += '<p class="price">¥'+ good.price +'</p>';
+				str += '<p class="title">' +good.title+ '</p>';
+				str += '<p class="command">'+good.command+'</p>';
+				str += '<p class="store">'+good.store+'</p>'; 
+				str += '<p class="zy">自营</p>';
+			str += '</li>';
+		}
+		// 3. 循环结束后，就可以将数据显示到页面
+		var ul = $(".jd-goods")[0];
+		ul.innerHTML = str;
+		/*
+		4. 获取到对应的小图标-->分别为每一个产品上的小图标注册事件 --> 先拿到产品 li 数组
+		*/
+		var goodItems = $(".good-item");
+		for(var i=0;i<goodItems.length;i++){
+			// 找每个 goodItem 下的子元素--> li 元素
+			var goodItem = goodItems[i];
+			// 再来找到每个 goodItem 下所对应的 小图标
+			var smIcons = goodItem.getElementsByClassName("sm-icon");
+			// 这边获取到的 smIcons 是每一个产品上的小图标数组-->为每一个产品上的小图标注册循环事件
+			for(var j=0;j<smIcons.length;j++){
+				smIcons[j].onmouseover = function(){
+					console.log(this.parentNode);
+					// 先找到这个被触摸的元素的对应的父元素
+					var parentNode = this.parentNode;
+					// 再来根据这个找到的父元素，找到这个父元素下的所有子元素
+					var children = parentNode.children;
+					// 再根据这个父元素所找到的对应的子元素，进行排他的实现
+					for(var z = 0;z<children.length;z++){
+						children[z].className = "fl sm-icon";
+					}
+					// 最后再来把那个被触摸的 li 进行单独设置 this
+					this.className = "fl sm-icon active";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

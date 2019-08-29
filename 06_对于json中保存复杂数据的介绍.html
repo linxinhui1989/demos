@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 定义一个复杂结构的json数据
+		var stu = {
+			"name":"小明",
+			"age":23,
+			"sex":"man",
+			"girlFriend":{
+				"name":"小花",
+				"age":22,
+				"sex":"woman"
+			},
+			"brother":{
+				"name":"老王",
+				"age":24
+			},
+			"sister":{
+				"name":"小红",
+				"age":21
+			}
+		};
+		// 对于复杂数据内容的读取
+		console.log("name = " + stu.name);
+		console.log("name = " + stu["name"]);
+		console.log("gf的name = " + stu.girlFriend.name);
+		console.log("gf的name = " + stu["girlFriend"]["name"]);
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		li{
+			padding: 20px;
+			border-bottom: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var nums = [11,22,33,44];
+		var names = ["小明","小红","小花"];
+		/*
+			声明一个数组，用于若干个学生的基本信息;
+			数组中保存的json，key往往要相同，因为在开发中，需要将数组中的数据，根据循环来进行渲染页面显示
+		 */ 
+		var stus = [
+			{"name":"小明","age":22,"sex":"man"},
+			{"name":"小花","age":21,"sex":"woman"},
+			{"name":"小红","age":24,"sex":"woman"}
+		];
+		var str = "";
+		for(var i in stus){
+			var stu = stus[i];
+			str += '<li>';
+				str += '<p>名字:' + stu.name + '</p>';
+				str += '<p>年龄:' + stu.age + '</p>';
+				str += '<p>性别:' + stu.sex + '</p>';
+			str += '</li>';
+		}
+		var ul = $("ul")[0];
+		ul.innerHTML = str;
+	</script>
+</body>
+</html>

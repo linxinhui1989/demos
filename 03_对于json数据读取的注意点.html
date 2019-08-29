@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*var nums = [11,22,33];
+		var index = 1;
+		nums[index];*/
+		var stu = {"name":"小明","age":30,"sex":"man"};
+		/*
+		对于json中两种不同的取值方式的比较
+		使用[],可以通过变量进行数据的读取，变量中传入的key不同，获取到的结果也就不同；
+		而使用.进行获取时，.后面的名称必须是json中存在的属性名，如果传入的属性在json中不存在该名称的属性时，得到的结果将会 是 undefined 
+		 */
+		var key = "sex";
+		var val = stu[key];
+		console.log(val);
+		var val1 = stu.key;
+		console.log(val1);
+	</script>
+</body>
+</html>

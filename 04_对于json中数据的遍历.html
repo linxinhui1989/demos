@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		在 json 结构数据的遍历中，引出一个新的 for 循环
+		for ... in 
+		for(var i in nums){
+		}
+		其中 i 是属于数组中的下标，数组是根据给定的下标去获取数组中的数值的 nums[i]
+		*/
+		/*for(var i=0;i<nums.length;i++){
+			console.log(nums[i]);
+		}*/
+		var nums = [11,22,33,44];
+		for(var i in nums){
+			console.log(i + " = " + nums[i]);
+		}
+	</script>
+</body>
+</html>

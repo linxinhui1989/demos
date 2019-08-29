@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var stu = {"name":"小明","age":30,"sex":"man"};
+		/*
+		for ... in 中的第一个参数，是json结构中的 key 属性，跟数组稍稍不同
+		对于json中数据的获取 value 的获取  stu[key]
+		*/
+		for(var key in stu){
+			var val = stu[key];
+			console.log(key + " ==> " + val);
+		}
+	</script>
+</body>
+</html>
