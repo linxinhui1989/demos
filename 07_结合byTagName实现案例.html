@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox">篮球
+	<input type="checkbox">足球
+	<input type="checkbox">排球
+	<input type="checkbox">网球
+	<input type="checkbox">乒乓球
+	<div>
+		<button>全部勾选</button>
+		<button>反选</button>
+	</div>
+	<script type="text/javascript">
+		/*1. 根据id找到两个按钮元素
+		var selectAll = document.getElementById("select-all");
+		var selectReverse = document.getElementById("select-reverse");*/
+		/*
+		根据 getElementsByTagName来进行查找;此时根据 tagName获取到的是所有 button元素，且放在了一个数组中
+		*/ 
+		var btns = document.getElementsByTagName("button");
+		var boxs = document.getElementsByTagName("input");
+		// 根据给定的下标，就可以分别获取到这两个按钮
+		var selectAll = btns[0];
+		var selectReverse = btns[1];
+		// 根据已经找到的按钮，分别设置不同的点击事件
+		selectAll.onclick = function(){
+			// 全选-->把所有多选框上的checked属性修改为 true
+			for(var i=0;i<boxs.length;i++){
+				boxs[i].checked = true;
+			}
+		}
+
+		selectReverse.onclick = function(){
+			// 反选 --> 根据checkbox勾选状态来进行判断  勾->不勾 不勾->勾
+			for(var i=0;i<boxs.length;i++){
+				// 获取到对应的勾选状态
+				// var checked = boxs[i].checked;
+				boxs[i].checked = !boxs[i].checked;
+				/*if(checked == true){
+					boxs[i].checked = !checked;
+				}else{
+					boxs[i].checked = !checked;
+				}*/
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>列表11</li>
+		<li>列表22</li>
+		<li>列表33</li>
+		<li>列表44</li>
+		<li>列表55</li>
+	</ul>
+	<script type="text/javascript">
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		// 1. 查找对应的所有的li元素
+		var lis = $$("li");
+		// 2. 结合循环，为每一个li元素注册点击事件
+		for(var i=0;i<lis.length;i++){
+			lis[i].onclick = function(){
+				/*
+				当点击 lis[0] 时，这个this就是 lis[0];
+				当点击 lis[1] 时，这个this就是 lis[1];
+				当点击 lis[2] 时，这个this就是 lis[2];
+				当点击 lis[3] 时，这个this就是 lis[3];
+				当点击 lis[4] 时，这个this就是 lis[4];
+				所以这个this其实就是那个被点击(操作的)那个元素对象本身
+				 */
+				console.log(this);
+				console.log(lis[4]);
+				console.log(this == lis[4]);
+				this.style.backgroundColor = "red";
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.infos{}
+		.infos .stars{
+			position: relative;
+		}
+		.stars .def{
+			width: 90px;
+			height: 12px;
+			background-image: url(images/icons-astro.png);
+			background-position: 0 -12px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.stars .current{
+			/*核心点，就是通过js代码去修改这个p标签的 width 值*/
+			width: 19px;
+			height: 12px;
+			background-image: url(images/icons-astro.png);
+			background-position: 0 -30px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 下拉选框 -->
+		<select id="star-select">
+			<option value="0">白羊座</option>
+			<option value="1">金牛座</option>
+			<option value="2">双子座</option>
+			<option value="3">巨蟹座</option>
+			<option value="4">天平座</option>
+		</select>
+		<!-- 今日运势 -->
+		<div class="infos">
+			<h4>今日运势</h4>
+			<div class="stars">
+				<p class="def"></p>
+				<p class="current" id="current"></p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 1. 根据给定的id，获取到对应的所要操作的标签
+		var starSelect = $("star-select");
+		var currentP = $("current");
+		/*
+		2. 当下拉选框发生变化时，要执行对应的操作，那么就意味着要有事件 --> 注册下拉选框的onchange事件
+		 */
+		// 专门准备一个数组，用来保存不同情况下的 p 标签的宽度值
+		var widths = [19,38,57,90,66];
+		starSelect.onchange = function(){
+			// 3. 获取到下拉选框中的选项值
+			var val = starSelect.value;
+			// 4. 再来根据这个val这个值，来对应 p 标签的宽度进行修改
+			// 根据下标(就是val)，从数组中取出长度，来进行设置
+			var w = widths[val];
+			// 5. 最后将w值设置到 p 标签 的 width 属性上
+			currentP.style.width = 	w + "px";
+		}
+		
+		/*
+		准备一个函数，这个函数时专门用于元素的查找的;
+		这个findEle这个函数名字还是有点不好记，想让名字变得更短，所以这边选择一些特殊符号，这边常用 _  或者  $ 作为函数的名称
+		 */ 
+		function $(id){
+			/*
+			这边的这个id是形参，形参又名形式参数，叫什么都可以，只是用于接收外部调用这个函数时，传入的那个值
+			 */
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+</html>

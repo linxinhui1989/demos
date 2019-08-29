@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>列表11</li>
+		<li>列表22</li>
+		<li>列表33</li>
+		<li>列表44</li>
+		<li>列表55</li>
+	</ul>
+	<script type="text/javascript">
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		// 1. 查找对应的所有的li元素
+		var lis = $$("li");
+		// 2. 结合循环，为每一个li元素注册点击事件
+		for(var i=0;i<lis.length;i++){
+			console.log("i = " + i);
+			/*lis[i].onclick = function(){
+				// 点击哪一行，哪一行上的颜色就要发生变化，变红
+				console.log("i = " + i);
+				
+					问题：点击元素时，打印出的显示都是为 5；
+					原因：这边的i是属于全局变量，然后for循环运行中，这个i在不断的变化，最后这个i就变成了5；
+					而事件函数只是注册好了而已，没有执行，当点击元素时，for循环早就执行完了，i也早就被改成了5，所以每一次点击，只会拿到最后面的那个 i 的值了
+				 
+				lis[i].style.backgroundColor = "red";
+			}*/
+		}
+	</script>
+</body>
+</html>

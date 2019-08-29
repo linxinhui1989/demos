@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<button id="bd">百度一下</button>
+	<script type="text/javascript">
+		var li1s = document.getElementsByTagName('li');
+		var li2s = $$("li");
+		// 准备一个函数，将查找元素的方法进行封装
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		function $(id){
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+</html>

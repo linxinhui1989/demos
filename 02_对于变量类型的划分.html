@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 这是个函数
+		function cal(){
+			// 在这个函数内部其实也访问到了这个 age 全局变量
+			console.log("age2 = " + age);
+			return 123;
+		}
+		
+		/*
+		1. 在函数外部去定义一个变量;这个变量 age 是定义在script标签内部，且在函数外部，所以这个变量也称为是全局变量
+		2. 全局变量，则意味着只要在这个变量定义好之后，任意位置都可以访问到这个变量 
+		 */ 
+		var age = 10;
+		console.log("age1 = " + age);
+		cal();
+
+		/*
+		这边 test 函数内容定义的name变量，就是局部变量；
+		局部变量，只能在这个函数内部被访问到，函数外是无法访问到这个变量的
+		 */
+		function test(){
+			var name = "lucy";
+			console.log("name = " + name);
+		}
+		test();
+	</script>
+</body>
+</html>

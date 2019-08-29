@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		.other{
+			color: blue;
+			background-color: red;
+			font-size: 30px;
+			font-weight: bolder;;
+			height: 40px;
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>标题1</li>
+		<li>标题2</li>
+		<li>标题3</li>
+		<li>标题4</li>
+		<li>标题5</li>
+	</ul>
+	<script type="text/javascript">
+		/*
+		需求：点击某一个li时，被点击这个li上颜色变为蓝色，背景变为红色，文本大小变为30px，并且加粗，高度改为40px，行高改为 40px
+		 */
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		var ls = $$("li");
+		// 根据循环，进行事件的注册
+		for(var i=0;i<ls.length;i++){
+			ls[i].onclick = function(){
+				/*this.style.color = "blue";
+				this.style.backgroundColor = "red";
+				this.style.fontSize = "30px";
+				this.style.fontWeight = "bolder";
+				this.style.height = "40px";
+				this.style.lineHeight = "40px";*/
+				/*
+				更好的写法是-> 在 style 上定义好一个类选择器，在这个类选择器上写好这些要变化的属性，只不过这个类选择器没有设置到li标签上，只有点击发生时，才会设置到被点击的那个li上
+				 */
+				this.className = "other"; 
+			}
+		}
+	</script>
+</body>
+</html>

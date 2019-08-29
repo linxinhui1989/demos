@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>按钮1</li>
+		<li>按钮2</li>
+		<li>按钮3</li>
+		<li>按钮4</li>
+		<li>按钮5</li>
+	</ul>
+	<script type="text/javascript">
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		// 1. 查找到对应的元素
+		var lis = $$("li");
+		/*2. 为第一个li注册点击事件
+		lis[0].onclick = function(){
+			console.log("被点击了...");
+		}*/
+		// 为所有的li都去注册点击事件
+		for(var i=0;i<lis.length;i++){
+			lis[i].onclick = function(){
+				/*
+				这里代码是对于 li 标签循环注册点击事件；
+				注册事件并不会立即执行，只有当指定的这个事件源被点击了，这个事件源上的事件操作函数才会被调用，里面的代码才会执行起来
+				*/
+				console.log("被点击了...");
+			}
+		}
+		
+	</script>
+</body>
+</html>

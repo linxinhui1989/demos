@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script type="text/javascript">
+		/*
+		也可以根据标签的类型来进行查找所有该名称的标签;
+		document.getElementsByTagName
+		根据这个方法，可以找到所有的该名称的标签，这个标签将会存放到一个类似于数组的容器中；
+		既然类似于数组，那么以为着就可以像操作数组一样，操作这个容器里面的元素，同样是根据下标，且下标从 0 开始
+		 */ 
+		var lis = document.getElementsByTagName("li");
+		console.log(lis);
+		lis[0].innerHTML = "哈哈哈哈";
+		lis[0].style.color = "red";
+		lis[0].style.fontSize = "40px";
+		lis[1].innerHTML = "你好";
+		lis[2].innerHTML = "嘻嘻嘻嘻嘻";
+	</script>
+</body>
+</html>

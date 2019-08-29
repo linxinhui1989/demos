@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>修改a标签</button>
+	<button>点击展示</button>
+	<script type="text/javascript">
+		function $$(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+		var a = 0;
+		function show(){
+			console.log("a = " + a);
+		}
+
+		function change(){
+			a += 10;
+		}
+		a++;
+		$$("button")[0].onclick = function(){
+			change();
+		}
+		$$("button")[1].onclick = function(){
+			show();
+		}
+	</script>
+</body>
+</html>
