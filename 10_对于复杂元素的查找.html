@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<p>111</p>
+		<div>
+			<p>333</p>
+		</div>
+	</div>
+	<p>222</p>
+	<div id="box2">444</div>
+	<p>666</p>
+	<p>666</p>
+	<p>666</p>
+
+	<div id="box3">
+		<div class="box4">
+			<div class="box5">
+				<p>777</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// $("#box p").css("background-color","red");
+			$("#box>p").css("background-color","red");
+		});
+		$(function(){
+			// $("#box2 + p").css("background-color","green");
+			$("#box2 ~ p").css("background-color","green");
+			$("#box3 .box4 .box5 p").css("background-color","blue");
+		})
+	</script>
+</body>
+</html>

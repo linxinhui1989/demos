@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点击一下</button>
+	<p>111</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		/*
+		将之前的写法中 on 去掉，直接跟上事件名，在这个jquery中，这个事件名其实是一个方法，在这个方法中，需要传入对应的函数，这个函数就是事件处理函数
+		$("xxx").click(function(){ //事件处理函数 });
+		 */
+		$("#btn").click(function(){
+			// console.log("1111111");
+			$("p").css({
+				"background-color":"red",
+				"font-size":"50px"
+			})
+		});
+	</script>
+</body>
+</html>

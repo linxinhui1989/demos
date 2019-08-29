@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		.active{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>标题1</li>
+		<li>标题2</li>
+		<li>标题3</li>
+		<li>标题4</li>
+		<li>标题5</li>
+		<li>标题6</li>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// var lis = $("li");
+		// lis.on("click");
+		// 为所有的li元素去注册事件
+		$("li").on("click",function(){
+			console.log(this);
+			console.log($(this));
+			console.log($(this).index());
+			/*
+			这边点击事件函数中出现的 this，就是原生js事件中的this，指的就是事件源；
+			因为这里没有使用for对应每个li上的index进行单独设置，所以使用 this.index 也拿不到任何属性；
+			只是原生js中的this没有提供 index 属性，在jquery中的对象其实默认就含有这个index
+
+			问题：如何把原生js对象 改为 jquery 中的对象
+
+			只有这个对象，使用$进行包裹后，才会由原生的js对象，转为 jquery对象，就可以去使用jquery中提供的一些方法，例如 index() 就可以获取到被点击这一项在列表中的下标值
+			*/
+			console.log("被点击了....");
+		});
+	</script>
+</body>
+</html>

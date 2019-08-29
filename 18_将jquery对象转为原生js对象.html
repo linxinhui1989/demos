@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">click once</button>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		var btn1 = document.getElementById("btn");
+		btn1.onclick = function(){}
+		var btn2 = $("#btn");
+		var btn3 = btn2[0];// 就可以将jquery中的对象转为原生js对象
+		var btn4 = $(btn1);// 将原生js对象转为jquery对象 $(原生)
+		console.log(btn1);
+		console.log(btn2);
+		console.log(btn3);
+		console.log(btn4);
+	</script>
+</body>
+</html>

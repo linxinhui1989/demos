@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点击一下</button>
+	<p>111</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		/*
+		在jquery中，对于事件的注册，也可以使用 on ；
+		在这个 on 方法中，要求传入多个值；
+		第一个值传入的是事件的名称
+		第二个值传入的是事件的处理函数
+		*/
+		$("#btn").on("mousemove",function(){
+			$("p").css({
+				"background-color":"red",
+				"font-size":"50px"
+			})
+		});
+	</script>
+</body>
+</html>

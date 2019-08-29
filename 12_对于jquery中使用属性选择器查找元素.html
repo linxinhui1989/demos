@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a>百度一下</a>
+	<a>百度一下</a>
+	<a>百度一下</a>
+	<a href="www.baidu.com">百度一下</a>
+	<a href="www.baidu.com">百度一下</a>
+	<a href="www.google.com">谷歌一下</a>
+	<a href="www.google.com">谷歌一下</a>
+	<a href="www.google.com">谷歌一下</a>
+	<a href="www.google.com" title="测试一下">谷歌一下11</a>
+	<a href="www.google.com" title="test">谷歌一下22</a>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+				属性选择器
+			*/
+			// 包含 href 属性的 a 标签
+			$("a[href]").css("background-color","green"); 
+			// 包含 href 属性，且属性值为 www.baidu.com 的 a 标签
+			$("a[href='www.baidu.com']").css("background-color","red");
+			// 包含 href 属性，且属性值不为 www.baidu.com 的 a 标签
+			$("a[href!='www.baidu.com']").css("background-color","blue");
+			// 包含 href 属性，且属性值以 .com 结尾 的 a 标签
+			$("a[href$='.com']").css("background-color","blue");
+			// 包含 href 属性，且属性值以 www 开头 的 a 标签
+			$("a[href^='www']").css("background-color","blue");
+			// 包含 href 属性，且只要含有 www 的 a 标签
+			$("a[href*='www']").css("background-color","blue");
+			// 也可以同时根据多个属性进行筛选查找
+			$("a[href][title]").css("background-color","green");
+			$("a[href][title='test']").css("background-color","green");
+		});
+	</script>
+</body>
+</html>

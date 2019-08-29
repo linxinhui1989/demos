@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">1111</div>
+	<span class="sp">2222</span>
+	<p>3333</p>
+	<p>4444</p>
+	<p>5555</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var box = $("#box");
+			var sp = $(".sp");
+			var ps = $("p");
+			box.css("background-color","red");
+			sp.css("font-size","50px");
+			/*
+			这边的变量 ps ，保存了所有的p元素，可以理解成是一个数组；
+			因为这个 ps 是通过 jquery 处理过的，所以jquery支持了这个写法，
+			可以直接拿变量，去设置css样式，而不用管 ps 中是一个还是多个，如果是多个，默认会让多个元素属性都修改
+			*/
+			ps.css("background-color","green");
+		});
+	</script>
+</body>
+</html>

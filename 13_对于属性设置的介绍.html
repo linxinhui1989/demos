@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>111</p>
+	<div>222</div>
+	<div>222</div>
+	<div>222</div>
+	<div>222</div>
+	<h1>3333</h1>
+	<h1>3333</h1>
+	<h1>3333</h1>
+	<h1>3333</h1>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 方式一
+			$("p").css("background-color","red");
+			// 方式二
+			$("div").css({
+				"color":"red",
+				"background-color":"green",
+				"font-size":"30px",
+				"width":"500px",
+				"height":"100px",
+				"margin":"30px"
+			});
+			// 方式三
+			$("h1").css("background-color",function(index,value){
+				if(index%2==0){
+					return "red";
+				}else{
+					return "green";
+				}
+			});
+		});
+	</script>
+</body>
+</html>

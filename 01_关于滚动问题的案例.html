@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		/*对于内容部分*/
+		.content{}
+		.content p{
+			height: 800px;
+			position: relative;
+		}
+		.content .red{
+			background-color: pink;
+		}
+		.content .green{
+			background-color: skyblue;
+		}
+		.content .blue{
+			background-color: greenyellow;
+		}
+		/*对于导航部分*/
+		.right-nav{
+			width: 50px;
+			height: 210px;
+			position: fixed;
+			right: 0;
+			top: 600px;
+			margin-top: -105px;
+			border:3px solid red;
+			z-index: 100;
+		}
+		.right-nav p{
+			height: 70px;
+			text-align: center;
+			line-height: 70px;
+			background-color: green;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<!-- 右侧导航部分 -->
+	<div class="right-nav">
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+	</div>
+	<!-- 内容部分 -->
+	<div class="content">
+		<p class="red"></p>
+		<p class="green"></p>
+		<p class="blue"></p>
+		<div style="height: 800px"></div>
+	</div>
+	<script type="text/javascript" src="fn2.js"></script>
+	<script type="text/javascript">
+		var redBlock = $$.$(".red")[0];
+		var greenBlock = $$.$(".green")[0];
+		var blueBlock = $$.$(".blue")[0];
+		var rightNav = $$.$(".right-nav")[0];
+		var navPs = rightNav.getElementsByTagName('p');
+		// 获取到所有的内容
+		var content = $$.$(".content")[0];
+		var contentPs = content.getElementsByTagName("p");
+		// 拿到所有的内容下的p元素后，再来根据循环来进行循环添加对应元素的 offsetTop 属性到数组中
+		var allTops = [];
+		for(var i=0;i<contentPs.length;i++){
+			allTops.push(contentPs[i].offsetTop);
+		}
+		// 1. 关于窗口滚动监听的实现
+		window.onscroll = function(){
+			// 1.1 获取滚动距离
+			var h = window.pageYOffset;
+			for(var i = 0;i<navPs.length;i++){
+				navPs[i].style.backgroundColor = "green";
+			}
+			console.log("h = " + h);
+			// 1.2 根据获取到的位置跟三个色块的所处的距离相比较
+			if(h >= greenBlock.offsetTop && h < blueBlock.offsetTop){
+				navPs[1].style.backgroundColor = $$.getAttr(greenBlock,"background-color");
+			}else if( h >= greenBlock.offsetTop){
+				navPs[2].style.backgroundColor = $$.getAttr(blueBlock,"background-color");
+			}else{
+				navPs[0].style.backgroundColor = $$.getAttr(redBlock,"background-color");
+			}
+		}
+
+		// 2. 根据右侧的点击，去实现窗口缓缓滚动
+		for(var i=0;i<navPs.length;i++){
+			navPs[i].index = i;
+			navPs[i].onclick = function(){
+				var index = this.index;
+				// 2.1 根据 index 下标，从数组中获取到对应的每个内容块所在页面的偏移位置
+				var y = allTops[index];
+				console.log("y = " + y);
+				// 2.2 使用 window.scrollTo 滚动到对应的位置上
+				// 2.3 对于窗口滚动，可以借助之前封装动画函数的思想，使用 setInterval进行缓动特效的添加
+				windowAnimate(this,y,50);
+				// 50*倍数 --> 是由当前点击位置跟现在所处位置的比例关系 Math.abs()
+				// window.scrollTo(0,y);
+			}
+		}
+		function windowAnimate(ele,target,rate){
+			clearInterval(ele.t);
+			ele.t = setInterval(function(){
+				current = window.pageYOffset;
+				current += (current<target)?rate:-rate;
+				window.scrollTo(0,current);
+				var dis = Math.abs(target - window.pageYOffset);
+				// 给定一个停止的条件
+				if(dis <= rate){
+					// 设置元素偏移量就是终点值
+					window.scrollTo(0,target);
+					// 停止计时器
+					clearInterval(ele.t);
+				}
+			},3);
+		}
+	</script>
+</body>
+</html>
