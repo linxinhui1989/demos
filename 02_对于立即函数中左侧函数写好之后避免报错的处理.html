@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function(){console.log("abcd");})();
+		// 在函数声明前书写运算符，也可以避免立即函数保存
+		+function(){console.log("1111");}();
+		-function(){console.log("1111");}();
+		!function(){console.log("1111");}();
+		~function(){console.log("1111");}();
+	</script>
+</body>
+</html>
