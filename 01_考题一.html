@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		求阶乘
+		n! = 1x2x3x...xn
+		4! = 1x2x3x4 = 24
+		5! = 1x2x3x4x5  =120
+		*/
+		function jiCheng(n){
+			var sum = 1;
+			for(var i=1;i<=n;i++){
+				sum *= i;
+			}
+			return sum;
+		}
+		// 声明一个变量，用于保存阶乘的和
+		var s = 0;
+		for(var j=1;j<=3;j++){
+			s += jiCheng(j);
+		}
+		console.log("s = " + s);
+	</script>
+</body>
+</html>

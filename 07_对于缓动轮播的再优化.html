@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		li img{
+			width: 500px;
+			height: 300px;
+		}
+		li{float: left;}
+		.ads{
+			width: 500px;
+			height: 300px;
+			/*将超出 div 范围的ul进行隐藏*/
+			overflow: hidden;
+			position: relative;
+		}
+		ul{
+			width: 2500px;
+			overflow: hidden;
+			position: absolute;
+			left: 0;
+		}
+		.ads>div{
+			width: 200px;
+		}
+		.ads .indicators{
+			width: 200px;
+			overflow: hidden;
+			position: absolute;
+			bottom: 20px;
+			left: 10px;
+		}
+		.ads .indicators li{
+			float: left;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			background-color: #fff;
+			margin-right: 10px;
+		}
+		.ads .indicators .active{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 轮播效果是缓缓变化的，如果只有一个 img ，很难做到这种效果 -->
+	<!-- 要想实现这种效果，往往需要多个img -->
+	<div class="ads">
+		<ul id="ads-ul">
+			<li><img src="./images/curry.jpg" alt=""></li>
+			<li><img src="./images/kebi.jpg" alt=""></li>
+			<li><img src="./images/kg.jpg" alt=""></li>
+			<li><img src="./images/qd.jpg" alt=""></li>
+			<!-- 这个专门用来解决本来的最后一张向第一张切换时的bug -->
+			<li><img src="./images/curry.jpg" alt=""></li>
+		</ul>
+		<div>
+			<ul class="indicators">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<button>上一个</button>
+	<button>下一个</button>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var prevBtn = $("button")[0];
+		var nextBtn = $("button")[1];
+		var adsArea = $(".ads")[0];
+		var ul = $("ul")[0];
+		var ads = ul.children;
+		var indicators = $(".indicators")[0].children;
+		var w = ul.firstElementChild.offsetWidth;
+		// 声明变量，表示下标索引
+		var index = 0;
+		nextBtn.onclick = function(){
+			switchIndicator("next");
+		}
+		prevBtn.onclick = function(){
+			switchIndicator("prev");
+		}
+		// 通过循环事件，注册触摸事件
+		for(var i=0;i<indicators.length;i++){
+			indicators[i].indicatorIndex = i;
+			indicators[i].onmouseover = function(){
+				switchIndicator("over",this.indicatorIndex);
+			}
+		}
+		// 关于案例中计时器函数的添加
+		var t = startInterval();
+		// 对于触摸时，计时器的操作
+		adsArea.onmouseover = function(){
+			// 停止计时器
+			clearInterval(t);
+		}
+		adsArea.onmouseleave = function(){
+			// 开启计时器
+			t = startInterval();
+		}
+		// 通过函数，去操作计时器
+		function startInterval(){
+			return setInterval(function(){
+				switchIndicator("next");
+			},2000)
+		}
+		// 关于下一个轮播切换的函数
+		function switchIndicator(tag,indicatorIndex){
+			if(tag == "prev"){
+				index --;
+				if(index == -1){
+					ul.style.left = (ads.length-1) * (-w) + "px";
+					index = ads.length-2;
+				}
+			}else if(tag == "next"){
+				index ++;
+				if(index == ads.length){
+					ul.style.left = 0 + "px";
+					index = 1;
+				}
+			}else{
+				var jianGe = Math.abs(indicatorIndex - index);
+				// 触摸切换
+				index = indicatorIndex;
+			}
+			aniMove(ul,-w*index,30*(indicatorIndex == undefined?1:jianGe));
+			// 排他写法
+			for(var i = 0;i<indicators.length;i++){
+				indicators[i].className = "";
+			}
+			/*
+				4 --> 下标最大只到 3，没有4，所以根据 4 找不到；
+				4 --> 其实对应的就是数组中的第一个 --> 0
+			 */
+			indicators[index%indicators.length].className = "active";
+		}
+	</script>
+</body>
+</html>

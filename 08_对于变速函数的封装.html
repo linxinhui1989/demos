@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		.right{
+			left: 600px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<button>开始(匀速运动)</button>
+	<div></div>
+	<button>开始(变速运动：从左往右)</button>
+	<div class="right"></div>
+	<button>开始(变速运动：从右往左)</button>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var div = $("div")[0];
+		var button = $("button")[0];
+		button.onclick = function(){
+			// 调用 aniMove 这个函数，实现匀速运动
+			uniformMove(div,600,5);
+		}
+		
+		var div2 = $("div")[1];
+		var button2 = $("button")[1];
+		button2.onclick = function(){
+			var target = 600;
+			// 避免多次点击，开启多个计时器
+			clearInterval(div2.t);
+			// 调用函数，实现变速运动
+			div2.t = setInterval(function(){
+				/*
+				因为距离在不断的减小，会导致 step 这个步长值会变得很小；想一个办法，使得 step 能够大于等于一个最小值且取整数
+				 */
+				var step = Math.ceil((target - div2.offsetLeft) / 20);
+				var dis = div2.offsetLeft + step;
+				div2.style.left = dis + "px";
+				var cha = Math.abs(target - dis);
+				if(cha == 0){
+					clearInterval(div2.t);
+				}
+			},20);
+		}
+
+		var div3 = $("div")[2];
+		var button3 = $("button")[2];
+		button3.onclick = function(){
+			var target = 0;
+			// 避免多次点击，开启多个计时器
+			clearInterval(div3.t);
+			// 调用函数，实现变速运动
+			div3.t = setInterval(function(){
+				/*
+				因为距离在不断的减小，会导致 step 这个步长值会变得很小；想一个办法，使得 step 能够大于等于一个最小值且取整数
+				*/
+				var step = Math.floor((target - div3.offsetLeft) / 20);
+				var dis = div3.offsetLeft + step;
+				div3.style.left = dis + "px";
+				var cha = Math.abs(target - dis);
+				if(cha == 0){
+					clearInterval(div3.t);
+					console.log("停止计时器函数");
+				}
+			},20);
+		}
+	</script>
+</body>
+</html>

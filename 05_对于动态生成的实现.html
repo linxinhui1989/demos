@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		ul{
+			width: 310px;
+			margin:  100px auto;
+			border: 1px solid red;
+			overflow: hidden;
+			padding-top: 20px;
+		}
+		li{
+			float: left;
+			width: 72px;
+			height: 77px;
+			text-align: center;
+		}
+		li .icon{
+			width: 24px;
+			height: 24px;
+			background-image: url("./images/icons.png");
+			background-position: 0 0;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		li .info{
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div id="conve"></div>
+		<!-- 产品列表 -->
+		<div id="goods"></div>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var desc = ["充话费","游戏","旅行","车险","彩票","电影","酒店","理财","找服务","音乐","水电煤","火车票"];
+		var str = "<ul>";
+		for(var i=0;i<desc.length;i++){
+			str += '<li>';
+				str += '<p class="icon" style="background-position:0 '+(-i)*44+'px"></p>';
+				str += '<p class="info">'+desc[i]+'</p>';
+			str += '</li>';
+		}
+		str +="</ul>"
+		$("#conve").innerHTML = str;
+		// $("ul")[0].innerHTML = str;
+	</script>
+</body>
+</html>

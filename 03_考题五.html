@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.fl{float: left;}
+		.fr{float: right;}
+		#box{
+			width: 600px;
+			margin: 0 auto;
+			border: 1px solid red;
+			overflow: hidden;
+		}
+		#box .left,.center,.right{
+			width: 200px;
+			text-align: center;
+			line-height: 60px;
+			font-size: 20px;
+			height: 240px;
+		}
+		.selected{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="left fl">
+			<ul class="left_ul">
+				<li>科比</li>
+				<li>乔丹</li>
+				<li>欧文</li>
+				<li>库里</li>
+			</ul>
+		</div>
+		<div class="center fl">
+			<p> >> </p>
+			<p> << </p>
+			<p> 全部到右边 </p>
+			<p> 全部到左边 </p>
+		</div>
+		<div class="right fl">
+			<ul>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		/*
+		   元素的appendChild 跟 removeChild 的结合使用
+		*/
+		var leftUl = $("ul")[0];
+		var ls = leftUl.children;
+		var rightUl = $("ul")[1];
+		var btnLR = $("p")[0];
+		var btnRL = $("p")[1];
+		var btnLRAll = $("p")[2];
+		var btnRLAll = $("p")[3];
+		/*
+		循环事件 --> 为li注册点击事件 --> 为了选中 --> 就是将被点击的那个li赋值给一个全局变量上
+		 */
+		// 准备一个全局变量，用于保存被点击到的那个li
+		var clickLi = null;
+		for(var i=0;i<ls.length;i++){
+			ls[i].index = i;
+			ls[i].onclick = function(){
+				for(var j=0;j<ls.length;j++){
+					ls[j].className = "";
+				}
+				this.className = "selected";
+				clickLi = this;
+			}
+		}
+		btnLR.onclick = function(){
+			for(var j=0;j<ls.length;j++){
+				ls[j].className = "";
+			}
+			if(clickLi != null){
+				rightUl.appendChild(clickLi);
+			}
+		}
+
+		// 点击全部到右侧
+		btnLRAll.onclick = function(){
+			for(var j=0;;j++){
+				rightUl.appendChild(ls[0]);
+				if(ls.length == 0){
+					break;
+				}
+			}
+		}
+
+		btnRLAll.onclick = function(){
+			var rightLs = rightUl.children;
+			for(var j=0;;j++){
+				leftUl.appendChild(rightLs[0]);
+				if(rightLs.length == 0){
+					break;
+				}
+			}
+		}
+
+	</script>
+</body>
+</html>

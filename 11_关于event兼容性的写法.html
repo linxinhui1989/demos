@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<button>点击</button>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		$("button")[0].onclick = function(event){
+			/*
+			在非ie低版本下 event
+			在ie低版本下   window.event
+			*/
+			/*if(event){
+				event = event;
+			}else{
+				event = window.event;
+			}*/
+			event = event || window.event;
+			console.log(event);
+		}
+	</script>
+</body>
+</html>

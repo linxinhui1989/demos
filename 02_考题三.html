@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 准备一串字符串
+		var str = "dhaskjryaiuskcsaxcxsduoiuwioqueqw871sdqwuioeqw";
+		str = str.toLowerCase();
+		/*
+			准备一个数组，数组长度为26，刚好对应26个字母；
+			数组中26的大小，默认一开始都是0；
+			下标0--> a的个数
+			下标1--> b的个数
+		 */ 
+		var arr = [];
+		for(var i=0;i<26;i++){
+			arr.push(0);
+		}
+		for(var i=0;i<str.length;i++){
+			// 获取这个字符对应的ascii值
+			var ch = str.charCodeAt(i);
+			// 只有是字母，才是需要的
+			if(ch>=97&&ch<=122){
+				/*
+					a  97  0
+					b  98  1
+					c  99  2
+				*/
+				arr[ch-97]++;
+				/*
+				ch--> 97 --> a arr[ch-97]++
+				ch--> 99 --> c arr[ch-97]++
+				ch--> 97 --> a arr[ch-97]++
+				 */
+			}
+		}
+		// 再来一个for循环，进行循环打印
+		for(var i=0;i<26;i++){
+			// 根据给定的ascii值，转为对应的字符
+			console.log(String.fromCharCode(97+i) + " ===> " + arr[i]);
+		}
+	</script>
+</body>
+</html>

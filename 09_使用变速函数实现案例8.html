@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		.right{
+			left: 600px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<button>开始(匀速运动)</button>
+	<div></div>
+	<button>开始(变速运动：从左往右 rate10)</button>
+	<div></div>
+	<button>开始(变速运动：从左往右 rate20)</button>
+	<div class="right"></div>
+	<button>开始(变速运动：从右往左)</button>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var div = $("div")[0];
+		var button = $("button")[0];
+		button.onclick = function(){
+			// 调用 aniMove 这个函数，实现匀速运动
+			uniformMove(div,600,5);
+		}
+		
+		var div2 = $("div")[1];
+		var button2 = $("button")[1];
+		button2.onclick = function(){
+			varSpeedMove(div2,600,10);
+		}
+
+		var div3 = $("div")[2];
+		var button3 = $("button")[2];
+		button3.onclick = function(){
+			varSpeedMove(div3,600);
+		}
+
+		var div4 = $("div")[3];
+		var button4 = $("button")[3];
+		button4.onclick = function(){
+			varSpeedMove(div4,0,15);
+		}
+				
+	</script>
+</body>
+</html>

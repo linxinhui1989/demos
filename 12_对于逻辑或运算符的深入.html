@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 10,b = 20,c = 15,d,e,f = true,g;
+		/*
+		对于逻辑或的最基本的用法
+		式子一||式子二 --> 如果假定式子一跟二之间只有同时为false，结果才是false；只要有一侧为true，结果就是为true
+		*/
+		var tag = (a>b)||(b>c);
+		console.log(tag);
+		/*
+		对于真或者加在 js 中的判断，不仅可以通过 true false，也可以根据这个变量的内容进行判断
+		undefined 参与判断时，就代表 假
+		null      参与判断时，就代表 假
+		纯数字    0 就代表 假；非 0 就是 真
+		空字符串 为 假；非空为 真
+		布尔类型的变量 var f = true; true 就是 真  false就是假
+		*/
+		if(f){
+		}
+		var a1 = -1;
+		if(a1){
+			console.log("a1 = " + a1);
+		}
+		if(g){
+			console.log("g = " + g);
+		}
+		/*
+		对于 || 这个运算符的解释：
+		对 || 左右两侧的式子进行真假判断；只要有一侧为真，结果就是判断为真的那个式子，如果两侧都为假，就将结果为假的式子赋值给左侧的变量
+		var t1 = a || d; ---> t1 = a; 10
+		var t2 = d || e; ---> t2 = e; undefined
+		var t3 = (a>b) || (b>c); ---? t3 = (b>c) --> true
+		*/
+		var tag2 = d || a;
+		console.log(tag2);
+	</script>
+</body>
+</html>
