@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 10;
+		function run(){
+			/*
+			在函数内容也存在声明提前的特点，只不过这个提前，只是提前到函数内部的最前面
+			 */
+			console.log("a = " + a);  // undefined
+			var a = 100;
+		}
+		/*等价于
+		function run(){
+			var a;
+			console.log("a = " + a);
+			a = 100;
+		}*/
+		run();
+	</script>
+</body>
+</html>

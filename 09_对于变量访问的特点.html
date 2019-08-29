@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 10;
+		function run(){
+			var b = 1000;
+			console.log("b = " + b);
+		}
+		/*
+		默认情况，在上层级作用域下是无法访问到下层级作用域下定义的变量；
+		在当前这个例子下，当运行这个 run 函数时，在run 函数内部会定义一个形参 b ，形参其实就是局部变量，当函数调用完成后，这个局部变量 b 也就被销毁了
+		 */
+		run();
+		console.log(b);
+	</script>
+</body>
+</html>

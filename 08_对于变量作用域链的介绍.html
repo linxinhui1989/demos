@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 1000; // 一级作用域
+		;(function(){
+			var a = 10; // 二级作用域
+			function run(){
+				var a = 1;
+				console.log("a = " + a); // 三级作用域
+			}
+			run();
+		})();
+		/*
+		当去访问一个变量时，会在当前作用域下进行该名称变量的查找，如果存在，查找停止，使用这个变量；
+		如果当前作用域下不存在这个名称的变量，则会往当前作用域下的上一层作用域中进行查找，如果存在，停止查找；
+		... 直接找到全局作用域下的变量，如果还是不存在该名称的变量，则会提示 undefined；
+		这些变量作用域查找组成的链式关系，称为是作用域链
+		 */
+	</script>
+</body>
+</html>

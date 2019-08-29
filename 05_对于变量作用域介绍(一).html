@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 变量声明提前，但是赋值不会
+		console.log("a = " + a);
+		var a = 10;
+		/*
+		等价于
+		var a;
+		console.log("a = " + a);
+		a = 10;
+		*/
+		
+		show();
+		function show(){
+			console.log("1111");
+		}
+
+		run();
+		var run = function(){
+			console.log("2222");
+		}
+		/*
+		等价于  
+		var run;
+		run();
+		run = function(){console.log("2222")}
+		 */
+
+	</script>
+</body>
+</html>
