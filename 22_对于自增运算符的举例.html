@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 1;
+		/*
+			var b = ++a + 2*a++ + ++a
+			1>++a ++在变量a前，所以先将a进行+1操作，此时变量a中保存的就是2 了
+
+			2>然后再把a拿来用 2 + 2*a++ 因为++在a的后面，所以先把a拿来用 2 + 2*2，然后再来对a进行+1操作，a保存的就是3
+
+			3> 2+2*2+ ++a 因为++在变量a 的前面，所以先将变量a进行+1操作，此时a就是4了，然后再拿来用
+			2+2*2+4 = 10
+		 */  	2 + 2*2 + 4
+		var b = ++a + 2*a++ + ++a;
+		console.log("a = " + a); // 4 
+		console.log("b = " + b);
+	</script>
+</body>
+</html>

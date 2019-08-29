@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var day = 1;
+		var after = 39;
+		/*
+			每隔七天一个轮回
+			1 -> 8天后  8-7=1 -->2
+			1 -> 18天后 18-14 = 4 --> 5
+			39÷7 = 5...4
+		*/
+		var d = after % 7;
+		var afterDay = day + d;
+		console.log("那天是星期" + afterDay);
+	</script>
+</body>
+</html>

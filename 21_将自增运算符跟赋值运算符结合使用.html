@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = 1;
+		var b = ++a; //  a += 1 --> a = a + 1
+		console.log("a = " + a);
+		console.log("b = " + b);
+		/*
+		   对于这个变量a而言，不管++在前还是在后，a最终都会之前 +1操作，只是先后顺序而已；
+		   至于变量b的值，那就得取决于++在前还是在后
+		   var b = a++;
+		   如果++在变量a后，这个时候是先将这个变量a中保存的数据拿来用(赋值给b)，然后再对变量a自身进行+1操作，所以变量b值1 而a为2
+			
+		   var b = ++a;
+		   如果++ 在变量a前，这个时候是先将变量a进行+1操作，此时a中保存的值就变成2了，然后再来将这个变量a中保存的数据取出，赋值给变量b，所以变量b值2 a为2
+		 */
+	</script>
+</body>
+</html>

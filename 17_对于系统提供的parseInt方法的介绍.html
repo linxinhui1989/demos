@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num1 = 1100;
+		var num2 = 3900;
+		var res = num2/num1;
+		/*
+			系统提供了一个方法，用于将数据转换为整数
+			写法 parseInt() 将这个res写入到()中，可以理解为系统将这个传入的res进行加工
+			加工好之后，能得到一个新的结果；
+			这个parseInt不是采取四舍五入的做法，而是将小数部分全部去掉
+		 */ 
+		var newData = parseInt(res);
+		console.log("res = " + res);
+		console.log("newData = " + newData);
+	</script>
+</body>
+</html>

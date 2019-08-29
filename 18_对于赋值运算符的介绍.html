@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1.将右边的字面量赋值给左边的变量  
+		var age = 20;
+		// 使用赋值运算符，将30赋值给变量age，此时这个age中存放的数据就是30
+		age = 30;
+		
+		// 2.对于赋值语句右侧可以是字面量，也可以是运算后的结果
+		var num1 = 10;
+		var num2 = 20;
+		/*
+			这个式子是先算右边，将num1中保存的数据取出，然后跟2进行相加；
+			相加运算得到的结果再重新赋值给变量 num1
+		 */ 
+		num1 = num1 + 2;
+		var result = num1 + num2;
+	</script>
+</body>
+</html>
