@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			准备一个函数，专门用来判断传入的数据是否是质数
+		 */
+		function checkZhiShu(num){
+			var isZhiShu = true;
+			for(var i=2;i<num;i++){
+				if(num%i==0){
+					isZhiShu = false;
+				}
+			}
+			return isZhiShu;
+		}
+		
+		// 调用这个函数，然后通过函数运算，获取到是否是质数的判断依据
+		var tag = checkZhiShu(123);
+		if(tag){
+			console.log("是质数");
+		}else{
+			console.log("不是质数");
+		}
+		
+	</script>
+</body>
+</html>

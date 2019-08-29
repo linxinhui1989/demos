@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function printSum(num1,num2){
+			/*
+				在这个函数内容，就可以书写对于num1 跟 num2 这两个变量相关操作了;
+				在函数内部也可以进行变量的声明，赋值，以及使用
+			*/
+			var s = num1 + num2;
+			console.log(num1+"+"+num2+"="+s);
+		}
+		
+		/*
+			函数定义好后，就可以通过这个函数名对指定函数进行调用了；
+			函数调用时，传入的两个数值，分别按照函数声明时的顺序进行赋值
+			10 赋值 给  num1   20 赋值给 num2
+		*/ 
+		printSum(100,2000);
+		
+	</script>
+</body>
+</html>

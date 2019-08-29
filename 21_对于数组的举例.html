@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var nums = [12,13,15,26,30,43,65,60,98,90];
+		for(var i=0;i<nums.length;i++){
+			// 先根据下标取出这个数组中每一个数
+			var num = nums[i];
+			if(num % 3 == 0 && num % 5 == 0){
+				nums[i] = 0;
+			}
+		}
+		console.log(nums);
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function printSum(num1,num2){
+			var s = num1 + num2;
+			/*
+			要将函数中的数据，返回给这个函数的具体的调用上下文中，这边需要使用一个关键字 return;
+			return 后面写的内容，就是作为这个函数调用完成之后的结果
+			 */ 
+			return s;
+		}
+		// 在函数调用的具体上下文中，要想获取到函数执行完返回的结果，这边就需要声明一个变量，把返回的结果，赋值给这个变量
+		var result = printSum(10,20); // 调用这个求和的函数，然后还要拿到求和的结果，这个结果在程序别的地方要用
+		console.log("result = " + result);
+	</script>
+</body>
+</html>

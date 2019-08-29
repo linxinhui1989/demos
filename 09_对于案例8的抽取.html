@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			函数名(); --> 对于这个指定名称的函数的调用 --> 就会执行这个函数中所包含的代码
+			函数的定义位置可以任意，可以书写在调用之前，也可以书写在调用之后
+		 */
+		printLine();
+
+		/*
+			开始 函数 的介绍
+			函数的作用：保存一份可以重复使用的代码
+			函数的定义：以 function 开头，空格，后面跟上函数的名字，这个名字的规范跟之前学习变量时是一样的；然后跟上()，再来跟上一对{}，这样就定义好了一个函数
+		 */
+		var num = 10; // 变量的定义
+		function printLine(){ // 函数的定义
+			for(var i=0;i<=100;i++){
+				document.write("=");
+			}
+			document.write("<br>");
+		} 
+		
+		var aa = printLine;
+	</script>
+</body>
+</html>
+

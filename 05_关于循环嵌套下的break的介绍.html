@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		for(var j = 0 ;j<5;j++){
+			for(var i=0;i<=10;i++){
+				if(i == 5){
+					break;
+					/*
+					对于这个break，作用是在于跳出这个循环，但是没有跳出外层循环；
+					会继续执行外层 j 循环
+					 */
+				}
+				document.write("=");
+			}
+			document.write("<br>");
+		}
+	</script>
+</body>
+</html>

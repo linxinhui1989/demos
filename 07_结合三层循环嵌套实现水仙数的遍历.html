@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		for(var bai=1;bai<=9;bai++){
+			for(var shi=0;shi<=9;shi++){
+				for(var ge=0;ge<=9;ge++){
+					// 1. 根据这三个位数，拼凑出这个数值
+					var num = bai*100 + shi*10 + ge;
+					// 2. 计算出这三个位数上的三次方之和
+					var sum = ge*ge*ge + shi*shi*shi + bai*bai*bai;
+					// 3. 用num 跟 sum 进行比较，如果相等就打印出这个num
+					if(num == sum){
+						console.log(num);
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

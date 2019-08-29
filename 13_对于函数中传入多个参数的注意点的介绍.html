@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myLog(num1,num2){
+			console.log("num1 = " + num1);
+			console.log("num2 = " + num2);
+		}
+
+		/*
+			调用这个函数时，该函数定义好两个形参
+			形参：形式参数，只用在这个函数中，函数外部是无法访问到的；
+			实参：调用这个函数，实际传入的参数
+			调用这个函数，传入指定个数的数值
+		 */
+		myLog(1,2);
+
+		/*
+			调用这个函数，但是传入多余形参个数的数据;
+			如果传入的参数多余形参个数，那么多余的传入值将无效
+		 */
+		var num = 100;
+		myLog(num,8,3,4,5);
+
+		/*
+			调用这个函数，传入的实参个数少于形参个数,
+			那么多出的形参，将会是 undefined，没有定义初始值，无法拿来进行使用
+		 */
+		myLog(666);
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function show(num1){
+			console.log("num1 = " + num1);
+		}
+		/*
+			这边这个show函数中没有写return关键字，那么就意味着这个函数运算后，没有返回任何内容，就是 undefined
+		 */
+		var res = show(123); //var res;
+		console.log("res = " + res);
+	</script>
+</body>
+</html>

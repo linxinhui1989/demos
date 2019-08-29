@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = 6;
+		// 用来保存约数之和
+		var sum = 0;
+		for(var i=1;i<num;i++){
+			if(num % i == 0){
+				sum += i;
+			}
+		}
+		// 当循环结束之后，其实 sum 就已经把num所有的约数都加起来了，除了自身
+		if(sum == num){
+			console.log(num);
+		}
+	</script>
+</body>
+</html>

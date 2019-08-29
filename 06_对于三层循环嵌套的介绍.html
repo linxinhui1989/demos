@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<div>
+			<div></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var line = 0; // 变量表示行数
+		for(var i=0;i<10;i++){
+			for(var j=0;j<10;j++){
+				for(var z=0;z<10;z++){
+					line++;
+					document.write(i+"+"+j+"+"+z+"="+(i+j+z));
+				}
+				document.write("<br>");
+			}
+		}
+		console.log("line = " + line);
+
+	</script>
+</body>
+</html>

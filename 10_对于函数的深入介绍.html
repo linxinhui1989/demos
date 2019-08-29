@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			1.定义一个函数，函数的名称是叫 printLine;
+			2.可以通过printLine这个名字，去访问到这个函数所保存的具体的地址，对于这个名字，就可以理解成之前所学的变量一样；
+			3.要想调用函数，必须是函数名();  如果只写函数名，是不会调用的
+			4.对于这个printLine，就可以当成变量来对待，只是这个变量类型有点特殊，是function类型的
+		 */
+		function printLine(){
+			for(var i=0;i<=100;i++){
+				document.write("=");
+			}
+			document.write("<br>");
+		} 
+	</script>
+</body>
+</html>
+

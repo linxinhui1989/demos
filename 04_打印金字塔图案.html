@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			=		1--> 1个
+			===		2--> 3个
+			=====   3--> 5个   
+			规律： 个数 = 行数*2 - 1
+
+			  =		第一行 --> 需要往中间移动 2 个位置 --> 打印 2个 空格
+			 ===    第二行 --> 需要往中间移动 1 个位置 --> 打印 1个 空格
+			=====
+			注意：空格的打印，一定是在 = 之前
+		 */
+		var allLineNum = 5;
+		for(var j=1;j<=allLineNum;j++){
+			for(var i=0;i<allLineNum - j;i++){
+				document.write("&nbsp;&nbsp;");
+			}
+			for(var i=0;i<j*2-1;i++){
+				document.write("=");
+			}
+			document.write("<br>");
+		}
+		/*for(var j=1;j<=3;j++){ // 决定要打印几行
+			for(var i=0;i<2*j-1;i++){ // 决定每一行要打印几个
+				document.write("=");
+			}
+			document.write("<br>");
+		}*/
+		/*var allLineNum = 3;
+		var j = 1;
+		for(var i=0;i<allLineNum - j;i++){
+			document.write("&nbsp;&nbsp;");
+		}
+		for(var i=0;i<1*2-1;i++){
+			document.write("=");
+		}
+		document.write("<br>");
+
+		var j = 2;
+		for(var i=0;i<allLineNum - j;i++){
+			document.write("&nbsp;&nbsp;");
+		}
+		for(var i=0;i<2*2-1;i++){
+			document.write("=");
+		}
+		document.write("<br>");
+
+		var j = 3;
+		for(var i=0;i<allLineNum - j;i++){
+			document.write("&nbsp;&nbsp;");
+		}
+		for(var i=0;i<3*2-1;i++){
+			document.write("=");
+		}
+		document.write("<br>");*/
+	</script>
+</body>
+</html>
