@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		var ctx = canvas.getContext("2d");
+		// 1. 准备显示所需的数据
+		var data = [
+			{"title":"购物","cost":1000,"color":"red"},
+			{"title":"淘宝","cost":800,"color":"green"},
+			{"title":"京东","cost":1800,"color":"blue"},
+			{"title":"吃饭","cost":800,"color":"yellow"},
+			{"title":"房租","cost":2000,"color":"pink"},
+			{"title":"看电影","cost":500,"color":"purple"}
+		];
+		// 根据给定的数据，绘制对应的图案
+		// 2. 先来绘制若干个矩形图案 
+		var rectW = 50;
+		var rectH = 30;
+		var rectX = 30;
+		var rectY = 30;
+		var margin = 10;
+		for(var i in data){
+			// 2.1 重新开启一个路径
+			ctx.beginPath();
+			var item = data[i];
+			ctx.rect(rectX,rectY + i*(rectH + margin),rectW,rectH);
+			ctx.font = "14px 微软雅黑";
+			ctx.fillStyle = item.color;
+			ctx.fillText(item.title,rectX + rectW + margin,rectY + i*(rectH + margin) + rectH/2 + 7);
+			ctx.fill();
+		}
+		// 3. 再来根据给定的数据，绘制扇形
+		var circleX = canvas.width/2;
+		var circleY = canvas.height/2;
+		var radius = 200;
+		var startCircle = 0;
+		var endCircle = 0;
+		var sum = calculateSum();
+		for(var i in data){
+			var item = data[i];
+			ctx.beginPath();
+			ctx.moveTo(circleX,circleY);
+			// 根据数值的不同，进行不同扇形的绘制
+			ctx.fillStyle = item.color;
+			endCircle = startCircle + item.cost / sum * 360 * Math.PI / 180;
+			ctx.arc(circleX,circleY,radius,startCircle,endCircle);
+			ctx.fill();
+			// 上一次的endCircle就是下一次的startCircle
+			startCircle = endCircle;
+		}
+		// 准备一个函数，用于求和运算
+		function calculateSum(){
+			var sum = 0;
+			for(var i in data){
+				sum += data[i].cost;
+			}
+			return sum;
+		}
+	</script>
+</body>
+</html>

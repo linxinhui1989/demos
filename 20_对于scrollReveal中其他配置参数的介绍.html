@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<p class="box"></p>
+	<script type="text/javascript" src="scrollreveal.js"></script>
+	<script type="text/javascript">
+		// 此时 scrollReveal 也是一个 js 库，需要在js中进行对应的初始化
+		ScrollReveal().reveal('.box',{
+			delay: 0, // 设定动画的延迟时间
+			distance: '100px', // 设定动画运动距离
+			duration: 1000, // 设定动画持续时间
+			easing: 'cubic-bezier(0.5, 0, 0, 1)', // 设定动画的运动规律
+			interval: 0, // 动画执行的次数
+			opacity: 0,  // 动画发生时的透明度
+			origin: 'bottom',// 设定动画的运动方向
+			rotate: { // 设定动画开始时，元素的转动角度(根据对应轴的转动角度)
+				x: 0,
+				y: 0,
+				z: 45
+			},
+			scale: 2, // 设定动画开始时，元素的缩放倍数
+			desktop: true, // 设定是否支持pc
+			mobile: true,  // 设定是否支持手机
+			reset: true, // 设置动画是否往返执行
+			afterReset: function afterReset() {
+				console.log("afterReset");
+			},
+			afterReveal: function afterReveal() {
+				console.log("afterReveal");
+			},
+			beforeReset: function beforeReset() {
+				console.log("beforeReset");
+			},
+			beforeReveal: function beforeReveal() {
+				console.log("beforeReveal");
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<p class="box1"></p>
+	<p class="box2"></p>
+	<p class="box3"></p>
+	<script type="text/javascript" src="scrollreveal.js"></script>
+	<script type="text/javascript">
+		// 此时 scrollReveal 也是一个 js 库，需要在js中进行对应的初始化
+		ScrollReveal().reveal('.box1',{
+			"distance":"300px",
+			"origin":"left",
+			"duration":1000
+		});
+
+		ScrollReveal().reveal('.box2',{
+			"distance":"300px",
+			"origin":"right",
+			"duration":1000
+		});
+
+		new ScrollReveal().reveal(".box3",{
+			"distance":"600px",
+			"origin":"bottom",
+			"duration":2000
+		});
+	</script>
+</body>
+</html>

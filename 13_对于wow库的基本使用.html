@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 10px auto;
+		}
+	</style>
+	<!-- 引入外部准备好的库文件 -->
+	<link rel="stylesheet" href="animate.css">
+	<script type="text/javascript" src="wow.js"></script>
+</head>
+<body>
+	<p class="wow slideInLeft"></p>
+	<script type="text/javascript">
+		// 因为此时引入的是 js 库，使用稍稍不同于 css 库，对于css库只需要直接引入就可以直接用了；而对js库，往往还需要进行初始化操作，才能生效
+		new WOW().init();
+	</script>
+</body>
+</html>

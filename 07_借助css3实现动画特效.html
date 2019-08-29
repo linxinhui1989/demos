@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+			left: 0;
+			top: 10px;
+			animation: run 1s;
+			animation-fill-mode: forwards;
+		}
+		@keyframes run{
+			0%{
+				left: 0;
+			}
+			60%{
+				left: 55%;
+				margin-left: -100px;
+			}
+			70%{
+				left: 45%;
+			}
+			80%{
+				left: 53%;
+			}
+			90%{
+				left: 47%;
+			}
+			100%{
+				left: 50%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+</body>
+</html>

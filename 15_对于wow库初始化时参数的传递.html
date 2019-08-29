@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 10px auto;
+		}
+	</style>
+	<!-- 引入外部准备好的库文件 -->
+	<link rel="stylesheet" href="animate.css">
+	<script type="text/javascript" src="wow.js"></script>
+</head>
+<body>
+	<p class="wow slideInLeft"></p>
+	<p class="wow slideInLeft"></p>
+	<p class="wow slideInLeft"></p>
+	<p class="wow slideInLeft"></p>
+	<p class="wow slideInLeft"></p>
+	<p class="wow slideInLeft"></p>
+	<p class="wow slideInLeft"></p>
+	<script type="text/javascript">
+		// 因为此时引入的是 js 库，使用稍稍不同于 css 库，对于css库只需要直接引入就可以直接用了；而对js库，往往还需要进行初始化操作，才能生效
+		new WOW({
+			boxClass:     'wow',      // animated element css class (default is wow)
+		    animateClass: 'animated', // animation css class (default is animated)
+		    offset:       200,          // distance to the element when triggering the animation (default is 0)
+		    mobile:       true,       // trigger animations on mobile devices (default is true)
+		    live:         true,       // act on asynchronously loaded content (default is true)
+		    callback:     function(box) {
+		       console.log("动起来....");
+		    }
+		}).init();
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 10px auto;
+		}
+	</style>
+	<!-- 引入外部准备好的库文件 -->
+	<link rel="stylesheet" href="./animate.css">
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<p class="animated"></p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("p").addClass("fadeInLeft");
+			setTimeout(function(){
+				$("p").addClass("zoomOutRight");
+			},1000);
+		});
+	</script>
+</body>
+</html>

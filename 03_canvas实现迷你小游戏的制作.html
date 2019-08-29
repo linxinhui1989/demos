@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="gbk">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{text-align: center;}
+		canvas{}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="600"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvasÀàËÆÓÚ»­²¼£¬ÒªÏëÔÚ»­²¼ÉÏ½øÐÐ»æÖÆ£¬»¹ÐèÒªÈ¥¸ù¾Ý»­²¼ÕÒµ½¶ÔÓ¦µÄ¹¤¾ßÀ¸
+		var ctx = canvas.getContext("2d");
+		// Í¨¹ýjs´úÂë£¬¶¯Ì¬´´½¨Image¶ÔÏó
+		var img = new Image();
+		// ÓÐÁËImage¶ÔÏóºó£¬ÐèÒªÉèÖÃ¶ÔÓ¦µÄsrcÊôÐÔ
+		img.src = "./images/GoP_1.png";
+		// »æÖÆÖ®Ç°£¬Ò»¶¨ÒªÏÈÈ·±£Í¼Æ¬ÒÑ¾­ÉèÖÃºÃsrcÁË
+		var wh = 32;
+		var canvasW = canvas.width;
+		var canvasH = canvas.height;
+		var xCount = Math.ceil(canvas.width / wh);
+		var yCount = Math.ceil(canvas.height / wh);
+		var imgs = {
+			"idle":["./images/hero/idle/1.png","./images/hero/idle/2.png","./images/hero/idle/3.png","./images/hero/idle/4.png"],
+			"walkdown":["./images/hero/walkdown/1.png","./images/hero/walkdown/2.png","./images/hero/walkdown/3.png","./images/hero/walkdown/4.png"],
+			"walkleft":["./images/hero/walkleft/1.png","./images/hero/walkleft/2.png","./images/hero/walkleft/3.png","./images/hero/walkleft/4.png"],
+			"walkright":["./images/hero/walkright/1.png","./images/hero/walkright/2.png","./images/hero/walkright/3.png","./images/hero/walkright/4.png"],
+			"walkup":["./images/hero/walkup/1.png","./images/hero/walkup/2.png","./images/hero/walkup/3.png","./images/hero/walkup/4.png"]
+		};
+		var state = "idle"; // 0 ¶ÔÓ¦µÄ¾ÍÊÇ idle
+		var index = 0;
+		var heroX = wh;
+		var heroY = wh;
+		var blockPos = [];
+		var decoratePos = [];
+		img.onload = function(){
+			// È·¶¨ÕÏ°­ÎïµÄÎ»ÖÃ
+			for(var i=0;i<80;i++){
+				var x = parseInt(Math.random()*xCount);
+				var y = parseInt(Math.random()*yCount);
+				blockPos.push({"x":x*wh,"y":y*wh});
+			}
+			// È·¶¨×°ÊÎÎïµÄÎ»ÖÃ
+			for(var i=0;i<50;i++){
+				var x = parseInt(Math.random()*xCount);
+				var y = parseInt(Math.random()*yCount);
+				decoratePos.push({"x":x*wh,"y":y*wh});
+			}
+			setInterval(function(){
+				canvas.width = canvas.width;
+				canvas.height = canvas.height;
+				// ctx.drawImage(img,0,0,100,50);
+				// ctx.drawImage(img,0,0,100,50,193,321,31,31);
+				for(var x = 0;x<xCount;x++){
+					for(var y=0;y<yCount;y++){
+						ctx.drawImage(img,224,288,wh,wh,wh*x,wh*y,wh,wh);
+					}
+				}
+				// // Ëæ»úµã×ºÒ³Ãæ
+				for(var i=0;i<blockPos.length;i++){
+					var x = blockPos[i].x;
+					var y = blockPos[i].y;
+					ctx.drawImage(img,192,320,wh,wh,x,y,wh,wh);
+				}
+				for(var i=0;i<decoratePos.length;i++){
+					var x = decoratePos[i].x;
+					var y = decoratePos[i].y;
+					ctx.drawImage(img,224,320,wh,wh,x,y,wh,wh);
+				}
+				var img1 = new Image();
+				var imgSrcs = imgs[state];
+				img1.src = imgSrcs[index];
+				img1.onload = function(){
+					// ÔÚcanvasÖÐ£¬½øÐÐcanvasË¢ÐÂ²Ù×÷£¬Ö»ÐèÖØÐÂÉèÖÃcanvasµÄ¸ß¶ÈÒÔ¼°¿í¶ÈÊôÐÔ£¬¾ÍËãÖµÏàÍ¬Ò²»áË¢ÐÂ
+					ctx.drawImage(img1,0,0,16,16,heroX,heroY,wh,wh);
+					index++;
+					index %= imgSrcs.length;
+				}
+			},200);
+		}
+		// ¶ÔÓÚ¼üÅÌÊÂ¼þµÄ×¢²á
+		document.addEventListener("keyup",function(e){
+			// »ñÈ¡µ½¼üÅÌ°´ÏÂÊ±¶ÔÓ¦µÄkeycode£¬´Ó¶øÅÐ¶Ï°´ÏÂµÄÊÇÊ²Ã´°´¼ü
+			var keyCode = e.keyCode;
+			console.log(keyCode);
+			if(keyCode==39){ // ÏòÓÒ
+				state = "walkright";
+				heroX+=wh;
+				// ¶ÔÓÚ±ßÔµµÄÅÐ¶Ï
+				if(heroX > canvasW){
+					heroX-=wh;
+				}
+				/*
+				¶ÔÓÚÊÇ·ñÅöµ½ÁËÕÏ°­ÎïµÄÅÐ¶Ï --> Õâ¸ö½ÇÉ«µÄ heroX ¸ú heroY Í¬Ê±¸úÕÏ°­ÎïµÄ x y ÏàµÈ
+				*/
+				if(isCover()){
+					heroX-=wh;
+				}
+			}else if(keyCode==37){ // Ïò×ó
+				state = "walkleft";
+				heroX-=wh;
+				if(heroX < 0){
+					heroX+=wh;
+				}
+				if(isCover()){
+					heroX+=wh;
+				}
+			}else if(keyCode==40){ // ÏòÏÂ
+				state = "walkdown";
+				heroY+=wh;
+				if(heroY > canvasH){
+					heroY-=wh;
+				}
+				if(isCover()){
+					heroY-=wh;
+				}
+			}else if(keyCode==38){ // ÏòÉÏ
+				state = "walkup";
+				heroY-=wh;
+				if(heroY < 0){
+					heroY+=wh;
+				}
+				if(isCover()){
+					heroY+=wh;
+				}
+			}
+		})
+		// ÅÐ¶Ï½ÇÉ«×ø±êÊÇ·ñ¸úÕÏ°­ÎïÖØµþÁË
+		function isCover(){
+			// ¶ÔÓÚÊ¯Í·µÄÅÐ¶Ï
+			console.log("heroX = " + heroX + "   heroY = " + heroY);
+			for(var index in blockPos){
+				if(heroX == blockPos[index].x && heroY == blockPos[index].y){
+					return true;
+				}
+			}
+			for(var index in decoratePos){
+				if(heroX == decoratePos[index].x && heroY == decoratePos[index].y){
+					return true;
+				}
+			}
+			return false;
+		}
+	</script>
+</body>
+</html>

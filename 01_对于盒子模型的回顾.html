@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		p{
+			width: 200px;
+			height: 200px;
+			border: 10px solid red;
+			padding: 10px;
+			box-sizing: content-box;
+		}
+		li{
+			width: 234px;
+			height: 264px;
+			background-color: red;
+			padding: 20px 10px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<h1>在w3c标准下，width以及height指的是内容的宽度高度，并不是盒子模型的总宽高，在网页中占据的宽度以及高度 
+	网页中占据的宽度 = 内容宽 + 左右两侧的padding + 左右两侧 border</h1> 
+	<h1>
+		box-sizing --> border-box,意味着将盒子模型的计算方式改为 ie 盒子模型的计算标准了；样式中书写的width 200，以为着是 内容宽 + 左右两侧的padding + 左右两侧 border 等于 200
+	</h1>
+	<ul>
+		<li>
+			<h2>小米9好用</h2>
+		</li>
+	</ul>
+</body>
+</html>
