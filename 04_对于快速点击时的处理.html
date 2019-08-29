@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		#carousel{
+			width: 365px;
+			margin: 10px auto;
+			position: relative;
+		}
+		#carousel .img-list{
+			height: 265px;
+			overflow: hidden;
+			position: relative;
+		}
+		#carousel .img-list li{
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#carousel .img-list .active{
+			display: block;
+		}
+		#carousel .indicators{
+			position: absolute;
+			bottom: -20px;
+			width: 80px;
+			left: 50%;
+			margin-left: -40px;
+		}
+		#carousel .indicators li{
+			width: 8px;
+			height: 8px;
+			margin: 0 3px;
+			border-radius: 8px;
+			background-color: #d7d7d8;
+			float: left;
+			cursor: pointer;
+		}
+		#carousel .indicators .active{
+			background-color: #fdcd00;
+			width: 26px;
+		}
+		.ctrls{
+			width: 100px;
+			margin: 30px auto;
+		}
+		.ctrls button{
+			width: 40px;
+			height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div id="carousel">
+		<ul class="img-list">
+			<li class="active"><img src="./images/01.jpg" alt=""></li>
+			<li><img src="./images/02.jpg" alt=""></li>
+			<li><img src="./images/03.jpg" alt=""></li>
+		</ul>
+		<ul class="indicators">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="ctrls">
+		<button> << </button>
+		<button> >> </button>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var currentIndex = 0;
+			// 声明一个变量，表示动画是否可以切换
+			var isCanSwitch = true;
+			$(".indicators li").on("click",function(){
+				currentIndex = $(this).index();
+				// 点击发生时，结合jq，为指示器添加动画，并修改对应的指示器的样式
+				switchIndicatorsAndIcon();
+			});
+			// 再来添加按钮的点击事件，实现左右切换
+			$(".ctrls button").on("click",function(){
+				if(!isCanSwitch) return;
+				isCanSwitch = false;
+				if($(this).index() == 0){
+					// 向左切换
+					currentIndex--;
+					currentIndex = currentIndex<0?($(".img-list li").length-1):currentIndex;
+				}else{
+					// 向右切换
+					currentIndex ++;
+					currentIndex = currentIndex>=$(".img-list li").length?0:currentIndex;
+				}
+				// 根据currentIndex，分别去修改指示器小点位置 以及 大图的显示
+				switchIndicatorsAndIcon();
+			});
+			
+			// 定义一个函数，表示指示器小点的切换以及图片的切换
+			function switchIndicatorsAndIcon(){
+				$(".indicators li").eq(currentIndex).stop().animate({
+					"width": "26px"
+				},1000).addClass("active").siblings().stop().animate({
+					"width": "8px"
+				},1000,"linear",function(){
+					isCanSwitch = true;
+				}).removeClass("active");
+				
+				// 修改大图显示
+				$(".img-list li").eq(currentIndex).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			width: 500px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 100px;
+			position: relative;
+		}
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: 100px;
+			top: 150px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p></p>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			console.log("left = " + $("p").position().left);
+			console.log("top = " + $("p").position().top);
+		});
+	</script>
+</body>
+</html>

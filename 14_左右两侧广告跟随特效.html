@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <style>
+	 	body{
+	 		height: 4000px;
+	 	}
+        *{
+            padding:0;
+            margin:0;
+        }
+        .left,.right{
+            position:absolute;
+            top:80px;
+        }
+        .left{
+            left:0;
+        }
+        .right{
+            right:0;
+        }
+    </style>
+</head>
+<body>
+	<div class="left">
+	    <img src="./images/01.jpg" alt="">
+	</div>
+	<div class="right">
+	    <img src="./images/01.jpg" alt="">
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+	        var top = $(".left").position().top;
+	        $(window).scroll(function(){
+	        	// 获取窗口的滚动距离
+	            var docScroll = $(window).scrollTop();
+	            // 有了滚动距离 + 原来的初始top值
+	            $(".left,.right").animate({
+	                'top':docScroll + top
+	            },30);
+		      })
+	  	});
+	</script>
+</body>
+</html>

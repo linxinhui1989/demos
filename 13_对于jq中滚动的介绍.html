@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{
+			height: 3000px;
+		}
+		p{
+			position: fixed;
+			bottom: 10px;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			text-align: center;
+			line-height: 200px;
+			cursor: pointer;
+		}
+		.lj{
+			right: 10px;
+		}
+		.dh{
+			left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<p class="lj">立即滚到指定位置</p>
+	<p class="dh">缓缓滚到指定位置</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 对于滚动监听的设置
+			$(window).scroll(function(){
+				// $(window).scrollTop()-->获取距离窗口顶部滚动距离
+				console.log("top = " + $(window).scrollTop());
+				// $(window).scrollLeft()-->获取距离窗口左侧滚动距离
+				console.log("left = " + $(window).scrollLeft());
+			});
+
+			$(".lj").on("click",function(){
+				$(window).scrollTop(0);
+			})
+
+			$(".dh").on("click",function(){
+				$("body,html").animate({"scrollTop":0},200);
+			})
+		});
+	</script>
+</body>
+</html>

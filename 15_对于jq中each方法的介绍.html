@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>11</p>
+	<p>22</p>
+	<p>33</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 对于数组的遍历
+			var arr = [11,22,33,44,55];
+			$.each(arr,function(index,value){
+				console.log("index = " + index);
+				console.log("value = " + value);
+			});
+
+			// 对于json的遍历
+			var json = {"name":"xiaoming","age":22,"sex":"man"};
+			$.each(json,function(key,value){
+				console.log("key = " + key);
+				console.log("value = " + value);
+			});
+
+			$("p").each(function(index,value){
+				$(this).html(index + " --> " + index + "--->")
+				console.log("index = " + index);
+				console.log("value = " + value);
+			});
+			
+			$.each($("p"),function(index,value){
+				$(this).html(index + " --> " + index + "--->")
+				console.log("index = " + index);
+				console.log("value = " + value);
+			});
+
+		});
+	</script>
+</body>
+</html>

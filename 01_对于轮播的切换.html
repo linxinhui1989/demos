@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		#carousel{
+			width: 365px;
+			margin: 10px auto;
+			position: relative;
+		}
+		#carousel .img-list{}
+		#carousel .img-list li{
+			display: none;
+		}
+		#carousel .img-list .active{
+			display: block;
+		}
+		#carousel .indicators{
+			position: absolute;
+			bottom: -20px;
+			width: 60px;
+			left: 50%;
+			margin-left: -30px;
+		}
+		#carousel .indicators li{
+			width: 8px;
+			height: 8px;
+			margin: 0 3px;
+			border-radius: 8px;
+			background-color: #d7d7d8;
+			float: left;
+		}
+		#carousel .indicators .active{
+			background-color: #fdcd00;
+			width: 26px;
+		}
+	</style>
+</head>
+<body>
+	<div id="carousel">
+		<ul class="img-list">
+			<li class="active"><img src="./images/01.jpg" alt=""></li>
+			<li><img src="./images/02.jpg" alt=""></li>
+			<li><img src="./images/03.jpg" alt=""></li>
+		</ul>
+		<ul class="indicators">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

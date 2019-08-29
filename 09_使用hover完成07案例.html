@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		#app{
+			background-color: #128a28;
+		}
+		.header{
+			width: 980px;
+			margin: 0 auto;
+			height: 50px;
+		}
+		.header .nav{
+			color: #fff;
+			font-size: 14px;
+		}
+		.header .nav>li{
+			float: left;
+		}
+		.header .nav>li a{
+			color: #fff;
+			text-decoration: none;
+			display: block;
+			width: 140px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+		}
+		.header .nav .second-nav{
+			display: none;
+		}
+		.header .nav .second-nav>li{
+			width: 140px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background-color: #128a28;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="header">
+			<ul class="nav">
+				<li>
+					<a href="#">当季爆款</a>
+					<ul class="second-nav">
+						<li>两件套</li>
+						<li>背带裤</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">当季新品</a>
+					<ul class="second-nav">
+						<li>两件套</li>
+						<li>两件套</li>
+						<li>两件套</li>
+						<li>碎花裙</li>
+						<li>背带裤</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">最新排行</a>
+					<ul class="second-nav">
+						<li>两件套</li>
+						<li>碎花裙</li>
+						<li>碎花裙</li>
+						<li>背带裤</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">春季爆款</a>
+					<ul class="second-nav">
+						<li>两件套</li>
+						<li>两件套</li>
+						<li>两件套</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">夏季爆款</a>
+					<ul class="second-nav">
+						<li>两件套</li>
+						<li>碎花裙</li>
+						<li>背带裤</li>
+						<li>背带裤</li>
+						<li>背带裤</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">秋季爆款</a>
+					<ul class="second-nav">
+						<li>两件套</li>
+						<li>两件套</li>
+						<li>两件套</li>
+						<li>两件套</li>
+						<li>碎花裙</li>
+						<li>背带裤</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">冬季爆款</a>
+					<ul class="second-nav">
+						<li>两件套</li>
+						<li>背带裤</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*$(".nav>li").on("mouseover",function(){
+				$(this).children("ul").stop().slideDown();
+			});
+			$(".nav>li").on("mouseleave",function(){
+				$(this).children("ul").stop().slideUp();
+			});*/
+			$(".nav>li").hover(function(){
+				$(this).children("ul").stop().slideDown(200);
+			},function(){
+				$(this).children("ul").stop().slideUp(200);
+			});
+		});
+	</script>
+</body>
+</html>

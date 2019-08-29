@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*var arr = [11,22,33,44,55];
+			var emArr = [];
+			for(var i in arr){
+				emArr.push(arr[i] * 10);
+			}*/
+			/*
+			可以根据传入的数组，组合创建出一个新的数组
+			 */
+			var arr = [11,22,33,44,55];
+			var newArr = $.map(arr,function(value,index){
+				return index+" -- " + value;
+			});
+			console.log(newArr);
+			console.log(arr);
+			
+			/*
+			可以根据传入的json，组合创建出一个新的数组
+			 */
+			var json = {"name":"xiaoming","age":22,"sex":"man"};
+			var newJson = $.map(json,function(value,key){
+				return value+" --- " + key;
+			});
+			console.log(newJson);
+			console.log(json);
+
+		});
+	</script>
+</body>
+</html>

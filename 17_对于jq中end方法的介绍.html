@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		div{
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+		}
+		p{
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p></p>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// $("p").parent().css("background-color","#897").css("background-color","gray");
+			// var p = $("p"); // --> p元素
+			// var pp = $("p").parent(); // --> p元素的父标签 div
+			console.log($("p"));
+			console.log($("p").parent());
+			console.log($("p").parent().end());
+			$("p").parent().css("background-color","#897").end().css("background-color","gray");
+		});
+	</script>
+</body>
+</html>
