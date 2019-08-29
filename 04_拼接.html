@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var ul = document.getElementsByTagName('ul')[0];
+		var str = "";
+		str +='<li>';
+			str +='<img src="./images/head_normal_50.png" alt="">';
+			str +='<div>';
+				str +='<p>xxx</p>';
+				str +='<h2>xxxx</h2>';
+			str +='</div>';
+		str +='</li>';
+		ul.innerHTML = str;
+	</script>
+</body>
+</html>

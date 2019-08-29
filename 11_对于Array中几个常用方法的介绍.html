@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = new Array(1,2,3,88,66,34);
+		/*
+		 Array中自带排序的方法
+		 */ 
+		arr.sort();// 默认实现升序排序
+		console.log(arr);
+		/*
+		如果含有不同类型的数据，进行排列，是按照ASCii表中的ASCII值进行有低到高的排列
+		 */
+		var arr2 = new Array(2,3,"a","A","b","C","M");
+		arr2.sort();
+		console.log(arr2);
+
+		var arr3 = new Array(1,2,3,88,66,34);
+		arr3.sort(guiZe);
+		console.log(arr3);
+		function guiZe(a,b){
+			// 升序 return a - b;   降序 return b - a;
+			return b - a;
+		}
+	</script>
+</body>
+</html>

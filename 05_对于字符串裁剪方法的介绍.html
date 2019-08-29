@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "abcdefg";
+		/*
+		使用系统提供的方法，对于字符串进行裁剪
+		*/
+		// a> slice 方法中需要传入裁剪的位置，从传入的数值的位置开始进行裁剪，裁剪完成后，会返回一个新的字符串
+		var newStr1 = str.slice(3);
+		console.log("newStr1 = " + newStr1);
+		// b> slice 中可以传入一个值，也可以传入两个值 (start,end) 取左不取右
+		var newStr2 = str.slice(3,5);
+		console.log("newStr2 = " + newStr2);
+		/*
+		c> slice 中可以传入正数，也可以传入负数 --> 这个负数 + 字符串的长度 
+		str.slice(-2) --> str.slice(-2+7)
+		 */ 
+		var newStr3 = str.slice(-2);
+		var newStr4 = str.slice(5);
+		console.log("newStr3 = " + newStr3);
+		console.log("newStr4 = " + newStr4);
+		/*
+		d> slice 中传入两个值时，也包含负数
+		 */
+		var newStr5 = str.slice(1,-2);// (1,5)
+		console.log("newStr5 = " + newStr5);
+		var newStr6 = str.slice(-5,-2);
+		console.log("newStr6 = " + newStr6);
+		console.log(str);
+	</script>
+</body>
+</html>

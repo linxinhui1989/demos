@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 关于 Date 日期对象的介绍  调用系统内部提供的一个函数，获取到当前的时间
+		var date = new Date();// 用于获取当前时间
+		var date1 = Date(); // 使用函数确实可以获取到当前时间，不过内容是字符串，无法进行时间相关的一些操作
+		console.log(typeof date);
+		// 根据创建出的时间，分别获取到当前时间的年月日 时分秒
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;// getMonth获取到的月份比真实月份少1
+		var weekDay = date.getDay();// 获取到这一星期中的第几天
+		var day = date.getDate();
+		var hour = date.getHours();
+		var min = date.getMinutes();
+		var sec = date.getSeconds();
+		console.log("year = " + year);
+		console.log("month = " + month);
+		console.log("weekDay = " + weekDay);
+		console.log("day = " + day);
+		console.log("hour = " + hour);
+		console.log("min = " + min);
+		console.log("sec = " + sec);
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = new Array(1,2,3,88,66,34);
+		/*
+		调用这个join方法，会得到一串带有一定分割符的字符串，声明变量去保存这个内容；join中如果没有传值，默认是使用逗号进行拼接
+		 */
+		var str = arr.join();
+		console.log(str);
+		var str1 = arr.join("=");
+		console.log(str1);
+		var str2 = arr.join(" ");
+		console.log(str2);
+	</script>
+</body>
+</html>

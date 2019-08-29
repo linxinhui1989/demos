@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = new Array(1236,124,3);
+		/*
+		这边没有书写对应的排序规则函数，那么会将数组中的内容按照字符串的方式进行排序
+		比较首字母，如果首字母相同，比较第二个字母
+		 */
+		arr.sort();
+		console.log(arr);
+
+		var arr1 = new Array(1236,124,3);
+		arr1.sort(guiZe);
+		console.log(arr1);
+		function guiZe(a,b){
+			return a-b;
+		}
+	</script>
+</body>
+</html>

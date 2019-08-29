@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			setInterval这个函数能够实现计时器功能；
+			在这个函数中需要传入两个参数；
+			第一个参数，就是所要执行的操作，这边需要传入一个函数;
+			第二个参数，就是每次执行的间隔，注意传入的数值是毫秒为单位的
+		*/
+		var num = 0;
+		/*setInterval(show,1000);
+		function show(){
+			num ++;
+			console.log("打印一下 --> " + num);
+		}*/
+		
+		setInterval(function(){
+			num ++;
+			console.log("打印一下 --> " + num);
+		},1000);
+		
+	</script>
+</body>
+</html>

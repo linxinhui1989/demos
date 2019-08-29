@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 获取到一个字符串
+		var str = "hao123.com/add?name=lucy&pwd=123&sex=man";
+		// 使用字符串中提供的split方法进行切割
+		var dts = str.split("?");
+		// 获取有用的后半段
+		var info = dts[1];
+		// 再来借助split方法，传入 & 进行切割
+		var params = info.split("&");
+		for(var i=0;i<params.length;i++){
+			var param = params[i].split("=")[1];
+			console.log(param);
+		}
+	</script>
+</body>
+</html>

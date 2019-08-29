@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str1 = "abcdefabhjabklabilabbabbabbaa";
+		var str2 = "ab";
+		var index = 0;
+		var count = 0;
+		/*
+		    分析
+		*/ 
+		index = str1.indexOf(str2);
+		while(index!= -1){
+			count++;
+			str1 = str1.substr(index + str2.length);
+			index = str1.indexOf(str2);
+		}
+		console.log("count = " + count);
+		// if(index!= -1){
+		// 	count++; // abcdefabhjabklabilab -- > cdefabhjabklabilab
+		// 	// 要先把之前的参与indexOf判断获取到的字符串截掉
+		// 	str1 = str1.substr(index + str2.length);
+		// 	index = str1.indexOf(str2);
+		// 	if(index!= -1){
+		// 		count++; // cdefabhjabklabilab --> 
+		// 		str1 = str1.substr(index + str2.length);
+		// 	}
+		// }
+	</script>
+</body>
+</html>

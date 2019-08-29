@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>停</button>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName('button')[0];
+		var num = 0;
+		/*
+		调用系统提供的这个函数，就可以返回一个对象，这边可以使用一个变量去保存这个返回的内容;就可以通过控制这个变量，实现对于这个启动了的计时器进行控制
+		 */
+		var t = setInterval(function(){
+			num ++;
+			console.log("打印一下 --> " + num);
+		},1000);
+		btn.onclick = function(){
+			// 停止指定的计时器，调用系统提供的函数 clearInterval()
+			clearInterval(t);
+		}
+
+	</script>
+</body>
+</html>

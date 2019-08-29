@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.fl{float: left;}
+		.fr{float: right;}
+		#weibo{
+			width: 640px;
+			margin: 100px auto;
+		}
+		/*对于输入区域样式的设置*/
+		.input-area{
+			position: relative;
+		}
+		.input-area textarea{
+			resize: none;
+			width: 600px;
+		}
+		.input-area p{
+			position: absolute;
+			right: 40px;
+			top: 130px;
+			font-size: 12px;
+			color: gray;
+		}
+		.input-area div{
+			text-align: right;
+		}
+		.input-area div button{
+			margin-right: 30px;
+			width: 85px;
+			height: 27px;
+		}
+		/*对于广播列表样式的处理*/
+		.weibo-content{
+			margin-top: 50px;
+		}
+		.weibo-content h2{
+			padding-top: 3px;
+			padding-bottom: 4px;
+			border-bottom: 3px solid #229bd7;
+			color: #333;
+			font-weight: bold;
+		}
+		.weibo-content .weibo-list{}
+		.weibo-content .weibo-list li{
+			overflow: hidden;
+			padding: 10px;
+		}
+		.weibo-content .weibo-list .weibo-info{
+			margin-left: 20px;
+		}
+		.weibo-content .weibo-list .weibo-info .notice{
+			overflow: hidden;
+			width: 500px;
+		}
+		.weibo-list .weibo-info .notice a{
+			margin-left: 10px;
+			text-decoration: none;
+			color: #006a92;
+		}
+		.test{
+			font-size: 30px;
+			height: 50px;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="weibo">
+		<div class="input-area">
+			<textarea cols="30" rows="10"></textarea>
+			<p id="notice">还能输入140个字</p>
+			<div>
+				<button id="send">广播</button>
+			</div>
+		</div>
+		<div class="weibo-content">
+			<h2>全部广播</h2>
+			<div class="weibo-list">
+				<ul>
+					<!-- <li>
+						<div class="icon fl">
+							<img src="./images/head_normal_50.png" alt="">
+						</div>
+						<div class="weibo-info fl">
+							<h3>xxx</h3>
+							<p class="msg">微博内容</p>
+							<div class="notice">
+								<p class="fl">刚刚</p>
+								<a href="#" class="fr">转播</a>
+								<a href="#" class="fr">评论</a>
+								<a href="#" class="fr">删除</a>
+							</div>
+						</div>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 查找输入相关的元素
+		var textarea = document.getElementsByTagName('textarea')[0];
+		var ul = document.getElementsByTagName('ul')[0];
+		var sendBtn = document.getElementById("send");
+		var notice = document.getElementById("notice");
+		// 注册输入监听事件
+		textarea.oninput = function(){
+			var val = textarea.value;
+			var valLen = val.length;
+			notice.innerHTML = "还能输入"+(140-valLen)+"个字";
+		}
+		var str = "";
+		// 注册按钮点击事件
+		sendBtn.onclick = function(){
+			// 获取到输入框中输入的内容
+			var val = textarea.value;
+			str +='<li>';
+				str +='<div class="icon fl">';
+					str +='<img src="./images/head_normal_50.png" alt="">';
+				str +='</div>';
+				str +='<div class="weibo-info fl">';
+					str +='<h3>xxx</h3>';
+					str +='<p class="msg">'+val+'</p>';
+					str +='<div class="notice">';
+						str +='<p class="fl">刚刚</p>';
+						str +='<a href="#" class="fr">转播</a>';
+						str +='<a href="#" class="fr">评论</a>';
+						str +='<a href="#" class="fr">删除</a>';
+					str +='</div>';
+				str +='</div>';
+			str +='</li>';
+			ul.innerHTML = str;
+			textarea.value = "";
+		}
+		xx.innerHTML = '<p class="fl">xxx</p>';
+		// 等价于
+		var p = document.createElement("p");
+		p.innerHTML = "xxx";
+		p.setAttribute("class","fl");
+		xx.appendChild(p);
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "abcdefg";
+		/*
+		a> 传入一个正数，跟slice 以及 substring 一样，从指定位置开始，裁剪到字符串结尾
+		*/
+		var newStr1 = str.substr(3);
+		console.log("newStr1 = " + newStr1);
+		/*
+		b> 传入两个正数,第一个数作为起始位置，第二个数作为裁剪个数；从指定为开始，截取指定个数的字符串
+		(a,b) -> 从a下标位置开始，截取b个  a+b -->等价于
+		substring中的 (a,a+b)
+		 */
+		var newStr2 = str.substr(2,3);
+		console.log("newStr2 = " + newStr2);
+		/*
+		c> 传入负数,传入负数时，有点类似于 slice，相当于 负数+长度值
+		str.substr(-3) --> str.substr(-3+7)
+		 */
+		var newStr3 = str.substr(-3);
+		console.log("newStr3 = " + newStr3);
+		/*
+		d> 传入两个负数,因为substr第二个数要求是具体的截取个数，要正整数，传入负数则截取不到内容
+		 */
+		var newStr4 = str.substr(-3,-5);
+		console.log("newStr4 = " + newStr4);
+		/*
+		e> 传入一正一负
+		 */
+		var newStr5 = str.substr(3,-5);
+		console.log("newStr5 = " + newStr5);
+
+		var newStr6 = str.substr(-5,3);// (-5+7,3) -->(2,3)
+		console.log("newStr6 = " + newStr6);
+	</script>
+</body>
+</html>

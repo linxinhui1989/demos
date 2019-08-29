@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "abcdefg";
+		/*
+		  a> 传入一个整数时，进行裁剪,这个跟slice一样，从指定位置开始，一直裁剪到末尾
+		*/
+		var newStr1 = str.substring(3);
+		console.log("newStr1 = " + newStr1);
+		/*
+		  b> 传入两个正数，进行裁剪，也跟slice一样，取左不取右
+		 */
+		var newStr2 = str.substring(3,5);
+		console.log("newStr2 = " + newStr2);
+		/*
+		  c> 传入一个负数	，substring中的写法会将负数当成0进行处理，等价于  str.substring(0)
+		 */
+		var newStr3 = str.substring(-2);
+		console.log("newStr3 = " + newStr3);
+		/*
+		  d> 传入一正一负	, (正,负) --> (正,0)  --> (0,正)
+		  (负,正) --> (0,正)
+		*/
+		var newStr4 = str.substring(3,-2);
+		console.log("newStr4 = " + newStr4);
+		/*
+		  e> 传入两个负数 --> (0,0)  --> 没有截取任何字符串内容
+		 */
+		var newStr5 = str.substring(-3,-2);
+		console.log("newStr5 = " + newStr5);
+	</script>
+</body>
+</html>
