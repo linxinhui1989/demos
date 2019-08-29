@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var a = 100; // 一级作用域
+		function func(){
+			var a = 10; // 二级作用域
+			return function(){	
+				a ++;
+				// 三级作用域
+				console.log("a = " + a);
+			}
+		}
+		/*
+		调用这个 func 这个函数，函数返回一个 function 对象，这个function读取到 func 函数中的变量 a
+		闭包：读取函数内部变量的函数
+		 */
+		var ff = func();
+		/*
+			调用 func 这个 函数，在这个函数这次被调用时，会创建一个局部变量 a；
+			当函数调用完成后，默认是会被销毁的，但是因为返回的结果有用到变量 a，所以使得这次调用的变量 a 没有被销毁
+		*/
+		ff();  // 11
+		ff();  // 12
+		ff();  // 13
+
+		var f2 = func();
+		f2();  // 11
+		f2();  // 12 
+
+		function s(){
+			var a = 100;
+			console.log(a);
+		}
+		s(); // 不管调用多少次 s 函数，打印结果都是 为 100，打印完成后，该变量就被销毁了
+	</script>
+</body>
+</html>

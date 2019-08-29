@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		在函数内部书写return，进行数据的返回
+		 */ 
+		// 可以返回简单基础类型的数据
+		function sum(){
+			return 1;
+		}
+		var s = sum();
+
+		// 也可以返回引用类型的数据 --> js 对象
+		function func(){
+			return {name:"lucy",age:22,sex:"woman"};
+		}
+		var f = func();
+		/*
+		上述案例中可以返回引用类型的数据，在 js 中，定义的函数其实也是属于 js 类型的对象，只不过这个类型是 Function，也就意味着在函数内部中，也可以将一个 function 作为函数的返回值
+		*/
+		function func2(){
+			return function(){
+				console.log("这边是func2函数的返回值，也是个函数");
+			}
+		}
+		/*
+		这边调用 func2 这个函数，获取到这个函数的返回值,将这个返回值赋值给变量 ff；因为这个func2中返回的是一个 function 是个 函数，所以意味着也可以拿来调用
+		 */ 
+		var ff = func2();
+		// ff; // 如果只是一个变量名，只是获取到这个变量名下所保存的数据，这边ff中保存的是一个function对象的地址，当只写 ff时，是根据这个变量下保存的地址，在堆空间上找到该地址下保存的那个对象
+		ff();
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var a = 100; // 一级作用域
+		function func(){
+			var a = 10; // 二级作用域
+			return function(){	
+				// 三级作用域
+				console.log("a = " + a);
+			}
+		}
+		/*
+		调用这个 func 这个函数，函数返回一个 function 对象，这个function读取到 func 函数中的变量 a
+		闭包：读取函数内部变量的函数
+		 */
+		var ff = func();
+		ff();
+	</script>
+</body>
+</html>
