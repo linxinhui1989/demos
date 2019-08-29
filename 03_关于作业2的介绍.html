@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.fl{float: left;}
+		.fr{float: right;}
+		ul,li{list-style: none;}
+		.nav{}
+		/*导航条头部样式*/
+		.nav .header{
+			width: 1100px;
+			height: 60px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.nav .header .search-area{
+			width: 410px;
+			height: 38px;
+			/*绝对定位进行居中操作*/
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -205px;
+			margin-top: -19px;
+			background-color: yellow;
+		}
+		.header .logo-icon{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.header .right-icon{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		/*导航条列表样式*/
+		.nav .nav-list{
+			width: 1100px;
+			height: 40px;
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+		.nav-list li{
+			height: 40px;
+			line-height: 40px;
+			margin-left: 30px;
+		}
+		.nav-list .first{
+			margin-left: 0;
+		}
+		.nav-list .list-r .notice{
+			position: relative;
+		}
+		.nav-list .list-r .notice p{
+			width: 20px;
+			height: 12px;
+			background-color: #ff5c00;
+			font: 12px/12px "sans-serif";
+			text-align: center;
+			border-radius: 6px;
+			color: #fff;
+			position: absolute;
+			right: -20px;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<!-- 导航条头部 -->
+		<div class="header">
+			<!-- logo图标 -->
+			<img class="logo-icon" src="./images/logo-2018.png" alt="">
+			<!-- 搜索区域 -->
+			<div class="search-area"></div>
+			<!-- 右侧图标 -->
+			<img class="right-icon" src="./images/kOPMNSbmcAoydyg.png!a-3-240x.png" alt="">
+		</div>
+		<!-- 导航条列表 -->
+		<div class="nav-list">
+			<div class="list-l">
+				<li class="fl first">新闻中心</li> 
+				<li class="fl">新游戏 · 今日开服 </li>
+				<li class="fl">游戏下载</li> 
+				<li class="fl">发号平台</li> 
+				<li class="fl">有料社区</li> 
+				<li class="fl">17173视频</li> 
+				<li class="fl">新页游 · 今日开测</li> 
+			</div>
+			<div class="list-r fr">
+				<ul>
+					<li class="fl">手机游戏</li>
+					<li class="fl notice">
+						网页游戏
+						<p>25</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

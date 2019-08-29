@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.one{
+			width: 400px;
+			height: 400px;
+			background-color: red;
+			position: relative;
+			top: 200px;
+			z-index: 10;
+		}
+		.one>div{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			position: absolute;
+			z-index: 1000;
+		}
+		.two{
+			width: 400px;
+			height: 400px;
+			background-color: green;
+			position: relative;
+			bottom: 30px;
+			left: 50px;
+			z-index: 20;
+		}
+		.two>div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+			z-index: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">
+		<div></div>
+	</div>
+	<div class="two">
+		<div></div>
+	</div>
+</body>
+</html>
