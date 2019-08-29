@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num1 = 10,num2 = 20,num3 = 30;
+		//           x       ?          y          :          z
+		var num = (num1>num2)?(num2>num3?num2:num3):(num3<num1?num3:num1);
+		/*
+			对于这种复杂关系的表达式 --> 从里层往外层计算
+			(num1>num2)?num3:num1;
+		*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num1 = "10";
+		var num2 = 30;
+		var num3 = "123abcd";
+		
+		// 需要先将字符串类型 --> number 类型
+		/*
+		  parseInt() 方法
+		  1. 可以将小数转为整数
+		  2. 可以将字符串内容转为整数，类型是数值类型的
+		  3. 可以将数值在前的字符串中的数值提取出来，转为整数；如果这个字符串是以非数值开头的，那么就无法获取到整数值，结果会是NAN (Not A Number)
+		 */
+		num1 = parseInt(num1);
+		num3 = parseInt(num3);
+		console.log("num3 = " + num3);
+		console.log("num3 = " + typeof num3);
+
+		var num4 = "abcd123";
+		num4 = parseInt(num4);
+		console.log("num4 = " + num4);
+		console.log("num4 = " + typeof num4);
+
+		console.log("num1 = " + typeof num1);
+		var res = num1 + num2;
+		console.log(res);
+		console.log(typeof res);
+	</script>
+</body>
+</html>

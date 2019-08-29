@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		  1.两个数值类型的数据进行连接，此时的效果就是算术运算符中的 + ，得到的结果还是数值类型的 
+		 */
+		var num1 = 10,num2 = 20;
+		var res1 = num1 + num2;
+
+		/*
+		  2.两个字符串类型的数据进行连接,此时就是字符串的拼接，得到的结果还是字符串类型的
+		 */
+		var name1 = "lina",name2="lucy";
+		var res2 = name1 + name2;
+
+		/*
+		  3.一个字符串，跟一个数字类型的数据进行连接，就会将两个数据进行直接连接，得到的结果就会是字符串类型的
+		 */
+		var name3 = "hanmeimei";
+		var num3 = 28;
+		var res3 = name3 + num3;
+		console.log("res1 = " + res1);
+		console.log("res1 = " + typeof res1);
+		console.log("res2 = " + res2);
+		console.log("res1 = " + typeof res2);
+		console.log("res3 = " + res3);
+		console.log("res1 = " + typeof res3);
+	</script>
+</body>
+</html>

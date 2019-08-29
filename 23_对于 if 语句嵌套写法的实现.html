@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		   准备一个名为 score 的成绩变量;
+		   在 if 语句中，再书写一个新的if语句，这种写法叫做 if 语句的嵌套
+		   90~95 --> 学生   
+		   	数学写法：90<=score<95 
+		   	-> 编程里表示范围  score >= 90 && score < 95 
+		   95~99 --> 学霸     score >= 95 && score <= 99 
+		   100   --> 学神
+		 */ 
+		var score = 92;
+		if(score>=90){
+			// if里嵌套一个全新的if，跟外层的if结构上没有关系
+			// 对于程序编写中，注意缩进
+			if(score >= 90 && score < 95 ){
+				console.log("学生");
+			}else if(score >= 95 && score <= 99){
+				console.log("学霸");
+			}else{
+				console.log("学神");
+			}
+		}else{
+			/*
+				这边是在 else 中嵌套一个新的 if 语句;
+				在这个新的if语句中，也可以编写这个if语句所对应的的else写法
+			 */ 
+			if(score>=80){
+				console.log("一般学渣");
+			}else if(score>=70){
+				console.log("学渣");
+			}else{
+				console.log("战五渣");
+			}
+		}
+	</script>
+</body>
+</html>
