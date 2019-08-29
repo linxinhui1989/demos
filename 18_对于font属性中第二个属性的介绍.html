@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 200px;
+			height: 100px;
+			border: 1px solid red;
+			margin: 10px auto;
+		}
+		.p1{
+			color: red;
+			font: 20px/40px "宋体";
+		}
+		.p2{
+			color: blue;
+			/*使用 % 表示，跟字体大小的百分比值*/
+			font: 20px/400% "宋体";
+			/*等价于 font: 20px/80px "宋体"; */
+		}
+		.p3{
+			color: green;
+			/*直接使用不带px单位的数字，表示跟字体大小的倍数值*/
+			font: 20px/5 "宋体";
+			/*等价于 font: 20px/500% "宋体"; */
+			/*等价于 font: 20px/100px "宋体"; */
+		}
+		.p4{
+			color: purple;
+			font: 30px/30px "宋体";
+		}
+	</style>
+</head>
+<body>
+	<p class="p1">内容1</p>
+	<p class="p2">内容2</p>
+	<p class="p3">内容3</p>
+	<p class="p4">内容4</p>
+</body>
+</html>
