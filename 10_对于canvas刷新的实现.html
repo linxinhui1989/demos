@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		canvas{
+			margin: 20px;
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		var ctx = canvas.getContext("2d");
+		var pos = [
+			{"x":79,"y":48},
+			{"x":304,"y":48},
+			{"x":532,"y":48},
+			{"x":761,"y":48},
+		];
+		// 通过js代码，动态创建Image对象
+		var img = new Image();
+		// 有了Image对象后，需要设置对应的src属性
+		img.src = "./images/01jinweis/aida.png";
+		var index = 0;
+		img.onload = function(){
+			// 开启计时器，对于img绘制进行动态设置
+			setInterval(function(){
+				// 在canvas中，进行canvas刷新操作，只需重新设置canvas的高度以及宽度属性，就算值相同也会刷新
+				canvas.width = canvas.width;
+				canvas.height = canvas.height;
+				ctx.drawImage(img,pos[index].x,pos[index].y,60,105,100,100,60,105);
+				index++;
+				index %= pos.length;
+			},200);
+		}
+	</script>
+</body>
+</html>

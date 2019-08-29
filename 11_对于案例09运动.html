@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{text-align: center;}
+		canvas{}
+	</style>
+</head>
+<body>
+	<canvas width="1200" height="1000"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		var ctx = canvas.getContext("2d");
+		// 通过js代码，动态创建Image对象
+		var img = new Image();
+		// 有了Image对象后，需要设置对应的src属性
+		img.src = "./images/GoP_1.png";
+		// 绘制之前，一定要先确保图片已经设置好src了
+		var wh = 32;
+		var xCount = Math.ceil(canvas.width / wh);
+		var yCount = Math.ceil(canvas.height / wh);
+		var pos = [
+			{"x":79,"y":48},
+			{"x":304,"y":48},
+			{"x":532,"y":48},
+			{"x":761,"y":48},
+		];
+		var index = 0;
+		img.onload = function(){
+			// 确定障碍物的位置
+			var blockPos = [];
+			for(var i=0;i<80;i++){
+				var x = parseInt(Math.random()*xCount);
+				var y = parseInt(Math.random()*yCount);
+				blockPos.push({"x":x,"y":y});
+			}
+			// 确定装饰物的位置
+			var decoratePos = [];
+			for(var i=0;i<50;i++){
+				var x = parseInt(Math.random()*xCount);
+				var y = parseInt(Math.random()*yCount);
+				decoratePos.push({"x":x,"y":y});
+			}
+			setInterval(function(){
+				canvas.width = canvas.width;
+				canvas.height = canvas.height;
+				// ctx.drawImage(img,0,0,100,50);
+				// ctx.drawImage(img,0,0,100,50,193,321,31,31);
+				for(var x = 0;x<xCount;x++){
+					for(var y=0;y<yCount;y++){
+						ctx.drawImage(img,224,288,wh,wh,wh*x,wh*y,wh,wh);
+					}
+				}
+				// // 随机点缀页面
+				for(var i=0;i<blockPos.length;i++){
+					var x = blockPos[i].x;
+					var y = blockPos[i].y;
+					ctx.drawImage(img,192,320,wh,wh,wh*x,wh*y,wh,wh);
+				}
+				for(var i=0;i<decoratePos.length;i++){
+					var x = decoratePos[i].x;
+					var y = decoratePos[i].y;
+					ctx.drawImage(img,224,320,wh,wh,wh*x,wh*y,wh,wh);
+				}
+				var img1 = new Image();
+				img1.src = "./images/01jinweis/aida.png";
+				img1.onload = function(){
+					// 在canvas中，进行canvas刷新操作，只需重新设置canvas的高度以及宽度属性，就算值相同也会刷新
+					
+					ctx.drawImage(img1,pos[index].x,pos[index].y,60,105,100,100,60,105);
+					index++;
+					index %= pos.length;
+				}
+			},200);
+		}
+				
+	</script>
+</body>
+</html>

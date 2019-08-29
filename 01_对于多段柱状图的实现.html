@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		var ctx = canvas.getContext("2d");
+		var margin = 10;
+		var nums = [
+			{"num":99,"color":"red"},
+			{"num":199,"color":"blue"},
+			{"num":299,"color":"green"},
+			{"num":399,"color":"pink"},
+			{"num":449,"color":"yellow"},
+			{"num":350,"color":"gray"}
+		];
+		var canvasH = canvas.height;
+		var canvasW = canvas.width;
+		var max = getMax(nums);
+		/*
+		700		
+		1000     500
+		*/
+		// 绘制的线条的最大长度
+		var maxLine = canvasW - margin - margin;
+		var rate = maxLine / max;
+		// 1. 先来绘制 x 轴
+		ctx.moveTo(margin,canvasH - margin);
+		ctx.lineTo(canvasW-margin,canvasH - margin);
+		ctx.stroke();
+		// 2. 再来绘制 y 轴
+		ctx.moveTo(margin,canvasH - margin);
+		ctx.lineTo(margin,margin);
+		ctx.stroke();
+		// 3. 获取得到绘制的粗细
+		var lineH = parseInt((canvasH-2*margin)/(nums.length*2+1));
+		// 4. 开始柱状图的绘制
+		for(var i=0;i<nums.length;i++){
+			ctx.beginPath();
+			ctx.moveTo(margin,margin+lineH*(i*2+1) + lineH/2);
+			ctx.lineTo(margin + nums[i].num*rate,margin+lineH*(i*2+1) + lineH/2);
+			ctx.lineWidth = lineH;
+			ctx.strokeStyle = nums[i].color;
+			ctx.stroke();
+		}
+		function getMax(arr){
+			var max = arr[0].num;
+			for(var i=0;i<arr.length;i++){
+				arr[i].num>max?(max = arr[i].num):"";
+			}
+			return max;
+		}
+	</script>
+</body>
+</html>

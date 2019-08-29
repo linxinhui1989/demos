@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		var ctx = canvas.getContext("2d");
+		// 在做转换之前，将canvas状态进行保存
+		ctx.save();
+		ctx.rotate(30*Math.PI/180);
+		ctx.rect(100,100,200,10);
+		// 实现对于canvas的转换操作
+		ctx.fill();
+		// 在绘制之前，设置回转换之前保存的那个状态
+		ctx.restore();
+		ctx.fillText("劳力士电子表",200,200);
+	</script>
+</body>
+</html>
