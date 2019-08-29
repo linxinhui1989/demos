@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>111</p>
+	<p>222</p>
+	<p>333</p>
+	<script type="text/javascript">
+		// 定义jq库
+		;(function(){
+			// 编写名为jQuery的函数
+			function jQuery(selector){
+				// 就在这个 jQuery 这个函数中进行元素的查找
+				return new jQuery.fn.init(selector); 
+				// 这边这个函数的调用，返回的是 jQuery.prototype.init 类型的实例对象，并且是作为了这个 $ 普通函数的返回值
+			}
+			/*
+			这边就为 jQuery构造函数去额外定义一个名为 fn 的变量 ; 
+			那个 jQuery.fn  跟  jQuery.prototype 其实都指向了同一个对象；
+			代码中出现的 jQuery.prototype 都可以使用 jQuery.fn 进行替换
+			 */ 
+			jQuery.fn = jQuery.prototype = {
+				constructor:jQuery,
+				init:function(selector){
+					var eles = document.querySelectorAll(selector);
+					for(var i=0;i<eles.length;i++){
+						this[i] = eles[i];
+					}
+					this.length = eles.length;
+				},
+				css:function(){
+					console.log("这边调用到了这个对应的 css 方法  ---> ");
+				}
+			}
+			// 将jquery函数的原型对象设置到  jQuery.prototype.init.prototype上，这样，通过$("p") 创建出来的那个对象，也就可以访问到 对应的 那个 css方法了
+			jQuery.fn.init.prototype = jQuery.fn;
+			// 将jQuery这个函数内的变量，设置为 window 的属性
+			window.jQuery = window.$ = jQuery;
+		})();
+		// 外部要能够访问到这个 jQuery，所以这边需要将jQuery这个函数内的变量，设置为 window 的属性
+		console.log($("p"));
+		$("p").css();
+	</script>
+</body>
+</html>

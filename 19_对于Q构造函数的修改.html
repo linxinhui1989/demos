@@ -14,9 +14,10 @@
 			// 编写名为jQuery的函数
 			function jQuery(selector){
 				// 就在这个 jQuery 这个函数中进行元素的查找
-				return new Q(selector); // 这边这个函数的调用，返回的是 Q 类型的实例对象
+				return new Q(selector); 
+				// 这边这个函数的调用，返回的是 Q 类型的实例对象，并且是作为了这个 $ 普通函数的返回值
 			}
-			
+
 			// 在额外定义一个名为 Q 的函数，然后这个 Q 构造函数是在 jQuery 函数中被创建
 			function Q(selector){
 				var eles = document.querySelectorAll(selector);
@@ -38,6 +39,7 @@
 		})();
 		// 外部要能够访问到这个 jQuery，所以这边需要将jQuery这个函数内的变量，设置为 window 的属性
 		console.log($("p"));
+		// $("p") ---> 是访问到了 Q 类型的实例对象，只不过这个实例对象上含有所需要的查找的元素;又因为这边获取到的是Q类型的实例对象，就可以访问到 Q 上的原型对象中的css 方法
 		$("p").css();
 	</script>
 </body>
