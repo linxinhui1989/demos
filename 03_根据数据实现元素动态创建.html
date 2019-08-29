@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<!-- 球队 -->
+		<select class="team"></select>
+		<!-- 球星 -->
+		<select class="stars"></select>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 1. 准备显示所需的数据
+			var nba = {
+				"勇士":["库里","汤普森","杜兰特"],
+				"公牛":["乔丹","罗德曼","皮蓬"],
+				"湖人":["科比","奥尼尔"],
+				"火箭":["姚明","麦迪"]
+			};
+			// 2. 先来处理左边显示
+			$.each(nba,function(key,value){
+				var op = "<option>"+key+"</option>";
+				$(".team").append(op);
+			});
+			// 3. 下拉选框的修改事件
+			$(".team").on("change",function(){
+				// 3.1 当下拉事件发生时，先清空 stars 这个 select 元素中的所有子标签
+				$(".stars").empty();
+				var key = $(this).val();
+				var stars = nba[key];
+				$.each(stars,function(index,value){
+					var op = "<option>"+value+"</option>";
+					$(".stars").append(op);
+				});
+			});
+			// 4. 在jq中提供了一个方法，用于代码触发事件
+			$(".team").triggerHandler("change");
+		});
+	</script>
+</body>
+</html>

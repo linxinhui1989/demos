@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击一下</button>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			注册按钮点击事件，当按钮点击发生时，将json格式的数据传递到事件函数中
+			 */ 
+			$("button").on("click",{
+				"name":"lina",
+				"age":22
+			},function(event){
+				console.log(event.data.name);
+				console.log(event.data.age);
+			});
+		})
+	</script>
+</body>
+</html>

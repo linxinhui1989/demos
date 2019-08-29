@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>数据显示1</li>
+			<li>数据显示2</li>
+			<li>数据显示3</li>
+			<li>数据显示4</li>
+			<li>数据显示5</li>
+		</ul>
+		<button>点击一下</button>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// on这个方法中，也存在类似于 delegate 方法的效果
+			$("ul").on("click","li",function(){
+				console.log("点击了...");
+			});
+			// 对于 on 也能够解决动态创建的元素的事件问题
+			$("div").append("<button>测试一下</button>");
+			// on这个方法，可以为指定的元素注册事件
+			$("button").on("click",function(){
+				console.log("点击了123...");
+			});
+			// 也可以为对象一次注册多个事件
+			$("button").on({
+				"click":function(){},
+				"mousemove":function(){}
+			});
+		});
+	</script>
+</body>
+</html>

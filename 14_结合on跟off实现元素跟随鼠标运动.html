@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			注册复合事件--> 先注册鼠标的按下事件，然后在鼠标按下事件的函数中，再来注册移动事件
+			*/
+			$("p").on("mousedown",function(){
+				$(document).on("mousemove",function(event){
+					var x = event.clientX - $("p").width()/2;
+					var y = event.clientY - $("p").height()/2;
+					$("p").css({
+						"left":x,
+						"top":y
+					})
+				});
+			});
+			/*
+			当鼠标松开时，取消鼠标移动事件
+			*/
+			$(document).on("mouseup",function(){
+				$(document).off("mousemove");
+			})
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style:none;}
+		.slide{
+			width: 600px;
+			height: 350px;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 这边就是用来实现轮播图的div -->
+		<div class="slide">
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 1. 创建jQuery的拓展方法，用于实现轮播图
+			jQuery.fn.slide = function(){
+				var box = this;
+				var imgs = ["./images/1.jpg","./images/2.png","./images/3.jpg"];
+				// 2. 进行轮播图上的ul的创建
+				var ulIcons = "<ul class='ulIcons'></ul>";
+				box.append(ulIcons);
+				// 2.1 为轮播图上的ul，再来根据给定的图片资源，动态创建出若干个 li 以及 img 元素
+				$.each(imgs,function(index,value){
+					// 2.2 在这个each函数中，进行li 以及 img 元素的动态创建
+					var ele = '<li><img src="'+value+'" /></li>';
+					box.find(".ulIcons").append(ele);
+				});
+				// 2.3 为ul 以及 li 设置对应的基础样式
+				box.find(".ulIcons").css(
+					{
+						"width":box.width(),
+						"height":box.height(),
+						"position":"relative"
+				});
+				box.find(".ulIcons").children("li").css({
+					"width":box.width(),
+					"height":box.height(),
+					"position":"absolute",
+					"left":0,
+					"top":0
+				}).children().css({
+					"width":box.width(),
+					"height":box.height()
+				});
+
+				// 3. 根据图片资源，动态创建轮播图指示器
+				var indicatorUl = "<ul class='indicators'></ul>";
+				box.append(indicatorUl);
+				// 3.1 再来动态创建li，并添加到indicatorUl上
+				$.each(imgs,function(index,value){
+					var indicator = "<li></li>";
+					box.find(".indicators").append(indicator);
+				});
+				// 3.2 设置ul以及li的属性
+				box.find(".indicators").children().css({
+					"float":"left",
+					"width":20,
+					"height":20,
+					"background-color":"green",
+					"margin-right":10,
+					"border-radius":"50%",
+					"cursor":"pointer"
+				});
+				box.css({"position":"relative"}).find(".indicators").css({
+					"width":30*imgs.length,
+					"position":"absolute",
+					"left":"50%",
+					"bottom":"20px",
+					"margin-left":-1*30*imgs.length/2
+				});
+				// 4. 动态创建左右两侧的控制按钮
+				var ctrlDiv = "<div class='ctrls'></div>";
+				box.append(ctrlDiv);
+				// 4.2 创建按钮
+				box.find(".ctrls").append("<p class='prev'></p>");
+				box.find(".ctrls").append("<p class='next'></p>");
+				box.find(".prev").css({
+					"position":"absolute",
+					"cursor":"pointer",
+					"left":0,
+					"top":0,
+					"width":30,
+					"height":60,
+					"background-color":"rgba(0,0,0,0.3)"
+				});
+				box.find(".next").css({
+					"position":"absolute",
+					"cursor":"pointer",
+					"right":0,
+					"top":0,
+					"width":30,
+					"height":60,
+					"background-color":"rgba(0,0,0,0.3)"
+				});
+				// 4.3 设置按钮的基础样式
+				box.find(".ctrls").css({
+					"width":box.width(),
+					"height":box.find(".next").height(),
+					"position":"absolute",
+					"left":0,
+					"top":"50%",
+					"margin-top":-1*box.find(".next").height()/2
+				});
+			}
+			// 设计好这个拓展方法后，直接调用，就可以进行轮播图的创建以及实现轮播图特效了
+			$(".slide").slide();
+		});
+	</script>
+</body>
+</html>

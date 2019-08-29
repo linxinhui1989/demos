@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>数据显示1</li>
+		<li>数据显示2</li>
+		<li>数据显示3</li>
+		<li>数据显示4</li>
+		<li>数据显示5</li>
+	</ul>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*$("li").on("click",function(){console.log("点击了...");});*/
+			// 代理 --> 通过对父元素进行事件的注册，当子元素被点击时，会调用父元素上所注册的代理事件 --> 只要父元素注册即可
+			$("ul").delegate("li","click",function(){
+				console.log("这边就是代理事件...");
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		span{
+			font-size: 30px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<span>☆</span>
+		<span>☆</span>
+		<span>☆</span>
+		<span>☆</span>
+		<span>☆</span>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var fill = "★";
+			var no_file = "☆";
+			var index = -1;
+			// 注册触摸事件
+			$("span").hover(function(){
+				// 触摸进入时
+				$(this).html(fill).prevAll().html(fill).end().nextAll().html(no_file);
+			},function(){
+				// 触摸离开时
+				index==-1?$("span").html(no_file):"";
+			});
+			// 注册点击事件
+			$("span").on("click",function(){
+				index = $(this).index();
+				$(this).html(fill).prevAll().html(fill).end().nextAll().html(no_file);
+			});
+		});
+	</script>
+</body>
+</html>

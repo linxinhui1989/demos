@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = [11,22,33,44];
+		/*
+		对于数组中所自带的map方法的介绍，类似于jq中的map，都是将指定数组中的元素取出，组合成一个新的数组
+		 */ 
+		var newArr = arr.map(function(index,value){
+			return "<p>"+ index + "--->" + value +"</p>";
+		});
+		console.log(newArr);
+	</script>
+</body>
+</html>

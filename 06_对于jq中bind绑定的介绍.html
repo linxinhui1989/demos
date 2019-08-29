@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>1111</p>
+		<p>2222</p>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 注册点击事件
+			/*$("p").bind("click",function(){
+				console.log("点击了...");
+			});*/
+			// 可以一次注册一个事件，也可以一次注册多个事件
+			$("p").bind({
+				"click":function(){
+					console.log("点击了...");
+				},
+				"mouseover":function(){
+					console.log("触摸了...");
+				},
+				"mouseleave":function(){
+					console.log("离开了...");
+				}
+			});
+			/*$("p").css("color","red");
+			$("p").css({
+				"color":"red",
+				"width":"200px"
+			});*/
+		});
+	</script>
+</body>
+</html>

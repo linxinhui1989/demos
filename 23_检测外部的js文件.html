@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.ads{
+			width: 600px;
+			height: 350px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="ads"></div>
+	</div>
+	<!-- 因为写的slide.js中的插件是依赖于 jquery，所以代码中需要先引入jquery，再引入自己写的slide.js插件 -->
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="slide.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			需要在外部调用时，传入的值有：
+			a>> 图片资源
+			b>> 指示器默认的颜色，以及指示器被选中之后的颜色
+			c>> 是否需要显示指示器
+			d>> 是否要有自动轮播
+			 */
+			var options = {
+				"imgs":["./images/1.jpg","./images/2.png","./images/3.jpg","./images/4.jpg","./images/5.png","./images/3.jpg","./images/4.jpg","./images/5.png"],
+				"normalColor":"red",
+				"activeColor":"yellow",
+				"indW":16,
+				"indH":16,
+				"showIndicator":true,
+				"autoplay":true,
+				"duration":3000,
+				"animateType":"fade"
+			};
+			$(".ads").slide(options);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		.slideshow{
+			width: 600px;
+			margin: 10px auto;
+			overflow: hidden;
+		}
+		.slideshow ul{
+			width: 600px;
+			border: 1px solid red;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="slideshow">
+		<ul></ul>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			写好这个拓展方法后，就可以直接进行轮播图的创建以及轮播图的各种功能了
+			a> 轮播图要 图 --> 数据 --> 调用这个方法时，需要传入指定个数的图片路径
+			 */
+			jQuery.fn.slideshow = function(allImgs){
+				var index = 0;
+				var ul = this;
+				// 根据给定的图片，动态创建出若干个li 以及 img
+				$.each(allImgs,function(index,value){
+					var child = "<li><img src="+value+" ></li>";
+					ul.append(child);
+				});
+				// 设置先后顺序
+				$("li").each(function(index,value){
+					$(this).css({"z-index":20-index});
+				});
+				ul.css({"position":"relative"})
+				ul.children().css({
+					"position":"absolute",
+					"left":0,
+					"top":0
+				});
+				$("li").children().css({
+					"width":ul.width(),
+					"height":ul.height(),
+				});
+				// 再来进行自动切换的实现
+				setInterval(function(){
+					$("li").eq(index).animate({
+						"left":-1*ul.width()
+					},100,"linear",function(){
+						index++;
+						if(index>=allImgs.length){
+							index = 0;
+							$("li").css("left",0)
+						}
+					});
+				},2000);
+			}
+			var imgs = ["./images/1.jpg","./images/2.png","./images/3.jpg","./images/4.jpg","./images/5.png"];
+			$("ul").slideshow(imgs);
+		});
+	</script>
+</body>
+</html>

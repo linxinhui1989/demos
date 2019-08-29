@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<div class="d1">显示</div>
+		<p class="p1">测试</p>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 为 jQuery 额外拓展方法
+			jQuery.test3 = function(){
+				console.log("测试一下1234");
+			};
+			// 可以同 $ 进行直接调用
+			$.test3();
+			$.carousel();
+		});
+	</script>
+</body>
+</html>

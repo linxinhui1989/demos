@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.fl{float: left;}
+		select{
+			width: 35px;
+			height: 72px;
+		}
+		#app{
+			width: 150px;
+			margin: 10px auto;	
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<select class="fl" id="left"  multiple="multiple">
+			<option value="">科比</option>
+			<option value="">乔丹</option>
+			<option value="">欧文</option>
+			<option value="">库里</option>
+		</select>
+		<div class="mid fl">
+			<button class="to-left"> << </button>
+			<button class="to-right"> >> </button>
+		</div>
+		<select class="fl" id="right" multiple="multiple"></select>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".to-right").on("click",function(){
+				$("#left option:selected").appendTo($("#right"));
+			});
+			$(".to-left").on("click",function(){
+				$("#right option:selected").appendTo($("#left"));
+			});
+		});
+	</script>
+</body>
+</html>
