@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			width: 400px;
+			height: 450px;
+			border: 1px solid red;
+			text-align: center;
+			float: left;
+			margin: 20px 100px;
+		}
+		h2{
+			font-size: 15px;
+			height: 40px;
+		}
+		p{
+			width: 300px;
+			height: 400px;
+			background-color: red;
+			margin: 0px auto;
+			background-image: url("./images/jd.jpg");
+			background-size: 300px 400px;
+		}
+		div:nth-child(2)>p{
+			/*对于transform类型的设置*/
+			transform: rotate(45deg);
+		}
+		div:nth-child(3)>p{
+			/*对于transform类型的设置*/
+			transform: rotateX(45deg);
+		}
+		div:nth-child(4){
+			perspective: 1000;
+			-webkit-perspective: 1000;
+		}
+		div:nth-child(4)>p{
+			transform-style: preserve-3d;
+			/*将转换设置为3d转换*/
+			/*对于transform类型的设置*/
+			transform: rotateX(45deg);
+			transform-origin: bottom;
+		}
+		div:nth-child(5){
+			-webkit-perspective: 1000;
+		}
+		div:nth-child(5)>p{
+			transform-style: preserve-3d;
+			/*将转换设置为3d转换*/
+			/*对于transform类型的设置*/
+			transform: translateZ(100px);
+		}
+		div:nth-child(6){
+			-webkit-perspective: 1000;
+		}
+		div:nth-child(6)>p{
+			transform-style: preserve-3d;
+			/*将转换设置为3d转换*/
+			/*对于transform类型的设置*/
+			transform: translateZ(-1000px);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h2>默认的样式</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>3d旋转的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>3d旋转的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>3d旋转的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>3d位移的实现</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>3d位移的实现</h2>
+		<p></p>
+	</div>
+</body>
+</html>

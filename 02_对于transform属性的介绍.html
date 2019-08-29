@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			width: 400px;
+			height: 350px;
+			border: 1px solid red;
+			text-align: center;
+			float: left;
+			margin: 20px 100px;
+		}
+		h2{
+			font-size: 15px;
+			height: 40px;
+		}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 50px auto;
+		}
+		div:nth-child(2)>p{
+			transform: rotate(45deg);
+		}
+		div:nth-child(3)>p{
+			transform: scale(1.5);
+		}
+		div:nth-child(4)>p{
+			transform: translate(100px,100px);
+		}
+		div:nth-child(5)>p{
+			transform: scale(1.1,1.5);
+		}
+		div:nth-child(6)>p{
+			transform-origin: top;
+			transform: rotate(45deg);
+		}
+		div:nth-child(7)>p{
+			transform-origin: top;
+			transform: scale(1.5);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h2>默认的样式</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于transform属性的基本介绍 roate</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于transform属性的基本介绍 scale</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于transform属性的基本介绍 translate</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于transform属性的基本介绍 scale</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于transform其他属性的基本介绍</h2>
+		<p></p>
+	</div>
+	<div>
+		<h2>对于transform其他属性的基本介绍</h2>
+		<p></p>
+	</div>
+</body>
+</html>

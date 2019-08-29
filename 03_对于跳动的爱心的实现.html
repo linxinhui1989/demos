@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#heart{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			position: relative;
+			animation: jump 1s infinite alternate;
+		}
+		#heart p{
+			position: absolute;
+		}
+		#heart p:nth-child(1),#heart p:nth-child(2){
+			width: 180px;
+			height: 180px;
+			background-color: red;
+			border-radius: 50%;
+		}
+		#heart p:nth-child(1){
+			left: 0;
+			top: 0;
+		}
+		#heart p:nth-child(2){
+			right: 0;
+			top: 0;
+		}
+		#heart p:nth-child(3){
+			width: 160px;
+			height: 160px;
+			background-color: red;
+			left: 50%;
+			margin-left: -80px;
+			bottom: 57px;
+			transform: rotate(45deg);
+		}
+		@keyframes jump{
+			0%{
+				transform: scale(1);
+			}
+			100%{
+				transform: scale(1.5);
+			}	
+		}
+	</style>
+</head>
+<body>
+	<div id="heart">
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+</body>
+</html>

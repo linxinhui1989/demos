@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#box{
+			width: 200px;
+			height: 800px;
+			border: 1px solid red;
+			margin: 100px auto;
+			position: relative;
+		}
+		.ball{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-color: gray;
+			position: absolute;
+			left: 0;
+			top: 0;
+			animation: ballrun 2s infinite alternate;
+		}
+		.shadow{
+			width: 180px;
+			height: 80px;
+			position: absolute;
+			left: 50%;
+			bottom: 0px;
+			margin-left: -90px;
+			z-index: -1;
+		}
+		.shadow>div{
+			width: 180px;
+			height: 80px;
+			animation: shadowrun 2s infinite alternate;
+			background-color: rgba(0,0,0,0.1);
+			border-radius: 100px / 40px;
+			margin: 0 auto;
+		}
+		@keyframes ballrun{
+			0%{
+				top: 0;
+			}
+			100%{
+				top: 550px;
+			}
+		}
+		@keyframes shadowrun{
+			0%{
+				width: 180px;
+				height: 80px;
+				background-color: rgba(0,0,0,0.1);
+			}
+			100%{
+				width: 80px;
+				height: 40px;
+				background-color: rgba(0,0,0,0.6);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="ball"></div>
+		<div class="shadow">
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>
