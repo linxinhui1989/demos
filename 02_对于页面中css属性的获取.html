@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		p{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 10px auto;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var p = $("p")[0];
+		// 方式一 p.style.xxx --> 只能获取到行内样式
+		console.log(p.style.width);
+		console.log(p.style.height);
+		// 方式二 根据特定的写法，分别获取一些特定属性 --> 通过属性点出来，不同属性的写法差异较大
+		console.log(p.offsetWidth);
+		console.log(p.offsetHeight);
+		
+		/*
+		方式三 --> 使用window.getComputedStyle(元素)[属性名]
+		既可以获取行内样式，也可以获取到外部设置好的css样式，只需要传入属性名即可
+		*/
+		var attr = "height";
+		console.log(window.getComputedStyle(p).width);
+		console.log(window.getComputedStyle(p)[attr]);
+	</script>
+</body>
+</html>

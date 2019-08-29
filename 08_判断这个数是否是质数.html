@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = 1237;
+		var isZhiShu = true;
+		for(var i=2;i<num;i++){
+			// 在这个循环内部，只是去进行标记修改
+			if(num % i == 0){
+				isZhiShu = false;
+			}
+		}
+		// 不在循环内部去判断最终的结论，而是在循环外，根据这个标记值来进行结论的判断
+		if(isZhiShu){
+			console.log("是质数");
+		}else{
+			console.log("不是质数");
+		}
+	</script>
+</body>
+</html>

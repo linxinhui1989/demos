@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		ul{
+			position: relative;
+			width: 1200px;
+			height: 600px;
+			margin: 10px auto;
+		}
+		li{
+			position: absolute;
+		}
+		img{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li><img src="./images/1.jpg" alt=""></li>
+			<li><img src="./images/2.png" alt=""></li>
+			<li><img src="./images/3.jpg" alt=""></li>
+			<li><img src="./images/4.jpg" alt=""></li>
+			<li><img src="./images/5.png" alt=""></li>
+		</ul>
+		<button>上一张</button>
+		<button>下一张</button>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		// 1. 找元素
+		var lis = $("li");
+		// 2. 使用数组结合 json，去分别保存5个li所对应的不同的属性值
+		var attrs = [
+			{"width":800,"height": 350,"left": 200,"top": 150,"z-index": 100,"opacity":1},
+			{"width":600,"height": 300,"left": 100,"top": 100,"z-index": 50,"opacity":0.6},
+			{"width":400,"height": 200,"left": 150,"top": 50,"z-index": 30,"opacity":0.3},
+			{"width":400,"height": 200,"left": 650,"top": 50,"z-index": 30,"opacity":0.3},
+			{"width":600,"height": 300,"left": 500,"top": 100,"z-index": 50,"opacity":0.6}
+		];
+		updateUI();
+		var prev = $("button")[0];
+		var next = $("button")[1];
+		// 下一张
+		next.onclick = function(){
+			/*
+			点击切换，对于li的排列其实没有做任何变化，改变的只是 attrs 这个数组变量中属性数据的排列
+			*/
+			/*
+			把原来数组中的最后一位取出，然后塞到数组的第一个位置上
+			 */
+			var attr = attrs[attrs.length-1];
+			attrs.unshift(attr);
+			attrs.pop();
+			updateUI();
+		}
+		// 上一张
+		prev.onclick = function(){
+			/*
+			最前面   0   attrs[0]
+			最前面   4   attrs[4]
+			将attrs数组中的第一个数据取出，然后添加到数组的最后一位上，并且将原来的第一位去除
+			*/
+			var attr = attrs[0];
+			attrs.push(attr);
+			attrs.shift();
+			updateUI();
+		}
+		function updateUI(){
+			for(var i=0;i<lis.length;i++){
+				animate(lis[i],attrs[i],10);
+			}
+		}
+	</script>
+</body>
+</html>

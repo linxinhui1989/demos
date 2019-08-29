@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.fl{float: left;}
+		#goods{
+			width: 1200px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.good-item{
+			width: 234px;
+			height: 444px;
+			color: #666;
+		}
+		.good-item .bg-icon{
+			text-align: center;
+		}
+		.good-item ul{
+			overflow: hidden;
+			margin-top: 10px;
+		}
+		.good-item ul li{
+			width: 38px;
+			text-align: center;
+		}
+		.good-item .price{
+			margin-right: 10px;
+			color: #e4393c;
+			font-size: 20px;
+			margin: 10px 0;
+		}
+		.good-item .title{
+			font-size: 12px;
+			line-height: 20px;
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+		.good-item .command{}
+		.good-item .store{
+			margin: 10px 0;
+		}
+		.good-item .zy{
+			width: 30px;
+			height: 16px;
+			line-height: 16px;
+			padding: 0 3px;
+			text-align: center;
+			font-size: 12px;
+			background: #e23a3a;
+			color: #FFF;
+			border-radius: 2px;
+		}
+		.active{
+			border: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="goods">
+		<ul class="jd-goods">
+		</ul>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		// 1. 声明一个变量，这个变量是个数组，数组中保存了 5 个产品的信息
+		var goods = [
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":2000,
+				"sm":["./images/01_sm.jpg"],
+				"big":["./images/01_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":3000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg","./images/03_sm.jpg","./images/04_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg","./images/03_bg.jpg","./images/04_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":4000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg","./images/03_sm.jpg","./images/04_sm.jpg","./images/05_sm.jpg","./images/06_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg","./images/03_bg.jpg","./images/04_bg.jpg","./images/05_bg.jpg","./images/06_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":5000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg"]
+			},
+			{
+				"title":"5.0英寸大屏，特有老人模式，纤薄轻巧机身！更多小辣椒优惠，详情猛戳",
+				"command":"已有2.2万+人评价",
+				"store":"小辣椒手机京东自营...",
+				"price":6000,
+				"sm":["./images/01_sm.jpg","./images/02_sm.jpg","./images/03_sm.jpg"],
+				"big":["./images/01_bg.jpg","./images/02_bg.jpg","./images/03_bg.jpg"]
+			}
+		];
+		// 2. 通过循环，根据准备好的数据，动态创建出对应的产品项
+		var str = "";
+		for(var i in goods){
+			var good = goods[i];
+			str += '<li class="good-item fl">';
+				str += '<div class="bg-icon"><img class="big-icon" src="'+good.big[0]+'" alt=""></div>';
+				str += '<ul>';
+				for(var j in good.sm){
+					str += '<li class="fl sm '+ i+"--"+j +'"><img  src="'+good.sm[j]+'" alt=""></li>';
+				}
+				str += '</ul>';
+				str += '<p class="price">¥'+ good.price +'</p>';
+				str += '<p class="title">' +good.title+ '</p>';
+				str += '<p class="command">'+good.command+'</p>';
+				str += '<p class="store">'+good.store+'</p>'; 
+				str += '<p class="zy">自营</p>';
+			str += '</li>';
+		}
+		// 3. 循环结束后，就可以将数据显示到页面
+		var ul = $(".jd-goods")[0];
+		ul.innerHTML = str;
+
+		// 4. 实现触摸特效
+		// 4.1 先根据给定的class找到所有的产品( 整体-->当前案例中这样的产品有5个 )
+		var allGoods = $(".good-item");
+		// 4.2 触摸事件不是发生在这个产品上，而是发生在产品中的小图标上的，所以触摸不用设置在这个 goodItem上，而是需要先找到goodItem，再来找到这个goodItem上的小图标
+		for(var i=0;i<allGoods.length;i++){
+			// 4.3 先找到产品
+			var goodItem = allGoods[i];
+			goodItem.ii = i;
+			// 4.4 再来根据找到的产品，查找这个产品下的小图,找到这个产品下的那一排小图标
+			var sms = goodItem.getElementsByClassName("sm");
+			// 4.5 再来根据循环，将每一个产品的这排小图标进行循环监听
+			for(var j=0;j<sms.length;j++){
+				var sm = sms[j];
+				sm.index = j;
+				sm.onmouseover = function(){
+					/*
+					4.6 在触摸事件中，进行事件处理，每个事件中，其实都有一个this，这个this就是事件源，就是那个具体的被触摸到的li元素
+					*/
+					/*
+						设置被触摸的那个li的className之前，要进行排他
+						for(var z=0;z<sms.length;z++){
+							sms[z].className = "fl sm";
+						}
+						上述代码存在问题：原因是在于 sms 这个变量是属于全局变量，全局变量只会保存循环结束时，所赋予的最后一个值，所以这边的sms其实就是保存了最后一个产品上的那一排小图标
+
+						因为参数是发生在事件中的，所以意味着外部写好的 sms allGoods goodItem 这些都是全局变量，都没法用 --> 只有 this这个才是真的 --> 那就根据 this结合 节点关系，反向找到对应的 sms goodItem
+					*/
+					var lis = this.parentNode.children; // --> sms
+					for(var z=0;z<lis.length;z++){
+						lis[z].className = "fl sm";
+					}
+					this.className = "fl sm active";
+
+					/*
+					4.7 接下来要处理的是，触摸发生时，修改这个小图标所对应的那个产品的大图
+					大图.src = 指定的路径
+
+					对于大图的查找，还是要结合 this
+					*/
+					var goodItem = this.parentNode.parentNode;
+					// 再来根据找到的产品，找到产品下的那个大图
+					var bigIcon = goodItem.getElementsByClassName("big-icon")[0];
+					
+					/*
+						找对应的图片路径 --> 路径来自于数组 --> 先要确定被触摸的小图标是属于第几个产品的 --> 要靠产品那个对象上设定属性
+						再来确定被触摸的小图标是该产品下的第几个
+					*/
+					var ii = goodItem.ii;
+					// 从准备的数组中获取指定下标产品的数据-->这边获取到的数据是一个数组，那么要想拿到数组的数据，需要给定下标
+					var bigSrcs = goods[ii].big;
+					var index = this.index;
+					// 最后根据给定的index，从bigSrcs数组下取出对应的图片路径
+					var src = bigSrcs[index];
+					bigIcon.src = src;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
