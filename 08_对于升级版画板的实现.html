@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		.fl{float: left;}
+		canvas{
+			border: 1px solid red;
+		}
+		.hb{
+			width: 1000px;
+			margin: 10px auto;
+			text-align: center;
+		}
+		.hb>div{
+			margin-top: 20px;
+			font-size: 20px;
+		}
+		.hb-size{
+			margin-left: 100px;
+		}
+		.hb-color{
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="hb">
+		<canvas width="800" height="500"></canvas>
+		<div>
+			<div class="fl hb-size">
+				<span>画笔粗细</span>
+				<select>
+					<option value="2">2</option>
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+				</select>
+			</div>
+			<div class="fl hb-color">
+				<span>画笔颜色</span>
+				<input type="color" id="cc">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		var select = document.querySelector("select");
+		var cc = document.querySelector("#cc");
+		// 声明一个变量，用于保存画笔的粗细
+		var lineWidth = 2;
+		// 声明一个变量，用于保存画笔的颜色
+		var strokeStyle = "black";
+		// 获取canvas中提供的2d绘制栏
+		var ctx = canvas.getContext("2d");
+		// 为canvas注册复杂事件
+		canvas.addEventListener("mousedown",function(e){
+			// 开启一个新的路径，避免下次的设置影响之前的绘制
+			ctx.beginPath();
+			var startX = e.clientX - canvas.offsetLeft;
+			var startY = e.clientY - canvas.offsetTop;
+			ctx.moveTo(startX,startY);
+			// 按下之后，再来进行移动
+			canvas.addEventListener("mousemove",mousemove);
+		});
+		// 为canvas注册抬起事件
+		canvas.addEventListener("mouseup",function(){
+			// 注销移动事件
+			canvas.removeEventListener("mousemove",mousemove);
+		});
+		// 为select添加change事件
+		select.addEventListener("change",function(){
+			lineWidth = select.value;
+		});
+		// 为颜色选择添加change事件
+		cc.addEventListener("change",function(){
+		   	strokeStyle = cc.value;
+		});
+		function mousemove(event){
+			var x = event.clientX - canvas.offsetLeft;
+			var y = event.clientY - canvas.offsetTop;
+			ctx.lineTo(x,y);
+			// 设置画笔粗细
+			ctx.lineWidth = lineWidth;
+			// 设置画笔颜色
+			ctx.strokeStyle = strokeStyle;
+			ctx.stroke();
+		}
+	</script>
+</body>
+</html>

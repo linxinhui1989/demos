@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		canvas{}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		var ctx = canvas.getContext("2d");
+		var margin = 10;
+		var nums = [];
+		var times = parseInt(Math.random()*50 + 5);
+		for(var i=0;i<times;i++){
+			var num = parseInt(Math.random()*1000);
+			// 对于随机颜色的获取
+			var color = getRandomColor();
+			nums.push({
+				"num":num,
+				"color":color
+			});
+		}
+		/*
+		{"num":num,"color":"xxx"}
+		 */
+		console.log("nums = " + nums);
+		var canvasH = canvas.height;
+		var canvasW = canvas.width;
+		var maxH = margin;
+		// 从排好序的数组中获取到数组的最后一位上的值，就是数组中的最大值
+		var max = getMax(nums);
+		// 结合最大值 跟 距离，计算得到比例值
+		var rate = (canvasH - margin - maxH) / max;
+		/*
+		1200  1000
+		780		x
+		x = rate*nums[i]
+		*/
+		// 1. 先来绘制 x 轴
+		ctx.moveTo(margin,canvasH - margin);
+		ctx.lineTo(canvasW-margin,canvasH - margin);
+		ctx.stroke();
+		// 2. 再来绘制 y 轴
+		ctx.moveTo(margin,canvasH - margin);
+		ctx.lineTo(margin,margin);
+		ctx.stroke();
+		ctx.beginPath();
+		// 3. 获取得到绘制的粗细
+		var lineWidth = (canvasW-2*margin)/(nums.length*2+1);
+		// 4. 开始柱状图的绘制
+		for(var i=0;i<nums.length;i++){
+			ctx.beginPath();
+			ctx.moveTo(margin+lineWidth*(i*2+1) + lineWidth/2,canvasH - margin);
+			var y = canvasH - margin - nums[i].num*rate;
+			ctx.lineTo(margin+lineWidth*(i*2+1) + lineWidth/2,y);
+			ctx.lineWidth = lineWidth;
+			ctx.strokeStyle = nums[i].color;
+			ctx.stroke();
+		}
+		function getMax(arr){
+			var max = arr[0].num;
+			for(var i=0;i<arr.length;i++){
+				arr[i].num>max?(max = arr[i].num):"";
+			}
+			return max;
+		}
+		function getRandomColor(){
+			return "rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+		}
+	</script>
+</body>
+</html>

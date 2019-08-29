@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#app{
+			width: 300px;
+			height: 200px;
+			margin: 200px auto;
+			-webkit-perspective: 1300;
+		}
+		#app>ul{
+			width: 300px;
+			height: 200px;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: all 1s;
+		}
+		#app>ul>li{
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-size: 100% 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<ul class="carousel"></ul>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 1. 准备数据
+			var imgs = ["./images/1.jpg","./images/2.jpg","./images/3.jpg","./images/4.jpg","./images/5.jpg","./images/6.jpg","./images/7.jpg","./images/8.jpg","./images/9.jpg","./images/10.jpg","./images/11.jpg","./images/12.jpg"];
+			// 2. 根据数据，动态创建若干个li
+			$.each(imgs,function(index,val){
+				var liEle = $("<li></li>");
+				$(liEle).css({"background-image":"url("+val+")"});
+				// 3. 根据数据的个数，去决定每个li上的transform属性
+				var deg = -index * 360 / imgs.length; // rotateY 
+				var hudu = (360 / imgs.length/2)*Math.PI/180;
+				var dis = $("ul").width()/2 / Math.tan(hudu);
+				console.log("dis = " + dis);
+				$(liEle).css({"transform":"rotateY("+deg+"deg) translateZ("+dis+"px)"});
+				$("#app>.carousel").append(liEle);
+			});
+			var index = 0;
+			// 3. 添加对应的js代码，使得轮播动起来
+			setInterval(function(){
+				index ++;
+				$("#app>.carousel").css({
+					"transform":"rotateY("+index * 360 / imgs.length+"deg)"
+				});
+			},2000);
+		});
+	</script>
+</body>
+</html>

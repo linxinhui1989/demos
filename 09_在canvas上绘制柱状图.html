@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		var ctx = canvas.getContext("2d");
+		// 1. 先来绘制 x 轴
+		ctx.moveTo(10,490);
+		ctx.lineTo(790,490);
+		ctx.stroke();
+		// 2. 再来绘制 y 轴
+		ctx.moveTo(10,490);
+		ctx.lineTo(10,10);
+		ctx.stroke();
+		ctx.beginPath();
+		// 3. 获取得到绘制的粗细
+		var lineWidth = parseInt(780/9);
+		// 4. 开始柱状图的绘制
+		ctx.moveTo(lineWidth*(0*2+1) + lineWidth/2,490);
+		ctx.lineTo(lineWidth*(0*2+1) + lineWidth/2,100);
+		ctx.lineWidth = lineWidth;
+		ctx.stroke();
+		
+		ctx.moveTo(lineWidth*(1*2+1) + lineWidth/2,490);
+		ctx.lineTo(lineWidth*(1*2+1) + lineWidth/2,200);
+		ctx.lineWidth = lineWidth;
+		ctx.stroke();
+		
+		ctx.moveTo(lineWidth*(2*2+1) + lineWidth/2,490);
+		ctx.lineTo(lineWidth*(2*2+1) + lineWidth/2,150);
+		ctx.lineWidth = lineWidth;
+		ctx.stroke();
+		
+		ctx.moveTo(lineWidth*(3*2+1) + lineWidth/2,490);
+		ctx.lineTo(lineWidth*(3*2+1) + lineWidth/2,250);
+		ctx.lineWidth = lineWidth;
+		ctx.stroke();
+	</script>
+</body>
+</html>

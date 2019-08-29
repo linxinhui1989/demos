@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{text-align: center;}
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="500" height="300"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas");
+		// canvas类似于画布，要想在画布上进行绘制，还需要去根据画布找到对应的工具栏
+		var ctx = canvas.getContext("2d");
+		/*
+			有了对应的工具栏之后，就可以进行相应的绘制
+			线条  矩形   圆形  图片
+			线条 --> 起点  终点
+		*/
+		ctx.moveTo(100,100);
+		ctx.lineTo(200,300);
+		ctx.lineTo(250,200);
+		ctx.lineTo(260,210);
+		// 设置线条的粗细
+		ctx.lineWidth = 10;
+		// 设置线条的颜色
+		ctx.strokeStyle = "red";
+		// 通过工具栏绘制好动作后，要想看到效果，需要进行渲染
+		ctx.stroke();
+	</script>
+</body>
+</html>
