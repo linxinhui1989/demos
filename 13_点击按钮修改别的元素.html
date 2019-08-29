@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="changeBtn">修改</button>
+	<p id="p1"></p>
+	<script type="text/javascript">
+		// 1. 找到所要操作的元素对象
+		var changeBtn = document.getElementById("changeBtn");
+		var p1 = document.getElementById("p1");
+		// 2. 注册按钮的点击事件，实现当按钮点击时，修改指定的p标签上的属性
+		changeBtn.onclick = function(){
+			// 3. 按钮点击发生时，所执行的修改
+			p1.style.width = "200px";
+			p1.style.height = "200px";
+			p1.style.backgroundColor = "blue";
+		}
+	</script>
+</body>
+</html>

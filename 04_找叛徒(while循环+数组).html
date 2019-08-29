@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		 准备一个数组，数组中放置13个数字，一开始数值都是 1；
+		 当报数报到3时，就将这个下表下的数值改为 0；
+		 下次报数，要直接略过数组中 值 为 0 的情况；
+		 每报到数组的最末尾时，立即将下标改为 0；
+		 最后数组中只剩下一个值为1的情况时，这个1所在的下标就是叛徒的序号
+		 因为这边需要用到循环，且这个循环不确定具体的执行次数，可以选择 while 循环来进行处理；
+		 循环结束的条件 --> 只剩下一个值为1的时候  --> 一开始有13个，每报到一个3，这个个数就 -1
+		 */
+		// 1. 准备一个数组，数组中放置13个数字，一开始数值都是 1
+		var peoples = [1,1,1,1,1,1,1,1,1,1,1,1,1];
+		var leftNum = 13; // 这个变量表示数组中值为1的个数
+		var index = 0; // 这个变量表示下标值
+		var baoShu = 0; // 这个变量表示报数的序号，到达3之后又会变回 1
+		while(leftNum > 1){
+			if(peoples[index]!=0){
+				baoShu ++; // 这里面也还有个注意点，如果一个数值为 0 了，不会参与报数
+			}
+
+			if(baoShu == 3){
+				peoples[index] = 0;
+				leftNum --;
+				baoShu = 0;
+			}
+			index ++;
+			// 对于 下标而言，如果超过了数组的最大下标值，那么就需要把这个 index 设置为 0
+			if(index >= peoples.length){
+				index = 0;
+			}
+			
+		}
+		for(var i=0;i<peoples.length;i++){
+			if(peoples[i] == 1){
+				console.log("叛徒序号是" + i);
+			}
+		}
+	</script>
+</body>
+</html>

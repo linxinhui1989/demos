@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" id="habbySelect" checked>篮球
+	<script type="text/javascript">
+		// 1. 找到这个元素
+		var habbySelect = document.getElementById("habbySelect");
+		/*
+			2. 注册事件
+			事件种类有很多
+			点击事件   onclick 
+			触摸事件   onmouseover   onmousemove   onmouseup   onmousedown   onmouseenter    onmouseleave
+			状态改变的事件   onchange
+			...
+		 */
+		habbySelect.onchange = function(){
+			// 获取到input多选框的勾选状态  habbySelect.checked
+			console.log(habbySelect.checked);
+		}
+		
+	</script>
+</body>
+</html>

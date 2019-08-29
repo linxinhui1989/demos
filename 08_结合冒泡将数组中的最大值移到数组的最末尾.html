@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1. 准备一个存有数据的数组
+		var nums = [22,11,77,32,45,20]; // 6
+		// 第一轮 for 循环，就将数组中的最大值放到了数组的最末尾
+		for(var i=0;i<nums.length-1;i++){ // i最大能到 4
+			if(nums[i] > nums[i+1]){
+				var temp = nums[i];
+				nums[i] = nums[i+1];
+				nums[i+1] = temp;
+			}
+		}
+		// 第二轮,因为第一轮已经确定最大值是在最末尾了，所以这一轮不用考虑最后面那个数
+		for(var i=0;i<nums.length-1 - 1;i++){ // i最大能到 4
+			if(nums[i] > nums[i+1]){
+				var temp = nums[i];
+				nums[i] = nums[i+1];
+				nums[i+1] = temp;
+			}
+		}
+
+		console.log(nums);
+		// 2. 试着使用for循环，结合冒泡的思想，将最大数移动到数组的最末尾位置上
+		/*var i = 0;
+		if(nums[i] > nums[i+1]){
+			var temp = nums[i];
+			nums[i] = nums[i+1];
+			nums[i+1] = temp;
+		} // [11,22,77,32,45,20];
+		i++;
+		// 这一次执行完成后，就意味着前面两个数中的较大值在 1 下标位置上
+		if(nums[i] > nums[i+1]){
+			var temp = nums[i];
+			nums[i] = nums[i+1];
+			nums[i+1] = temp;
+		}*/
+	</script>
+</body>
+</html>

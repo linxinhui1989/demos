@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">百度一下</button>
+	<script type="text/javascript">
+		/*
+		1. 先要找到那个事件源对象 --> 其实就是那个被点击的按钮 --> 找元素 --> 给 id --> 借助 document.getElementById() 
+		 */ 
+		var btn = document.getElementById("btn");
+		/*
+		2. 结合所学的事件的概念，为按钮去注册按钮 点击 事件
+			事件源.事件 = 事件操作函数(函数)
+		 */
+		var i = 0;
+		btn.onclick = function(){
+			// 事件源中定义好的函数，只有在事件源所对应的事件被触发是，才会回调这个事件函数，并执行这个事件函数中的代码
+			i ++;
+			console.log("被点击了" +i + "次");
+		};
+		console.log("代码都走到这里了");
+	</script>
+</body>
+</html>

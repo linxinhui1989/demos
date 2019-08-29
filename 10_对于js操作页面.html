@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="p1"></p>
+	<script type="text/javascript">
+		/*
+			操作 p 标签 --> 操作 DOM 模型对象 --> 意味着就是去操作p对象 --> 要先找到DOM中的这个 p 标签 --> 为了方便找到这个元素对象，这边在这个元素上去添加一个 id 属性，可以通过所学的js以及给定的id，去获取到这个 p
+		 */
+		/*
+			步骤一：先根据给定的id，结合 document.getElementById() 这个方法，去获取到当前页面上的那个p标签元素
+			步骤二：因为要操作这个p元素，所以当找到这个p元素后，可以声明一个变量，去保存这个查找到的结果；这边准确的来说，这个 ele 变量，只是保存了获取到的p标签元素对象在内存的存放地址而已
+			步骤三：有了这个变量 ele，就可以进行一系列对于 标签 操作了
+
+		 */
+		var ele = document.getElementById("p1");
+		// 修改模型对象上的 文本属性
+		ele.innerHTML = "你好，这是简单的DOM操作";
+		/*
+		 其他css中常见的属性的介绍 --> style 标签下的 --> 所以要想去修改对应的css属性，首先是要找到对应 style 标签
+		 */ 
+		ele.style.color = "red";
+		ele.style.fontSize = "30px";// 在js中如果要想修改多个单词组成属性，注意用的是驼峰式命名规则，首字母小写，后面的单词首字母大写，中间不要用 -  隔开
+		// ele.style.backgroundColor = "blue";
+		ele.style.width = "500px";
+		ele.style.height = "200px";
+		ele.style.borderRadius = "20px";
+		ele.style.textAlign = "center";
+		ele.style.lineHeight = "200px";
+		ele.style.backgroundImage = "url(./images/nba.jpg)";
+		ele.style.backgroundSize = "100%";
+		ele.style.backgroundRepeat = "no-repeat";
+		/*
+			可以使用js去修改常见的css属性；
+			在网页开发中，绝大多数的css样式属性，一般都是在 style 标签上就写好了；
+			只是对于某些在不同场景下会变化的css属性，这个时候才会想到用js来进行修改	
+		 */
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn1">百度一下1</button>
+	<button id="btn2">百度一下2</button>
+	<button id="btn3" onclick="show()">百度一下3</button>
+	<script type="text/javascript">
+		var btn1 = document.getElementById("btn1");
+		// 事件源.事件 = 函数
+		btn1.onclick = function(){
+			console.log("方式一");
+		};
+		/*
+		   匿名事件源的方式
+		   就是意味着找到这个元素只是在这个事件中被用到，其他地方没有被用到，这个时候可以使用匿名事件源的写法	
+		 */ 
+		document.getElementById("btn2").onclick = function(){
+			console.log("方式二");
+		}
+
+		// 连事件源对象都不找了，只去js中定义好一个函数
+		function show(){
+			console.log("被点击了....");
+		}
+	</script>
+</body>
+</html>

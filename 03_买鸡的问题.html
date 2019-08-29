@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		for(var x=0;x<20;x++){ // 这边的 x 就表示 公鸡的数量
+			for(var y=0;y<34;y++){ // y 表示母鸡的数量
+				// 在这个循环嵌套中，x跟y分别表示公鸡跟母鸡数量
+				// 这个时候就可以根据 x  跟  y 计算小鸡的数量
+				var z = 100- x - y;
+				var allCost = 5*x + 3*y + z / 3;
+				if(allCost == 100){
+					document.write("公鸡:" + x + " 母鸡:" + y + " 小鸡:" + z);
+					document.write("<br>");
+				}
+			}
+
+		}
+		/*
+			5*x + 3*y + 1/3 * z = 100 且 z 要能够被 3 整除
+		 */
+	</script>
+</body>
+</html>

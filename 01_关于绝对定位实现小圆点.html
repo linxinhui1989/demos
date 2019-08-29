@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#app{
+			width: 800px;
+			height: 400px;
+			background-color: gray;
+			margin: 100px auto;
+			position: relative;
+		}
+		#app .navigator{
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			overflow: hidden;
+			margin-left: -48px;
+		}
+		.navigator ul li{
+			float: left;
+			width: 11px;
+			height: 11px;
+			background-color: #fff;
+			border-radius: 50%;
+			margin-right: 5px;
+			cursor: pointer;
+		}
+		.navigator ul .active{
+			background-color: rgba(0,0,0,0);
+			border:1px solid #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 小圆点 -->
+		<div class="navigator">
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
