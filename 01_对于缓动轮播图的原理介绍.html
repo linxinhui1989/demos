@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul,li{list-style: none;}
+		li img{
+			width: 500px;
+			height: 300px;
+		}
+		li{float: left;}
+		.ads{
+			width: 500px;
+			height: 300px;
+			/*将超出 div 范围的ul进行隐藏*/
+			overflow: hidden;
+			position: relative;
+		}
+		ul{
+			width: 2000px;
+			overflow: hidden;
+			position: absolute;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<!-- 轮播效果是缓缓变化的，如果只有一个 img ，很难做到这种效果 -->
+	<!-- 要想实现这种效果，往往需要多个img -->
+	<div class="ads">
+		<ul>
+			<li><img src="./images/curry.jpg" alt=""></li>
+			<li><img src="./images/kebi.jpg" alt=""></li>
+			<li><img src="./images/kg.jpg" alt=""></li>
+			<li><img src="./images/qd.jpg" alt=""></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var ul = $("ul")[0];
+		var w = ul.firstElementChild.offsetWidth;
+		aniMove(ul,-w,10);
+	</script>
+</body>
+</html>
