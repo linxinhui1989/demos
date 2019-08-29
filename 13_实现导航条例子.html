@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		a{
+			/*对于文本修饰的去除*/
+			text-decoration: none;
+		}
+		.nav{
+			width: 800px;
+			/*用于去除所有子元素浮动之后产生的影响*/
+			overflow: hidden;
+			/*使用margin去实现块级元素在父标签上的居中*/
+			margin: 100px auto;
+			/*底部边框的设置*/
+			border-bottom: 1px solid #ff552e;
+		}
+		.nav>li{
+			float: left;
+			width: 160px;
+			text-align: center;
+		}
+		.nav>li a{
+			display: block;
+			padding: 10px 0;
+			color: #888;
+			letter-spacing: 3px
+		}
+		/*对于hover伪类的编写*/
+		.nav>li a:hover{
+			background-color: #ff552e;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li><a href="#">新车</a></li>
+		<li><a href="#">金融</a></li>
+		<li><a href="#">安居客</a></li>
+		<li><a href="#">中华英才</a></li>
+		<li><a href="#">58同城</a></li>
+	</ul>
+</body>
+</html>

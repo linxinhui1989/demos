@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.fl{float: left;}
+		.fr{float: right;}
+		a{text-decoration: none;}
+		#app{
+			width: 340px;
+			overflow: hidden;
+			margin: 10px auto;
+			border: 1px solid red;
+		}
+		#app .left-titles{
+			width: 80px;
+		}
+		.items>li{
+			width: 73px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		.items>li a{
+			display: block;
+			color: #000;
+		}
+		.items>li a:hover{
+			background-color: blue;
+			color: #fff;
+		}
+		#app .mid{
+			width: 180px;
+			height: 142px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 第一项		 -->
+		<div class="left-titles fl">
+			<ul class="items">
+				<li><a href="#">11</a></li>
+				<li><a href="#">22</a></li>
+				<li><a href="#">33</a></li>
+				<li><a href="#">44</a></li>
+				<li><a href="#">55</a></li>
+			</ul>
+		</div>
+		<!-- 第二项		 -->
+		<div class="mid fl"></div>
+		<!-- 第三项		 -->
+		<div class="right-titles fr">
+			<ul class="items">
+				<li><a href="#">11</a></li>
+				<li><a href="#">22</a></li>
+				<li><a href="#">33</a></li>
+				<li><a href="#">44</a></li>
+				<li><a href="#">55</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

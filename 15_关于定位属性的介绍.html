@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{
+			width: 200px;
+			height: 200px;
+		}
+		.red{background-color: red;}
+		.green{
+			background-color: green;
+			/*通过position属性，去实现定位操作*/
+			position: relative;
+			/*添加了定位属性position之后，往往要结合位置属性进行统一设置*/
+			left: 20px;
+			top: 10px;
+			/*right: 100px;*/
+			/*bottom: 10px;*/
+		}
+		.yellow{
+			background-color: yellow;
+			position: relative;
+			left: 10px;
+			top: 10px;
+			width: 100px;
+			height: 100px;
+		}
+		.blue{background-color: blue;}
+	</style>
+</head>
+<body>
+	<div class="red"></div>
+	<div class="green"></div>
+	<span class="yellow">12345</span>
+	<div class="blue"></div>
+</body>
+</html>
