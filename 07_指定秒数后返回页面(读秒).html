@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>还有5秒返回页面三</h1>
+	<script type="text/javascript" src="./fn.js"></script>
+	<script type="text/javascript">
+		/*
+		结合 setInterval 来进行实现了 返回指定页面的操作
+		*/
+		var h1 = $("h1")[0];
+		var leftTime = 5;
+		var t = setInterval(function(){
+			leftTime --;
+			h1.innerHTML = "还有"+leftTime+"秒返回页面三";
+			if(leftTime <= 0){
+				// 清除计时器
+				clearInterval(t);
+				// 页面跳转
+				window.location.href = "./03_对于另一个计时器函数的介绍.html"
+			}
+		},1000);
+	</script>
+</body>
+</html>

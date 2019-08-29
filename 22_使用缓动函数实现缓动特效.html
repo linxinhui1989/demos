@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		div{
+			width: 10px;
+			height: 10px;
+			position: relative;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		for(var i=0;i<$("div").length;i++){
+			var target = parseInt(Math.random()*1000);
+			var speed = parseInt(Math.random()*10);
+			aniMove($("div")[i],target,speed);
+		}
+	</script>
+</body>
+</html>

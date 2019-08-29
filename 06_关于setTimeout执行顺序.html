@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		对于 setTimeout 函数中的执行，会将函数中的代码添加到程序执行事件队列的最末尾
+		*/
+		setTimeout(function(){
+			console.log("2");
+		},0);
+		for(var i=0;i<10000;i++){
+			console.log("1");
+		}
+	</script>
+</body>
+</html>

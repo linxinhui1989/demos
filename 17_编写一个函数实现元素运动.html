@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			border: 10px solid blue;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<button>从0移动到500</button>
+	<button>从500移动到0</button>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var p = $("p")[0];
+		var to500 = $("button")[0];
+		var to0 = $("button")[1];
+		to500.onclick = function(){
+			aniMove(p.offsetLeft,500);
+		}
+		to0.onclick = function(){
+			aniMove(p.offsetLeft,0);
+		}
+
+		// 定义一个函数，用于实现元素的运动
+		function aniMove(start,target){
+			var t = setInterval(function(){
+				var left = p.offsetLeft;
+				/*
+				朝右边 当前起点 < 终点 --> 正数
+				朝左边 当前起点 > 终点 --> 负数
+				 */
+				left += (start<target)?10:-10;
+				p.style.left = left + "px";
+				/*
+				将终点 - 当前位置 == 0 停下来
+				*/
+				var dis = target - p.offsetLeft;
+				// 给定一个停止的条件
+				if(dis == 0){
+					clearInterval(t);
+				}
+			},20);
+		}
+	</script>
+</body>
+</html>

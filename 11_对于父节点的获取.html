@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.d1{
+			width: 800px;
+			height: 600px;
+			border: 1px solid red;
+			padding: 50px;
+			position: relative;
+		}
+		.d2{
+			width: 600px;
+			height: 500px;
+			border: 1px solid blue;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="d1">
+		<div class="d2">
+			<p></p>
+		</div>
+	</div>
+	<script type="text/javascript" src="./fn.js"></script>
+	<script type="text/javascript">
+		var p = $("p")[0];
+		console.log(p.parentNode);
+		console.log(p.offsetParent);
+	</script>
+</body>
+</html>

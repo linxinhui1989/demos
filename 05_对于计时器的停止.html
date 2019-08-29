@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>5秒后返回到页面3</p>
+	<button>停止</button>
+	<script type="text/javascript" src="./fn.js"></script>
+	<script type="text/javascript">
+		var t = setTimeout(function(){
+			// 通过 js 去跳转到指定页面上
+			window.location.href = "./03_对于另一个计时器函数的介绍.html";
+		},5000);
+		var btn = $("button")[0];
+		btn.onclick = function(){
+			clearTimeout(t);
+		}
+	</script>
+</body>
+</html>

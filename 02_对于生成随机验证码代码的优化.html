@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.yzm{
+			width: 200px;
+			text-align: center;
+			line-height: 50px;
+			height: 50px;
+			border: 1px solid red;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" class="txt-input">
+	<p class="yzm"></p>
+	<button id="yz">验证</button>
+	<script type="text/javascript" src="./fn.js"></script>
+	<script type="text/javascript">
+		// 1. 找元素
+		var yzBtn = $("#yz");
+		var txtInput = $(".txt-input")[0];
+		var yzm = $(".yzm")[0];
+		// 2. 声明一个变量，用于保存随机生成验证码
+		var randomStr = randomYZM(4);
+		yzm.innerHTML = randomStr;
+		// 3. 注册事件，进行相应的判断
+		yzBtn.onclick = function(){
+			// 3.1 获取到对应的输入框中的数值
+			var val = txtInput.value.toLowerCase();
+			// 3.2 使用val 跟 str 来进行比较
+			if(val == randomStr.toLowerCase()){
+				alert("验证通过");
+			}else{
+				alert("验证有误");
+				// 再调用这个函数，随机生成一个新的字符串，并赋值给 randomStr 变量
+				randomStr = randomYZM(4);
+				yzm.innerHTML = randomStr;
+			}
+			txtInput.value = "";
+		}
+		// 4. 书写一个函数，用于随机验证码的生成
+		function randomYZM(randomNum){
+			var strRange = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+			var str = "";
+			for(var i=0;i<randomNum;i++){
+				// 2.1 随机生成获取字符的下标值
+				var randomIndex = parseInt(Math.random()*strRange.length);
+				// 2.2 根据这个下标值，从字符串中获取对应下标的字符
+				var c = strRange.charAt(randomIndex);
+				// 2.4 将获取到的字符进行拼接，拼接到 str 变量上
+				str += c;
+			}
+			// 循环结束后，str变量中就保存了指定个数的随机字符
+			return str;
+		}
+	</script>
+</body>
+</html>

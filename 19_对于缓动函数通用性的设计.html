@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			border: 10px solid blue;
+			position: relative;
+			left: 0px;
+		}
+		h3{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<button>从0移动到500</button>
+	<h3></h3>
+	<button>让h3从0移动到600</button>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var p = $("p")[0];
+		var to500 = $("button")[0];
+		var btn2 = $("button")[1];
+		var h3 = $("h3")[0];
+		to500.onclick = function(){
+			aniMove(p,500,5);
+		}
+		btn2.onclick = function(){
+			aniMove(h3,800,8);
+		}
+		// 定义一个函数，用于实现元素的运动
+		function aniMove(ele,target,step){
+			/*
+			传入哪个元素，就让哪个元素动起来，而不是在代码中固定指定让哪个元素动
+			 */
+			var current = ele.offsetLeft;
+			var t = setInterval(function(){
+				current = ele.offsetLeft;
+				current += (current<target)?step:-step;
+				ele.style.left = current + "px";
+				var dis = Math.abs(target - ele.offsetLeft);
+				// 给定一个停止的条件
+				if(dis <= step){
+					// 设置元素偏移量就是终点值
+					ele.style.left = target + "px";
+					// 停止计时器
+					clearInterval(t);
+				}
+			},20);
+		}
+	</script>
+</body>
+</html>

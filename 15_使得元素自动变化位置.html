@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			border: 10px solid blue;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<button>点击移动位置</button>
+	<script type="text/javascript" src="fn.js"></script>
+	<script type="text/javascript">
+		var p = $("p")[0];
+		var btn = $("button")[0];
+		// 为按钮注册点击事件
+		btn.onclick = function(){
+			// 点击发生时，结合计时器函数，实现元素的自动移动
+			var t = setInterval(function(){
+				// 不断获取偏移量只
+				var left = p.offsetLeft;
+				// 不断对这个变量进行变化
+				left += 6;
+				// 再来将这个left 设置到元素的left属性上
+				p.style.left = left + "px";
+				/*
+				给定一个运动的停止条件-->计时器清除
+				*/
+				if(p.offsetLeft >= 500){
+					clearInterval(t);
+				}
+			},10);
+		}
+	</script>
+</body>
+</html>
