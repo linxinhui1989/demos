@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#app{
+			width: 970px;
+			margin: 0 auto;
+			height: 1000px;
+		}
+		#app .header{
+			height: 200px;
+		}
+		.header .head-l{
+			float: left;
+			width: 300px;
+			height: 200px;
+			background-color: gray;
+		}
+		.header .head-r{
+			float: right;
+		}
+		.head-r .one{
+			width: 200px;
+			height: 100px;
+			background-color: green;
+			margin-left: auto;
+			margin-bottom: 40px;
+		}
+		.head-r .two{
+			width: 600px;
+			height: 60px;
+			background-color: skyblue;
+		}
+		/*中间内容*/
+		#app .content{
+			margin-top: 10px;
+			height: 600px;
+		}
+		.content .content-l{
+			float: left;
+			width: 300px;
+			height: 600px;
+			background-color: blue
+		}
+		.content .content-r{
+			float: right;
+		}
+		/*底部样式*/
+		.footer{
+			width: 970px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 头部编写 -->
+		<div class="header">
+			<div class="head-l"></div>
+			<div class="head-r">
+				<div class="one"></div>
+				<div class="two"></div>
+			</div>
+		</div>
+		<!-- 中间内容 -->
+		<div class="content">
+			<div class="content-l"></div>
+			<div class="content-r"></div>
+		</div>
+		<!-- 底部 -->
+		<div class="footer"></div>
+	</div>
+</body>
+</html>

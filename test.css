@@ -1,0 +1,16 @@
+#app{
+	/*头部样式编写*/
+	.nav{
+		a{}
+		.fw-normal{}
+		.more-products{}
+	}
+	/*中间内容*/
+	.mid-content{
+
+	}
+	/*底部样式*/
+	.footer{
+		
+	}
+}
