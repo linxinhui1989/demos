@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 对于不带参数的函数的编写
+		function fn1(){}
+		var fn2 = function(){}
+
+		// 带有参数的函数的写法
+		function fn3(num){}
+		var fn4 = function(num){}
+
+		// 带有参数且有返回值的写法
+		function fn5(num1,num2){return num1+num2;}
+		var fn6 = function(num1,num2){return num1 + num2;}
+	</script>
+	<!-- 对于不带参数的函数的编写 -->
+	<script type="text/javascript">
+		let func1 = ()=>{console.log("abc");}
+		func1();
+		// 简便写法 --> 可以省略 { }
+		let func2 = ()=>console.log("aaa");
+		func2();
+	</script>
+	<!-- 带有参数的函数的写法 -->
+	<script type="text/javascript">
+		let func3 = (num1)=>{console.log(num1);}
+		func3(111);
+		// 简便写法
+		let func4 = (num1)=>console.log(num1);
+		let func5 = num1=>console.log(num1);
+		func3(666);
+		let func6 = (num1,num2)=>{console.log(num1+num2);}
+		func6(10,300)
+	</script>
+	<!-- 带有参数且有返回值的写法 -->
+	<script type="text/javascript">
+		let func7 = ()=>{return 100;}
+		console.log("xx = " + func7());
+		// 简便写法 函数中运行代码只有一行，且是 return 时
+		let func8 = ()=>1000;
+		console.log("xx = " + func8());
+		let func9 = (a)=>{return a;}
+		console.log(func9(200));
+		let func10 = a=>a;
+		console.log(func10(2000));
+		// 多个参数
+		let func11 = (num1,num2)=>{
+			return num1 + num2;
+		}
+		let func12 = (num1,num2)=>num1+num2;
+		console.log(func12(1,2000));
+	</script>
+</body>
+</html>
