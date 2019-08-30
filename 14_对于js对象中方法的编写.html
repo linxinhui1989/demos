@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = "lina";
+		let stu = {
+			name:"lucy",
+			eat:function(){
+				console.log(this.name + "eat1");
+				setTimeout(function(){
+					console.log(this.name + "eat2");
+				},1000);
+			},
+			jump:()=>{
+				console.log(this.name + "jump1");
+				setTimeout(function(){
+					console.log(this.name + "jump2");
+				},1000);
+			},
+			// run:function(){},
+			// ES6中吐血推荐写法  
+			run1(){
+				console.log(this.name + "run1");
+				setTimeout(function(){
+					console.log(this.name + "run2");
+				},1000);
+			},
+			run2(){
+				console.log(this.name + "run11");
+				setTimeout(()=>{
+					console.log(this.name + "run22");
+				},1000);
+			}
+		}
+		// stu.jump();
+		stu.run2();
+	</script>
+</body>
+</html>

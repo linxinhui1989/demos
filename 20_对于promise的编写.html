@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		new Promise((resolve,reject)=>{
+			let num = parseInt(Math.random()*10);
+			setTimeout(()=>{
+				if(num<=5){
+					resolve("success...");
+				}else{
+					reject("over...");
+				}
+			},1000);
+		}).then(res=>{
+			console.log("xx = " + res)
+		}).catch(error=>{
+			console.log("yy = " + error)
+		});
+		/*$.ajax({
+			url:"xx",
+			success:function(res){
+				$.ajax({
+					url:res.url,
+					success:function(res2){
+						$.ajax({
+							url:res2,
+							success:function(res3){
+								$.ajax({
+									url:res3.url,
+									success:function(res4){
+
+									}
+								})
+							}
+						});
+					}
+				})
+			}
+		});*/
+	</script>
+</body>
+</html>

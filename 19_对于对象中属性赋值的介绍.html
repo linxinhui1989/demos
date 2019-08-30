@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let name = "lucy";
+		// let stu = {name:"lucy"};
+		/*
+		let stu = {name:name};  当属性名 跟 属性变量相同时，可以简写成  let stu = {name}
+		 */
+		let age = 10;
+		let sex = "woman";
+		let stu = {
+			name,
+			age,
+			sex,
+			eat(){console.log(this.name+"正在吃")},
+			run(){console.log(`${this.name} 正在跑`)}
+		}
+		console.log(stu.name);
+		stu.eat()
+		stu.run()
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let run = (...args)=>{
+			console.log(Array.isArray(args));
+			console.log(args);
+		}
+		run(11,22,33,44);
+		function run2(){
+
+			console.log(Array.isArray(arguments));
+			arguments.push(555);
+			console.log(arguments);
+		}
+		// run2(11,22,33,44);
+	</script>
+</body>
+</html>

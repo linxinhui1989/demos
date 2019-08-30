@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var stu = {name:"lucy",age:20,sex:"woman"};
+		/*var age = stu.age;
+		var name = stu.name;
+		var sex = stu.sex;*/
+		let {name,age,sex} = stu; // var name = stu.name
+		console.log("1名字是" + name);
+		console.log("年龄是" + age);
+		console.log("性别是" + sex);
+
+		let people = {name:"韩梅梅",age:22}
+
+		let {name:name2} = people; // var name2 = people.name
+		console.log("2名字是" + name2);
+
+		let animal = {name:"小白",age:2,sex:"male"};
+		let run1 = function(obj){
+			console.log(`${obj.name} --> ${obj.age} --> ${obj.sex}`)
+		}
+
+		let run2 = function({name,age,sex}){
+			console.log(`${name} run2方法 --> ${age} --> ${sex}`)
+		}
+
+		// run1(animal);
+		run2(animal);
+	</script>
+</body>
+</html>

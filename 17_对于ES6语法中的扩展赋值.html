@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 类似于 Object.assign 方法
+		let obj1 = {name:"lucy",age:22};
+		let obj2 = {...obj1};
+		console.log(obj1);
+		console.log(obj2);
+
+		// 如果对象中已经含有别的属性时
+		let obj3 = {...obj1,sex:"woman"};
+		console.log(obj3);
+
+		// 如果对象中含有的属性名跟要引入的对象属性名相同
+		let obj4 = {...obj1,name:"韩梅梅"};
+		console.log(obj4);
+	</script>
+</body>
+</html>

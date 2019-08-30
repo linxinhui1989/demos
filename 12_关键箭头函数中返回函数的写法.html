@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let run1 = (num)=>{
+			return ()=>{return num*10;}
+		}
+		// ÓÅ»¯Ò»:
+		let run2 = (num)=>{
+			return ()=>num*10;
+		}
+		// ÓÅ»¯¶þ£º
+		let run3 = num=>{
+			return ()=>num*10;
+		}
+		// ÓÅ»¯Èý£º
+		let run4 = num=>()=>num*10;
+		
+		let r4 = run4(100);
+		console.log(r4());
+		/*var jump = function(num){
+			return function(){
+				return num*20;
+			}
+		}
+		var j = jump(10);
+		console.log(j());*/
+	</script>
+</body>
+</html>
