@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let name = "小明";
+		let age = 22;
+		let sex = "man";
+		let str1 = "路上"+age+"岁的性别是"+sex+"的"+name+"正在跑.....";
+		let sql = "select * from students where name='"+name+"' and sex = '"+sex+"' and age='"+age+"'";
+		console.log(str1);
+		console.log(sql);
+
+		// 使用模板字符串的写法
+		let str2 = `简单的内容`; // "简单的内容"  '简单的内容'
+		let str3 = `我的名字是 ${name} , 我的性别是 ${sex} , 年龄是 ${age}`;
+		let sql2 = `select * from students where name='${name}' and sex='${sex}' and age='${age}'`;
+		
+		console.log(str3);
+		console.log(sql2);
+	</script>
+</body>
+</html>

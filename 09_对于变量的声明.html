@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>数据显示1</p>
+	<p>数据显示2</p>
+	<p>数据显示3</p>
+	<p>数据显示4</p>
+	<p>数据显示5</p>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript">
+		var ps = document.querySelectorAll("p");
+		/*for(var i=0;i<ps.length;i++){
+			ps[i].addEventListener("click",function(){
+				console.log("i = " + i);
+			});
+		}
+		console.log("i = " + i);*/
+
+		/*
+		在 ES6 语法中，提供了两个关键字 let  const ，来替代 var 进行变量的声明
+		使用 let 声明变量，此时的变量不再是词法作用域范围了，而是变为了块级作用域
+		const 是用来定义不可变的变量 (常量)
+		*/
+		{
+			let a = 100;
+			console.log("a = " + a);
+		}
+		const age = 100;
+		console.log("age = " + age);
+		age = 10;
+
+		for(let j=0;j<ps.length;j++){
+			ps[j].addEventListener("click",function(){
+				console.log("j = " + j);
+			});
+		}
+
+	</script>
+</body>
+</html>
