@@ -138,7 +138,21 @@
 						$(this).css("display") == "block" ? $(this).hide() : $(this).show();
 					});
 				},
-				on:function(){}
+				on:function(){
+					if(arguments.length == 2){
+						var method = arguments[0];
+						var callback = arguments[1];
+						this.each(function(index,ele){
+							ele.addEventListener(method,callback);
+						});
+					}else{
+						// 此时 arguments 中只含有一个参数 , 这个参数是 js 对象
+						var json = arguments[0];
+						for(var key in json){
+							this.on(key,json[key]);
+						}
+					}
+				}
 			});
 
 			jQuery.fn.init.prototype = jQuery.fn;
@@ -152,9 +166,18 @@
 			console.log(index + " -->  " + value);
 		});*/
 		// $("p").hide();
-		setInterval(function(){
-			$("p").toggle();
-		},1000);
+		/*$("p").on("click",function(){
+			console.log(this);
+			console.log("点击发生了...");
+		});*/
+		$("p").on({
+			"click":function(){
+				console.log("点击了...");
+			},
+			"mousemove":function(){
+				console.log("触摸了...");
+			}
+		});
 	</script>
 </body>
 </html>
