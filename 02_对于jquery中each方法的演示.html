@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>11</p>
+	<p>22</p>
+	<p>33</p>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		var p = {};
+		$.extend(p,{name:"lucy",age:22},{sex:"woman"});
+
+		$.each([22,33,44],function(index,value){
+			console.log(index + " -->" + " " + value);
+		});
+
+		$.each({name:"lucy",age:22,sex:"woman"},function(index,value){
+			console.log(this);
+			console.log(index + " -->" + " " + value);
+		});
+
+		$("p").each(function(index,value){
+			console.log(this);
+			console.log(index + " -->" + " " + value.innerHTML);
+		});
+	</script>
+</body>
+</html>

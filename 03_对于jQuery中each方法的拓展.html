@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p:nth-child(1){font-size: 20px;color:red;}
+		p:nth-child(2){font-size: 50px;color:green;}
+		p:nth-child(3){font-size: 70px;color:blue;}
+	</style>
+</head>
+<body>
+	<p>111</p>
+	<p>222</p>
+	<p>333</p>
+	<h2>标题1</h2>
+	<h2>标题2</h2>
+	<h2>标题3</h2>
+	<h2>标题4</h2>
+	<script type="text/javascript">
+		// 定义jq库
+		;(function(){
+			// 编写名为jQuery的函数
+			function jQuery(selector){
+				return new jQuery.fn.init(selector); 
+			}
+			
+			jQuery.fn = jQuery.prototype = {
+				constructor:jQuery,
+				init:function(selector){
+					var eles = document.querySelectorAll(selector);
+					for(var i=0;i<eles.length;i++){
+						this[i] = eles[i];
+					}
+					this.length = eles.length;
+				},
+				css:function(){
+					// 针对一个参数的情况
+					if(arguments.length == 1){
+						console.log("一个参数");
+						/*
+						需要对这个参数的类型进行判断 --> 如果这个参数的类型是属于 string 类型的，那么就说明是想进行属性的获取，而且读取到的是 this 上的第一个元素中的该名称的属性值
+						 */
+						if(typeof arguments[0] == "string"){
+							return window.getComputedStyle(this[0],null)[arguments[0]];
+						}else{
+							// 此时的这个 arguments[0] 是一个 json 格式的数据
+							for(var i=0;i < this.length;i++){
+								for(var key in arguments[0]){
+									this[i].style[key] = arguments[0][key];
+								}
+							}
+						}
+					}else if(arguments.length == 2){
+						console.log("两个参数");
+						// 针对两个参数的情况 --> 第一个参数是用于设置属性名的，第二个参数适用于设置属性值
+						for(var i=0;i<this.length;i++){
+							this[i].style[arguments[0]] = arguments[1];
+						}
+					}
+				}
+			}
+
+			jQuery.extend = jQuery.fn.extend = function(){
+				var target ;
+				var params = {};
+				if(arguments.length == 1){
+					target = this;
+					for(var key in arguments[0]){
+						params[key] = arguments[0][key];
+					}
+				}else{
+					// 是对于 jQuery 工具方法的拓展，此时就意味着，这个方法是要为 arguments中的第一个参数去动态拷贝属性进来
+					target = arguments[0];
+					/*for(var key in arguments){
+						if(key != 0){
+							params[key] = arguments[key];
+						}
+					}*/
+					for(var i=1;i<arguments.length;i++){
+						var json = arguments[i];
+						for(var key in json){
+							params[key] = json[key];
+						}
+					}
+				}
+				for(var key in params){
+					target[key] = params[key];
+				}
+			}
+			
+			// 对于 each 工具方法的编写
+			jQuery.extend({
+				each:function(obj,callback){
+					if(("length" in obj) && obj.length > 0){
+						// 如果这个 obj 中含有length，且这个 length长度大于0
+						for(var i=0;i<obj.length;i++){
+							callback.call(obj[i],i,obj[i]);
+						}
+					}else{
+						for(var i in obj){
+							callback.call(obj[i],i,obj[i]);
+						}
+					}
+				}
+			});
+
+			// 对于元素对象上 each方法的编写
+			jQuery.fn.extend({
+				each:function(callback){
+					jQuery.each(this,callback);
+				}
+			});
+
+			jQuery.fn.init.prototype = jQuery.fn;
+			window.jQuery = window.$ = jQuery;
+		})();
+		
+		// $.each(["aa","bb","cc",22],function(index,value){});
+		// $.each({name:"lucy",age:22,sex:"woman"},function(index,value){});
+		$("p").each(function(index,value){
+			console.log(this);
+			console.log(index + " -->  " + value);
+		});
+
+	</script>
+</body>
+</html>
