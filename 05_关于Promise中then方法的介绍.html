@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let p = new Promise((resolve,reject)=>{
+			resolve("基础数据");
+		});
+		/*
+		要想获取到resolve方法中传递过来对应的数据，这边就需要使用Promise 类型的对象 下的 then 方法 ； 
+		这个 then 方法是有返回值的，这个方法的返回值也是 Promise 类型的对象;
+		既然 then 方法返回值是 Promise 类型的，而这个类型的对象中有 then 方法
+		 */ 
+		p.then((res)=>{
+			console.log("1 = " + res);
+			return "这边是另一个数据";
+		}).then((res)=>{
+			console.log("2 = " + res);
+			return "测试数据";
+		}).then(res=>{
+			console.log("3 = " + res);
+		});
+	</script>
+</body>
+</html>

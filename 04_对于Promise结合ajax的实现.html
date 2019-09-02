@@ -11,7 +11,7 @@
 		当使用 new Promise 进行 Promise 对象创建时，其实已经调用而来对应的 Promise 中传入的函数；
 		在这个函数中一般进行异步处理(ajax)，在这个函数中，完成ajax请求，并且获取到数据；
 		然后获取到数据后的操作，就不再这个函数中执行了，而是在对应 then 方法中进行处理
-		 */
+		*/
 		let p = new Promise((resolve,reject)=>{
 			$.ajax({
 				url:"./04.php",
