@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		function fetch(url){
+			return new Promise((resolve,reject)=>{
+				$.ajax({
+					url:url,
+					success(res){
+						// 数据正确获取后的操作
+						resolve(res);
+					},
+					error:function(error){
+						reject(error);
+					}
+				});
+			});
+		}
+		fetch("./11.php").then(res=>{
+			/*
+			此时获取到的数据是 字符串 ，不存在对应的那些length 等方法 --> 那这边就需要将字符串转为 json 格式的对象 ; 在这个then 方法中，是将获取到数据转为可以操作的 json 格式的对象
+			*/ 
+			return JSON.parse(res);
+		}).then(data=>{
+			let str = "";
+			for(let i in data){
+				let obj = data[i];
+				str += 
+					`<li>
+						<p>${obj.title}</p>
+						<p>${obj.price}</p>
+						<img src="${obj.icon}">
+					</li>`;
+			}
+			$("ul").html(str);
+		}).catch(error=>{
+			console.log(error);
+		});
+	</script>
+</body>
+</html>
