@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		let p = new Promise((resolve,reject)=>{
+			$.ajax({
+				url:"./09.php",
+				success:function(res){
+					// 这边其实已经获取到对应的数据，但是不在这个函数中进行操作
+					resolve(res);
+				},
+				error:function(error){
+					// 异步请求出现异常时候的处理
+					reject(error);
+				}
+			});
+		});
+		// 如果要想拿到对应的数据，这个时候就需要借助 Promise 对象中的 then 方法
+		p.then(res=>{
+			console.log(res);
+		},error=>{
+			console.log(error);
+		});
+	</script>
+</body>
+</html>

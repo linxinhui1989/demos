@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let p = new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				let num = 20;
+				if(num < 20){
+					resolve("成功了...");
+				}else{
+					reject("处理出问题了...");
+				}
+			},1000);
+		});
+		p.then((res)=>{
+			console.log("11 = " + res);
+		},(res)=>{
+			console.log("22 = " + res);
+		});
+	</script>
+</body>
+</html>
