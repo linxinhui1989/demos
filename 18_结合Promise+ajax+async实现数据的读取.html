@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		function fetch(url){
+			return new Promise((resolve,reject)=>{
+				$.ajax({
+					url:url,
+					success(res){
+						// 数据正确获取后的操作
+						resolve(res);
+					},
+					error:function(error){
+						reject(error);
+					}
+				});
+			});
+		};
+		;(async function(){
+			let res = await fetch("./18.php");
+			console.log(res);
+			let arr = res.split(",");
+			for(let i in arr){
+				console.log(arr[i]);
+			}
+		})();
+		
+	</script>
+</body>
+</html>

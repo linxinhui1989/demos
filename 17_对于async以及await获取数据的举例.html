@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function fn(){
+			return new Promise((resolve,reject)=>{
+				resolve("测试一下...");
+			});
+		}
+		async function test(){
+			/*
+			await中这个 a 是 async 表示异步，
+			await = async + wait 异步等待；等待await后面的那个 Promise上的 resolve；
+			这个Promise对象上的resolve后给定的结果，就可以直接复制给变量 a，这个a就是那段数据
+			 */
+			let a = await fn();
+			console.log("获取到的数据是:" + a);
+		}
+		test();
+	</script>
+</body>
+</html>

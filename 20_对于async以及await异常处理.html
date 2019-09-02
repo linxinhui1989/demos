@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function fetch(){
+			return new Promise((resolve,reject)=>{
+				setTimeout(()=>{
+					let num = Math.random()*10;
+					if(num<=5){
+						resolve("成功了...");
+					}else{
+						reject("处理出现了异常...");
+					}
+				},10);
+			});
+		};
+		/*fetch().then(res=>{},error=>{});
+		fetch().then().catch();*/
+		;(async function(){
+			try{
+				let a = await fetch();
+				console.log("a = " + a);
+			}catch(error){
+				console.log("b = " + error);
+			}
+		})();
+	</script>
+</body>
+</html>
