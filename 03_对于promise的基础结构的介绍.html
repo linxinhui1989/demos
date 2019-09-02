@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 最简单的最直接的模拟异步操作的案例
+		/*setTimeout(()=>{
+			console.log("你好1");
+		},1000);*/
+		/*
+		直接使用 new 进行 Promise 这个对象的创建；
+		在创建Promise对象中，需要传入函数；
+		函数中传入两个参数，第一个代表正确处理，第二个代表出错情况的处理；
+		在这个函数中再来编写对应的异步操作;
+		创建好了对应的Promise对象后，要想获取到 resolve 这个函数传过来的数据，这边就需要借助 对象.then() ; 这个 then 对象中需要传入一个 function ，在这个函数中的第一个参数，就是 Promise 上的resolve 函数上传过来的那个值
+		 */
+		var p = new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				// 在这写好了对应的数据，然后再来进行数据处理
+				resolve("这边是对应的数据");
+			},1000);
+		});
+		p.then((res)=>{
+			console.log(res);
+		});
+	</script>
+</body>
+</html>

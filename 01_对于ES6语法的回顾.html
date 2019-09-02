@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		关于变量声明的关键字   let   const
+		let 类似于 var，表示声明的是变量，不同之处在于
+		a>> 使用let声明的变量不再是词法作用域，而是变为了块级作用域
+		b>> 在同一个程序中，不允许出现多个同名的变量
+
+		const 声明一个不可变的变量，在声明变量的时候给定值，以后都不允许改变
+		*/ 
+	</script>
+	<script type="text/javascript">
+		let name = "lucy";
+		let age = 23;
+		// let stu = {score:100}
+		let str = `${name} ---> ${age} ---> ${stu.score}`;
+		/*
+			公司成员表 member
+			公司部门表 bumen
+		*/
+	    let bumenName = "软件部";
+		let str = `select m.name from member as m left join on bumen as b b.name='${bumenName}'`;
+	</script>
+	<script type="text/javascript">
+		let stu = {name:"lucy",age:22};
+		let {name,age} = stu;
+		let {name:name1,age:age1} = stu;
+		function show({name,age}){
+		}
+		show(stu);
+	</script>
+	<script type="text/javascript">
+		let fn = (...args)=>{
+		}
+		let st = {
+			eat:function(){},
+			run:()=>{},
+			jump(){
+				setTimeout(()=>{
+
+				},1000);
+			}
+		}
+		let run = (name)=>{console.log(name+"在跑...")};
+		run("lucy");
+		let sum1 = (a,b)=>a+b;
+		let sum2 = (a,b)=>{return a+b;};
+		let sum3 = (a,b)=>{
+			let c = a * b;
+			let d = a - b;
+			let s = a + b + c + d;
+			return s;
+		}
+	</script>
+	<script type="text/javascript">
+		let obj1 = {name:"lucy",age:22};
+		let obj2 = {...obj1};
+		// Object.assign(obj2,obj1);
+		let obj3 = {...obj1,sex:"woman",score:100}
+		let obj4 = {...obj1,age:30}
+		let arr1 = [1,2,3,4,5,6];
+		let arr2 = [...arr1,12]
+	</script>
+	<script type="text/javascript">
+		let age = 10;
+		let studeng = {
+			/*age:age*/
+			age // 只有属性名 跟 这个变量名字一样时，才可以简写
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击下载</button>
+	<script type="text/javascript" src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+		$("button").on("click",function(){
+			$.ajax({
+				url:"./02_1.php",
+				success:function(res){
+					console.log(res); // 获取到了参数 1--> 再来发送请求，获取到另一个数据
+					$.ajax({
+						url:"./02_02.php",
+						data:{
+							num:res
+						},
+						success:function(res2){
+							console.log(res2);
+							$.ajax({
+								url:"./02_03.php",
+								success:function(res3){
+									console.log(res3);
+								}
+							});
+						}
+					});
+				}
+			});
+		});
+	</script>
+</body>
+</html>
