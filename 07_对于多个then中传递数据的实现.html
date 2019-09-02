@@ -19,11 +19,14 @@
 				});
 			});
 		}
-		/*
-		直接调用封装好的 fetch 函数，进行网络请求的发送;
-		如果需要获取对应的数据并处理的话，则是 再 fetch() 函数之后，调用 then 方法
-		 */ 
+		 
 		fetch("./06.php").then(res=>{
+			console.log(res);
+			return res + "测试用的数据";
+		}).then(res=>{
+			console.log(res);
+			return fetch("./06_01.php");
+		}).then(res=>{
 			console.log(res);
 		});
 	</script>
