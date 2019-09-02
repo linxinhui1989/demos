@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="fetch.js"></script>
+	<script type="text/javascript">
+		fetch("./13.php").then(response=>{
+			return response.json();
+		}).then(data=>{
+			console.log(data);
+		});
+	</script>
+</body>
+</html>

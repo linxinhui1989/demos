@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		在方法声明时，添加 async ，单独在函数名上添加 async，跟不加是一样的；
+		对于 async 需要 跟 await 进行配合使用；
+		await 后需要给定的是一个 Promise 对象 , 且await 只能跟 async 配合着使用
+		在 async 修饰的函数中使用 await 时，此时就意味着使用 同步的写法，处理着异步问题，且如果要能够继续往下执行，需要手动调用 resolve 这个方法
+		 */
+		let stu = {
+			eat(){
+				console.log("正在吃饭");
+			},
+			async run(){
+				console.log("正在跑步");
+			},
+			jump1(){
+				console.log("1");
+				setTimeout(()=>{
+					console.log("2");
+				},0);
+				console.log("3");
+			},
+			async jump2(){
+				console.log("1");
+				await new Promise((resolve,reject)=>{
+					setTimeout(()=>{
+						console.log("2");
+						resolve();// 手动调用 resolve 实现程序向下执行
+					},1000);
+				});
+				console.log("3");
+			}
+		}
+		stu.jump2();
+	</script>
+</body>
+</html>
