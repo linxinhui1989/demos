@@ -6,6 +6,4 @@ require(["cart","goods"],function(cart,goods){
 	其实就是模块下的返回值
 	 */ 
 	// console.log(cart);
-	// console.log(goods);
-	cart.add();
 });
