@@ -5,7 +5,6 @@ let user = {
 	eat(){},
 	run(){}
 }
-
 module.exports = user; // 直接将user对象向外导出
 
 
