@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function fetch(){
+			return new Promise((resolve,reject)=>{
+				setTimeout(()=>{
+					resolve("test");
+				},10);
+			});
+		};
+		let stu = {
+			eat: ()=>{
+				console.log("eat = " + 1);
+				let a = await fetch();
+				console.log("eat = " + a);
+				console.log("eat = " + 2);
+				let b = await fetch();
+				console.log("eat = " + b);
+			},
+			run: ()=>{
+				console.log("run = " + 1);
+				let a = await fetch();
+				console.log("run = " + a);
+				console.log("run = " + 2);
+				let b = await fetch();
+				console.log("run = " + b);
+			}
+		}
+		let test = async ()=>{
+			await stu.eat();
+			await stu.run();
+		}
+		test();
+		console.log(stu.eat());
+		console.log(stu.run());
+	</script>
+</body>
+</html>
