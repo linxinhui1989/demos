@@ -1,0 +1,1 @@
+export const name = "test.js文件下的测试一下";
