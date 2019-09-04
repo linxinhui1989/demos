@@ -3,7 +3,6 @@ let path = require("path");
 let fs = require("fs");
 // 读取自己定义好的外部 js 模块
 let fileTool = require("./fileTool.js");
-
 http.createServer(async (req,res)=>{
 	/*
 		获取得到对应的 url，根据 url 上给定的不同的参数，
@@ -23,3 +22,4 @@ http.createServer(async (req,res)=>{
 }).listen(8080,()=>{
 	console.log("服务开启....");
 });
+
