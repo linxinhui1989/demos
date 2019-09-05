@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		#app{
+			width: 800px;
+			margin: 10px auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		input{
+			height: 40px;
+			width: 600px;
+			margin: 10px 0;
+		}
+		.ctrls{
+			display: flex;
+			justify-content: center;
+		}
+		.ctrls button{
+			width: 150px;
+			height: 50px;
+			margin: 0 20px;
+		}
+		.notice{
+			width: 200px;
+			height: 100px;
+			background-color: rgba(255,0,0,0.5);
+			border-radius: 10px;
+			line-height: 100px;
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			margin-left: -100px;
+			margin-top: -50px;
+			display: none;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="text" placeholder="请输入用户名" id="username">
+		<input type="text" placeholder="请输入密码" id="password">
+		<div class="ctrls">
+			<button class="login">登录</button>
+			<button class="regist">注册</button>
+		</div>
+	</div>
+	<div class="notice"></div>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".login").on("click",function(){
+				// 点击发生时，先获取到输入框中输入的数据
+				let username = $("#username").val();
+				let password = $("#password").val();
+				if(username == '' || username == undefined || password == '' || password == undefined){
+					notice("账号/密码不可为空");
+				}else{
+					// 真正进行前后端交互了
+					$.ajax({
+						url:"http://localhost:8080/login",
+						data:{
+							username,password
+						},
+						success:function(res){
+							let obj = JSON.parse(res);
+							if(obj.error_code == 1){
+								notice("该用户不存在，请先注册");
+							}else if(obj.error_code == 2){
+								notice("密码有误");
+							}else{
+								notice("登录成功");
+								window.location.href = "./home.html";
+							}
+							$("#username").val("");
+							$("#password").val("");
+						}
+					});
+				}
+			});
+
+			$(".regist").on("click",function(){
+				let username = $("#username").val();
+				let password = $("#password").val();
+				if(username == '' || username == undefined || password == '' || password == undefined){
+					notice("账号/密码不可为空");
+				}else{
+					// 真正进行前后端交互了
+					$.ajax({
+						url:"http://localhost:8080/regist",
+						data:{
+							username,password
+						},
+						success:function(res){
+							let obj = JSON.parse(res);
+							if(obj.error_code == 1){
+								notice("该用户已存在，注册失败");
+							}else{
+								notice("注册成功");
+							}
+							$("#username").val("");
+							$("#password").val("");
+						}
+					});
+				}
+			});
+
+			function notice(info){
+				$(".notice").html(info);
+				$(".notice").fadeIn(2500);
+				setTimeout(()=>{
+					$(".notice").fadeOut(2500);
+				},2500);
+			}
+		});
+	</script>
+</body>
+</html>
