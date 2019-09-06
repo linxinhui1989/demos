@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<% for(var i=0;i<goods.length;i++){ %>
+		<li>
+			<p>产品名称：<%= goods[i].name %></p>
+			<p>产品价格：<%= goods[i].price %></p>
+		</li>
+		<% } %>
+	</ul>
+</body>
+</html>
