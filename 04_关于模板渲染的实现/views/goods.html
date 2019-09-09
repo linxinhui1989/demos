@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/goods.css">
+</head>
+<body>
+	<ul>
+		{{each goods}}
+		<li>
+			<p>产品名称：{{$value.name}}</p>
+			<p>产品价格：{{$value.price}}</p>
+		</li>
+		{{/each}}
+	</ul>
+</body>
+</html>
