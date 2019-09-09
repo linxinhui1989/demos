@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/bootstrap/css/bootstrap.min.css">
+	<style type="text/css">
+		th,td{text-align: center;}
+		.good-form{margin: 30px 0;}
+		.table{margin-top: 50px;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form class="form-horizontal good-form" action="./goodlist/add" method="post">
+		  <div class="form-group">
+		    <label class="col-sm-1 control-label">产品名称</label>
+		    <div class="col-sm-5">
+		      <input type="text" class="form-control" placeholder="请输入产品名称" name="name">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-1 control-label">产品价格</label>
+		    <div class="col-sm-5">
+		      <input type="text" class="form-control" placeholder="请输入产品价格" name="price">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-1 col-sm-10">
+		      <button type="submit" class="btn btn-info">新增产品</button>
+		    </div>
+		  </div>
+		</form>
+		<table class="table table-striped">
+	      <thead>
+	        <tr>
+	          <th>产品序号</th>
+	          <th>产品名称</th>
+	          <th>产品价格</th>
+	          <th>操作</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      	<% for(var i=0;i<goods.length;i++){ %>
+	        <tr>
+	          <td><%= goods[i].id %></td>
+	          <td><%= goods[i].name %></td>
+	          <td><%= goods[i].price %></td>
+	          <td>
+	          	  <a href="./goodlist/delete?id=<%= goods[i].id%>" class="btn btn-danger">删除</a>
+	          </td>
+	        </tr>
+	        <% } %>
+	      </tbody>
+	    </table>
+	</div>
+</body>
+</html>
