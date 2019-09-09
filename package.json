@@ -4,6 +4,7 @@
   "description": "",
   "main": "01_对于mysql模块的安装连接等基本操作.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "mysql": "^2.17.1"
