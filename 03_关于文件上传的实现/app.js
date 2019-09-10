@@ -17,11 +17,10 @@ app.use(multer({dest:'./uploads'}).any());
 app.listen(8080,()=>{console.log("服务开启了...")});
 
 app.post("/upload",async (req,res)=>{
-	// console.log(req.files);
 	/*
-	对于上传的文件进行特殊处理
-	a>> 给上传的文件添加对应的文件后缀
-	b>> 将这个文件的存放路径，保存到数据库中
+		对于上传的文件进行特殊处理
+		a>> 给上传的文件添加对应的文件后缀
+		b>> 将这个文件的存放路径，保存到数据库中
 	*/
     let files = req.files;
 	for(let index in files){
