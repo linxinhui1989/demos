@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/goods.css">
+</head>
+<body>
+	<div id="goods">
+		<h1>产品列表页面</h1>
+		<table class="table table-hover">
+	      <thead>
+	        <tr>
+	          <th>产品id</th>
+	          <th>产品名称</th>
+	          <th>产品价格</th>
+	          <th>产品描述</th>
+	          <th>产品图片</th>
+	          <th>操作</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      	{{each goods}}
+	        <tr>
+	          <th>{{$value.id}}</th>
+	          <td>{{$value.name}}</td>
+	          <td>{{$value.price}}</td>
+	          <td>{{$value.des}}</td>
+	          <td>
+	          	<img src="{{$value.img_src}}" alt="">
+	          </td>
+	          <td>
+	          	 <a href="#" class="btn btn-info">编辑</a>
+	          	 <a href="#" class="btn btn-danger">删除</a>
+	          </td>
+	        </tr>
+	        {{/each}}
+	      </tbody>
+	    </table>
+	</div>
+</body>
+</html>

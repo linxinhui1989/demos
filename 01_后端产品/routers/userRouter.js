@@ -4,12 +4,7 @@ const db = require("../components/db.js");
 const userRouter = express.Router();
 
 userRouter.get("/",(req,res)=>{
-	console.log("进入到首页面");
-	if(req.session.user == undefined || req.session.user == ""){
-		res.redirect("/login");
-	}else{
-		res.render("index.html",{user:req.session.user});
-	}
+	res.render("index.html",{user:req.session.user});
 })
 .get("/login",(req,res)=>{
 	res.render("login.html",{});
