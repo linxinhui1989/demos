@@ -10,7 +10,6 @@ goodsRouter.get("/",async(req,res)=>{
 		goods good INNER JOIN imgs icon ON good.id=icon.good_id`;
 	let goods = await db.q(sql);
 	res.render("goods.html",{goods:goods});
-	// res.send(goods);
 });
 
 goodsRouter.post("/add",async (req,res)=>{

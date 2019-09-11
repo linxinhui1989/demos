@@ -4,6 +4,7 @@ const db = require("../components/db.js");
 const userRouter = express.Router();
 
 userRouter.get("/",(req,res)=>{
+	console.log("进入到首页面");
 	if(req.session.user == undefined || req.session.user == ""){
 		res.redirect("/login");
 	}else{
