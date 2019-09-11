@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	<h1>这边是登录成功后的首页面 : {{user}}</h1>
+	<a href="/goods">跳转到产品列表页面</a>
+	<a href="/logout">退出登录</a>
+	<form action="/goods/add" method="post"  enctype="multipart/form-data">
+		<input type="text" placeholder="产品名称" name="goodsname">
+		<input type="text" placeholder="产品价格" name="price">
+		<input type="text" placeholder="产品描述" name="des">
+		<input type="file" name="myfile">
+		<input type="submit" value="新增产品" class="btn btn-primary">
+	</form>
+</body>
+</html>
