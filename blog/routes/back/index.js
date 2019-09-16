@@ -4,6 +4,7 @@ const router = express.Router();
 const userRouter = require("./user.js");
 const artRouter = require("./art.js");
 const categoryRouter = require("./category.js");
+const linkRouter = require("./link.js");
 
 router.use("*",(req,res,next)=>{
 	/*其中这个 * ，表示能够捕获到所有的请求*/
@@ -19,5 +20,6 @@ router.use("*",(req,res,next)=>{
 router.use("/",userRouter);
 router.use("/art",artRouter);
 router.use("/category",categoryRouter);
+router.use("/link",linkRouter);
 
 module.exports = router;

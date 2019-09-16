@@ -5,6 +5,7 @@ $(function(){
 	$("#category_add").on("click",function(e){
 		e.preventDefault();
 		let categoryName = $(".category_name").val();
+		let id = $(".category_id").val();
 		if(categoryName == "" || categoryName == undefined){
 			// 提示不可为空
 			alert("提示不可为空")
@@ -14,16 +15,17 @@ $(function(){
 				url:"/back/category/add",
 				type:"post",
 				data:{
-					category_name:categoryName
+					category_name:categoryName,
+					id:id
 				},
 				success:function(res){
 					if(res.success){
 						// 添加成功
-						alert("添加成功");
+						alert(res.msg);
 						window.location.href = "/back/category";
 					}else{
 						// 添加失败
-						alert("添加失败，类别已存在");
+						alert(res.msg);
 					}
 				}
 			});

@@ -1,6 +1,8 @@
 <!--meta公共模版-->
 {{include "./common/meta.html"}}
 
+<link rel="stylesheet" href="/stylesheets/back/category.css">
+
 <body>
 
 <!--head公共模版-->
@@ -51,6 +53,26 @@
 		</article>
 	</div>
 </section>
+
+<!-- 关于分类内容的分页开始 -->
+{{if counts.length > 1}}
+<div class="paganation">
+	<ul>
+		<li ><a href="/back/category?page=0">第一页</a></li>
+		{{each counts}}
+		<li>
+			{{if pageNum==$index}}
+			<a class="active">{{$value+1}}</a>
+			{{else}}
+			<a href="/back/category?page={{$value}}">{{$value+1}}</a>
+			{{/if}}
+		</li>
+		{{/each}}
+		<li><a href="/back/category?page={{counts.length-1}}">最后一页</a></li>
+	</ul>
+</div>
+{{/if}}
+<!-- 关于分类内容的分页结束 -->
 
 <!--script公共模版-->
 {{include "./common/script.html"}}

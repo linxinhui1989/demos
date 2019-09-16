@@ -15,8 +15,8 @@ router.get('/', (req, res, next)=>{
 	categoryController.add(req,res);
 })
 // 这边进行列表的修改
-.post('/edit',(req,res,next)=>{
-
+.get('/edit',(req,res,next)=>{
+	categoryController.edit(req,res);
 })
 // 这边进行列表的删除
 .get('/del',(req,res,next)=>{

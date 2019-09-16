@@ -10,5 +10,6 @@ module.exports = {
 		password  : 'root',	   // 数据库对应的密码	
 		database  : 'blog'	   // 所选的数据库名称	
 	},
-	salt:"1hgxhjagj12t1y"
+	salt:"1hgxhjagj12t1y",
+	pageCount:2
 }
