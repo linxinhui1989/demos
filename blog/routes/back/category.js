@@ -1,0 +1,26 @@
+let express = require('express');
+let router = express.Router();
+
+let categoryController = require("../../controller/back/categoryController.js");
+
+/* GET home page. */
+router.get('/', (req, res, next)=>{
+	categoryController.categoryList(req,res);
+})
+// 这边进行列表的新增
+.get('/add',(req,res,next)=>{
+	res.render("back/category_add");
+})
+.post('/add',(req,res,next)=>{
+	categoryController.add(req,res);
+})
+// 这边进行列表的修改
+.post('/edit',(req,res,next)=>{
+
+})
+// 这边进行列表的删除
+.post('/del',(req,res,next)=>{
+
+})
+
+module.exports = router;
