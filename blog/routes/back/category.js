@@ -19,8 +19,8 @@ router.get('/', (req, res, next)=>{
 
 })
 // 这边进行列表的删除
-.post('/del',(req,res,next)=>{
-
+.get('/del',(req,res,next)=>{
+	categoryController.del(req,res);
 })
 
 module.exports = router;
