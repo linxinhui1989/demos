@@ -1,0 +1,80 @@
+<!--meta公共模版-->
+{{include "./common/meta.html"}}
+
+<link rel="stylesheet" href="/stylesheets/back/author.css">
+
+<body>
+
+<!--head公共模版-->
+{{include "./common/head.html"}}
+
+<!--menu公共模版-->
+{{include "./common/menu.html"}}
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+		<span class="c-gray en">&gt;</span>
+		作者信息管理
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l">
+				<a class="btn btn-primary radius" data-title="添加资讯"  href="/back/author/add"><i class="Hui-iconfont">&#xe600;</i>添加作者信息</a>
+				</span>
+				<span class="r">共有数据：<strong>54</strong> 条</span>
+			</div>
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-bg table-hover table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="380">作者id</th>
+							<th>作者姓名</th>
+							<th>作者头像</th>
+							<th>作者年龄</th>
+							<th>作者性别</th>
+							<th>作者简介</th>
+							<th>作者qq</th>
+							<th>作者微博</th>
+							<th width="420">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{each authors}}
+						<tr class="text-c">
+							<td>{{$value.id}}</td>
+							<td>{{$value.name}}</td>
+							<td>
+								<img class="avtor" src="../{{$value.avtor}}" alt="">
+							</td>
+							<td>{{$value.age}}</td>
+							<td>{{$value.sex}}</td>
+							<td>{{$value.introduce}}</td>
+							<td>{{$value.qq}}</td>
+							<td>{{$value.webo}}</td>
+							<td class="f-14 td-manage">
+								<a style="text-decoration:none" class="ml-5" href="/back/author/edit?id={{$value.id}}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+							</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</article>
+	</div>
+</section>
+
+<!-- 关于分类内容的分页开始 -->
+
+<!-- 关于分类内容的分页结束 -->
+
+<!--script公共模版-->
+{{include "./common/script.html"}}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script>
+</body>
+</html>

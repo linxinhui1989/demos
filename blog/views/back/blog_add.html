@@ -1,0 +1,81 @@
+<!--meta公共模版-->
+{{include "./common/meta.html"}}
+
+<link rel="stylesheet" href="/stylesheets/back/author.css">
+<style type="text/css">
+	textarea{
+		resize: none;
+		font-size: 20px;
+	}
+</style>
+
+<body>
+
+<!--head公共模版-->
+{{include "./common/head.html"}}
+
+<!--menu公共模版-->
+{{include "./common/menu.html"}}
+
+<!-- 对于当前category.css的引入 -->
+<link rel="stylesheet" href="/stylesheets/back/category.css">
+<article class="page-container" id="category-add">
+	<form class="form form-horizontal" id="form-article-add" action="/back/blog/add" method="POST" enctype="multipart/form-data">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>博客标题：</label>
+			<div class="formControls col-xs-4 col-sm-4">
+				<input type="text" class="input-text category_name" value="" placeholder="" name="title">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>博客类别：</label>
+			<div class="formControls col-xs-4 col-sm-4">
+				<select name="category_id">
+					{{each categorys}}
+					<option value="{{$value.id}}">{{$value.name}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>博客简介：</label>
+			<div class="formControls col-xs-4 col-sm-4">
+				<textarea id="" cols="60" rows="10" name="introduce"></textarea>
+				<!-- <input type="text" class="input-text category_name" value="" placeholder="" name="introduce"> -->
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>博客详情：</label>
+			<div class="formControls col-xs-4 col-sm-4">
+				<textarea id="" cols="60" rows="10" name="detail"></textarea>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>博客配图：</label>
+			<div class="formControls col-xs-4 col-sm-4">
+				<input type="file" class="input-text category_name" value="" placeholder="" name="blog_icon">
+			</div>
+		</div>
+		<div class="form-ctrls">
+			<input type="submit" value="新增博客信息" class="btn btn-success" id="category_add">
+			<a href="/back/blog" class="btn btn-danger" id="category_cancel">取消</a>
+		</div>
+	</form>
+</article>
+
+<!--script公共模版-->
+{{include "./common/script.html"}}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="/lib/jquery.validation/1.14.0/messages_zh.js"></script>   
+<script type="text/javascript" src="/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
