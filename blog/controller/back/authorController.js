@@ -4,10 +4,10 @@ const Author = require("../../model/Author.js");
 module.exports = {
 	async home(req,res){
 		let authors = await Author.authorList();
-		res.render("back/author",{authors})		
+		res.render("back/author",{authors,username:req.session.user})		
 	},
 	async add(req,res){
-		res.render("back/author_add")
+		res.render("back/author_add",{username:req.session.user})
 	},
 	async doAdd(req,res){
 		let {
@@ -36,6 +36,7 @@ module.exports = {
 			let newFileName = file.filename + ext;
 			await Author.addAvtor({newFileName,id});
 		}
-		res.send("修改成功了....");
+		// res.send("修改成功了....");
+		res.redirect('/back/author')
 	}
 }

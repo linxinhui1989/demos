@@ -14,7 +14,7 @@
 <section class="Hui-article-box">
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
 		<span class="c-gray en">&gt;</span>
-		作者信息管理
+		博客信息管理
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 	</nav>
 	<div class="Hui-article">
@@ -23,7 +23,7 @@
 				<span class="l">
 				<a class="btn btn-primary radius" data-title="添加资讯"  href="/back/blog/add"><i class="Hui-iconfont">&#xe600;</i>添加博客信息</a>
 				</span>
-				<span class="r">共有数据：<strong>54</strong> 条</span>
+				<span class="r">共有数据：<strong>{{blogs.length}}</strong> 条</span>
 			</div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
@@ -41,17 +41,17 @@
 					<tbody>
 						{{each blogs}}
 						<tr class="text-c">
-							<td>{{$value.id}}</td>
+							<td>{{$value.blog_id}}</td>
 							<td>{{$value.title}}</td>
 							<td>
-								<img class="avtor" src="../{{$value.img_src}}" alt="">
+								<img class="avtor" src="/{{$value.img_src}}" alt="">
 							</td>
 							<td>{{$value.like}}</td>
 							<td>{{$value.browse}}</td>
 							<td>{{$value.introduce}}</td>
 							<td class="f-14 td-manage">
-								<a style="text-decoration:none" class="ml-5" href="/back/blog/edit?id={{$value.id}}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-								<a style="text-decoration:none" class="ml-5" href="/back/blog/del?id={{$value.id}}" onclick="if(confirm('确定删除?')==false)return false;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+								<a style="text-decoration:none" class="ml-5" href="/back/blog/edit?id={{$value.blog_id}}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+								<a style="text-decoration:none" class="ml-5" href="/back/blog/del?id={{$value.blog_id}}" onclick="if(confirm('确定删除?')==false)return false;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
 							</td>
 						</tr>
 						{{/each}}

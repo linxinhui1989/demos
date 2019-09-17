@@ -14,7 +14,7 @@
 <section class="Hui-article-box">
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
 		<span class="c-gray en">&gt;</span>
-		类别管理
+		管理员管理
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 	</nav>
 	<div class="Hui-article">
@@ -22,29 +22,32 @@
 			<div class="cl pd-5 bg-1 bk-gray mt-20">
 				<span class="l">
 				<a href="#" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-				<a class="btn btn-primary radius" data-title="添加资讯"  href="/back/category/add"><i class="Hui-iconfont">&#xe600;</i> 添加分类</a>
+				<a class="btn btn-primary radius" data-title="添加新管理员"  href="/back/admin/add"><i class="Hui-iconfont">&#xe600;</i> 添加新管理员</a>
 				</span>
-				<span class="r">共有数据：<strong>{{categoryList.length}}</strong> 条</span>
+				<span class="r">共有数据：<strong>{{admins.length}}</strong> 条</span>
 			</div>
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-bg table-hover table-sort">
 					<thead>
 						<tr class="text-c">
-							<th width="200"><input type="checkbox" name="" value=""></th>
-							<th width="380">ID</th>
-							<th>分类名称</th>
-							<th width="420">操作</th>
+							<th width="180">ID</th>
+							<th>管理员名称</th>
+							<th>管理员密码</th>
+							<th width="220">操作</th>
 						</tr>
 					</thead>
 					<tbody>
-						{{each categoryList}}
+						{{each admins}}
 						<tr class="text-c">
-							<td><input type="checkbox" value="" name=""></td>
 							<td>{{$value.id}}</td>
 							<td>{{$value.name}}</td>
+							<td>********</td>
 							<td class="f-14 td-manage">
-								<a style="text-decoration:none" class="ml-5" href="/back/category/edit?id={{$value.id}}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-								<a style="text-decoration:none" class="ml-5" href="/back/category/del?id={{$value.id}}" onclick="if(confirm('确定删除?')==false)return false;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+								<a style="text-decoration:none" class="ml-5" href="/back/admin/edit?id={{$value.id}}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+								{{if $value.name!="admin"}}
+								<a style="text-decoration:none" class="ml-5" href="/back/admin/del?id={{$value.id}}" onclick="if(confirm('确定删除?')==false)return false;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+								{{/if}}
+							</td>
 						</tr>
 						{{/each}}
 					</tbody>
@@ -55,23 +58,7 @@
 </section>
 
 <!-- 关于分类内容的分页开始 -->
-{{if counts.length > 1}}
-<div class="paganation">
-	<ul>
-		<li ><a href="/back/category?page=0">第一页</a></li>
-		{{each counts}}
-		<li>
-			{{if pageNum==$index}}
-			<a class="active">{{$value+1}}</a>
-			{{else}}
-			<a href="/back/category?page={{$value}}">{{$value+1}}</a>
-			{{/if}}
-		</li>
-		{{/each}}
-		<li><a href="/back/category?page={{counts.length-1}}">最后一页</a></li>
-	</ul>
-</div>
-{{/if}}
+
 <!-- 关于分类内容的分页结束 -->
 
 <!--script公共模版-->

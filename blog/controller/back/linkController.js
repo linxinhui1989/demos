@@ -3,7 +3,7 @@ let Link = require("../../model/Link.js");
 module.exports = {
 	async list(req,res){
 		let links = await Link.list();
-		res.render("back/link_list",{links});
+		res.render("back/link_list",{links,username:req.session.user});
 	},
 	async del(req,res){
 		let {id} = req.query;
@@ -34,6 +34,6 @@ module.exports = {
 		let {id} = req.query;
 		let linkObjs = await Link.showEdit({id});
 		let linkObj = linkObjs[0];
-		res.render("back/link_edit",{linkObj:linkObj});
+		res.render("back/link_edit",{linkObj:linkObj,username:req.session.user});
 	}
 }

@@ -13,7 +13,8 @@ module.exports = {
 		res.render("back/category_list",{
 			categoryList,
 			counts,
-			pageNum
+			pageNum,
+			username:req.session.user
 		});
 	},
 	async add(req,res,next){
@@ -45,6 +46,6 @@ module.exports = {
 		let {id} = req.query;
 		let categoryObjs = await Category.showEdit({id});
 		let categoryObj = categoryObjs[0];
-		res.render("back/category_edit",{categoryObj:categoryObj});
+		res.render("back/category_edit",{categoryObj:categoryObj,username:req.session.user});
 	}
 }

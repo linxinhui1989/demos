@@ -13,5 +13,14 @@ router.get('/', (req, res, next)=>{
 .post('/add',(req,res,next)=>{
 	blogController.doAdd(req,res);
 })
+.get('/del',(req,res,next)=>{
+	blogController.del(req,res);
+})
+.get('/edit',(req,res,next)=>{
+	blogController.edit(req,res);
+})
+.post('/edit',(req,res,next)=>{
+	blogController.doAdd(req,res);
+})
 
 module.exports = router;
