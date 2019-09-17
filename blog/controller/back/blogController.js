@@ -6,6 +6,7 @@ module.exports = {
 	async home(req,res){
 		let blogs = await Blog.blogList();
 		res.render('back/blog_list',{blogs})
+		// res.send(blogs);
 	},
 	async add(req,res){
 		let categorys = await Category.allList();

@@ -9,7 +9,7 @@ class Blog{
 	}
 
 	static async blogList(){
-		let sql = `select * from blog`;
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs i ON b.id=i.blog_id`;
 		return await db.q(sql);
 	}
 
