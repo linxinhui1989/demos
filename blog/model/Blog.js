@@ -64,6 +64,20 @@ class Blog{
 		return await db.q(sql);
 	}
 
+	/*获取头条信息*/
+	static async getHead(){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs 
+		i ON b.id=i.blog_id where b.is_header=1 order by b.id asc `;
+		let results = await db.q(sql);
+		return results[0];
+	}
+
+	/*获取最新的6条博客信息*/
+	static async getLast(){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs 
+			i ON b.id=i.blog_id where b.is_header!=1 order by b.id desc limit 0,6`;
+		return await db.q(sql);
+	}
 }
 
 module.exports = Blog;

@@ -8,5 +8,11 @@ router.get('/', (req, res, next)=>{
   // res.render('front/index');
   indexController.home(req,res);
 })
+.post('/addComment',(req,res,next)=>{
+	indexController.addComment(req,res);
+})
+.get('/getComments',(req,res,next)=>{
+	indexController.getComments(req,res);
+})
 
 module.exports = router;

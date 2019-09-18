@@ -13,8 +13,10 @@
   <script type="text/javascript" src="/javascripts/front/jquery-1.8.3.min.js"></script> 
   <script type="text/javascript" src="/javascripts/front/main.js"></script> 
   <link href="/stylesheets/front/swiper.min.css" rel="stylesheet" type="text/css" /> 
+  <link href="/stylesheets/front/comment.css" rel="stylesheet" type="text/css" /> 
   <script type="text/javascript" src="/javascripts/front/swiper.min.js"></script> 
   <script type="text/javascript" src="/javascripts/front/banner.js"></script> 
+  <script type="text/javascript" src="/javascripts/front/comment.js"></script> 
  </head> 
  <body> 
   <header> 
@@ -120,15 +122,12 @@
    <!-- headline-boc begin--> 
    <div class="headline-box whitebg"> 
     <div class="headline-news"> 
-     <h2 class="headline-news-title"><span>头条</span><a href="2.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-08-08/2.html">七夕节后第一天</a> </h2> 
-     <p class="headline-news-smalltext">如今我们都算是来到了平罗。从我踉踉跄跄的跌进面试，到考试完后的紧张，到现在的慢慢变好。我想给瓶 …</p> 
+     <h2 class="headline-news-title"><span>头条</span><a href="2.html">{{headBlog.title}}</a> </h2> 
+     <p class="headline-news-smalltext">{{headBlog.introduce}} …</p> 
      <ul class="headline-news-list"> 
-      <li><a href="2.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-08-08/2.html" title="七夕节后第一天">七夕节后第一天</a></li>
-      <li><a href="6.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-14/6.html" title="6月13日的晚餐">6月13日的晚餐</a></li>
-      <li><a href="7.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-11/7.html" title="6月11日">6月11日</a></li>
-      <li><a href="8.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-10/8.html" title="一天又过去了">一天又过去了</a></li>
-      <li><a href="9.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-09/9.html" title="6月9日">6月9日</a></li>
-      <li><a href="1.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-04/1.html" title="我们在一起1476天啦">我们在一起1476天啦</a></li> 
+      {{each lastBlogs}}
+      <li><a href="2.html" title="{{$value.title}}">{{$value.title}}</a></li>
+      {{/each}}
      </ul> 
     </div> 
    </div> 
@@ -290,15 +289,114 @@
    <!-- tags end--> 
    <div class="blank clear"></div> 
    <div class="pinglun-box whitebg"> 
-    <div class="news-title"> 
+    <div class="news-title">
      <h2>留个言</h2> 
     </div> 
-    <!-- 评论 开始 --> 
-    <div class="pinglun"> 
-     <div class="pl-520am" data-id="[!--id--]" data-classid="[!--classid--]" data-showhot="0"></div> 
-     <script type="text/javascript" src="/javascripts/front/api.js"></script> 
+    <!-- 添加评论 开始 --> 
+    <div id="qq">
+        <p>有什么新鲜事想告诉大家?</p>
+        <div class="message" contentEditable='true'></div>
+        <div class="But">
+          <img src="/images/bba_thumb.gif" class='bq' />
+          <span class='submit'>发表</span>
+          <input type="text" class="nickname" placeholder="你的昵称" />
+          <!--face begin-->
+          <div class="face">
+            <ul>
+              <li><img src="/images/smilea_thumb.gif" title="呵呵]"></li>
+              <li><img src="/images/tootha_thumb.gif" title="嘻嘻]"></li>
+              <li><img src="/images/laugh.gif" title="[哈哈]"></li>
+              <li><img src="/images/tza_thumb.gif" title="[可爱]"></li>
+              <li><img src="/images/kl_thumb.gif" title="[可怜]"></li>
+              <li><img src="/images/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+              <li><img src="/images/cj_thumb.gif" title="[吃惊]"></li>
+              <li><img src="/images/shamea_thumb.gif" title="[害羞]"></li>
+              <li><img src="/images/zy_thumb.gif" title="[挤眼]"></li>
+              <li><img src="/images/bz_thumb.gif" title="[闭嘴]"></li>
+              <li><img src="/images/bs2_thumb.gif" title="[鄙视]"></li>
+              <li><img src="/images/lovea_thumb.gif" title="[爱你]"></li>
+              <li><img src="/images/sada_thumb.gif" title="[泪]"></li>
+              <li><img src="/images/heia_thumb.gif" title="[偷笑]"></li>
+              <li><img src="/images/qq_thumb.gif" title="[亲亲]"></li>
+              <li><img src="/images/sb_thumb.gif" title="[生病]"></li>
+              <li><img src="/images/mb_thumb.gif" title="[太开心]"></li>
+              <li><img src="/images/ldln_thumb.gif" title="[懒得理你]"></li>
+              <li><img src="/images/yhh_thumb.gif" title="[右哼哼]"></li>
+              <li><img src="/images/zhh_thumb.gif" title="[左哼哼]"></li>
+              <li><img src="/images/x_thumb.gif" title="[嘘]"></li>
+              <li><img src="/images/cry.gif" title="[衰]"></li>
+              <li><img src="/images/wq_thumb.gif" title="[委屈]"></li>
+              <li><img src="/images/t_thumb.gif" title="[吐]"></li>
+              <li><img src="/images/k_thumb.gif" title="[打哈气]"></li>
+              <li><img src="/images/bba_thumb.gif" title="[抱抱]"></li>
+              <li><img src="/images/angrya_thumb.gif" title="[怒]"></li>
+              <li><img src="/images/yw_thumb.gif" title="[疑问]"></li>
+              <li><img src="/images/cza_thumb.gif" title="[馋嘴]"></li>
+              <li><img src="/images/88_thumb.gif" title="[拜拜]"></li>
+              <li><img src="/images/sk_thumb.gif" title="[思考]"></li>
+              <li><img src="/images/sweata_thumb.gif" title="[汗]"></li>
+              <li><img src="/images/sleepya_thumb.gif" title="[困]"></li>
+              <li><img src="/images/sleepa_thumb.gif" title="[睡觉]"></li>
+              <li><img src="/images/money_thumb.gif" title="[钱]"></li>
+              <li><img src="/images/sw_thumb.gif" title="[失望]"></li>
+              <li><img src="/images/cool_thumb.gif" title="[酷]"></li>
+              <li><img src="/images/hsa_thumb.gif" title="[花心]"></li>
+              <li><img src="/images/hatea_thumb.gif" title="[哼]"></li>
+              <li><img src="/images/gza_thumb.gif" title="[鼓掌]"></li>
+              <li><img src="/images/dizzya_thumb.gif" title="[晕]"></li>
+              <li><img src="/images/bs_thumb.gif" title="[悲伤]"></li>
+              <li><img src="/images/crazya_thumb.gif" title="[抓狂]"></li>
+              <li><img src="/images/h_thumb.gif" title="[黑线]"></li>
+              <li><img src="/images/yx_thumb.gif" title="[阴险]"></li>
+              <li><img src="/images/nm_thumb.gif" title="[怒骂]"></li>
+              <li><img src="/images/hearta_thumb.gif" title="[心]"></li>
+              <li><img src="/images/unheart.gif" title="[伤心]"></li>
+              <li><img src="/images/pig.gif" title="[猪头]"></li>
+              <li><img src="/images/ok_thumb.gif" title="[ok]"></li>
+              <li><img src="/images/ye_thumb.gif" title="[耶]"></li>
+              <li><img src="/images/good_thumb.gif" title="[good]"></li>
+              <li><img src="/images/no_thumb.gif" title="[不要]"></li>
+              <li><img src="/images/z2_thumb.gif" title="[赞]"></li>
+              <li><img src="/images/come_thumb.gif" title="[来]"></li>
+              <li><img src="/images/sad_thumb.gif" title="[弱]"></li>
+              <li><img src="/images/lazu_thumb.gif" title="[蜡烛]"></li>
+              <li><img src="/images/clock_thumb.gif" title="[钟]"></li>
+              <li><img src="/images/cake.gif" title="[蛋糕]"></li>
+              <li><img src="/images/m_thumb.gif" title="[话筒]"></li>
+              <li><img src="/images/weijin_thumb.gif" title="[围脖]"></li>
+              <li><img src="/images/lxhzhuanfa_thumb.gif" title="[转发]"></li>
+              <li><img src="/images/lxhluguo_thumb.gif" title="[路过这儿]"></li>
+              <li><img src="/images/bofubianlian_thumb.gif" title="[bofu变脸]"></li>
+              <li><img src="/images/gbzkun_thumb.gif" title="[gbz困]"></li>
+              <li><img src="/images/boboshengmenqi_thumb.gif" title="[生闷气]"></li>
+              <li><img src="/images/chn_buyaoya_thumb.gif" title="[不要啊]"></li>
+              <li><img src="/images/daxiongleibenxiong_thumb.gif" title="[dx泪奔]"></li>
+              <li><img src="/images/cat_yunqizhong_thumb.gif" title="[运气中]"></li>
+              <li><img src="/images/youqian_thumb.gif" title="[有钱]"></li>
+            </ul>
+          </div>
+          <!--face end-->
+        </div>
+        <div class="pl-showinfo">请输入评论内容</div>
     </div> 
-    <!-- 评论 结束 --> 
+    <!-- 添加评论 结束 --> 
+    <!-- 展示评论开始 -->
+    <div id="comments">
+       <ul>
+          <!-- {{each comments}}
+          <li>
+              <div class="info">
+                 <p class="nickname">{{$value.nickname}}</p>
+                 <p class="time">{{$value.time}}</p>
+              </div>
+              <div class="comment-msg">
+                  {{$value.msg}}
+              </div>
+          </li>
+          {{/each}} -->
+       </ul>
+    </div>
+    <!-- 展示评论结束 -->
    </div> 
    <div class="blank clear"></div> 
    <div class="links whitebg box "> 
