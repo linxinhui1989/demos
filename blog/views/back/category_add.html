@@ -1,0 +1,48 @@
+<!--meta公共模版-->
+{{include "./common/meta.html"}}
+
+<body>
+
+
+<!--head公共模版-->
+{{include "./common/head.html"}}
+
+<!--menu公共模版-->
+{{include "./common/menu.html"}}
+
+<!-- 对于当前category.css的引入 -->
+<link rel="stylesheet" href="/stylesheets/back/category.css">
+<article class="page-container" id="category-add">
+	<form class="form form-horizontal" id="form-article-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>分类名称：</label>
+			<div class="formControls col-xs-4 col-sm-4">
+				<input type="text" class="input-text category_name" value="" placeholder="" name="category_name">
+			</div>
+		</div>
+		<div class="form-ctrls">
+			<input type="submit" value="新增分类" class="btn btn-success" id="category_add">
+			<a href="#" class="btn btn-danger" id="category_cancel">取消</a>
+		</div>
+	</form>
+</article>
+
+<!--script公共模版-->
+{{include "./common/script.html"}}
+
+
+<script type="text/javascript" src="/javascripts/back/category.js"></script>
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="/lib/jquery.validation/1.14.0/messages_zh.js"></script>   
+<script type="text/javascript" src="/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
