@@ -1,4 +1,5 @@
 let db = require("../tool/db.js");
+let Hottag = require("./Hottag.js");
 class Blog{
 
 	static instance(){
@@ -25,10 +26,16 @@ class Blog{
 		return await db.q(sql);
 	}
 
-	static async addInfo({title,category_id,introduce,detail,createtime,is_carousel,is_header}){
-		let sql = `insert into blog (title,category_id,introduce,detail,createtime,is_carousel,is_header) values
+	static async addInfo({title,category_id,introduce,detail,createtime,is_carousel,is_header,tags}){
+		console.log("tags = " + tags);
+		tags = tags + "";
+		let newTags = tags.split(",");
+		for(let i=0;i<newTags.length;i++){
+			await Hottag.updateNum(newTags[i]);
+		}
+		let sql = `insert into blog (title,category_id,introduce,detail,createtime,is_carousel,is_header,tags) values
 		 ("${title}","${category_id}","${introduce}","${detail}",
-		 "${createtime}","${is_carousel}","${is_header}")`;
+		 "${createtime}","${is_carousel}","${is_header}","${tags}")`;
 		return await db.q(sql);
 	}	
 

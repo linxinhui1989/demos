@@ -1,0 +1,182 @@
+{{include "./common/head.html"}}
+<body>
+  <!-- header 开始 -->
+{{include "./common/nav_head.html"}}
+<!-- header结束 -->
+<div class="clear blank"></div>
+<article style="position: relative;">
+  <div class="blogs left-box">
+   <div class="whitebg lanmu">
+      <img src="{{lanmu.img_src}}">
+      <h1><a href="">{{lanmu.title}}</a></h1>
+        <p>{{lanmu.title}}</p>   
+    </div>
+    <div class="clear blank"></div> 
+  <div class="blogs-box whitebg">
+    <div class="news-title"> <span class="hnav">
+</span>
+        <h2>{{lanmu.title}}</h2>
+      </div>
+      <div class="blogs-list">      
+        <ul>
+{{each blogs}}
+<li>
+<i>
+<a href="2.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-08-08/2.html" target="_blank"><img width="200" height="124" src="{{$value.img_src}}" alt="七夕节后第一天">{{$value.title}}</a>
+</i>
+<h2><a href="2.html" target="_blank">{{$value.title}}</a></h2>
+<p>
+{{$value.detail}} 
+</p>
+</li>
+{{/each}}
+
+</ul>
+</div></div>
+
+<div class="blank clear"></div>
+<div class="pinglun-box whitebg">
+      <div class="news-title">
+        <h2>吐槽吧</h2>
+      </div>
+      <!-- 评论 开始 -->
+      {{include "./common/comment.html"}}
+      <!-- 评论 结束 -->
+</div>
+
+</div>
+<aside class="side-section right-box" style="position: static; left: auto; width: 320px;">
+    <div class="side-tab">
+      <ul id="sidetab">
+        <li>瓶子推荐</li>
+        <li>点击排行</li>
+      </ul>
+      <div id="sidetab-content">
+        <section>
+          <div class="tuijian">
+      <section class="topnews imgscale"><a href=""><img src="{{lastBlogs[0].img_src}}"><span>{{lastBlogs[0].title}}</span></a></section>
+      <ul>
+  {{each lastBlogs}}        
+<li>
+<i>
+<a href="2.html" target="_blank"><img  src="{{$value.img_src}}" alt="{{$value.title}}">{{$value.title}}</a>
+</i>
+<h2><a href="2.html"  target="_blank">{{$value.title}}</a></h2>
+</li>
+{{/each}}
+      </ul>
+          </div>
+        </section>
+        <section>
+          <div class="paihang">
+       <section class="topnews imgscale"><a href="1-1.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-04/2.html"><img src="newspic01.jpg" tppabs="https://www.yangqq.com/skin/menhu/images/newspic01.jpg"><span>我们在一起1476天啦</span></a></section>
+           <ul>
+             
+<li>
+<i>
+<a href="2.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-08-08/2.html" target="_blank"><img  src="37.jpg" tppabs="http://www.pizzasheep.top/skin/pzy/images/37.jpg" alt="七夕节后第一天">七夕节后第一天</a>
+</i>
+<h2><a href="2.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-08-08/2.html" target="_blank">七夕节后第一天</a></h2>
+</li>
+
+<li>
+<i>
+<a href="6.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-14/6.html" target="_blank"><img  src="24.jpg" tppabs="http://www.pizzasheep.top/skin/pzy/images/24.jpg" alt="6月13日的晚餐">6月13日的晚餐</a>
+</i>
+<h2><a href="6.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-14/6.html" target="_blank">6月13日的晚餐</a></h2>
+</li>
+
+<li>
+<i>
+<a href="7.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-11/7.html" target="_blank"><img  src="1191a156f8fcb60ed3a6f6120ac4a3f2.jpg" tppabs="http://www.pizzasheep.top/d/file/p/2019/08-14/1191a156f8fcb60ed3a6f6120ac4a3f2.jpg" alt="6月11日">6月11日</a>
+</i>
+<h2><a href="7.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-11/7.html" target="_blank">6月11日</a></h2>
+</li>
+
+<li>
+<i>
+<a href="8.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-10/8.html" target="_blank"><img  src="d1cc72b89ecc2c3c68c5768a159fe048.jpg" tppabs="http://www.pizzasheep.top/d/file/p/2019/08-14/d1cc72b89ecc2c3c68c5768a159fe048.jpg" alt="一天又过去了">一天又过去了</a>
+</i>
+<h2><a href="8.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-10/8.html" target="_blank">一天又过去了</a></h2>
+</li>
+
+<li>
+<i>
+<a href="9.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-09/9.html" target="_blank"><img  src="1-1.jpg" tppabs="http://www.pizzasheep.top/skin/pzy/images/1.jpg" alt="6月9日">6月9日</a>
+</i>
+<h2><a href="9.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-09/9.html" target="_blank">6月9日</a></h2>
+</li>
+
+<li>
+<i>
+<a href="1.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-04/1.html" target="_blank"><img  src="35.jpg" tppabs="http://www.pizzasheep.top/skin/pzy/images/35.jpg" alt="我们在一起1476天啦">我们在一起1476天啦</a>
+</i>
+<h2><a href="1.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-06-04/1.html" target="_blank">我们在一起1476天啦</a></h2>
+</li>
+
+<li>
+<i>
+<a href="3.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-04-17/3.html" target="_blank"><img  src="23.jpg" tppabs="http://www.pizzasheep.top/skin/pzy/images/23.jpg" alt="我所怀念的">我所怀念的</a>
+</i>
+<h2><a href="3.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-04-17/3.html" target="_blank">我所怀念的</a></h2>
+</li>
+
+<li>
+<i>
+<a href="5.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-04-17/5.html" target="_blank"><img  src="26.jpg" tppabs="http://www.pizzasheep.top/skin/pzy/images/26.jpg" alt="盛开的生命">盛开的生命</a>
+</i>
+<h2><a href="5.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-04-17/5.html" target="_blank">盛开的生命</a></h2>
+</li>
+
+<li>
+<i>
+<a href="4.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2018-10-17/4.html" target="_blank"><img  src="27.jpg" tppabs="http://www.pizzasheep.top/skin/pzy/images/27.jpg" alt="我喜欢的城市下雨了......">我喜欢的城市下雨了......</a>
+</i>
+<h2><a href="4.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2018-10-17/4.html" target="_blank">我喜欢的城市下雨了......</a></h2>
+</li>
+
+
+
+           </ul>
+         </div>
+        </section>
+      </div>
+</div>
+<div class="blank clear"></div>
+    <div class="whitebg cloud">
+      <h2 class="side-title">标签云</h2>
+      <ul> 
+       {{each hotTags}}
+       <a href="-tagid=15.htm" target="_blank">{{$value.title}}({{$value.num}})</a>&nbsp;
+       {{/each}}
+      </ul> 
+    </div>
+    <div class="clear blank"></div>
+    <div class="whitebg suiji">
+      <h2 class="side-title">猜你喜欢</h2>
+      <ul>              
+        {{each lastBlogs}}
+                        <li><a href="2.html" tppabs="http://www.pizzasheep.top/pingziyangsheying/2019-08-08/2.html" title="{{$value.title}}">{{$value.title}}</a></li>
+                        {{/each}}                  </ul>
+    </div>
+  </aside>
+</article>
+<div class="clear blank"></div>
+<footer>
+<div class="endnav">
+
+<!--访客-->
+{{include "./common/footer.html"}}
+
+</div>
+<!--百度自动推送-->
+
+<!--百度自动推送-->
+</footer>
+<!-- canvas背景特效 start -->
+{{include "./common/bg_canvas.html"}} 
+<!-- canvas背景特效 start -->
+<a href="#" title="返回顶部" class="icon-top cd-is-visible"></a>
+<script type="text/javascript" src="/javascripts/front/comment.js"></script> 
+</body>
+</html>

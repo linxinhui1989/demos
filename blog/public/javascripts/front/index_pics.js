@@ -1,6 +1,6 @@
 $(()=>{
 	let id = $("#tab li").eq(0).data('id');
-
+	$("#tab li").eq(0).addClass("tab-current")
 	getPics(id);
 
 	function getPics(id){

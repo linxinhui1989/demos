@@ -18,10 +18,11 @@
     <h2><a href="index.htm" tppabs="http://www.pizzasheep.top/">瓶子羊</a></h2> 
     <nav> 
      <ul id="starlist"> 
-      <li><a href="/" tppabs="http://www.pizzasheep.top/">网站首页</a></li> 
+      <li><a href="/" >网站首页</a></li> 
       {{each categorys}}
-      <li id="tabnav_btn_1" onmouseover="tabit(this)"><a href="index-1.htm">{{$value.name}}</a></li>
+      <li id="tabnav_btn_1" onmouseover="tabit(this)"><a href="/other_category?category_id={{$value.id}}">{{$value.name}}</a></li>
       {{/each}}
+      <li><a href="/personal" >个人简介</a></li> 
      </ul> 
      <nav> 
       <h2 id="mnavh"><span class="navicon"></span></h2> 

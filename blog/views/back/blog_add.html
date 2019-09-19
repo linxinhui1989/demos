@@ -45,6 +45,14 @@
 				</select>
 			</div>
 		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>博客标签：</label>
+			<div class="formControls col-xs-4 col-sm-4">
+				{{each tags}}
+				<input type="checkbox" value="{{$value.id}}" name="tags">{{$value.title}}
+				{{/each}}
+			</div>
+		</div>
 		<div class="row cl carousel_check">
 			<label class="form-label col-xs-4 col-sm-4"><span class="c-red">*</span>是否轮播：</label>
 			<div class="formControls col-xs-4 col-sm-4">

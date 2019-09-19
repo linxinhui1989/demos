@@ -1,5 +1,6 @@
 const Category = require("../../model/Category.js");
 const Blog = require("../../model/Blog.js");
+const Hottag = require("../../model/Hottag.js");
 const path = require("path");
 const fs = require("fs");
 module.exports = {
@@ -10,7 +11,12 @@ module.exports = {
 	},
 	async add(req,res){
 		let categorys = await Category.allList();
-		res.render('back/blog_add',{categorys,username:req.session.user})
+		let tags = await Hottag.hotList();
+		res.render('back/blog_add',{
+			categorys,
+			tags,
+			username:req.session.user
+		})
 	},
 	async doAdd(req,res){
 		let {
@@ -20,7 +26,8 @@ module.exports = {
 			detail,
 			id,
 			is_carousel,
-			is_header
+			is_header,
+			tags
 		} = req.body;
 		is_carousel = is_carousel?1:0;
 		is_header = is_header?1:0;
@@ -31,7 +38,7 @@ module.exports = {
 		createtime = createtime.toLocaleTimeString();
 		if(act == 'add'){
 			// 在插入保存图片路径之前，先把其他基础信息保存起来，保存到数据库中
-			insertObj = await Blog.addInfo({title,category_id,introduce,detail,createtime,is_carousel,is_header});
+			insertObj = await Blog.addInfo({title,category_id,introduce,detail,createtime,is_carousel,is_header,tags});
 			id = insertObj.insertId;
 		}else{
 			await Blog.updateInfo({title,category_id,introduce,detail,id,is_carousel,is_header});

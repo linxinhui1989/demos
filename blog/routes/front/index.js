@@ -19,5 +19,9 @@ router.get('/', (req, res, next)=>{
 .get('/getPics',(req, res, next)=>{
 	indexController.getPics(req,res);
 })
+/*对于其他分类中的点击操作*/
+.get('/other_category',(req, res, next)=>{
+	indexController.otherCategory(req,res);
+})
 
 module.exports = router;

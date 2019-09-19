@@ -22,6 +22,8 @@ span { display: block }
 .htitle { text-align: center; font-weight: 700; font-size: 36px; margin: 30px auto }
 .box, article { width: 1170px; margin: auto; overflow: hidden }
 .whitebg { background: #fff; border: 1px solid #eee; }
+.tags ul{display: flex;flex-direction: row;flex-wrap: wrap;}
+.tags ul a{margin-right: 5px;}
 .plr20 {padding: 0 20px;}
 /*header*/
 header { margin: 0; width: 100%; z-index: 9; transition: all 0.4s; background: #ffffff38; }

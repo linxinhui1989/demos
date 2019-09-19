@@ -9,6 +9,7 @@ const authorRouter = require("./author.js");
 const blogRouter = require("./blog.js");
 const adminRouter = require("./admin.js");
 const commentRouter = require("./comment.js");
+const hottagRouter = require("./hottag.js");
 
 router.use("*",(req,res,next)=>{
 	/*其中这个 * ，表示能够捕获到所有的请求*/
@@ -29,5 +30,6 @@ router.use("/author",authorRouter);
 router.use("/blog",blogRouter);
 router.use("/admin",adminRouter);
 router.use("/comment",commentRouter);
+router.use("/hottag",hottagRouter);
 
 module.exports = router;
