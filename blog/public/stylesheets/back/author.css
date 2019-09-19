@@ -1,0 +1,21 @@
+.sex{}
+.sex .formControls{
+	display: flex;
+}
+.sex .formControls .sex_option{
+	display: flex;
+	align-items: center;
+	margin-right: 20px;
+}
+.sex .formControls .sex_option input{
+	width: 20px;
+	height: 20px;
+}
+.avtor{
+	width: 80px;
+	height: 80px;
+}
+.icon{
+	width: 200px;
+	height: 200px;
+}

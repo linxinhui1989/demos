@@ -1,0 +1,15 @@
+<div class="banner"> 
+	<div class="swiper-container swiper-container-horizontal"> 
+	 <div class="swiper-wrapper" style="transform: translate3d(-1464px, 0px, 0px); transition-duration: 0ms;"> 
+	  {{each carousels}}
+	  <div class="swiper-slide" style="width: 702px; margin-right: 30px;">
+	       <a href=""><img src="{{$value.img_src}}"/><span>推荐</span></a>
+	  </div>
+	  {{/each}} 
+	 </div> 
+	 <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+	 </div> 
+	 <div class="swiper-button-next swiper-button-disabled"></div> 
+	 <div class="swiper-button-prev"></div> 
+	</div> 
+	</div> 

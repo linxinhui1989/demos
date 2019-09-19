@@ -1,0 +1,38 @@
+<!-- 页面开始 -->
+{{include "./common/head.html"}}
+<link rel="stylesheet" href="/stylesheets/front/page.css">
+ <body> 
+   <!-- banner begin--> 
+   {{include "./common/nav_head.html"}}
+   <!-- banner end--> 
+   <div class="clear blank"></div>
+   <article> 
+   <div class="clear blank"></div> 
+   <!-- pics end-->
+   <!-- wenzi end--> 
+    <!-- 添加评论 开始 -->
+    <div id="comments">
+       <ul>
+       </ul>
+    </div>
+    <!-- 分页 -->
+    <div id="pageBox">
+        <span id="prev">上一页</span>
+        <ul id="pageNav"></ul>
+        <span id="next">下一页</span>
+    </div>
+    <!-- 展示评论结束 -->
+   </div> 
+   <div class="blank clear"></div>
+   <!-- links start-->  
+   {{include "./common/links.html"}}
+   <!-- links end--> 
+   <div class="blank clear"></div> 
+  </article> 
+  <!-- footer start -->
+  {{include "./common/bg_canvas.html"}} 
+  <!-- footer end -->
+  <a href="#" title="返回顶部" class="icon-top cd-is-visible cd-fade-out"></a>  
+  <script type="text/javascript" src="/javascripts/front/comment_page.js"></script> 
+ </body>
+</html>

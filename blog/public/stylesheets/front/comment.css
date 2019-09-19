@@ -1,0 +1,274 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: url("images/bg.jpg") no-repeat fixed;
+}
+
+#qq {
+	width: 1100px;
+	/*宽*/
+	height: 170px;
+	/*高*/
+	background: #fff;
+	/*背景颜色*/
+	margin: 10px auto 10px;
+	border-radius: 5px;
+	/*Html5 圆角*/
+	position: relative;
+}
+
+#qq p {
+	font-size: 12px;
+	color: #666;
+	font-family: "微软雅黑";
+	line-height: 45px;
+	text-indent: 20px;
+}
+
+#qq .message {
+	width: 1060px;
+	height: 80px;
+	margin: 0 auto;
+	overflow: hidden;
+	outline: none;
+	border: 1px solid #ddd;
+	padding: 8px;
+	box-sizing: border-box;
+	font-size: 14px;
+	-webkit-background-clip: text;
+	color: transparent;
+	background-image: linear-gradient(to right, #778899 0%, #333 100%);
+	/*粗细 风格 颜色*/
+}
+#qq .message img{
+	display: inline-block;
+}
+
+#qq .But {
+	width: 1060px;
+	height: 35px;
+	margin: 15px auto 0px;
+	position: relative;
+	/*相对，参考对象*/
+}
+
+#qq .But img.bq {
+	float: left;
+	/*左浮动*/
+}
+
+#qq .But .nickname {
+	float: right;
+	height: 10px;
+    width: 140px;
+    float: right;
+    background: #e8e8e8;
+    border-radius: 10px;
+    padding: 10px 16px 11px;
+    margin: 0;
+    cursor: default;
+    margin-right: 20px;
+}
+#qq .But span.submit {
+	width: 80px;
+	height: 30px;
+	background: #ff8140;
+	display: block;
+	float: right;
+	/*右浮动*/
+	line-height: 30px;
+	border-radius: 5px;
+	cursor: pointer;
+	/*手指*/
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	font-family: "微软雅黑";
+}
+
+/*face begin*/
+#qq .But .face {
+	width: 440px;
+	background: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 12px #666;
+	position: absolute;
+	/*绝对定位*/
+	top: 21px;
+	left: 15px;
+	display: none;
+	/*隐藏*/
+}
+
+#qq .But .face ul {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+#qq .But .face ul li {
+	width: 30px;
+	height: 30px;
+	list-style-type: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*msgCon begin*/
+.msgCon {
+	width: 600px;
+	margin: 0px auto;
+	margin-bottom: 60px;
+}
+
+.msgCon .msgBox {
+	background: #fff;
+	padding: 10px;
+	box-sizing: border-box;
+	margin-top: 16px;
+	border-radius: 4px;
+}
+
+.msgCon .msgBox .headUrl {
+	width: 100%;
+	height: 60px;
+	border-bottom: 1px dotted #ddd;
+	display: flex;
+	align-items: center;
+}
+
+.msgCon .msgBox .headUrl img {
+	width: 46px;
+	height: 46px;
+	border-radius: 50%
+}
+
+.msgCon .msgBox .headUrl div {
+	flex: 1;
+	display: flex;
+	flex-flow: column;
+	font-size: 16px;
+	margin-left: 16px;
+	-webkit-background-clip: text;
+	color: transparent;
+	background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+}
+
+.msgCon .msgBox .headUrl div .time {
+	font-size: 14px;
+	margin-top: 6px;
+	-webkit-background-clip: text;
+	color: transparent;
+	background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+}
+
+.msgCon .msgBox .headUrl a {
+	font-size: 14px;
+	padding: 10px;
+	color: salmon;
+	cursor: pointer;
+}
+
+.msgCon .msgBox .msgTxt {
+	font-size: 14px;
+	color: #666;
+	min-height: 40px;
+	line-height: 24px;
+	padding: 10px;
+	box-sizing: border-box;
+	word-wrap: break-word;
+	-webkit-background-clip: text;
+	color: transparent;
+	background-image: linear-gradient(to right, #778899 0%, #333 100%);
+}
+.pl-showinfo{
+	padding: 8px;
+    text-align: center;
+    background-color: rgb(254,242,225);
+    color: rgb(238,84,42);
+    margin-top: 10px;
+    display: none;
+    font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -100px;
+    width: 200px;
+}
+#comments{
+	width: 1160px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+#comments ul{
+}
+#comments ul li{
+	margin: 10px 0;
+	padding: 10px 20px;
+}
+#comments ul li .info{
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	padding: 5px 0px;
+	display: flex;
+	flex-direction: column;
+	height: 50px;
+	justify-content: center;
+}
+#comments ul li .info .nickname{
+	font-size: 15px;
+	color: #2d6dcc;
+	margin-bottom: 10px;
+}
+#comments ul li .info .time{
+	font-size: 14px;
+	color: #19a97b
+}
+#comments ul li .comment-msg{
+	margin-top: 15px;
+	font-size: 15px;
+	line-height: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+}
+#comments ul li .comment-msg span{
+	font-size: 15px !important;
+}
+#comments ul li .comment-msg img{
+	display: inline-block;
+}
+
+/* 评论的处理 */
+.comments_ctrl{
+	position: relative;
+}
+.comments_ctrl p,
+.comments_ctrl a{
+	display: flex;
+	justify-content: center;
+	flex:1;
+    background-color: rgb(254,242,225);
+    color: rgb(238,84,42);
+    margin-top: 10px;
+    font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    width: 90%;
+    margin: 20px auto;
+    line-height: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+.comments_ctrl .other-comment-page{
+	display: none;
+}
+.load{
+	margin: 20px auto;
+}

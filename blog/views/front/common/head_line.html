@@ -1,0 +1,11 @@
+<div class="headline-box whitebg"> 
+  <div class="headline-news"> 
+   <h2 class="headline-news-title"><span>头条</span><a href="2.html">{{headBlog.title}}</a> </h2> 
+   <p class="headline-news-smalltext">{{headBlog.introduce}} …</p> 
+   <ul class="headline-news-list"> 
+    {{each lastBlogs}}
+    <li><a href="2.html" title="{{$value.title}}">{{$value.title}}</a></li>
+    {{/each}}
+   </ul> 
+  </div> 
+ </div> 
