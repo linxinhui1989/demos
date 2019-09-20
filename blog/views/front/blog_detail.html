@@ -1,0 +1,146 @@
+<!-- 页面开始 -->
+{{include "./common/head.html"}}
+<link rel="stylesheet" href="/stylesheets/front/blog_detail.css">
+ <body> 
+   <!-- banner begin--> 
+   {{include "./common/nav_head.html"}}
+   <!-- banner end--> 
+   <div class="clear blank"></div>
+   <article> 
+   <div class="clear blank"></div> 
+<article style="position: relative;">
+  <div class="blogs left-box">
+  <div class="blogs-box whitebg">
+      <div class="blogs-list search-list detail">      
+          <!-- 导航条   -->
+          <div class="nav">
+              <h3>{{category.name}}</h3>
+              <div>您现在的位置是:首页 > {{category.name}}</div>
+          </div>
+          <!-- 文章详情 -->
+          <div class="content">
+              <h3>{{blog.title}}</h3>
+              <div class="tags">
+                  {{each articleTags}}
+                  <a>{{$value}}</a>
+                  {{/each}}
+              </div>
+              <div class="content-info">
+                <span>{{blog.createtime}}</span>
+                <span>{{category.name}}</span>
+                <span>{{blog.browse}}人已阅</span>
+              </div>
+              <div class="overview">{{blog.introduce}}</div>
+              <div class="article-detail">
+                  <img src="{{blog.img_src}}" alt="">
+                  <p>{{blog.detail}}</p>
+              </div>
+              <div class="zan">
+                 <a href="/zan">很赞哦！({{blog.like}})</a>
+              </div>
+          </div>
+          <!-- 个人信息 -->
+          <div class="personal">
+             <img src="/images/sys.jpg" alt="" class="sys">
+             <p>扫描关注<span>{{author.name}}</span>微信公众号，第一时间获取更多优秀文章</p>
+             <p>转载请说明来源于"瓶子羊"</p>
+          </div>
+          <!-- 上一篇以及下一篇 -->
+          <div class="prev-next">
+             <div class="prev-article">
+                <h4 class="article-title">{{prevBlog.title}}</h4>
+                <div class="info">
+                   <a class="icon" href="/blog_detail?id={{prevBlog.blog_id}}">
+                      <img src="{{prevBlog.img_src}}" alt="">
+                      <p class="prev-title">上一篇</p>
+                   </a>
+                   <div>
+                       <h5>{{prevBlog.title}}</h5>
+                       <p>{{prevBlog.introduce}}</p>
+                   </div>
+                </div>
+             </div>
+             <div class="next-article">
+                <h4 class="article-title">{{nextBlog.title}}</h4>
+                <div class="info">
+                   <a class="icon" href="/blog_detail?id={{nextBlog.blog_id}}">
+                      <img src="{{nextBlog.img_src}}" alt="">
+                      <p class="next-title">下一篇</p>
+                   </a>
+                   <div>
+                       <h5>{{nextBlog.title}}</h5>
+                       <p>{{nextBlog.introduce}}</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="line"></div>
+          <!-- 相关文章 -->
+          <div class="relate-articles">
+              <h4 class="title">相关文章</h4>
+              <div class="prev-next">
+                {{each relateBlogs}}
+                 <div class="prev-article">
+                    <h4 class="article-title">{{$value.title}}</h4>
+                    <div class="info">
+                       <a class="icon" href="/blog_detail?id={{$value.blog_id}}">
+                          <img src="{{$value.img_src}}" alt="">
+                       </a>
+                       <div>
+                           <h5>{{$value.title}}</h5>
+                           <p>{{$value.introduce}}</p>
+                       </div>
+                    </div>
+                 </div>
+                 {{/each}}
+            </div>
+          </div>
+          <!-- 文章评论 -->
+          <div class="artilce-comments"></div>
+      </div>
+  </div>
+
+<div class="blank clear"></div>
+<div class="pinglun-box whitebg">
+      <div class="news-title tucao" data-id="{{blog.blog_id}}">
+        <h2>吐槽吧</h2>
+      </div>
+      <!-- 评论 开始 -->
+      {{include "./common/detail_comment.html"}}
+      <!-- 评论 结束 -->
+      <!-- 展示评论开始 -->
+      <div id="comments">
+         <ul>
+         </ul>
+      </div>
+      <div class="comments_ctrl">
+         {{if allCommentsNum>5}}
+           <p class="see-more">查看更多评论</p>
+           {{if allCommentsNum>15}}
+              <a class="other-comment-page" href="/comments_page">查看{{allCommentsNum}}条评论</a>
+           {{/if}}
+         {{/if}}
+         <div class="load">
+            {{include "./common/loading.html"}}
+         </div>
+      </div>
+      <!-- 展示评论结束 -->
+</div>
+
+</div>
+{{include "./common/asider.html"}}
+</article>
+   <!-- 展示评论结束 -->
+   </div> 
+   <div class="blank clear"></div>
+   <!-- links start-->  
+   {{include "./common/links.html"}}
+   <!-- links end--> 
+   <div class="blank clear"></div> 
+  </article> 
+  <!-- footer start -->
+  {{include "./common/bg_canvas.html"}} 
+  <!-- footer end -->
+  <a href="#" title="返回顶部" class="icon-top cd-is-visible cd-fade-out"></a>
+ </body>
+</html>

@@ -1,0 +1,67 @@
+<header> 
+   <div class="logo-section box"> 
+    <div class="search"> 
+     <form action="/search" method="post" name="searchform" id="searchform"> 
+      <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text" /> 
+      <input name="show" value="title" type="hidden" /> 
+      <input name="tempid" value="1" type="hidden" /> 
+      <input name="tbname" value="news" type="hidden" /> 
+      <input name="Submit" class="input_submit" value="搜索" type="submit" /> 
+     </form> 
+    </div> 
+    <div class="logo">
+     <a href="index.htm" tppabs="http://www.pizzasheep.top/"><img src="/images/logo12.png" tppabs="http://www.pizzasheep.top/skin/pzy/images/logo12.png" /> <h2 class="logo-title">瓶子羊</h2> <p class="logo-text">就要和你在一起</p> </a> 
+    </div> 
+   </div> 
+   <div class="clear"></div> 
+   <div class="topnav"> 
+    <h2><a href="index.htm" tppabs="http://www.pizzasheep.top/">瓶子羊</a></h2> 
+    <nav> 
+     <ul id="starlist"> 
+      <li><a href="/" >网站首页</a></li> 
+      {{each categorys}}
+      <li id="tabnav_btn_1" onmouseover="tabit(this)"><a href="/other_category?category_id={{$value.id}}">{{$value.name}}</a></li>
+      {{/each}}
+      <li><a href="/personal" >个人简介</a></li> 
+     </ul> 
+     <nav> 
+      <h2 id="mnavh"><span class="navicon"></span></h2> 
+     </nav>
+    </nav>
+   </div> 
+   <div class="is-search"> 
+    <section>
+     <i></i>请输入关键字词
+    </section> 
+   </div> 
+   <div class="search-page"> 
+    <div class="go-left"></div> 
+    <div class="clear"></div> 
+    <div class="hot-search"> 
+     <p>热门搜索排行</p> 
+     <ul class="search-paihang"> 
+      <a href="-searchid=3.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=3" target="_blank">下雨</a>
+      <br />
+      <a href="-searchid=1.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=1" target="_blank">我们</a>
+      <br />
+      <a href="-searchid=2.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=2" target="_blank">一起</a>
+      <br />
+      <a href="-searchid=4.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=4" target="_blank">6月</a>
+      <br /> 
+     </ul> 
+    </div> 
+    <div class="new-search"> 
+     <p>最新搜索排行</p> 
+     <ul class="search-paihang"> 
+      <a href="-searchid=4.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=4" target="_blank">6月</a>
+      <br />
+      <a href="-searchid=3.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=3" target="_blank">下雨</a>
+      <br />
+      <a href="-searchid=2.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=2" target="_blank">一起</a>
+      <br />
+      <a href="-searchid=1.htm" tppabs="http://www.pizzasheep.top/e/search/result/?searchid=1" target="_blank">我们</a>
+      <br /> 
+     </ul> 
+    </div> 
+   </div> 
+  </header>

@@ -1,0 +1,10 @@
+<div class="links whitebg box "> 
+    <div class="news-title"> 
+     <h2>友情链接</h2> 
+    </div> 
+    <ul> 
+     {{each links}}
+     <li><a href="{{$value.link_url}}" target="blank">{{$value.link_name}}</a></li> 
+     {{/each}}
+    </ul> 
+   </div> 

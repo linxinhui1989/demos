@@ -1,0 +1,83 @@
+<!-- 页面开始 -->
+{{include "./common/head.html"}}
+<style type="text/css">
+   .search-list{
+    background-color: #fff;
+    padding: 20px 0;
+   }
+</style>
+ <body> 
+   <!-- banner begin--> 
+   {{include "./common/nav_head.html"}}
+   <!-- banner end--> 
+   <div class="clear blank"></div>
+   <article> 
+   <div class="clear blank"></div> 
+<article style="position: relative;">
+  <div class="blogs left-box">
+  <div class="blogs-box whitebg">
+      <div class="blogs-list search-list">      
+        {{if blogs.length>0}}
+            <ul id="blogs-list">
+                {{each blogs}}
+                <li>
+                <i>
+                <a href="2.html" target="_blank"><img width="200" height="124" src="{{$value.img_src}}" alt="七夕节后第一天">{{$value.title}}</a>
+                </i>
+                <h2><a href="2.html" target="_blank">{{$value.title}}</a></h2>
+                <p>
+                {{$value.detail}} 
+                </p>
+                </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            {{include "./common/no_data.html"}}
+        {{/if}}
+</div></div>
+<div>
+    {{if blogs.length>0}}
+        <!-- 分页开始 -->
+        {{include "./common/page.html"}}
+        <script type="text/javascript">
+            tabPage({
+                pageMain: '#blogs-list',
+                pageNav: '#pageNav',
+                pagePrev: '#prev',
+                pageNext: '#next',
+                curNum: 8, /*每页显示的条数*/
+                activeClass: 'active', /*高亮显示的class*/
+                ini: 0/*初始化显示的页面*/
+            });
+        </script>
+        <!-- 分页结束 -->
+    {{/if}}
+</div>
+
+<div class="blank clear"></div>
+<div class="pinglun-box whitebg">
+      <div class="news-title">
+        <h2>吐槽吧</h2>
+      </div>
+      <!-- 评论 开始 -->
+      {{include "./common/comment.html"}}
+      <!-- 评论 结束 -->
+</div>
+
+</div>
+{{include "./common/asider.html"}}
+</article>
+   <!-- 展示评论结束 -->
+   </div> 
+   <div class="blank clear"></div>
+   <!-- links start-->  
+   {{include "./common/links.html"}}
+   <!-- links end--> 
+   <div class="blank clear"></div> 
+  </article> 
+  <!-- footer start -->
+  {{include "./common/bg_canvas.html"}} 
+  <!-- footer end -->
+  <a href="#" title="返回顶部" class="icon-top cd-is-visible cd-fade-out"></a>
+ </body>
+</html>

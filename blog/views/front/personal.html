@@ -1,0 +1,69 @@
+<!-- 页面开始 -->
+{{include "./common/head.html"}}
+<link rel="stylesheet" href="/stylesheets/front/personal.css">
+ <body> 
+   <!-- banner begin--> 
+   {{include "./common/nav_head.html"}}
+   <!-- banner end--> 
+   <div class="clear blank"></div>
+   <article> 
+   <div class="clear blank"></div> 
+<article style="position: relative;">
+  <div class="blogs left-box">
+  <div class="blogs-box whitebg">
+      <div class="blogs-list search-list personal">      
+          <h2>个人简介</h2>
+          <div>
+              <img class="avtor" src="{{author.avtor}}" alt="">
+          </div>
+          <div class="info">
+              <h3>个人简介</h3>
+              <div class="personal-introduce">
+                 <p>{{author.introduce}}</p>
+              </div>
+          </div>
+          <div class="info">
+              <h3>服务内容</h3>
+              <div>
+                 <p>{{author.service}}</p>
+              </div>
+          </div>
+          <div class="info">
+              <h3>联系方式</h3>
+              <div class="contact-me">
+                 <p>QQ: {{author.qq}}</p>
+                 <p>电话: {{author.phone}}</p>
+                 <p>微信: {{author.wechat}}</p>
+                 <p>微博: {{author.webo}}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+<div class="blank clear"></div>
+<div class="pinglun-box whitebg">
+      <div class="news-title">
+        <h2>吐槽吧</h2>
+      </div>
+      <!-- 评论 开始 -->
+      {{include "./common/comment.html"}}
+      <!-- 评论 结束 -->
+</div>
+
+</div>
+{{include "./common/asider.html"}}
+</article>
+   <!-- 展示评论结束 -->
+   </div> 
+   <div class="blank clear"></div>
+   <!-- links start-->  
+   {{include "./common/links.html"}}
+   <!-- links end--> 
+   <div class="blank clear"></div> 
+  </article> 
+  <!-- footer start -->
+  {{include "./common/bg_canvas.html"}} 
+  <!-- footer end -->
+  <a href="#" title="返回顶部" class="icon-top cd-is-visible cd-fade-out"></a>
+ </body>
+</html>

@@ -1,0 +1,49 @@
+#pageBox{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+}
+#pageBox span {
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+    background: #2d6dcc;
+    border-radius: 5px;
+    margin: 0 20px;
+}
+
+#pageNav {
+    display: inline-block;
+}
+
+#pageNav a {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #3a87ad;
+    text-decoration: none;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+#pageNav a.active, #pageNav a:hover {
+    background: #2d6dcc;
+    color: #EFEFEF;
+    font-size: 16px;
+}
+
+#prev:hover {
+    cursor: pointer;
+}
+
+#next:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,193 @@
+.detail{
+	padding: 20px;
+}
+/*导航部分样式*/
+.detail .nav{
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: #e4e3e3 1px solid;
+}
+.detail .nav h3{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: #1487f4 1px solid;
+}
+/*标题样式*/
+.detail .content{
+}
+.detail .content h3{
+	line-height: 50px;
+	font-size: 20px;
+	font-weight: bolder;
+}
+.detail .content .tags{
+	display: flex;
+}
+.detail .content .tags a{
+	display: block;
+    border: #1487f4 1px solid;
+    color: #1487f4;
+    padding: 2px 8px;
+    margin: 0 5px 5px 0;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.detail .content .tags a:hover{
+	background-color: #1487f4;
+	color: #fff;
+}
+.detail .content .content-info{
+	display: flex;
+}
+.detail .content .content-info span{
+	line-height: 20px;
+	margin-right: 20px;
+	color: #888;
+	font-size: 13px;
+}
+.detail .content .overview{
+	margin-top: 20px;
+	margin-bottom: 20px;
+    background: #f1f1f1;
+    padding: 20px;
+    color: #888;
+    line-height: 22px;
+    font-size: 13px;
+}
+.detail .content .article-detail{
+	margin-top: 30px;
+	font-size: 13px;
+}
+.detail .content .article-detail img{
+	margin: 0 auto;
+}
+.detail .content .article-detail p{
+	text-indent: 2em;
+	line-height: 24px;
+	margin-top: 20px;
+	padding: 0 20px;
+}
+/*点赞*/
+.detail .content .zan{
+	display: block;
+    width: 160px;
+    margin: 20px auto;
+    background: #ff5501;
+    color: #fff;
+    box-shadow: 1px 2px 6px 0px rgba(0,0,0,.2);
+    border-radius: 3px;
+    line-height: 40px;
+    text-align: center;
+}
+.detail .content .zan a{
+	font-size: 13px;
+	color: #fff;
+}
+/*个人信息*/
+.detail .personal{
+	padding: 20px;
+    overflow: hidden;
+    margin: 20px auto;
+    line-height: 24px;
+    background: #f1f1f1;
+}
+.detail .personal .sys{
+	width: 100px;
+	height: 100px;
+	margin-bottom: 20px;
+}
+.detail .personal p{
+	font-size: 13px;
+	line-height: 20px;
+	color: #666;
+	display: flex;
+}
+.detail .personal p span{
+	font-size: 16px;
+	color: #ff5501;
+	font-weight: bolder;
+}
+/*上一篇以及下一篇*/
+.detail .prev-next{
+	display: flex;
+	flex-direction: row;
+	padding: 20px;
+	font-weight: normal;
+	font-size: 13px;
+}
+.detail .prev-next .article-title{
+	width: 130px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.detail .prev-next .icon{
+	position: relative;
+}
+.detail .prev-next .icon p{
+	width: 130px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.4);
+	position: absolute;
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 15px;
+}
+.detail .prev-next>div{
+	display: flex;
+	flex-direction: column;
+	margin-right: 200px;
+}
+.detail .prev-next .info{
+	display: flex;
+	flex-direction: row;
+	margin-top: 10px;
+}
+.detail .prev-next .info>div{
+	margin-left: 8px;
+}
+.detail .prev-next img{
+	width: 130px;
+	height: 80px;
+}
+.detail .prev-next .info>div h5{
+	margin-bottom: 10px;
+	width: 100px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.detail .prev-next .info>div p{
+	width: 100px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.detail .line{
+	height: 5px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+}
+/*相关文章*/
+.detail .relate-articles{
+	display: flex;
+	flex-direction: column;
+}
+.detail .relate-articles .title{
+	color: #1487f4;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}

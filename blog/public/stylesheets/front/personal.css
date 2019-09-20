@@ -1,0 +1,30 @@
+.personal{
+}
+.personal h2{
+	margin: 20px 0;
+	text-align: center;
+	font-size: 24px;
+}
+.personal .avtor{
+	width: 500px;
+	margin: 10px auto;
+}
+.personal .info{
+	padding: 10px 20px;
+}
+.personal .info div{
+	padding: 20px 0;
+}
+.personal .info .personal-introduce{
+	padding: 20px 0;
+	text-indent:2em;
+	line-height: 30px;
+}
+.personal .info .contact-me{
+	display: flex;
+	flex-direction: row;
+}
+.personal .info .contact-me p{
+	margin-right: 40px;
+	line-height: 30px;
+}

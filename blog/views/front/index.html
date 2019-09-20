@@ -1,0 +1,105 @@
+<!-- 页面开始 -->
+{{include "./common/head.html"}}
+ <body> 
+   <!-- banner begin--> 
+   {{include "./common/nav_head.html"}}
+   <!-- banner end--> 
+   <div class="clear blank"></div> 
+   <article> 
+   <!-- banner begin--> 
+   {{include "./common/banner.html"}}
+   <!-- banner end--> 
+   <!-- headline-box begin--> 
+   {{include "./common/head_line.html"}}
+   <!-- headline-box end--> 
+   <div class="clear blank"></div> 
+   <div class="pics box whitebg tab-num02"> 
+    <div class="gd-box"> 
+     <ul id="tab"> 
+      {{each categorys}}
+      <li data-id="{{$value.id}}">{{$value.name}}</li>
+      {{/each}}
+     </ul> 
+    </div> 
+    <div id="tab-content"> 
+     <section class="tab-box"> 
+      <div class="pic-list-img"> 
+       <ul> 
+          {{include "./common/loading.html"}}
+       </ul> 
+      </div> 
+      <span class="tab-a-more"><a href="index-21.htm" title="更多摄影日记"><i></i><i></i><i></i></a></span>
+     </section> 
+     <section class="tab-box"> 
+      <div class="pic-list-img"> 
+       <ul> 
+       </ul> 
+      </div> 
+      <span class="tab-a-more"><a href="index-22.htm" tppabs="http://www.pizzasheep.top/pingziyangshuo" title="更多瓶子羊说"><i></i><i></i><i></i></a></span>
+     </section> 
+     <section class="tab-box"> 
+      <div class="pic-list-img"> 
+       <ul> 
+       </ul> 
+      </div> 
+      <span class="tab-a-more"><a href="index-23.htm" title="朝花夕拾"><i></i><i></i><i></i></a></span>
+     </section> 
+     <section class="tab-box"> 
+      <div class="pic-list-img"> 
+       <ul> 
+       </ul> 
+      </div> 
+      <span class="tab-a-more"><a href="index-4.htm"  title="更多时光之轴"><i></i><i></i><i></i></a></span>
+     </section> 
+    </div> 
+   </div> 
+   <!-- pics end--> 
+   <div class="blank clear"></div> 
+   <!-- wenzi end--> 
+   <div class="clear blank"></div>
+   <!-- tags start  -->
+   {{include "./common/tags.html"}}
+   <!-- tags end--> 
+   <div class="blank clear"></div> 
+   <div class="pinglun-box whitebg"> 
+    <div class="news-title">
+     <h2>留个言</h2> 
+    </div>
+    <!-- 添加评论 开始 --> 
+    {{include "./common/comment.html"}}
+    <!-- 添加评论 结束 --> 
+    <!-- 展示评论开始 -->
+    <div id="comments">
+       <ul>
+       </ul>
+    </div>
+    <div class="comments_ctrl">
+       {{if allCommentsNum>5}}
+         <p class="see-more">查看更多评论</p>
+         {{if allCommentsNum>15}}
+            <a class="other-comment-page" href="/comments_page">查看{{allCommentsNum}}条评论</a>
+         {{/if}}
+       {{/if}}
+       <div class="load">
+          {{include "./common/loading.html"}}
+       </div>
+    </div>
+    <!-- 展示评论结束 -->
+   </div> 
+   <div class="blank clear"></div>
+   <!-- links start-->  
+   {{include "./common/links.html"}}
+   <!-- links end--> 
+   <div class="blank clear"></div> 
+  </article> 
+  <!-- footer start -->
+  {{include "./common/bg_canvas.html"}} 
+  <!-- footer end -->
+  <a href="#" title="返回顶部" class="icon-top cd-is-visible cd-fade-out"></a>  
+  <!-- canvas背景特效 start -->
+  {{include "./common/bg_canvas.html"}} 
+  <!-- canvas背景特效 start -->
+  
+  <script type="text/javascript" src="/javascripts/front/index_pics.js"></script> 
+ </body>
+</html>

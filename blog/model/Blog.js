@@ -1,0 +1,138 @@
+let db = require("../tool/db.js");
+let Hottag = require("./Hottag.js");
+class Blog{
+
+	static instance(){
+		if(Blog.Instance == null){
+			Blog.Instance = new Blog();
+		}
+		return Blog.Instance;
+	}
+
+	static async blogList(){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs i ON b.id=i.blog_id order by b.id asc`;
+		return await db.q(sql);
+	}
+
+	static async addIcon({newFileName,id}){
+		let sql = `insert into imgs (img_src,blog_id) values
+		 ("${newFileName}","${id}")`
+		return await db.q(sql);
+	}
+
+	static async updateIcon({newFileName,id}){
+		let sql = `update imgs set img_src="${newFileName}"
+		 where blog_id="${id}"`;
+		return await db.q(sql);
+	}
+
+	static async addInfo({title,category_id,introduce,detail,createtime,is_carousel,is_header,tags}){
+		console.log("tags = " + tags);
+		tags = tags + "";
+		let newTags = tags.split(",");
+		for(let i=0;i<newTags.length;i++){
+			await Hottag.updateNum(newTags[i]);
+		}
+		let sql = `insert into blog (title,category_id,introduce,detail,createtime,is_carousel,is_header,tags) values
+		 ("${title}","${category_id}","${introduce}","${detail}",
+		 "${createtime}","${is_carousel}","${is_header}","${tags}")`;
+		return await db.q(sql);
+	}	
+
+	/*修改信息*/
+	static async updateInfo({title,category_id,introduce,detail,id,is_carousel,is_header}){
+		let sql=`update blog set title="${title}",
+		category_id="${category_id}",introduce="${introduce}",
+		detail="${detail}",is_carousel="${is_carousel}",is_header="${is_header}" where id="${id}"`;
+		await db.q(sql);
+	}
+
+	/*删除博客*/
+	static async del({id}){
+		console.log("删除操作" + id)
+		// 先删除图片
+		let sql1 = `delete from imgs where blog_id="${id}"`;
+		await db.q(sql1);
+		// 再来删除博客
+		let sql2 = `delete from blog where id="${id}"`;
+		await db.q(sql2);
+	}
+
+	static async find({id}){
+		let sql = `select b.*,i.* from blog b,imgs i where b.id=i.blog_id and b.id="${id}"`;
+		let results = await db.q(sql);
+		return results[0];
+	}
+
+	/*获取指定的带有轮播标记的信息*/
+	static async getCarousels(){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs 
+		i ON b.id=i.blog_id where b.is_carousel=1 order by b.id asc `;
+		return await db.q(sql);
+	}
+
+	/*获取头条信息*/
+	static async getHead(){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs 
+		i ON b.id=i.blog_id where b.is_header=1 order by b.id asc `;
+		let results = await db.q(sql);
+		return results[0];
+	}
+
+	/*获取最新的6条博客信息*/
+	static async getLast(){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs 
+			i ON b.id=i.blog_id where b.is_header!=1 order by b.id asc limit 0,6`;
+		return await db.q(sql);
+	}
+
+	static async findItems({id}){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs i ON b.id=i.blog_id where category_id = "${id}" order by b.id asc limit 0,7`;
+		return await db.q(sql);
+	}
+
+	/*根据category_id去找到对应的博客信息*/
+	static async find({id}){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs i ON b.id=i.blog_id where category_id = "${id}" order by b.id asc`;
+		return await db.q(sql);
+	}
+
+	/*对于博客的搜索*/
+	static async search({keyboard}){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs i ON b.id=i.blog_id
+		 where title like "%${keyboard}%" order by b.id asc`;
+		return await db.q(sql);
+	}
+
+	/*根据博客id来进行对于博客的查找*/
+	static async findBlogById({id}){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs i ON b.id=i.blog_id
+		 where  b.id="${id}"`;
+		let blogs = await db.q(sql);
+		return blogs[0];
+	}
+
+	/*根据类别查找对应类别的文章*/
+	static async findRelate(category_id){
+		let sql = `select b.*,i.* from blog b INNER JOIN imgs i ON b.id=i.blog_id where b.category_id = "${category_id}" order by b.id asc limit 0,2`;
+		return await db.q(sql);
+	}
+
+	/*查找所有的博客的id信息*/
+	static async blogIdList(){
+		let sql = `select id from blog order by id asc`;
+		return await db.q(sql);
+	}
+
+	/*对于指定文章浏览量的增加*/
+	static async addBrowse({id}){
+		let sql = `select * from blog where id="${id}"`;
+		let results = await db.q(sql);
+		let browse = parseInt(results[0].browse);
+		browse++;
+		sql = `update blog set browse="${browse}" where id="${id}"`;
+		await db.q(sql);
+	}
+}
+
+module.exports = Blog;

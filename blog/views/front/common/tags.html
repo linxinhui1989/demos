@@ -1,0 +1,11 @@
+<div class="whitebg box tags"> 
+    <div class="news-title"> 
+     <h2>热门标签</h2> 
+     <span class="tab-a-more"><a href="" title="更多"><i></i><i></i><i></i></a></span>
+    </div> 
+    <ul> 
+     {{each hotTags}}
+     <a href="-tagid=15.htm" target="_blank">{{$value.title}}({{$value.num}})</a>&nbsp;
+     {{/each}}
+    </ul> 
+</div> 
