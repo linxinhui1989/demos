@@ -5,7 +5,8 @@
   "main": "01_express.js",
   "dependencies": {
     "express": "^4.17.1",
-    "koa": "^2.8.1"
+    "koa": "^2.8.1",
+    "koa-router": "^7.4.0"
   },
   "devDependencies": {},
   "scripts": {
