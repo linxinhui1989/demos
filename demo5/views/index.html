@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>这边是模板渲染的首页面</h1>
+	<ul>
+		{{each goods}}
+		<li>
+			<p>产品价格：{{$value.price}}</p>
+			<p>产品个数：{{$value.num}}</p>
+		</li>
+		{{/each}}
+	</ul>
+</body>
+</html>
