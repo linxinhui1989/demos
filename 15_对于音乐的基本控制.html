@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		progress
+		{
+		    width: 168px;
+		    height: 5px;
+		}
+		progress::-webkit-progress-bar
+		{
+			background:#d7d7d7;
+		}
+		progress::-webkit-progress-value,
+		progress::-moz-progress-bar
+		{
+			background:orange;
+		}
+		.ctrls{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		.ctrls p{
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			margin: 0 20px;
+		}
+		.ctrls progress{
+			flex:1;
+		}
+	</style>
+</head>
+<body>
+	<audio src="./musics/syst.mp3" id="ad"></audio>
+	<button class="btn-pause">暂停</button>
+	<button class="btn-start">开始</button>
+	<button class="btn-next">音乐切换</button>
+	<button class="btn-play-at">在01:00位置上进行播放</button>
+	<div class="ctrls">
+		<p class="current-time">00:00</p>
+		<progress value='0' max='100'></progress>
+		<p class="all-time">04:00</p>
+	</div>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript">
+		$(()=>{
+			let audio = document.querySelector("#ad");
+			$(".btn-start").on("click",function(){
+				musicPlay();
+			});
+			$(".btn-pause").on("click",function(){
+				audio.pause();
+			});
+			$(".btn-next").on("click",function(){
+				audio.src = "./musics/gbqq.mp3";
+				musicPlay();
+			});
+			$(".btn-play-at").on("click",function(){
+				let time = 60;
+				// 滑块松开时，通过设置 currentTime属性，实现音乐控制
+				audio.currentTime = time;
+			})
+			$("progress").on("drag",function(e){
+				// 拖拽时，会影响音乐的播放位置
+			});
+			// 音乐实时进度
+			audio.ontimeupdate = function(){
+				let current = parseInt(audio.currentTime);
+				$(".current-time").html(timeFormat(current));
+				$("progress").attr("value",current);
+			}
+			function timeFormat(time){
+				let min = parseInt(time/60);
+				let sec = time%60;
+				min = min>10?min:("0"+min);
+				sec = sec>10?sec:("0"+sec);
+				return min+":"+sec;
+			}
+			function musicPlay(){
+				audio.load();
+				audio.oncanplay = function(){
+					audio.play();
+					let duration = parseInt(audio.duration);
+					$(".all-time").html(timeFormat(duration));
+					$("progress").attr("max",duration);
+				}
+			}
+		})
+	</script>
+</body>
+</html>
