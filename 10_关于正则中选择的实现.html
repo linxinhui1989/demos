@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "abadacaeafan";
+		// 将b 或者 c 或者 e 替换为N
+		let reg1 = /b|c|e/g;
+		// 将ab 或者 ac 或者 ae 替换为N
+		let reg2 = /a(b|c|e)/g;
+		let str1 = str.replace(reg1,"N");
+		let str2 = str.replace(reg2,"N");
+		console.log(str);
+		console.log(str1);
+		console.log(str2);
+	</script>
+</body>
+</html>

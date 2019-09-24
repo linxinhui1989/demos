@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "this isCan thisa that is a thin boy andt";
+		let reg1 = /t/g;
+		let reg2 = /^t/g;
+		let reg3 = /t$/g;
+		let reg4 = /is/g;
+		let reg5 = /\bis\b/g;
+		let reg6 = /\Bis\B/g;
+		console.log(str);
+		let str1 = str.replace(reg1,"T");
+		let str2 = str.replace(reg2,"T");
+		let str3 = str.replace(reg3,"T");
+		let str4 = str.replace(reg4,"IS");
+		let str5 = str.replace(reg5,"IS");
+		let str6 = str.replace(reg6,"IS");
+		console.log(str1);
+		console.log(str2);
+		console.log(str3);
+		console.log(str4);
+		console.log(str5);
+		console.log(str6);
+	</script>
+</body>
+</html>

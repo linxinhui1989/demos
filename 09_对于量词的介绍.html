@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "15190999101";
+		let reg = /^\d{11}$/;
+		let reg1 = /^\d+$/;    // >=1
+		let reg2 = /^\d*$reg/; // >=0
+		let reg3 = /^\d?$/;    // <=1
+		let reg4 = /^\d{10,20}$/; // 10~20
+		let reg5 = /^\d{10,}$/;  // >=10
+		// 检测手机号是否是 11 位
+		let result = reg.test(str);
+		let result1 = reg1.test(str);
+		let result2 = reg2.test(str);
+		let result3 = reg3.test(str);
+		let result4 = reg4.test(str);
+		let result5 = reg5.test(str);
+		console.log(result);
+		console.log(result1);
+		console.log(result2);
+		console.log(result3);
+		console.log(result4);
+		console.log(result5);
+	</script>
+</body>
+</html>

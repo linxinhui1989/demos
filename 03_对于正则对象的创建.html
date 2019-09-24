@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 借助js中内置的构造函数，构建一个正则对象
+		let reg1 = new RegExp("a");
+		let str = "ahasahaj";
+		// 使用字符串中的replace方法，将reg1这个正则对象传入到这个replace方法中
+		str = str.replace(reg1,"X");
+		console.log(str);
+	</script>
+</body>
+</html>

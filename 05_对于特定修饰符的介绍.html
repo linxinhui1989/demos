@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let reg1 = /a/; // 只会匹配第一个满足这个正则规则的内容
+		/*
+		 g:global全局 会匹配字符串中所有的满足这个正则规则的内容
+		 */ 
+		let reg2 = /a/g;
+		/*
+		 i:ignore 忽略 --> 忽略大小写 匹配时忽略大小写
+		 g:global 全局 会匹配字符串中所有的满足这个正则规则的内容
+		 */
+		let reg3 = /a/ig;
+		let str = "ahAsahAjahasAhaj";
+		str = str.replace(reg3,"X");
+		console.log(str);
+	</script>
+</body>
+</html>

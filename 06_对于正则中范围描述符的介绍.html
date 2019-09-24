@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "adaudioasu2131=-3=213a1=2a1b1c][d=-e";
+		// 将字符串中的所有的字母都改为 0
+		let reg1 = /a/ig; // 单独某一个特定的字符匹配
+		let reg2 = /[a-z]/ig; // 采用范围描述符进行匹配
+		console.log(str);
+		str = str.replace(reg2,0);
+		console.log(str);
+		let reg3 = /[0-9]/g; // 0-9之间的数字
+		str = str.replace(reg3,"X");
+		console.log(str);
+	</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "2019-09-24"; // 09-24-2019
+		let reg = /(\d{4})-(\d{2})-(\d{2})/;
+		let str1 = str.replace(reg,"$2-$3-$1");
+		console.log(str1);
+	</script>
+</body>
+</html>

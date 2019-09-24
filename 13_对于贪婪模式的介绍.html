@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "abcdefghi"; // 10个
+		let reg1 = /\w{3,6}/g; // 贪婪模式
+		let reg2 = /\w{3,6}?/g; // 非贪婪模式
+		let str1 = str.replace(reg1,"X");
+		let str2 = str.replace(reg2,"X");
+		console.log(str);
+		console.log(str1);
+		console.log(str2);
+	</script>
+</body>
+</html>
