@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="phone">
+	<input type="text" id="email">
+	<button id="comfirm">验证</button>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#comfirm").on("click",function(){
+				let phone = $("#phone").val();
+				let email = $("#email").val();
+				let phoneReg = /^1(3|5|7|8|9)\d{9}$/;
+				// a@qq.com
+				// let emailReg = /(\w+)(@\w+)\.(\w+)/;
+				let emailReg = /^([a-zA-Z0-9_-]+)(@\w+)((\.)(\w+))+$/;
+				// let result = phoneReg.test(phone);
+				let result = emailReg.test(email);
+				if(result){
+					alert("是正确的")
+				}else{
+					alert("格式有误")
+				}
+			})
+		});
+	</script>
+</body>
+</html>
