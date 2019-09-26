@@ -1,0 +1,44 @@
+#music_playing{
+	height: 600px;
+	text-align: center;
+	position: relative;
+}
+#music_playing .pan{
+	margin-top: 100px;
+	width: 400px;
+	height: 400px;
+
+}
+@keyframes panmove{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+#music_playing .gan{
+	width: 10px;
+	height: 400px;
+	background-color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50px;
+	margin-left: 300px;
+	/* animation: mymove 1s; */
+	transform-origin: top;
+	
+}
+@keyframes mymove{
+	100%{
+		transform: rotate(30deg);
+	}
+}
+@keyframes stoprotate{
+	0%{
+		transform: rotate(30deg);
+	}
+	100%{
+		transform: rotate(0deg);
+	}
+}

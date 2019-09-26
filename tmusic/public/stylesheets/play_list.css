@@ -1,0 +1,19 @@
+#music_list{
+	width: 100%;
+	color: #fff;
+	height: 600px;
+	overflow: hidden;
+}
+#music_list .table{
+	width: 100%;
+}
+#music_list .table th{
+	text-align: center;
+}
+#music_list .table tr{
+	cursor: pointer;
+}
+#music_list .table td{
+	text-align: center;
+	line-height: 70px;
+}

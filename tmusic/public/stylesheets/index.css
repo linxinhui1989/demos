@@ -1,0 +1,140 @@
+/*=============网页版芯=============*/
+#container{
+	padding: 100px;
+}
+
+/*=============中间内容=============*/
+#content{
+	display: flex;
+	flex-direction: row;
+	margin: 50px 0;
+}
+/*内容左侧部分*/
+#wrap{
+	flex:3;
+	height: 600px;
+}
+#wrap #music_content{
+	width: 100%;
+	margin-left: 100px;
+	height: 600px;
+}
+/*内容右侧歌词部分*/
+.lyrics{
+	height: 600px;
+	flex:1;
+	overflow: hidden;
+	color: #fff;
+	position: relative;
+}
+.lyrics .lrc{
+	position: relative;
+	top: 0;
+}
+.lyrics .lrc li{
+	text-align: center;
+	line-height: 36px;
+	font-size: 15px;
+	color: rgba(0,0,0,0.5);
+	position: relative;
+	top: 0;
+}
+.lyrics .lrc .active{
+	/*color: #4caf50;*/
+	color: #fff;
+}
+
+/*=============底部音乐控制部分=============*/
+.music-ctrls{
+	position: fixed;
+	width: 90%;
+	bottom: 50px;
+	left: 50%;
+	margin-left: -45%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.music-ctrls .progress{
+	flex:4;
+	height: 120px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 50px;
+}
+.music-ctrls .progress img{
+	margin-right: 40px;
+	cursor: pointer;
+}
+.music-ctrls .progress .play{
+	width: 50px;
+	height: 50px;
+}
+.music-ctrls .progress .prev,
+.music-ctrls .progress .next{
+	width: 40px;
+	height: 40px;
+}
+/*进度条的设置*/
+.music-ctrls .progress-area{
+	flex:1;
+	position: relative;
+}
+.music-ctrls .progress-area .bar{
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -6px;
+	cursor: pointer;
+}
+.music-ctrls .progress-area .current_prog{
+	position: absolute;
+	height: 4px;
+	left: 0;
+	width: 0;
+	margin-top: -2px;
+	top: 50%;
+	background-color: #fff;
+}
+.music-ctrls .progress-area .prog{
+	height: 4px;
+	background-color: gray;
+	width: 100%;
+	cursor: pointer;
+}
+.music-ctrls .progress .all-time{
+	font-size: 14px;
+	color: #fff;
+	margin-left: 20px;
+	letter-spacing: 2px;
+}
+/*音乐控制样式*/
+.music-ctrls .volice{
+	flex:1;
+	height: 120px;
+	display: flex;
+	align-items: center;
+}
+.music-ctrls .volice img{
+	width: 30px;
+	height: 30px;
+	margin-right: 20px;
+}
+.music-ctrls .volice .progress-area{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.music-ctrls .volice .prog{
+	width: 60%;
+}
+.music-ctrls .volice .play_model{
+	cursor: pointer;
+}
