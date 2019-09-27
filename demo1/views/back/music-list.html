@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		li{border-bottom: 1px solid gray;padding: 20px 0;}
+		img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<h2>音乐列表</h2>
+	<ul>
+		{{each musics}}
+		<li>
+			<p>歌手：{{$value.singer}}</p>
+			<p>歌曲：<img src="/{{$value.music_url}}" alt=""></p>
+			<a href="/back/music-edit?id={{$value._id}}">编辑</a>
+			<a href="/back/music-del?id={{$value._id}}">删除</a>
+		</li>
+		{{/each}}
+	</ul>
+</body>
+</html>

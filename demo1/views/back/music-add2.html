@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		img{width: 100px;height: 100px;}
+	</style>
+</head>
+<body>
+	<form action="/back/music-add" method="post" enctype="multipart/form-data">
+		<input type="file" name="music_url" id="music_url">
+		<img src="" alt="" class="music_url">
+		<input type="file" name="music_lrc" id="music_lrc">
+		<img src="" alt="" class="music_lrc">
+		<input type="text" name="music_singer">
+		<input type="submit" value="新增音乐">
+	</form>
+	<script type="text/javascript" src="/lib/jquery.js"></script>
+	<script type="text/javascript">
+		$(()=>{
+			$("#music_url").change(function(){
+			    $(".music_url").attr("src",URL.createObjectURL($(this)[0].files[0]));
+			});
+			$("#music_lrc").change(function(){
+			    $(".music_lrc").attr("src",URL.createObjectURL($(this)[0].files[0]));
+			});
+		});
+	</script>
+</body>
+</html>

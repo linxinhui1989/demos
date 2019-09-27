@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		li{border-bottom: 1px solid gray;padding: 20px 0;}
+		img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<h1>前端音乐播放首页面</h1>
+	<ul>
+		{{each musics}}
+		<li>
+			<p>音乐名称是：{{$value.singer}}</p>
+			<p>专辑图片 <img src="{{$value.music_url}}" alt=""></p>
+		</li>
+		{{/each}}
+	</ul>
+</body>
+</html>

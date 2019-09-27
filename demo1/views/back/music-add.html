@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		img{width: 100px;height: 100px;}
+	</style>
+</head>
+<body>
+	<div>
+		<input type="file" id="music_url">
+		<img src="" alt="" class="music_url">
+		<input type="file" id="music_lrc">
+		<img src="" alt="" class="music_lrc">
+		<input type="text" id="music_singer">
+		<input id="music_add" type="button" value="新增音乐">
+	</div>
+	<script type="text/javascript" src="/lib/jquery.js"></script>
+	<script type="text/javascript">
+		$(()=>{
+			$("#music_url").change(function(){
+			    $(".music_url").attr("src",URL.createObjectURL($(this)[0].files[0]));
+			});
+			$("#music_lrc").change(function(){
+			    $(".music_lrc").attr("src",URL.createObjectURL($(this)[0].files[0]));
+			});
+			$("#music_add").on("click",function(){
+				let singer = $("#music_singer").val();
+				var formData = new FormData();
+				formData.append("music_url",$("#music_url")[0].files[0]);
+				formData.append("music_lrc",$("#music_url")[0].files[0]);
+				formData.append("music_singer",singer);
+				$.ajax({
+					url:"/back/music-add",
+					type:"post",
+					data:formData,
+					contentType: false,
+        			processData: false,
+					success:function(res){
+						if(res.success){
+							alert(res.msg);
+							setTimeout(()=>{
+								window.location.href = "/back/music-list"
+							},2000);
+						}
+					}
+				});
+			})
+		});
+	</script>
+</body>
+</html>
