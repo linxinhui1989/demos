@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 200px;
+			height: 200px;
+			background: red;
+			border-radius: 10px;
+		}
+	</style>
+	<link rel="stylesheet" href="./animate.css">
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<button @click="change">显示/隐藏</button>
+		<transition 
+			enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+			<p v-show="isShow"></p>
+		</transition>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				isShow:false
+			},
+			methods:{
+				change(){
+					this.isShow = !this.isShow;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

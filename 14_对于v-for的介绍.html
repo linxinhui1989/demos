@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<ul>
+			<li v-for="good in goods">{{good}}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				goods:["苹果","香蕉","茄子","榴莲"]
+			}
+		});
+	</script>
+</body>
+</html>

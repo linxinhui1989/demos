@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 200px;
+			height: 200px;
+		}
+		.p1{
+			background-color: red;
+		}
+		.p2{
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<p class="p1" v-if="isShow"></p>
+		<p class="p2" v-show="isShow"></p>
+		<button @click="change">点击修改</button>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				isShow:true
+			},
+			methods:{
+				change(){
+					// 对于 data 上指定名称的属性的读取
+					let isShow = this.isShow;
+					// 对于 data 上指定名称的属性的修改
+					this.isShow = !isShow;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

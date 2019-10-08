@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{font-size: 30px;}
+		.pp{
+			color: red;
+		}
+		.p1{
+			color: green;
+		}
+		.p3{
+			color: blue;
+		}
+		.p4{
+			background-color: gray;
+		}
+		.p5{
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<p class="pp">没有写 v-bind</p>
+		<p v-bind:class="pp">有写 v-bind</p>
+		<p v-bind:class="{p3:p3,p4:xx}">有写 v-bind</p>
+		<p v-bind:class="[pp1,pp2]">有写 v-bind</p>
+		<p :class="[pp1,pp2]">有写 v-bind</p>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				pp:"p1",
+				p3:true,
+				xx:false,
+				pp1:"p1",
+				pp2:"p4"
+			}
+		});
+	</script>
+</body>
+</html>

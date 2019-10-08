@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<p v-bind:style="{width:w+'px',height:h+'px',background:bgc}"></p>
+		<p :style="{width:w+'px',height:h+'px',background:bgc}"></p>
+		<p :style="pStyle"></p>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				w:200,
+				h:200,
+				bgc:"red",
+				pStyle:{
+					"width":"100px",
+					"height":"100px",
+					"background":"blue"
+				}
+			}
+		});
+	</script>
+</body>
+</html>

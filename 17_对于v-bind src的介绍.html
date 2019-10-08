@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<img src="./images/01.png" alt="" />
+		<img :src="nba_icon" alt="" />
+		<a href="./01_初识vue.html">点击跳转到页面一</a>
+		<a :href="aHref">点击跳转到页面二</a>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				nba_icon:"./images/02.png",
+				aHref:"./02_对于v-model属性的介绍.html"
+			}
+		});
+	</script>
+</body>
+</html>
