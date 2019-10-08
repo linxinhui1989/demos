@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<button v-on:click="change1">修改1</button>
+		<button v-on:click="change2">修改2</button>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+			},
+			methods:{
+				change1(){
+					console.log("点击一下")
+				},
+				change2(){
+					console.log("点击两下")
+				}
+			}
+		});
+		/*let btn = document.querySelector("button")
+		btn.addEventListener("click",function(){
+			console.log("点击一下")
+		});*/
+	</script>
+</body>
+</html>

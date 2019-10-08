@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<form action="#" method="get">
+			<input type="text" v-model="msg">
+			<input type="submit" value="注册" v-on:click.prevent="regist">
+		</form>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				msg:""
+			},
+			methods:{
+				regist(){
+					console.log("注册")
+				}
+			}
+		});
+	</script>
+</body>
+</html>

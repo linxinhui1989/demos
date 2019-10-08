@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<button v-on:click="m1">注册</button>
+		<button @click="m2">登陆</button>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+			},
+			methods:{
+				m1(){console.log("注册")},
+				m2(){console.log("登录")},
+			}
+		});
+	</script>
+</body>
+</html>
