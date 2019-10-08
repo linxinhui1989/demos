@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<ul>
+			<li v-for="stu in stus">名字是:{{stu}}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+		  el: '#app',
+		  data: {
+		     stus:["lucy","lily","韩梅梅","李磊"]
+		  }
+		})
+	</script>
+</body>
+</html>

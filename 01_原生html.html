@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="goods">
+		<li v-for="good in goods"></li>
+	</ul>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript">
+		$(()=>{
+			$.ajax({
+				url:"xx",
+				success:function(res){
+					let str = "";
+					for(let i=0;i<res.length;i++){
+						str += "xx";
+					}
+					$("#goods").html(str)
+				}
+			})
+		})
+	</script>
+</body>
+</html>
