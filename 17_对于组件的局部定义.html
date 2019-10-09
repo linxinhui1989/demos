@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<hh v-for="good in goods"></hh>
+	</div>
+	<template id="hd">
+		<div>
+			<h1>这边是定义的局部组件</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				goods:["apple","banana","orange"]
+			},
+			components:{
+				"hh":{
+					template:"#hd"
+				}
+			}
+		});
+	</script>
+</body>
+</html>

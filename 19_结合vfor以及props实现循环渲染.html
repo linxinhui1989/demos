@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<hh v-for="good in goods" :gd="good"></hh>
+	</div>
+	<template id="hd">
+		<div>
+			<h1>{{gd}}</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				goods:["apple","banana","orange"]
+			},
+			components:{
+				"hh":{
+					template:"#hd",
+					props:["gd"]
+				}
+			}
+		});
+	</script>
+</body>
+</html>

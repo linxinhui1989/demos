@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<mi-head></mi-head>
+	</div>
+	<script type="text/javascript">
+		// 1.定义一个组件
+		let headComponent = {
+			template:"<div><h1>这边是头部</h1><h1>这边是头部</h1><h1>这边是头部</h1><h1>这边是头部</h1></div>"
+		};
+		// 2.借助Vue，设定为全局组件
+		Vue.component("mi-head",headComponent);
+		new Vue({
+			el:"#app",
+			data:{
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<!-- 头部 -->
+		<mi-head></mi-head>
+		<!-- 中间内容 -->
+		<!-- 底部 -->
+		<mi-footer></mi-footer>
+	</div>
+	<script type="text/javascript">
+		// 1.定义一个组件
+		let headComponent = {
+			template:"<h1>这边是头部</h1>"
+		};
+		// 2.借助Vue，设定为全局组件
+		Vue.component("mi-head",headComponent);
+		
+		let footerComponent = {
+			template:"<h1>这边是尾部</h1>"
+		};
+		Vue.component("mi-footer",footerComponent);
+		new Vue({
+			el:"#app",
+			data:{
+			}
+		});
+	</script>
+</body>
+</html>

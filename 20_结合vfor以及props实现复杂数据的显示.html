@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<hh v-for="game in games" :gm="game"></hh>
+	</div>
+	<template id="hd">
+		<div>
+			<h1>赛事名称：{{gm.title}}</h1>
+			<h1>赛事描述：{{gm.desc}}</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				games:[
+					{
+						"title":"CBA",
+						"desc":"国内顶级赛事11",
+						"sm_icons":["11","22","33","44"]
+					},
+					{
+						"title":"红土地",
+						"desc":"国内顶级赛事22"
+					},
+					{
+						"title":"马拉松",
+						"desc":"国内顶级赛事33"
+					}
+				]
+			},
+			components:{
+				"hh":{
+					template:"#hd",
+					props:["gm"]
+				}
+			}
+		});
+	</script>
+</body>
+</html>
