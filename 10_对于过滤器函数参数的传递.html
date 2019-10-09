@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<!-- 使得数值只保留小数点后两位 -->
+		<p>{{price | decimal(3)}}</p>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				price:99.9999
+			},
+			filters:{
+				decimal(val,filter){
+					filter = filter==undefined?3:(filter+1);
+					val = val + "";
+     				var str = val.substring(0,val.indexOf(".") + filter);
+					return str;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

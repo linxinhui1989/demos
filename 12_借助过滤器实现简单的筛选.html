@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<input type="text" v-model="info">
+		<ul>
+			<li v-for="fruit in fruits.filter(obj=>{return obj.indexOf(info)!=-1})">
+				{{fruit}}
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				fruits:[
+				   "苹果","香蕉","小苹果","大苹果","西瓜","冬瓜","南瓜","小南瓜"
+				],
+				info:""
+			}
+		});
+	</script>
+</body>
+</html>

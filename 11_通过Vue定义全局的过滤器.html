@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<!-- 使得数值只保留小数点后两位 -->
+		<p>{{price | decimal(2)}}</p>
+	</div>
+	<script type="text/javascript">
+		// 这个就是通过Vue去定义全局范围内的过滤器
+		Vue.filter("decimal",function(val,filt){
+			filt = filt==undefined?3:(filt+1);
+			val = val + "";
+				var str = val.substring(0,val.indexOf(".") + filt);
+			return str;
+		});
+		new Vue({
+			el:"#app",
+			data:{
+				price:99.9999
+			}
+		});
+	</script>
+</body>
+</html>
