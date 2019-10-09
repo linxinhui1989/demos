@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<input type="text" v-model="num">
+		<p>结果1：{{result}}</p>
+		<p>结果2：{{result1}}</p>
+		<button @click="change2">修改结果2</button>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				num:0
+			},
+			methods:{
+				change2(){
+					this.result1 = -10;
+				}
+			},
+			computed:{
+				result(){
+					return this.num*10;
+				},
+				result1:{
+					get(){
+						return this.num*2;
+					},
+					set(val){
+						console.log(val);
+						if(val<0){
+							val = 0;
+						}
+						this.num = val;
+						// 对于传入数据的约束
+					}
+				},
+				result2:{
+					get(){}
+				},
+				result3(){}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{
+			list-style: none;
+		}
+		li{
+			height: 50px;
+			line-height: 50px;
+			margin: 0 30px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<ul>
+			<li v-for="good in goods">
+				<input type="checkbox" v-model="good.isCheck">{{good.name}}:{{good.price}}
+			</li>
+		</ul>
+		<h2>需要¥{{sum}}</h2>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				goods:[
+					{name:"iphone11",price:1000,isCheck:false},
+					{name:"iphone12",price:2000,isCheck:false},
+					{name:"iphone13",price:3000,isCheck:false},
+					{name:"iphone14",price:4000,isCheck:false}
+				]
+			},
+			computed:{
+				sum(){
+					let s = 0;
+					for(let i=0;i<this.goods.length;i++){
+						if(this.goods[i].isCheck){
+							s += this.goods[i].price
+						}
+					}
+					return s;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

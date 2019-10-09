@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		#good{
+			width: 450px;
+			margin: 100px;
+			position: relative;
+		}
+		.mid{
+			border: 1px solid #eee;
+			margin-bottom: 5px;
+			position: relative;
+		}
+		.mid img{
+			/*对于元素宽度的设置，可以是具体的像素值，也可以是百分比，这个百分比是跟当前元素的父元素之间的比例*/
+			width: 100%;
+		}
+		.mid .mask{
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-color: rgba(0,255,0,0.2);
+			display: none;
+		}
+		li{
+			float: left;
+			width: 58px;
+			height: 58px;
+			border: 2px solid #fff;
+			cursor: pointer;
+		}
+		.sm{
+			position: relative;
+		}
+		.sm ul{
+			overflow: hidden;
+			width: 310px;
+			margin: 0 auto;
+		}
+		.sm ul .active{
+			border: 2px solid #e53e41;
+		}
+		.sm .prev,.sm .next{
+			width: 22px;
+			height: 32px;
+			position: absolute;
+			top: 50%;
+			margin-top: -16px;
+			cursor: pointer;
+		}
+		.sm .prev{
+			left: 10px;
+			background-image: url("./images/prev.png");
+		}
+		.sm .next{
+			right: 10px;
+			background-image: url("./images/next.png");
+		}
+		/*右侧大图*/
+		.big{
+			width: 540px;
+			height: 540px;
+			overflow: hidden;
+			position: absolute;
+			left: 450px;
+			top: 0;
+			border: 1px solid #eee;
+		}
+		.big img{
+			position: relative;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="good" :style="{margin:margin+'px'}">
+		<!-- 上面的那个大图 -->
+		<div class="mid" 
+			@mouseover="midOver" 
+			@mouseleave="leave"
+			@mousemove="move"
+			:style="{
+				width:midW+'px',
+				height:midH+'px'	
+			}"
+		>
+			<img class="mid-img" :src="mid_icons[currentIndex]" alt="">
+			<div class="mask" :style="
+				{	
+					display:display,
+					left:maskLeft+'px',
+					top:maskTop+'px',
+					width:maskW+'px',
+					height:maskH+'px'
+			    }
+			"></div>
+		</div>
+		<!-- 下面一排的小图 -->
+		<div class="sm">
+			<p class="prev"></p>
+			<ul>
+				<li v-for="(sm_icon,index) in sm_icons" @mouseover="over(index)" 
+				:class="{active:currentIndex==index}"><img :src="sm_icon" alt=""></li>
+			</ul>
+			<p class="next"></p>
+		</div>
+		<!-- 右侧给定一个大图 -->
+		<div class="big" :style="{display:display}">
+			<img class="big-img" :src="big_icons[currentIndex]" :style="{left:bigLeft+'px',
+			top:bigTop+'px'}" alt="">
+		</div>
+	</div>
+	<script type="text/javascript" src="./vue.js"></script>	
+	<script type="text/javascript">
+		new Vue({
+			el:"#good",
+			data:{
+				currentIndex:0,
+				sm_icons:[
+					"./images/01_sm.jpg","./images/02_sm.jpg","./images/03_sm.jpg","./images/04_sm.jpg","./images/05_sm.jpg"
+				],
+				mid_icons:[
+					"./images/01_mid.jpg","./images/02_mid.jpg","./images/03_mid.jpg","./images/04_mid.jpg","./images/05_mid.jpg"
+				],
+				big_icons:[
+					"./images/01_big.jpg","./images/02_big.jpg","./images/03_big.jpg","./images/04_big.jpg","./images/05_big.jpg"
+				],
+				display:"none",
+				margin:100,
+				maskLeft:0,
+				maskTop:0,
+				maskW:300,
+				maskH:300,
+				// 对于mid层样式的编写
+				midW:450,
+				midH:450,
+				bigLeft:0,
+				bigTop:0
+			},
+			methods:{
+				over(val){
+					this.currentIndex = val;
+				},
+				midOver(){
+					this.display = "block";
+				},
+				leave(){
+					this.display = "none";
+				},
+				move(){
+					let clientX = event.clientX;
+					let clientY = event.clientY;
+					let offsetLeft = this.margin;
+					let offsetTop = this.margin;
+					let x = clientX - offsetLeft - this.maskW/2;
+					if(x<=0){x=0}
+					if(x>=this.midW-this.maskW){x=this.midW-this.maskW}
+					let y = clientY - offsetTop - this.maskH/2;
+					if(y<=0){y=0}
+					if(y>=this.midW-this.maskW){y=this.midH-this.maskH}
+					this.maskLeft = x;
+					this.maskTop = y;
+					this.bigLeft = -1.5 * x;
+					this.bigTop = -1.5 * y;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

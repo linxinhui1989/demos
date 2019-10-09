@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<input type="text" v-model="num1">
+		<span>+</span>
+		<input type="text" v-model="num2">
+		<span>=</span>
+		<span>{{result}}</span>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				num1:0,
+				num2:0
+			},
+			methods:{},
+			computed:{
+				result(){
+					return parseInt(this.num1) + parseInt(this.num2);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

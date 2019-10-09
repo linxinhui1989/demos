@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<input type="text" v-model="num1" @keyup="sum">
+		<span>+</span>
+		<input type="text" v-model="num2" @keyup="sum">
+		<span>=</span>
+		<span>{{result}}</span>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				num1:0,
+				num2:0,
+				result:0
+			},
+			methods:{
+				sum(){
+					this.result = parseInt(this.num1) + parseInt(this.num2);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
