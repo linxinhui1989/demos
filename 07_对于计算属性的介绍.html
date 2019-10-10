@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		全选:<input type="checkbox" v-model="num">
+		<div v-for="item in checks">
+			<input type="checkbox" v-model="item.checked">
+		</div>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				checks:[
+					{checked:false},
+					{checked:false},
+					{checked:false}
+				]
+			},
+			created(){
+				setInterval(()=>{
+					console.log(this.num)
+				},1000)
+			},
+			computed:{
+				num:{
+					get(){
+						let res = true;
+						for(let i=0;i<this.checks.length;i++){
+							if(!this.checks[i].checked){res=false;break}
+						}
+						return res;
+					},
+					set(val){
+						console.log("val = " + val)
+						for(let i=0;i<this.checks.length;i++){
+							this.checks[i].checked = val;
+						}
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#app{
+			width: 800px;
+			height: 300px;
+			background: green;
+		}
+		.good{
+			width: 500px;
+			height: 100px;
+			background-color: gray;			
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<h1>父组件:{{msg}}</h1>
+		<button>点击修改子组件上的显示</button>
+		<good :m="msg"/>
+	</div>
+	<template id="good">
+		<div class="good">
+			<h1>子组件上内容：{{m}}</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"默认数据"
+			},
+			components:{
+				good:{
+					template:"#good",
+					props:["m"]
+				}
+			}
+		});
+	</script>
+</body>
+</html>
