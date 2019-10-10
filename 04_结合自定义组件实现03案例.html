@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.goods{
+			display: flex;
+			flex-direction: row;
+			width: 1000px;
+			margin:  10px auto;
+		}
+		.good-item{
+			width: 160px;
+			display: flex;
+			flex-direction: column;
+			padding: 0 20px;
+		}
+		.good-item .sm_icons{
+			display: flex;
+		}
+		.good-item .sm_icons li{
+			width: 33px;
+			border: 2px solid #fff;
+		}
+		.good-item .sm_icons li.active{
+			border: 2px solid red;
+		}
+		.good-item .sm_icons li img{
+			width: 100%;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<ul class="goods">
+			<good v-for="item in goods" :mt-good="item"/>
+		</ul>
+	</div>
+	<!-- 定义一个名为 template 的标签 -->
+	<template id="good">
+		<li class="good-item">
+			<div class="big_icon">
+				<img :src="mtGood.big_icons[cIndex]" alt="">
+			</div>
+			<ul class="sm_icons">
+				<li v-for="(sm_icon,index) in mtGood.sm_icons" 
+				:class="{active:mtGood.currentIndex==index}"
+				@mouseover="over(mtGood,index)"
+				><img :src="sm_icon" alt=""></li>
+			</ul>
+			<h2 class="price">{{mtGood.price}}</h2>
+		</li>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				goods:[
+					{
+						"big_icons":["./images/01.jpg","./images/02.jpg","./images/03.jpg","./images/04.jpg","./images/05.jpg","./images/06.jpg"],
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg","./images/004.jpg","./images/005.jpg","./images/006.jpg",
+						],
+						currentIndex:-1
+					},
+					{
+						"big_icons":[
+							"./images/01.jpg","./images/02.jpg"
+						],
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg"
+						],
+						currentIndex:-1
+					},
+					{
+						"big_icons":[
+							"./images/01.jpg","./images/02.jpg","./images/03.jpg","./images/04.jpg","./images/05.jpg"
+						],
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg","./images/004.jpg","./images/005.jpg"
+						],
+						currentIndex:-1
+					},
+					{
+						"big_icons":[
+							"./images/01.jpg","./images/02.jpg","./images/03.jpg"
+						],
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg"
+						],
+						currentIndex:-1
+					},
+					{
+						"big_icons":[
+							"./images/01.jpg","./images/02.jpg","./images/03.jpg","./images/04.jpg"
+						],
+						"price":6999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg","./images/004.jpg"
+						],
+						currentIndex:-1
+					}
+				]
+			},
+			components:{
+				good:{
+					template:"#good",
+					props:["mtGood"],
+					methods:{
+						over(obj,index){
+							obj.currentIndex = index;
+							this.cIndex = index;
+						}
+					},
+					data(){
+						return {
+							cIndex:0
+						};
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

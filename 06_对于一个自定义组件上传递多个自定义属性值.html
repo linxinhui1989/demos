@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<good :m="msg" :p="price" :age="age"/>
+	</div>
+	<template id="good">
+		<div>
+			<h1>{{m}}</h1>
+			<h1>{{p}}</h1>
+			<h1>{{age}}</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"测试一下",
+				price:100,
+				age:2
+			},
+			components:{
+				good:{
+					template:"#good",
+					props:["m","p","age"]
+					props:{
+						m:{
+							type:String, // Boolean | Object | Array
+							default:"默认值"
+						},
+						p:{},
+						age:{}
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

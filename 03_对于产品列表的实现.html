@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.goods{
+			display: flex;
+			flex-direction: row;
+			width: 1000px;
+			margin:  10px auto;
+		}
+		.good-item{
+			width: 200px;
+			display: flex;
+			flex-direction: column;
+		}
+		.good-item .sm_icons{
+			display: flex;
+		}
+		.good-item .sm_icons li{
+			width: 33px;
+		}
+		.good-item .sm_icons li img{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<ul class="goods">
+			<li class="good-item" v-for="good in goods">
+				<div class="big_icon">
+					<img :src="good.big_icon" alt="">
+				</div>
+				<ul class="sm_icons">
+					<li v-for="sm_icon in good.sm_icons"><img :src="sm_icon" alt=""></li>
+				</ul>
+				<h2 class="price">¥5999</h2>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				goods:[
+					{
+						"big_icon":"./images/01.jpg",
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg","./images/004.jpg","./images/005.jpg","./images/006.jpg",
+						]
+					},
+					{
+						"big_icon":"./images/01.jpg",
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg"
+						]
+					},
+					{
+						"big_icon":"./images/01.jpg",
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg","./images/004.jpg","./images/005.jpg"
+						]
+					},
+					{
+						"big_icon":"./images/01.jpg",
+						"price":5999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg"
+						]
+					},
+					{
+						"big_icon":"./images/01.jpg",
+						"price":6999,
+						"sm_icons":[
+							"./images/001.jpg","./images/002.jpg","./images/003.jpg","./images/004.jpg"
+						]
+					}
+				]
+			}
+		});
+	</script>
+</body>
+</html>

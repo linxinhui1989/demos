@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<div id="app">
+		<good :m="msg"/>
+	</div>
+	<template id="good">
+		<div>
+			<h1>{{m}}</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"测试一下"
+			},
+			components:{
+				good:{
+					template:"#good",
+					// props:["m"]
+					props:{
+						m:{
+							type:String, // Boolean | Object | Array
+							default:"默认值"
+						}
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>
