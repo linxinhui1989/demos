@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.mt-header{
+			text-align: center;
+			height: 50px;
+			line-height: 50px;
+			background-color: gray;
+			font-size: 12px;
+		}
+		.mt-header h1{
+			font-weight: normal;
+		}
+		.ctrls{
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			background-color: rgb(255, 255, 255);
+			height: 50px;
+			align-items: center;
+		}
+		.ctrls a{
+			text-decoration: none;
+			flex:1;
+			text-align: center;
+			height: 50px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-size: 10px;
+			color: #000;
+		}
+		.ctrls a div{
+			width: 100%;
+		}
+		.ctrls a img{
+			width: 30px;
+		}
+		.ctrls .router-link-active{
+			color: red;
+			background-color: rgba(0,0,0,0.1);
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<script type="text/javascript" src="./vue-router.js"></script>
+	<div id="app">
+		<router-view></router-view>
+	</div>
+	<template id="home">
+		<div class="mt-header">
+			<h1>这边是home</h1>
+			<div>
+				<router-link to="/cart">进入购物车</router-link>	
+			</div>
+			<div class="ctrls">
+				<router-link v-for="(link,index) in links" :to="link.to"> 
+					<img :src="link.active" alt="">
+					<p>{{link.title}}</p>
+				</router-link>
+			</div>
+		</div>
+	</template>
+	<template id="cart">
+		<div class="mt-header">
+			<h1>这边是cart</h1>
+		</div>
+	</template>
+	<template id="mine">
+		<div class="mt-header">
+			<h1>这边是mine</h1>
+			<div>
+				<p>��¼</p>
+				<p>ע��</p>
+			</div>
+		</div>
+	</template>
+	<script type="text/javascript">
+		// 1. ׼����ͬ·���µĲ�ͬ���
+		let home = {
+			template:"#home",
+			data(){
+				return {
+					links:[
+					{
+						to:"/home",
+						normal:"./images/home.png",
+						active:"./images/home_actived.png",
+						title:"��ҳ"
+					},{
+						to:"/cart",
+						normal:"./images/cart.png",
+						active:"./images/cart_actived.png",
+						title:"���ﳵ"
+					},{
+						to:"/mine",
+						normal:"./images/mine.png",
+						active:"./images/mine_actived.png",
+						title:"�û�"
+					}
+				],
+				active:0
+				}
+			}
+		};
+		let cart = {template:"#cart"};
+		let mine = {template:"#mine"};
+		//2. ���ö�Ӧ��·��·��
+		let routes = [
+			{path:"/home",component:home},
+			{path:"/cart",component:cart},
+			{path:"/mine",component:mine},
+			{path:"",redirect:"/home"}
+		];
+		//3. ����vuerouter����
+		let router = new VueRouter({
+			routes
+		});
+		new Vue({
+			el:"#app",
+			data:{
+				
+			},
+			router
+		});
+	</script>
+</body>
+</html>

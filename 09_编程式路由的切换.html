@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.router-link-active{
+			font-size: 30px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<script type="text/javascript" src="./vue-router.js"></script>
+	<div id="app">
+		<!-- 5. 在 id为app的div上，添加router-view组件，用于承接显示指定路径下的组件对象 -->
+		<router-view></router-view>
+	</div>
+	<template id="home">
+		<div>
+			<h1>这边是home</h1>
+			<button @click="jump">跳转到 detail 页面下</button>
+		</div>
+	</template>
+	<template id="detail">
+		<div>
+			<h1>这边是detail</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		// 1.1准备综合排序的组件
+		let home = {
+			template:"#home",
+			methods:{
+				jump(){
+					// this.$router.push("detail")
+					/*this.$router.push({
+						path:"/detail"
+					})*/
+					this.$router.push({
+						name:"dtl"
+					})
+					// this.$route --> 保存传递路由切换传递过来的参数
+				}
+			}
+		};
+		// 1.2准备销量的组件
+		let detail = {
+			template:"#detail"
+		}
+		// 2. 去配置路由路径以及组件对象
+		let routes = [
+			{
+				path:"/home",
+				component:home
+			},{
+				path:"/detail",
+				component:detail,
+				name:"dtl"
+			},{
+				path:"/",
+				redirect:"/home"
+			}
+		];
+		// 3. 借助VueRouter，创建这个类型的对象，并传入 routes
+		let router = new VueRouter({
+			routes
+		});
+		// 4. 创建对应的Vue对象，并将router参数传入
+		new Vue({
+			el:"#app",
+			router
+		});
+	</script>
+</body>
+</html>

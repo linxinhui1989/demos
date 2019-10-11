@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		li{
+			margin: 20px;
+		}
+		.detail{}
+		.detail img{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<script type="text/javascript" src="./vue-router.js"></script>
+	<div id="app">
+		<!-- 5. 在 id为app的div上，添加router-view组件，用于承接显示指定路径下的组件对象 -->
+		<router-view></router-view>
+	</div>
+	<template id="home">
+		<div>
+			<h1>这边是home</h1>
+			<ul>
+				<li>
+					<router-link to="/detail/2">vivo Z3 --> 2</router-link>
+				</li>
+				<li>
+					<router-link to="/detail/10">apple 8 --> 10</router-link>
+				</li>
+				<li>
+					<router-link to="/cart/1/2">购物车</router-link>
+				</li>
+			</ul>
+		</div>
+	</template>
+	<template id="detail">
+		<div class="detail">
+			<h1>这边是detail,<router-link to="/">返回首页</router-link></h1>
+			<div>
+				<h3>产品是：{{good.name}}</h3>
+				<h3>价格是：{{good.price}}</h3>
+				<img :src="good.imgIcon" alt="">
+			</div>
+		</div>
+	</template>
+	<template id="cart">
+		<div class="cart">
+			<h2>这边是购物车 --> {{age}} ---> {{sex}}</h2>
+		</div>
+	</template>
+	<script type="text/javascript">
+		// 1.1准备综合排序的组件
+		let home = {
+			template:"#home"
+		};
+		// 1.2准备销量的组件
+		let detail = {
+			template:"#detail",
+			data(){
+				return {
+					goods:[
+						{
+							id:"2",
+							name:"vivo 牛叉",
+							price:2999,
+							imgIcon:"./images/01.jpg"
+						},
+						{
+							id:"3",
+							name:"小米 10",
+							price:1999,
+							imgIcon:"./images/02.jpg"
+						},
+						{
+							id:"10",
+							name:"iphone 8",
+							price:3999,
+							imgIcon:"./images/02.jpg"
+						}
+					],
+					good:{}
+				}
+			},
+			created(){
+				let id = this.$route.params.id;
+				for(let i=0;i<this.goods.length;i++){
+					if(this.goods[i].id==id){
+						this.good = this.goods[i]
+					}
+				}
+			}
+		}
+		let cart = {
+			template:"#cart",
+			data(){
+				return {
+					age:0,
+					sex:0
+				}
+			},
+			created(){
+				let {age,sex} = this.$route.params;
+				this.age = age;
+				this.sex = sex;
+			}
+		}
+		// 2. 去配置路由路径以及组件对象
+		let routes = [
+			{
+				path:"/home",
+				component:home
+			},{
+				path:"/detail/:id",
+				component:detail
+			},{
+				path:"/cart/:age/:sex",
+				component:cart
+			},{
+				path:"/",
+				component:home
+			}
+		];
+		// 3. 借助VueRouter，创建这个类型的对象，并传入 routes
+		let router = new VueRouter({
+			routes
+		});
+		// 4. 创建对应的Vue对象，并将router参数传入
+		new Vue({
+			el:"#app",
+			router
+		});
+	</script>
+</body>
+</html>
