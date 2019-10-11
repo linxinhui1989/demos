@@ -15,9 +15,9 @@
 	<script type="text/javascript" src="./vue-router.js"></script>
 	<div id="app">
 		<!-- 5. 在 id为app的div上，添加router-view组件，用于承接显示指定路径下的组件对象 -->
-		<div>
+		<div v-show="isShow">
 			<router-link to="/home">home</router-link>
-			<router-link to="/user">user</router-link>
+			<router-link to="/sell">sell</router-link>
 		</div>
 		<router-view></router-view>
 	</div>
@@ -26,44 +26,29 @@
 			<h1>这边是home</h1>
 		</div>
 	</template>
-	<template id="user">
+	<template id="sell">
 		<div>
-			<h1>这边是user</h1>
-			<router-link to="/user/regist">注册</router-link>
-			<router-link to="/user/login">登录</router-link>
-			<router-view></router-view>
+			<h1>这边是sell</h1>
+			<router-link to="/home">home</router-link>
 		</div>
 	</template>
-	<template id="login"><div>
-		<h1>登录页面的内容</h1>
-	</div></template>
-	<template id="regist"><div>
-		<h1>注册页面的内容</h1>
-	</div></template>
 	<script type="text/javascript">
 		// 1.1准备综合排序的组件
 		let home = {
 			template:"#home"
 		};
 		// 1.2准备销量的组件
-		let user = {
-			template:"#user"
+		let sell = {
+			template:"#sell"
 		}
-		let login = {template:"#login"}
-		let regist = {template:"#regist"}
 		// 2. 去配置路由路径以及组件对象
 		let routes = [
 			{
 				path:"/home",
 				component:home
 			},{
-				path:"/user",
-				component:user,
-				children:[
-					{path:"login",component:login},
-					{path:"regist",component:regist},
-					{path:"",redirect:"regist"}
-				]
+				path:"/sell",
+				component:sell
 			},{
 				path:"/",
 				redirect:"/home"
@@ -73,10 +58,23 @@
 		let router = new VueRouter({
 			routes
 		});
+
 		// 4. 创建对应的Vue对象，并将router参数传入
 		new Vue({
 			el:"#app",
-			router
+			router,
+			data:{
+				isShow:true
+			},
+			watch:{
+				$route(to,from){
+					if(to.path=="/sell"){
+						this.isShow = false;
+					}else{
+						this.isShow = true;
+					}
+				}
+			}
 		});
 	</script>
 </body>
