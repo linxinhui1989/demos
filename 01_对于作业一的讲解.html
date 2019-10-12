@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.mt-header{
+			text-align: center;
+			height: 50px;
+			line-height: 50px;
+			background-color: gray;
+			font-size: 10px;
+			position: fixed;
+			font-weight: normal;
+			left: 0;
+			top: 0;
+			width: 100%;
+			background-color: rgba(200,200,200)
+		}
+		.mt-header h1{
+			font-weight: normal;
+		}
+		.ctrls{
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			background-color: rgb(255, 255, 255);
+			height: 50px;
+			align-items: center;
+		}
+		.ctrls a{
+			text-decoration: none;
+			flex:1;
+			text-align: center;
+			height: 50px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-size: 10px;
+			color: #000;
+		}
+		.ctrls a img{
+			width: 30px;
+			height: 30px;
+		}
+		.ctrls .router-link-active{
+			color: red;
+			background-color: rgba(0,0,0,0.1);
+		}
+		.chats{
+			margin-top: 50px;
+			margin-bottom: 60px;
+		}
+		.chats li{
+			display: flex;
+			flex-direction: row;
+			height: 80px;
+			padding: 10px;
+			border-bottom: 1px solid rgba(111,111,111,0.1);
+		}
+		.chats li .icon{
+			width: 80px;
+			height: 80px;
+		}
+		.chats li .icon img{
+			width: 80px;
+			height: 80px;
+		}
+		.chats li .info{
+			display: flex;
+			flex-direction: column;
+			flex:1;
+			justify-content: space-around;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<script type="text/javascript" src="./vue-router.js"></script>
+	<div id="app">
+		<router-view></router-view>
+		<div class="ctrls" v-show="tabbarIsShow">
+			<router-link to="/home">
+				<img src="./images/home.png" alt="">
+				<p>首页</p>
+			</router-link>
+			<router-link to="/cart">
+				<img src="./images/cart.png" alt="">
+				<p>购物车</p>
+			</router-link>
+			<router-link to="/mine">
+				<img src="./images/mine.png" alt="">
+				<p>用户</p>
+			</router-link>
+		</div>
+	</div>
+	<template id="home">
+		<div class="home">
+			<div class="mt-header">
+				<h1>聊天</h1>
+			</div>
+			<ul class="chats">
+				<router-link tag="li" v-for="chat in chats" :to="{name:'detail',params:{id:chat.id}}">
+					<div class="icon"><img :src="chat.icon" alt=""></div>
+					<div class="info">
+						<h5>{{chat.name}}</h5>
+						<p>{{chat.last}}</p>
+					</div>
+				</router-link>
+			</ul>
+		</div>
+	</template>
+	<template id="chat-detail">
+		<div class="chat-detail">
+			<div class="mt-header">
+				<h1>聊天</h1>
+			</div>
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+	</template>
+	<template id="cart">
+		<div class="mt-header">
+			<h1>这边是cart</h1>
+		</div>
+	</template>
+	<template id="mine">
+		<div class="mt-header">
+			<h1>这边是mine</h1>
+			<div>
+				<p>登录</p>
+				<p>注册</p>
+			</div>
+		</div>
+	</template>
+	<script type="text/javascript">
+		// 1. 准备不同路径下的不同组件
+		let home = {
+			template:"#home",
+			data(){
+				return {
+					chats:[
+						{
+							"id":"1",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"2",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"3",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"4",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"5",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"6",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"7",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"8",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"9",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"10",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"11",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						},
+						{
+							"id":"12",
+							"name":"隔壁老王",
+							"icon":"./images/01.jpg",
+							"details":[
+								{"msg":"在吗?","type":"2"},
+								{"msg":"在","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不好意思你刚说啥","type":"1"},
+								{"msg":"后天我结婚","type":"2"},
+								{"msg":"不是，是上一句","type":"1"},
+								{"msg":"在吗?","type":"2"},
+								{"msg":"不在","type":"1"}
+							],
+							"last":"不在"
+						}
+					]
+				};
+			}
+		};
+		let cart = {template:"#cart"};
+		let mine = {template:"#mine"};
+		let detail = {
+			template:"#chat-detail",
+			created(){
+				let id = this.$params.id;
+				// 发送请求，获取得到指定 id 对应的数据
+			}
+		};
+		//2. 配置对应的路由路径
+		let routes = [
+			{path:"/home",component:home},
+			{path:"/cart",component:cart},
+			{path:"/mine",component:mine},
+			{path:"/detail/:id",component:detail,name:"detail"},
+			{path:"",redirect:"/home"}
+		];
+		//3. 创建vuerouter对象
+		let router = new VueRouter({
+			routes
+		});
+		new Vue({
+			el:"#app",
+			router,
+			data:{
+				tabbarIsShow:true
+			},
+			watch:{
+				$route(to,from){
+					if(to.path.indexOf("/detail")!=-1){
+						this.tabbarIsShow = false;
+					}else{
+						this.tabbarIsShow = true;
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

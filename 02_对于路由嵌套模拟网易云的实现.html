@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#app{}
+		a{
+			text-decoration: none;
+			padding: 10px 20px;
+		}
+		ul,li{list-style: none;}
+		.home ul{
+			display: flex;
+			background-color: #C20C0C;
+			padding: 10px 0;
+			justify-content: center;
+		}
+		.home li{
+			width: 50px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			cursor: pointer;
+			color: #fff;
+			margin: 0 20px;
+			font-size: 10px;
+		}
+		.home li.router-link-active{
+			background-color: #9B0909;
+			border-radius: 10px;
+		}
+		.footer{
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="./vue.js"></script>
+	<script type="text/javascript" src="./vue-router.js"></script>
+	<div id="app">
+		<div class="ctrls">
+			<router-link v-for="link in links" :to="link.path">{{link.title}}</router-link>
+		</div>
+		<router-view></router-view>
+		<div class="footer">底部内容</div>
+	</div>
+	<template id="home">
+		<div class="home">
+			<ul>
+				<router-link tag="li" v-for="homeLink in childLinks" :to="homeLink.path">{{homeLink.title}}</router-link>
+			</ul>
+			<router-view></router-view>
+		</div>
+	</template>
+	<template id="mine">
+		<div>
+			<h1>这边是mine</h1>
+		</div>
+	</template>
+	<template id="friends">
+		<div>
+			<h1>这边是friends</h1>
+		</div>
+	</template>
+	<template id="mall">
+		<div>
+			<h1>这边是mall</h1>
+		</div>
+	</template>
+	<template id="recommand"><div>
+		<h1>推荐</h1>
+	</div></template>
+	<template id="rank"><div>
+		<h1>排行</h1>
+	</div></template>
+	<template id="music-list"><div>
+		<h1>歌单</h1>
+	</div></template>
+	<template id="singer"><div>
+		<h1>歌手</h1>
+	</div></template>
+	<script type="text/javascript">
+		let home = {
+			template:"#home",
+			data(){
+				return {
+					childLinks:[
+						{
+							path:"/home/recommand",
+							title:"推荐",
+						},{
+							path:"/home/rank",
+							title:"排行",
+						},{
+							path:"/home/musicList",
+							title:"歌单",
+						},{
+							path:"/home/singer",
+							title:"歌手",
+						}
+					]
+				}
+			}
+		};
+		// 定义若干子组件开始
+		let recommand = {template:"#recommand"};
+		let rank = {template:"#rank"};
+		let musicList = {template:"#music-list"};
+		let singer = {template:"#singer"};
+		// 定义若干子组件结束
+
+		let mine = {template:"#mine"};
+		let friends = {template:"#friends"};
+		let mall = {template:"#mall"};
+		let routes = [
+			{
+				path:"/home",
+				component:home,
+				children:[
+					{path:"recommand",component:recommand},
+					{path:"rank",component:rank},
+					{path:"musicList",component:musicList},
+					{path:"singer",component:singer},
+					{path:"",redirect:"recommand"}
+				]
+			},
+			{path:"/mine",component:mine},
+			{path:"/friends",component:friends},
+			{path:"/mall",component:mall},
+			{path:"/",redirect:"/home"},
+		];
+		let router = new VueRouter({
+			routes
+		})
+		new Vue({
+			el:"#app",
+			router,
+			data:{
+				links:[
+					{path:"/home",title:"发现音乐"},
+					{path:"/mine",title:"我的音乐"},
+					{path:"/friends",title:"朋友"},
+					{path:"/mall",title:"商城"},
+				]
+			}
+		});
+	</script>
+</body>
+</html>
